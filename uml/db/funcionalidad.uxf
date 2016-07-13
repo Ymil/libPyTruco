@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="12.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>130</x>
+      <y>140</y>
+      <w>380</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ObtenerInformacionJugadorPorID(int id)
+query = "select * from jugador id=%d" % id
+return {'Jugadorid': id, equipoid, id, nombre, str}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>120</x>
+      <y>310</y>
+      <w>380</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>ObtenerInformacionEquipoPorID(int id)
+query = "select * from equipo id=%d" % id
+return {}</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.State</type>
+    <coordinates>
+      <x>120</x>
+      <y>490</y>
+      <w>380</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>CrearJugador(int id)
+equipo = obtenerEquipoMesaPorId(id)
+
+
+return {}</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
