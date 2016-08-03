@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="12.1">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
   <zoom_level>7</zoom_level>
   <element>
-    <type>com.umlet.element.UseCase</type>
+    <type>com.baselet.element.old.element.UseCase</type>
     <coordinates>
-      <x>518</x>
-      <y>280</y>
+      <x>0</x>
+      <y>0</y>
       <w>238</w>
       <h>42</h>
     </coordinates>
@@ -13,10 +14,10 @@ obtener ganador en truco</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>595</y>
+      <x>98</x>
+      <y>315</y>
       <w>34</w>
       <h>62</h>
     </coordinates>
@@ -24,10 +25,10 @@ obtener ganador en truco</panel_attributes>
     <additional_attributes>21;49;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>595</x>
-      <y>644</y>
+      <x>77</x>
+      <y>364</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -35,10 +36,10 @@ obtener ganador en truco</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>805</y>
+      <x>98</x>
+      <y>525</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
@@ -46,10 +47,10 @@ obtener ganador en truco</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>756</y>
+      <x>98</x>
+      <y>476</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
@@ -57,10 +58,10 @@ obtener ganador en truco</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>525</x>
-      <y>798</y>
+      <x>7</x>
+      <y>518</y>
       <w>231</w>
       <h>28</h>
     </coordinates>
@@ -70,8 +71,8 @@ obtener ganador en truco</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>539</x>
-      <y>357</y>
+      <x>21</x>
+      <y>77</y>
       <w>210</w>
       <h>21</h>
     </coordinates>
@@ -82,10 +83,10 @@ elementstyle=autoresize</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>679</x>
-      <y>399</y>
+      <x>161</x>
+      <y>119</y>
       <w>56</w>
-      <h>70</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Jugador 2
 bg=green</panel_attributes>
@@ -94,8 +95,8 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>658</x>
-      <y>469</y>
+      <x>140</x>
+      <y>189</y>
       <w>98</w>
       <h>56</h>
     </coordinates>
@@ -110,10 +111,10 @@ elementstyle=autoresize</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>546</x>
-      <y>399</y>
+      <x>28</x>
+      <y>119</y>
       <w>56</w>
-      <h>70</h>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Jugador 1
 bg=red</panel_attributes>
@@ -122,8 +123,8 @@ bg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>525</x>
-      <y>469</y>
+      <x>7</x>
+      <y>189</y>
       <w>98</w>
       <h>56</h>
     </coordinates>
@@ -136,10 +137,10 @@ elementstyle=autoresize</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>735</x>
-      <y>791</y>
+      <x>217</x>
+      <y>511</y>
       <w>83</w>
       <h>34</h>
     </coordinates>
@@ -147,10 +148,10 @@ elementstyle=autoresize</panel_attributes>
     <additional_attributes>70;21;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>805</x>
-      <y>784</y>
+      <x>287</x>
+      <y>504</y>
       <w>252</w>
       <h>49</h>
     </coordinates>
@@ -160,10 +161,10 @@ No hay parda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>595</x>
-      <y>847</y>
+      <x>77</x>
+      <y>567</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -171,10 +172,10 @@ No hay parda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>812</x>
-      <y>1057</y>
+      <x>294</x>
+      <y>777</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -182,10 +183,10 @@ No hay parda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>987</x>
-      <y>1036</y>
+      <x>469</x>
+      <y>756</y>
       <w>76</w>
       <h>49</h>
     </coordinates>
@@ -194,10 +195,10 @@ si</panel_attributes>
     <additional_attributes>63;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>805</x>
-      <y>987</y>
+      <x>287</x>
+      <y>707</y>
       <w>210</w>
       <h>42</h>
     </coordinates>
@@ -207,10 +208,10 @@ No hay parda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>588</x>
-      <y>588</y>
+      <x>70</x>
+      <y>308</y>
       <w>105</w>
       <h>28</h>
     </coordinates>
@@ -218,10 +219,10 @@ No hay parda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>882</x>
-      <y>1008</y>
+      <x>364</x>
+      <y>728</y>
       <w>34</w>
       <h>62</h>
     </coordinates>
@@ -229,10 +230,10 @@ No hay parda</panel_attributes>
     <additional_attributes>21;49;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1015</x>
-      <y>1120</y>
+      <x>497</x>
+      <y>840</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -241,10 +242,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>651</y>
+      <x>98</x>
+      <y>371</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
@@ -252,10 +253,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>539</x>
-      <y>693</y>
+      <x>21</x>
+      <y>413</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -264,10 +265,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>700</y>
+      <x>98</x>
+      <y>420</y>
       <w>34</w>
       <h>48</h>
     </coordinates>
@@ -275,10 +276,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>21;35;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>539</x>
-      <y>749</y>
+      <x>21</x>
+      <y>469</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -286,10 +287,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>714</x>
-      <y>686</y>
+      <x>196</x>
+      <y>406</y>
       <w>83</w>
       <h>34</h>
     </coordinates>
@@ -297,10 +298,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>70;21;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>784</x>
-      <y>693</y>
+      <x>266</x>
+      <y>413</y>
       <w>238</w>
       <h>28</h>
     </coordinates>
@@ -308,10 +309,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>672</x>
-      <y>581</y>
+      <x>154</x>
+      <y>301</y>
       <w>244</w>
       <h>125</h>
     </coordinates>
@@ -319,10 +320,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>21;21;231;21;231;112</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>959</y>
+      <x>98</x>
+      <y>679</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
@@ -330,10 +331,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>735</x>
-      <y>994</y>
+      <x>217</x>
+      <y>714</y>
       <w>83</w>
       <h>34</h>
     </coordinates>
@@ -341,10 +342,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>70;21;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>903</y>
+      <x>98</x>
+      <y>623</y>
       <w>34</w>
       <h>62</h>
     </coordinates>
@@ -352,10 +353,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>21;49;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>539</x>
-      <y>952</y>
+      <x>21</x>
+      <y>672</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -363,10 +364,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>539</x>
-      <y>896</y>
+      <x>21</x>
+      <y>616</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -374,10 +375,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>525</x>
-      <y>1001</y>
+      <x>7</x>
+      <y>721</y>
       <w>231</w>
       <h>28</h>
     </coordinates>
@@ -385,10 +386,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>854</y>
+      <x>98</x>
+      <y>574</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
@@ -396,10 +397,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1050</x>
-      <y>1057</y>
+      <x>532</x>
+      <y>777</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -407,10 +408,10 @@ Jugador1 es mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1120</x>
-      <y>1064</y>
+      <x>602</x>
+      <y>784</y>
       <w>52</w>
       <h>69</h>
     </coordinates>
@@ -419,10 +420,10 @@ No</panel_attributes>
     <additional_attributes>28;56;28;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1225</x>
-      <y>1036</y>
+      <x>707</x>
+      <y>756</y>
       <w>62</w>
       <h>49</h>
     </coordinates>
@@ -431,10 +432,10 @@ Si</panel_attributes>
     <additional_attributes>49;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1274</x>
-      <y>1057</y>
+      <x>756</x>
+      <y>777</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -442,10 +443,10 @@ Si</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>987</x>
-      <y>868</y>
+      <x>469</x>
+      <y>588</y>
       <w>321</w>
       <h>216</h>
     </coordinates>
@@ -454,10 +455,10 @@ No</panel_attributes>
     <additional_attributes>308;21;42;21;42;175;21;175;21;203</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1295</x>
-      <y>875</y>
+      <x>777</x>
+      <y>595</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -465,10 +466,10 @@ No</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1365</x>
-      <y>882</y>
+      <x>847</x>
+      <y>602</y>
       <w>52</w>
       <h>76</h>
     </coordinates>
@@ -477,10 +478,10 @@ No</panel_attributes>
     <additional_attributes>28;63;28;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1470</x>
-      <y>854</y>
+      <x>952</x>
+      <y>574</y>
       <w>97</w>
       <h>49</h>
     </coordinates>
@@ -489,10 +490,10 @@ Si</panel_attributes>
     <additional_attributes>84;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1554</x>
-      <y>875</y>
+      <x>1036</x>
+      <y>595</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -501,10 +502,10 @@ gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>595</x>
-      <y>1183</y>
+      <x>77</x>
+      <y>903</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
@@ -512,10 +513,10 @@ gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>665</x>
-      <y>1064</y>
+      <x>147</x>
+      <y>784</y>
       <w>741</w>
       <h>146</h>
     </coordinates>
@@ -524,10 +525,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;133;728;133;728;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1295</x>
-      <y>945</y>
+      <x>777</x>
+      <y>665</y>
       <w>196</w>
       <h>49</h>
     </coordinates>
@@ -537,10 +538,10 @@ el ganador de la ronda actual</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1470</x>
-      <y>868</y>
+      <x>952</x>
+      <y>588</y>
       <w>97</w>
       <h>111</h>
     </coordinates>
@@ -549,10 +550,10 @@ Si</panel_attributes>
     <additional_attributes>84;21;42;21;42;98;21;98</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1365</x>
-      <y>973</y>
+      <x>847</x>
+      <y>693</y>
       <w>52</w>
       <h>97</h>
     </coordinates>
@@ -561,10 +562,10 @@ No</panel_attributes>
     <additional_attributes>28;84;28;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>812</x>
-      <y>1407</y>
+      <x>294</x>
+      <y>1127</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -572,10 +573,10 @@ No</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>987</x>
-      <y>1386</y>
+      <x>469</x>
+      <y>1106</y>
       <w>76</w>
       <h>49</h>
     </coordinates>
@@ -584,10 +585,10 @@ si</panel_attributes>
     <additional_attributes>63;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>805</x>
-      <y>1351</y>
+      <x>287</x>
+      <y>1071</y>
       <w>210</w>
       <h>28</h>
     </coordinates>
@@ -595,10 +596,10 @@ si</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>882</x>
-      <y>1358</y>
+      <x>364</x>
+      <y>1078</y>
       <w>34</w>
       <h>62</h>
     </coordinates>
@@ -606,10 +607,10 @@ si</panel_attributes>
     <additional_attributes>21;49;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1015</x>
-      <y>1470</y>
+      <x>497</x>
+      <y>1190</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -618,10 +619,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>1309</y>
+      <x>98</x>
+      <y>1029</y>
       <w>34</w>
       <h>55</h>
     </coordinates>
@@ -629,10 +630,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes>21;42;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>735</x>
-      <y>1344</y>
+      <x>217</x>
+      <y>1064</y>
       <w>83</w>
       <h>34</h>
     </coordinates>
@@ -640,10 +641,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes>70;21;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>1253</y>
+      <x>98</x>
+      <y>973</y>
       <w>34</w>
       <h>62</h>
     </coordinates>
@@ -651,10 +652,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes>21;49;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>539</x>
-      <y>1302</y>
+      <x>21</x>
+      <y>1022</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -662,10 +663,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>539</x>
-      <y>1246</y>
+      <x>21</x>
+      <y>966</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -673,10 +674,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>525</x>
-      <y>1351</y>
+      <x>7</x>
+      <y>1071</y>
       <w>231</w>
       <h>28</h>
     </coordinates>
@@ -684,10 +685,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1050</x>
-      <y>1407</y>
+      <x>532</x>
+      <y>1127</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -695,10 +696,10 @@ ganador de la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1120</x>
-      <y>1414</y>
+      <x>602</x>
+      <y>1134</y>
       <w>52</w>
       <h>69</h>
     </coordinates>
@@ -707,10 +708,10 @@ No</panel_attributes>
     <additional_attributes>28;56;28;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1225</x>
-      <y>1386</y>
+      <x>707</x>
+      <y>1106</y>
       <w>62</w>
       <h>49</h>
     </coordinates>
@@ -719,10 +720,10 @@ Si</panel_attributes>
     <additional_attributes>49;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1274</x>
-      <y>1407</y>
+      <x>756</x>
+      <y>1127</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -730,10 +731,10 @@ Si</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>987</x>
-      <y>1218</y>
+      <x>469</x>
+      <y>938</y>
       <w>321</w>
       <h>216</h>
     </coordinates>
@@ -742,10 +743,10 @@ No</panel_attributes>
     <additional_attributes>308;21;42;21;42;175;21;175;21;203</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1365</x>
-      <y>1232</y>
+      <x>847</x>
+      <y>952</y>
       <w>52</w>
       <h>76</h>
     </coordinates>
@@ -754,10 +755,10 @@ No</panel_attributes>
     <additional_attributes>28;63;28;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1470</x>
-      <y>1204</y>
+      <x>952</x>
+      <y>924</y>
       <w>97</w>
       <h>49</h>
     </coordinates>
@@ -766,10 +767,10 @@ Si</panel_attributes>
     <additional_attributes>84;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1323</x>
-      <y>1295</y>
+      <x>805</x>
+      <y>1015</y>
       <w>168</w>
       <h>49</h>
     </coordinates>
@@ -779,10 +780,10 @@ el ganador de la mano actual</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1470</x>
-      <y>1281</y>
+      <x>952</x>
+      <y>1001</y>
       <w>97</w>
       <h>49</h>
     </coordinates>
@@ -791,10 +792,10 @@ Si</panel_attributes>
     <additional_attributes>84;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1365</x>
-      <y>1323</y>
+      <x>847</x>
+      <y>1043</y>
       <w>202</w>
       <h>77</h>
     </coordinates>
@@ -803,10 +804,10 @@ No</panel_attributes>
     <additional_attributes>189;63;28;63;28;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1295</x>
-      <y>1225</y>
+      <x>777</x>
+      <y>945</y>
       <w>196</w>
       <h>28</h>
     </coordinates>
@@ -814,10 +815,10 @@ No</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1554</x>
-      <y>1225</y>
+      <x>1036</x>
+      <y>945</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -826,10 +827,10 @@ gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>1190</y>
+      <x>98</x>
+      <y>910</y>
       <w>34</w>
       <h>69</h>
     </coordinates>
@@ -837,10 +838,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;56;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1554</x>
-      <y>1302</y>
+      <x>1036</x>
+      <y>1022</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -849,10 +850,10 @@ gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1554</x>
-      <y>1365</y>
+      <x>1036</x>
+      <y>1085</y>
       <w>259</w>
       <h>42</h>
     </coordinates>
@@ -862,10 +863,10 @@ El ganador de la mano actual</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1792</x>
-      <y>1351</y>
+      <x>1274</x>
+      <y>1071</y>
       <w>97</w>
       <h>49</h>
     </coordinates>
@@ -874,10 +875,10 @@ Si</panel_attributes>
     <additional_attributes>84;35;21;35</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>1876</x>
-      <y>1372</y>
+      <x>1358</x>
+      <y>1092</y>
       <w>259</w>
       <h>28</h>
     </coordinates>
@@ -886,10 +887,10 @@ gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>1008</y>
+      <x>98</x>
+      <y>728</y>
       <w>34</w>
       <h>188</h>
     </coordinates>
@@ -897,10 +898,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;175;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>567</x>
-      <y>1533</y>
+      <x>49</x>
+      <y>1253</y>
       <w>147</w>
       <h>28</h>
     </coordinates>
@@ -908,10 +909,10 @@ gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>1358</y>
+      <x>98</x>
+      <y>1078</y>
       <w>34</w>
       <h>188</h>
     </coordinates>
@@ -919,10 +920,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;175;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>693</x>
-      <y>1477</y>
+      <x>175</x>
+      <y>1197</y>
       <w>468</w>
       <h>83</h>
     </coordinates>
@@ -931,10 +932,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;70;455;70;455;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>693</x>
-      <y>1414</y>
+      <x>175</x>
+      <y>1134</y>
       <w>741</w>
       <h>146</h>
     </coordinates>
@@ -943,10 +944,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;133;728;133;728;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>693</x>
-      <y>1379</y>
+      <x>175</x>
+      <y>1099</y>
       <w>1343</w>
       <h>181</h>
     </coordinates>
@@ -955,10 +956,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;168;1330;168;1330;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>693</x>
-      <y>1295</y>
+      <x>175</x>
+      <y>1015</y>
       <w>1476</w>
       <h>265</h>
     </coordinates>
@@ -967,10 +968,10 @@ gana la ronda</panel_attributes>
     <additional_attributes>21;252;1463;252;1463;21;1120;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>630</x>
-      <y>1218</y>
+      <x>112</x>
+      <y>938</y>
       <w>1593</w>
       <h>398</h>
     </coordinates>
@@ -980,10 +981,10 @@ Opcion ganadora</panel_attributes>
     <additional_attributes>21;385;21;350;1540;350;1540;21;1183;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
-      <y>1540</y>
+      <x>98</x>
+      <y>1260</y>
       <w>34</w>
       <h>76</h>
     </coordinates>
@@ -991,10 +992,10 @@ Opcion ganadora</panel_attributes>
     <additional_attributes>21;63;21;21</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>567</x>
-      <y>1603</y>
+      <x>49</x>
+      <y>1323</y>
       <w>147</w>
       <h>28</h>
     </coordinates>

@@ -78,7 +78,7 @@ class AccionesJuego:
         #print self.errors[errorName]
         pass
 
-    def showResultMano(self, playerid, playername, teamid, card):
+    def showResultaTheHand(self, playerid, playername, teamid, card):
         ''' Esta funcion se llama cuando termina una mano
         @params
         @playerid: int

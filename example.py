@@ -20,7 +20,7 @@ from mesa import Mesa
 ''' Paso 5: Crear una nueva partida
 Se importa el modulo Juego, el cual alamacena todos los parametros y funcionalidades.
 '''
-from juego import Juego
+from juego import Game
 
 
 class EjemploDeTruco:
@@ -44,9 +44,10 @@ class EjemploDeTruco:
         if(self.mesa.getStatus()):
             ''' Paso 5: Creando una nueva partida '''
             equipos = self.mesa.getTeams() #Obtiene la configuracion de jugadores respecto a los equipos.
-            self.juego = Juego(self.jugadores, equipos, self.mesa.getID())
-
-            self.juego.iniciar()            
+	''' Paso 6: Se crea una nueva instancia de juego, con todos los parametros para poder crear la mesa '''
+	self.juego = Game(self.jugadores, equipos, self.mesa.getID())
+	''' Paso 7: se inicia la partida y se comienza el juego en modo automatico con bots '''
+	self.juego.start()
 
 
 if __name__ == "__main__":

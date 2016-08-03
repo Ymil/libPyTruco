@@ -39,19 +39,23 @@ class Jugador():
 		self.cartasJugadas = []
 		self.ultimaCartaJugada = 0
 
-	def playingCard(self, cartaID):
+	def playingCardInRound(self, cartaID):
 		''' Corrobora que las cartas del jugador sea valida y la juega '''
 		carta = self.cartas[cartaID]
-		if(carta in self.cartasJugadas):
+		if carta in self.cartasJugadas:
 			return 0
 		else:
-			self.cartasJugadas.append(carta)
+			self.cartasJugadas.append(cartaID)
 			self.ultimaCartaJugada = cartaID
 			return 1
 	def getCardsPlayer(self):
 		''' Esta funcion devuelve todas las cartas del jugador en forma de areglo '''
 		print self.cartas
 		return self.cartas
+
+	def getCardTheNumberHand(self, roundNumber):
+		''' Devuelve la carta jugada en la mano x '''
+		return self.cartasJugadas[roundNumber]
 
 	def getCardPlayed(self):
 		''' Devuelve el nombre completa de la ultima carta jugada '''
