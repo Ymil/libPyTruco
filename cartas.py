@@ -4,7 +4,7 @@ Clase Cartas del juego
 Programador: Lautaro Linquiman
 '''
 from random import randrange
-
+from card import Card
 class Cartas():
     '''Clase encargada de el manejo de las cartas del juego'''
     def __init__(self,cantidadJugadores, debuggin = 1):
@@ -50,7 +50,7 @@ class Cartas():
 
     #def obtener(self, cartasN):
 
-    def obtener(self, jugadorID,cartaID):
+    def obtener(self, jugadorID, cartaID):
         return self.cartasJugadores[jugadorID-1][cartaID-1]
 
     def getPoints(self,cartaSTRID):
@@ -77,10 +77,13 @@ class Cartas():
             cartasJugador = [] #Acomoda las cartas de cada jugador
 
             for c in range(3): #reparte las tres cartas a cada jugadores
-                carta = randrange(0,len(self.clonCartas) - 1)
+
+                cartaStr = randrange(0,len(self.clonCartas) - 1)
                 cartaValor = self.clonCartas[carta]
-                cartasJugador.append(cartaValor)
-                self.clonCartas.remove(cartaValor)
+                cartaObject = Card(cartaStr,cartaValor)
+                cartasJugador.append(cartaObject)
+                self.clonCartas.remove(cartaStr)
+
             cartasJugadores.append(cartasJugador)
 
             cartasJugador = None
@@ -95,7 +98,7 @@ class Cartas():
         return cartasJugadores
 
     def repartir_individual(self):
-        ''' Return list ((1,2,3),(1,2,3))'''
+        ''' Return list (1,2,3)'''
 
         self.__clonarCartas()
 
@@ -111,10 +114,13 @@ class Cartas():
         cartasJugador = [] #Acomoda las cartas de cada jugador
 
         for c in range(3): #reparte las tres cartas a cada jugadores
-            carta = randrange(0,len(self.clonCartas) - 1)
-            cartaValor = self.clonCartas[carta]
-            cartasJugador.append(cartaValor)
-            self.clonCartas.remove(cartaValor)
+            cartaN = randrange(0,len(self.clonCartas) - 1)
+            cartaStr = self.clonCartas[cartaN]
+            cartaValue = self.cartasPuntaje[cartaStr]
+            cartaObject = Card(cartaStr,cartaValue)
+            cartasJugador.append(cartaObject)
+            self.clonCartas.remove(cartaStr)
+            del cartaObject
 
 
         #debuggin

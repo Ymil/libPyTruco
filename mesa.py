@@ -1,3 +1,9 @@
+''' Paso x: Crear equipos
+Se importa el modulo equipo el cual almacena la informacion de cada equipo
+'''
+
+from team import Team
+
 class Mesa():
     def __init__(self, cantidadJugadores, creadaPor, mesaID):
         '''
@@ -11,8 +17,10 @@ class Mesa():
         self.mesaID = mesaID
         self.jugadores = []
         self.equipoJugadores = []
-        self.equipo = 1
+        self.equipoN = 0
         self.status = 0
+        self.team = [] #Almacena los objectos de los equipos
+        self.__createTeams__()
 
     def getInfo(self):
         ''' Retorna informacion sobre la mesa '''
@@ -27,19 +35,20 @@ class Mesa():
         else:
             self.status = 0
             return 0
+    def __createTeams__(self):
+        self.team.append(Team(1))
+        self.team.append(Team(2))
 
     def newPlayer(self, player):
 
         ''' @params
         class player
         Ingresa un nuevo jugador a la mesa'''
-        self.jugadores.append(player.getID())
-        player.setTeam(self.equipo)
-        self.equipoJugadores.append(self.equipo)
-        if(self.equipo == 1):
-            self.equipo = 2
-        else:
-            self.equipo = 1
+        self.jugadores.append(player)
+        player.setTeam(self.team[self.equipoN])
+        self.equipoN += 1
+        if(self.equipoN == 2):
+            self.equipoN = 0
 
     def getPlayers(self):
         ''' Obitne las id de los jugadores '''
@@ -47,7 +56,7 @@ class Mesa():
 
     def getTeams(self):
         '''Retorna la configuracion de equipos '''
-        return self.equipoJugadores
+        return self.team
 
     def getID(self):
         '''Retorna el ID de la mesa'''

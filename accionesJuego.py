@@ -37,7 +37,8 @@ class AccionesJuego:
         @cartas: [3]
         Ejemplo de uso:
         '''
-        print 'Cartas de Jugador',playerid,':', cards
+        cards = [card.getText() for card in cards]
+        print 'Cartas de Jugador',playerid,':',cards
 
     def showPoints(self, team, pointsTeam):
         ''' Esta funcion se dispara cuando se muestran los puntos de los equipos
@@ -56,9 +57,9 @@ class AccionesJuego:
         return accion
         '''
 
-        return random.randint(1,3)
+        return random.randint(0,2)
 
-    def showJugada(self, teamid, playerid, playername, cardGaming):
+    def showJugada(self, teamid, playerid, playername, card):
         ''' Esta funcion se llama cuando se juega una carta
         @params
         @playerid: int
@@ -66,7 +67,7 @@ class AccionesJuego:
         @cardGaming: int Carta jugada
         Ejemplo:
         '''
-        print 'El jugador %d:%d jugo la carta %s' % (teamid, playerid, cardGaming)
+        print 'El jugador %d:%d jugo la carta %s' % (teamid, playerid, card.getText())
 
     def showError(self, playerid, errorName):
         ''' Esta funcion se llama cuando ocurre un error por un jugador
@@ -86,8 +87,13 @@ class AccionesJuego:
         @teamID: int
         @card: int Carta
         Ejemplo:'''
-        print '%d:%d gano la mano con %s' % (teamid, playerid, card)
-
+        print '%d:%d gano la mano con %s' % (teamid, playerid, card.getText())
+    def showMsgStartHand(self, handsNumber):
+        ''' Esta funcion se llama cada vez que se inicia una nueva mano
+        params
+        handsNumber int'''
+        print ("Iniciando mano %d" % handsNumber).center(50,'-')
+        
     def Parda(self):
         ''' Esta funcion se llama cuando termina la mano y hay una parda
         @params
