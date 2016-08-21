@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="12.1">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
   <zoom_level>9</zoom_level>
   <element>
-    <type>com.umlet.element.UseCase</type>
+    <type>com.baselet.element.old.element.UseCase</type>
     <coordinates>
-      <x>288</x>
+      <x>153</x>
       <y>0</y>
       <w>306</w>
       <h>81</h>
@@ -13,9 +14,9 @@ y equipo ganador de mano</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>405</x>
+      <x>270</x>
       <y>54</y>
       <w>44</w>
       <h>80</h>
@@ -24,9 +25,9 @@ y equipo ganador de mano</panel_attributes>
     <additional_attributes>27;63;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Class</type>
+    <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>135</x>
+      <x>0</x>
       <y>117</y>
       <w>585</w>
       <h>99</h>
@@ -42,9 +43,9 @@ Global Var Mano = {
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>387</x>
+      <x>252</x>
       <y>234</y>
       <w>44</w>
       <h>62</h>
@@ -53,9 +54,9 @@ Global Var Mano = {
     <additional_attributes>27;45;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.InitialState</type>
+    <type>com.baselet.element.old.element.InitialState</type>
     <coordinates>
-      <x>405</x>
+      <x>270</x>
       <y>243</y>
       <w>18</w>
       <h>18</h>
@@ -64,9 +65,9 @@ Global Var Mano = {
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>306</x>
+      <x>171</x>
       <y>279</y>
       <w>225</w>
       <h>36</h>
@@ -75,9 +76,9 @@ Global Var Mano = {
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>387</x>
+      <x>252</x>
       <y>450</y>
       <w>44</w>
       <h>161</h>
@@ -86,9 +87,9 @@ Global Var Mano = {
     <additional_attributes>27;144;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>306</x>
+      <x>171</x>
       <y>594</y>
       <w>225</w>
       <h>36</h>
@@ -97,9 +98,9 @@ Global Var Mano = {
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>387</x>
+      <x>252</x>
       <y>603</y>
       <w>44</w>
       <h>80</h>
@@ -108,9 +109,9 @@ Global Var Mano = {
     <additional_attributes>27;63;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.Systemborder</type>
+    <type>com.baselet.element.old.element.Systemborder</type>
     <coordinates>
-      <x>252</x>
+      <x>117</x>
       <y>666</y>
       <w>369</w>
       <h>162</h>
@@ -127,9 +128,9 @@ elseif cartaGanadora == cartaJugada:
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>594</x>
+      <x>459</x>
       <y>567</y>
       <w>143</w>
       <h>170</h>
@@ -138,9 +139,9 @@ elseif cartaGanadora == cartaJugada:
     <additional_attributes>126;27;63;27;63;153;27;153</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>720</x>
+      <x>585</x>
       <y>567</y>
       <w>387</w>
       <h>54</h>
@@ -151,9 +152,9 @@ param2 name = cartaJugada | type int (puntos de carta)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.Systemborder</type>
+    <type>com.baselet.element.old.element.Systemborder</type>
     <coordinates>
-      <x>774</x>
+      <x>639</x>
       <y>657</y>
       <w>306</w>
       <h>63</h>
@@ -164,9 +165,9 @@ resultado['equipoGanador'] = equipo</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>882</x>
+      <x>747</x>
       <y>603</y>
       <w>44</w>
       <h>71</h>
@@ -175,9 +176,9 @@ resultado['equipoGanador'] = equipo</panel_attributes>
     <additional_attributes>27;54;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>873</x>
+      <x>738</x>
       <y>774</y>
       <w>44</w>
       <h>71</h>
@@ -186,9 +187,9 @@ resultado['equipoGanador'] = equipo</panel_attributes>
     <additional_attributes>27;54;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.Systemborder</type>
+    <type>com.baselet.element.old.element.Systemborder</type>
     <coordinates>
-      <x>720</x>
+      <x>585</x>
       <y>828</y>
       <w>387</w>
       <h>108</h>
@@ -202,9 +203,9 @@ resultado['parda'] = 1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>720</x>
+      <x>585</x>
       <y>747</y>
       <w>387</w>
       <h>54</h>
@@ -214,9 +215,9 @@ param1 name = mano | type list length &gt; 1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>594</x>
+      <x>459</x>
       <y>738</y>
       <w>143</w>
       <h>44</h>
@@ -225,9 +226,9 @@ param1 name = mano | type list length &gt; 1</panel_attributes>
     <additional_attributes>126;27;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.Systemborder</type>
+    <type>com.baselet.element.old.element.Systemborder</type>
     <coordinates>
-      <x>189</x>
+      <x>54</x>
       <y>342</y>
       <w>441</w>
       <h>135</h>
@@ -243,9 +244,9 @@ Resultado = {
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>387</x>
+      <x>252</x>
       <y>288</y>
       <w>44</w>
       <h>71</h>
@@ -254,9 +255,9 @@ Resultado = {
     <additional_attributes>27;54;27;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.custom.State</type>
+    <type>com.baselet.element.old.element.State</type>
     <coordinates>
-      <x>306</x>
+      <x>171</x>
       <y>873</y>
       <w>225</w>
       <h>36</h>
@@ -265,9 +266,9 @@ Resultado = {
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>378</x>
+      <x>243</x>
       <y>801</y>
       <w>63</w>
       <h>89</h>
@@ -277,9 +278,9 @@ m2=END FOR</panel_attributes>
     <additional_attributes>36;72;36;27</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>162</x>
+      <x>27</x>
       <y>585</y>
       <w>161</w>
       <h>161</h>
@@ -289,9 +290,9 @@ m2=NEXT FOR</panel_attributes>
     <additional_attributes>144;27;27;27;27;144;90;144</additional_attributes>
   </element>
   <element>
-    <type>com.umlet.element.Relation</type>
+    <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>630</x>
+      <x>495</x>
       <y>693</y>
       <w>107</w>
       <h>161</h>

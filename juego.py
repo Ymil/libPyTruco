@@ -1,302 +1,358 @@
+import sys
 from cartas import Cartas
 from accionesJuego import AccionesJuego
 import logging
-logging.basicConfig(format='%(levelname)s [%(asctime)s][SVR]: %(message)s',filename='./logs/libjuego.log', level='DEBUG')
 import inspect
+import pdb
 import time
+import string
+logging.basicConfig(format='%(levelname)s [%(asctime)s][SVR]: %(message)s',
+    filename='./logs/libjuego.log', level='INFO')
+
 global cuentaEjecucion
 cuentaEjecucion = 0
-import string
+
+
 def msg_debug(str1):
     global cuentaEjecucion
-    #if(type(str1) is list):
+    # if(type(str1) is list):
     #    str1 = ' | '.join(tuple(list(str1))[0:])
-    #print cuentaEjecucion
+    # print cuentaEjecucion
     str1 = 'EC %d' % cuentaEjecucion, str1
-    #str1 = string.join(, ' ')
+    # str1 = string.join(, ' ')
     logging.debug(str1)
     cuentaEjecucion += 1
-class Juego():
+
+def msg_info(str1):
+    global cuentaEjecucion
+    # if(type(str1) is list):
+    #    str1 = ' | '.join(tuple(list(str1))[0:])
+    # print cuentaEjecucion
+    str1 = 'EC %d' % cuentaEjecucion, str1
+    # str1 = string.join(, ' ')
+    logging.info(str1)
+    cuentaEjecucion += 1
+
+class Game():
     ''' Clase controlador del Juego
     20-01-15 05:07 Lautaro Linquiman'''
-    def __init__(self, jugadores, jEquipos, mesaID):
+    def __init__(self, tableObject):
         self.status = 0
-        self.jugadores = jugadores
-        self.jEquipos = jEquipos
-        self.cantidadJugadores = len(jugadores) #Obtiene la cantidad de jugadores
-        self.cartasJugador = []
-        self.cartasJugadas = {}
-        self.puntosEquipos = {1:0,2:0}
-        self.equipoGanadorPrimeraRonda = 0
-        self.equipoGanadorSegundaRonda = 0
-        #self.primerJugadorPartida = 0
-        self.mesaID = mesaID
+        self.tableObject = tableObject
+
+        self.__loadVarsTheTable__()
+
+        self.winningTeamFirstRound = 0# team ganador de la primera rond
+        self.winningTeamSecondRound = 0
+        # self.primerJugadorPartida = 0
+
         self.pardaObtenerGanador = 0
-        self.ronda = 0
-        self.rondas = {}
-        self.mano = 0
-        self.turno = 0
-        self.cartas_ = Cartas(self.cantidadJugadores, 0)
+
+        self.hand = 0
+        self.handNumber = 0
+        self.turn = 0
+        self.cards = Cartas(self.numberPlayers, 0)
         self.actionGame = AccionesJuego()
-        self.returnObtenerGanador = {
-            'status':0,
-            'playerid': 0,
-            'playeridWin': 0,
-            'playerTeam': 0,
-            'teamWin': 0,
-            'roundWin': 0,
-            'card': '', #str Type
-            'cardWin': 0,
-        }
-        self.returnObtenerGanador = self.returnObtenerGanador
+        self.resultLastHand = []  # Resultado de la ultima mano
+        self.statusGame = 3# Esta variable almacena el estado actual del juego y es asignada por la funcion getResultHand [0:win|1:parda|2:empate|3:continue]
+
+        self.lastCodeResult = 0# Esta variable almacena un ID de la condicion verdadera al buscar un ganador
+
+    def __loadVarsTheTable__(self):
+        ''' Carga todas las variables necesarias de la mesa para poder iniciar el juego '''
+        self.players = self.tableObject.getPlayers()
+        self.teams = self.tableObject.getTeams()
+        self.numberPlayers = len(self.players)# Obtiene la cantidad de jugadores
+
     def setActionGame(self, classActionGame):
         self.actionGame = classActionGame()
 
     def getStatus(self):
         return self.status
 
-    def setStatus(self,status):
+    def setStatus(self, status):
         self.status = status
 
-    def getTurno(self):
-        ''' Obtiene el id del jugador que es mano '''
-        msg_debug('[getTurno-turno] %d' % self.turno)
-        if(self.turno == self.cantidadJugadores):
-            self.turno = 0
-        turno = self.jugadores[self.turno]
-        self.cambiarTurno()
-        return turno
+    def getTurn(self):
+        ''' Obtiene el id del jugador que es hand '''
+        msg_debug('[getTurn-turn] %d' % self.turn)
+        if(self.turn == self.numberPlayers):
+            self.turn = 0
+        turn = self.players[self.turn]
+        self.changeTurn()
+        return turn
 
-    def cambiarTurno(self):
-        ''' Cambia la mano del juego '''
-        if(self.turno == self.cantidadJugadores):
-            self.turno = 0
+    def changeTurn(self):
+        ''' Cambia la hand del juego '''
+        if(self.turn == self.numberPlayers):
+            self.turn = 0
         else:
-            self.turno += 1
+            self.turn += 1
 
-    def setTurno(self, jugadorID):
-        self.turno = self.jugadores[jugadorID].getID()
-        if(self.turno == self.cantidadJugadores):
-            self.turno = 0
-        self.turno = self.turno
+    def setTurn(self, playerID):
+        '''Asigna el turno al jugador '''
+        self.turn = self.players[playerID].getID()
+        if(self.turn == self.numberPlayers):
+            self.turn = 0
+        self.turn = self.turn
 
     def decCartaID(self, carta):
         ''' Valida que el valor ingresado por el jugador sea valido '''
         try:
-            cartaID = int(carta)
-            if(cartaID <= 3):
-                return cartaID-1
+            cardID = int(carta)
+            if(cardID <= 3):
+                return cardID-1
             else:
                 return 20
         except ValueError:
             return 20
 
-    def iniciarRonda(self):
-        ''' Inicia la ronda '''
-        self.ronda += 1
-        self.rondas[self.ronda] = []
-        self.mano = self.getTurno()
-        return self.ronda
+    def startHand(self):
+        ''' Se inicia la una nueva ronda y se asigna el turno al
+        jugador indicado '''
+        self.handNumber += 1
+        #self.hand = self.getTurn()
+        return self.handNumber
 
-    def resetRonda(self):
-        self.ronda = 0
+    def resetRond(self):
+        self.handNumber = 0
         self.pardaObtenerGanador = 0
-    def getRonda(self):
-        return self.ronda
 
-    def repartirCartas(self):
-        ''' Reparte la carta de los jugaodres '''
-        self.cartasJugador = self.cartas_.repartir()
-        return self.cartasJugador
+    def getRond(self):
+        return self.handNumber
 
-    def darCartas(self, nJugador):
-        self.cartasJugadas[nJugador] = []
-        return self.cartasJugador[nJugador]
+    def giveCardsToPlayers(self):
+        ''' Se reparten las cartas de los jugadores '''
 
-    def setCarta(self, jugadorID, cartaID):
-        nRonda = self.getRonda()
-        self.rondas[nRonda].append((jugadorID, cartaID))
+        for player in self.players:
+                cardsPlayer = self.cards.repartir_individual()
+                self.actionGame.giveCards(player.getID(), cardsPlayer)
+                player.setCards(cardsPlayer)
+                self.actionGame.showCards(player.getID(), cardsPlayer)
 
-    def darPuntosEquipo(self, equipo, puntos):
-        self.puntosEquipos[equipo] += puntos
+    '''def darCartas(self, playerID):
+        self.playsCard[playerID] = []
+        return self.cardPlayer[playerID]'''
 
-    def getPuntosEquipos(self):
-        return self.puntosEquipos
+    def giveCard(self, player, card):
+        '''Asigna la carta jugada en la determinada ronda'''
+        nrond = self.getRond()
+        self.hands[nrond].append((player, card))
 
-    def obtenerGanador(self):
-        '''
-        Esta funcion busca un ganador de la mano jugada y devuelve el estado que termino la mano
-        @params
-        null
+    def givePointsTeam(self, team, points):
+        team.givePoints(points)
 
-        @return
+    def getPointsTeams(self):
+        return self.teamPoints
+
+    def getNumberTheCurrentHand(self):
+        ''' Esta funcion duelve el numero de la mano actual '''
+        self.numberTheCurrentHand = len(self.hands)
+        return self.numberTheCurrentHand
+
+    def getResultPreviousHand(self):
+        ''' Devuelve el resultado de la mano anterior
+        Solo se puede llamar despues de que se obtiene el resultado de una ronda y la mano es agregada en la variable hands
+        return
         {
-            'status': int [0:win|1:parda|2:empate|3:continue],
-            'playerid': [idJugadorGanador],
-            'teamWin': [idEquipoGanador]
-            'cardWin': [CartaGandora],
-            'roundWin': int Se gano la ronda [0|1]
+            'player': object Player,
+            'parda': bool
+        }
+        '''
+        numberThePreviusHand = self.getNumberTheCurrentHand()-1
+        return self.hands[numberThePreviusHand]
+
+    def getResultCurrentHand(self):
+        '''Devuelve el ganador de la ultima mano
+        return
+        {
+            'player': object Player,
+            'parda': bool
         }
         '''
 
-        nRonda = self.getRonda()
+        numberTheCurrentHand = self.getNumberTheCurrentHand()
 
+        tempResultHand = {'player': False, 'parda': False}
+        # Resultado temporal de la mano
+        for player in self.players:
+            # No concuerda con la mano, falta terminar esto.
+
+            try:
+                tempCardWin = tempResultHand['player'].getCardTheNumberHand(numberTheCurrentHand).getValue()
+            except:
+                '''Esta exception se captura cuando todavia no hay un jugador en
+                el resultado ganador'''
+                tempCardWin = 0
+            playsCard = player.getCardTheNumberHand(numberTheCurrentHand).getValue()
+
+            if tempCardWin < playsCard:
+                tempResultHand['player'] = player
+                tempResultHand['parda'] = False
+            elif tempCardWin == playsCard:
+                #Hay una parda
+                tempResultHand['parda'] = True
+        if tempResultHand['parda'] == True:
+            self.statusGame = 1
+
+        return tempResultHand
+
+    def addResultHand(self, resultHand):
+        ''' Agrega un resultado a la lista de manos '''
+        self.hands.append(resultHand)
+
+    def getResultHandByNumber(self, numberHand):
+        ''' Devuelve el resultado de una mano por su numero de mano '''
+        return self.hands[numberHand]
+
+    def getStatusTheRound(self):
         '''
-        cartaMayor[0] Indica la carta ganadora
-        returnObtenerGanador['playerid'] Indica el IDjugador ganador
+            Esta funcion devuelve el resultado de la mano jugada y devuelve el estado que termino la mano
+            @params
+            null
+
+            @return
+            {
+                'player': object Player,
+                'parda': bool
+            }
         '''
-
-        parda = 0
-        msg_debug('Ejecutando %s' % inspect.stack()[0][3])
-        str1 = 'Rondas ', len(self.rondas),'/', self.rondas
-        msg_debug(str1)
-        self.returnObtenerGanador['cardWin'] = 0
-        for ronda in self.rondas[nRonda]:
-            #print dir(ronda)
-
-            self.returnObtenerGanador['playerid'] = ronda[0]
-            self.returnObtenerGanador['playerTeam'] = self.jEquipos[self.returnObtenerGanador['playerid']]
-            self.returnObtenerGanador['card'] = ronda[1]
-
-            msg_debug('[obtenerGanador-cartaSTR] %s' % self.returnObtenerGanador['card'])
-            puntajeCartaJugador = self.cartas_.getPoints(self.returnObtenerGanador['card'])
-            if(nRonda == 1):
-                ''' Se setean la variables para iniciar el juego '''
-                self.equipoGanadorPrimeraRonda = 0
-                self.equipoGanadorSegundaRonda = 0
-                self.pardaObtenerGanador = 0
-
-            if(self.returnObtenerGanador['cardWin'] == 0):
-                msg_debug("[Carta Ganadora] Todavia no hay una carta ganadora")
-                puntajeCartaMayor = 0
-            else:
-                puntajeCartaMayor = self.cartas_.getPoints(self.returnObtenerGanador['cardWin'])
-                msg_debug("[Carta Ganadora] %s:%d" % (self.returnObtenerGanador['cardWin'], puntajeCartaMayor))
-            if(puntajeCartaJugador > puntajeCartaMayor):
-                self.returnObtenerGanador['playeridWin'] = self.returnObtenerGanador['playerid']
-                self.returnObtenerGanador['teamWin'] = self.returnObtenerGanador['playerTeam']
-                self.returnObtenerGanador['cardWin'] = self.returnObtenerGanador['card']
-                parda = 0
-            elif(puntajeCartaJugador == puntajeCartaMayor):
-                self.returnObtenerGanador['cardWin'] = self.returnObtenerGanador['card']
-                parda = 1
-        print(self.returnObtenerGanador['teamWin'])
-        equipoWinManoActual = self.returnObtenerGanador['teamWin']
-        msg_debug("Parda %d" % parda)
-        if(self.ronda == 1):
-            if(parda == 1):
-                self.pardaObtenerGanador = 1
-                self.parda()
-            print 'oh'
-            self.equipoGanadorPrimeraRonda = equipoWinManoActual
-            self.setTurno(self.returnObtenerGanador['playeridWin'])
-            self.continuarRonda()
-        elif(self.ronda == 2):
-            if(self.pardaObtenerGanador == 1 or parda == 1):
-                if(parda == 0):
-                    self.ganadorDeRonda()
-                elif((parda == 0 and self.pardaObtenerGanador == 1) or (parda == 1 and self.pardaObtenerGanador == 0)):
-                    self.returnObtenerGanador['teamWin'] = self.equipoGanadorSegundaRonda
-                    self.ganadorDeRonda()
-                elif(parda == 1 and self.pardaObtenerGanador == 1):
-                    self.parda()
-
-            self.equipoGanadorSegundaRonda = equipoWinManoActual
-            if(equipoWinManoActual == self.equipoGanadorPrimeraRonda):
-                self.ganadorDeRonda()
-            else:
-                self.continuarRonda()
-                self.setTurno(self.returnObtenerGanador['playerid'])
-
-        elif(self.ronda == 3):
-            if(self.pardaObtenerGanador == 1 or parda == 1):
-                if(parda == 0):
-                    self.ganadorDeRonda()
-                elif(parda == 1):
-                    self.empate()
-            msg_debug("Equipo Ganador Mano Actual: %s" % equipoWinManoActual)
-            msg_debug("Equipo Ganador Mano 2: %s" % self.equipoGanadorSegundaRonda)
-            msg_debug("Equipo Ganador Mano 1: %s" % self.equipoGanadorPrimeraRonda)
-            if(equipoWinManoActual == self.equipoGanadorPrimeraRonda):
-                self.ganadorDeRonda()
-            elif(equipoWinManoActual == self.equipoGanadorSegundaRonda):
-                self.returnObtenerGanador['teamWin'] = self.equipoGanadorSegundaRonda
-                self.ganadorDeRonda()
-            msg_debug(self.returnObtenerGanador)
-        return self.returnObtenerGanador
+        tempResult = {} #Devuelve este resultado cuando no existe un ganador pero si se captura un resultado
+        resultCurrentHand = self.getResultCurrentHand()
+        numberTheCurrentHand = self.getNumberTheCurrentHand()
+        self.addResultHand(resultCurrentHand)
+        if numberTheCurrentHand == 0:
+            self.lastCodeResult = 0
+            ''' En la primera mano se duelve el resultado sin ninguna comprobacion '''
+            tempResult = resultCurrentHand
+        elif numberTheCurrentHand > 0:
+            numberThePreviusHand = numberTheCurrentHand-1
+            winner = False
+            if resultCurrentHand['parda'] and self.getResultHandByNumber(numberThePreviusHand)['parda']:
+                self.lastCodeResult = 1
+                msg_info(' En la mano actual y en la anterior ocurrio una parta: \n \
+                El Juego continua siempre y cuando esto ocurra en la segunda ronda \n \
+                En el caso de que esto ocurra en la tercera mano el jugador mano de la primera mano es el ganador de la ronda')
+                if numberTheCurrentHand != 1:
+                    winner = self.getResultHandByNumber(0)
+            elif not resultCurrentHand['parda'] and self.getResultHandByNumber(numberThePreviusHand)['parda']:
+                self.lastCodeResult = 2
+                msg_info(' En la mano anterior ocurrio una parda pero en la mano actual no \n \
+                El ganador de la mano actual es el ganador de la ronda')
+                winner = resultCurrentHand
+            elif resultCurrentHand['parda'] and not self.getResultHandByNumber(numberThePreviusHand)['parda']:
+                self.lastCodeResult = 3
+                msg_info(' En la mano anterior no hubo parda pero en la mano actual hay una parda \n \
+                El jugador que gano la primera mano es el ganador de la ronda ')
+                winner = self.getResultHandByNumber(0)
+            elif resultCurrentHand['player'].getTeam() == self.getResultHandByNumber(numberThePreviusHand)['player'].getTeam():
+                self.lastCodeResult = 4
+                msg_info(' El Jugador que gana la mano actual es de el mismo equipo que gano la mano anterior \n \
+                El jugador de la mano actual es el ganador de la ronda')
+                winner = self.getResultHandByNumber(numberTheCurrentHand)
+            elif resultCurrentHand['player'].getTeam() != self.getResultHandByNumber(numberThePreviusHand)['player'].getTeam():
+                self.lastCodeResult = 5
+                msg_info(' C0: El jugador que gana la mano actual no es del mismo equipo que gano la mano anterior \n \
+                El Juego continua siempre y cuando ocurra en la segunda mano \n \
+                Si esto ocurre en la tercera mano se verifica si el ganador de la mano es igual a el ganador de la primera mano')
+                if numberTheCurrentHand == 1:
+                    self.statusGame = 3
+                    tempResult = self.getResultHandByNumber(1)
+                elif numberTheCurrentHand == 2:
+                    if resultCurrentHand['player'].getTeam() == self.getResultHandByNumber(0)['player'].getTeam():
+                        winner = self.getResultHandByNumber(0)
+                    elif resultCurrentHand['player'].getTeam() == self.getResultHandByNumber(1)['player'].getTeam():
+                        winner = self.getResultHandByNumber(1)
+            if winner != False:
+                self.statusGame = 0
+                return winner
+        return tempResult
 
     def empate(self):
-        self.returnObtenerGanador['status'] = 2
-        self.returnObtenerGanador['roundWin'] = 1
-        self.returnObtenerGanador['teamWin'] = self.mano
+        ''' Esta funcion cofigura la estructura del resultado cuando hay una parda '''
+        self.returnbtenerGanador['status'] = 2
+        self.returnbtenerGanador['roundWin'] = 1
+        self.returnbtenerGanador['teamWin'] = self.hand
 
-    def ganadorDeRonda(self):
-        self.returnObtenerGanador['status'] = 0
-        self.returnObtenerGanador['roundWin'] = 1
+    def winnerTheRound(self):
+        self.returnbtenerGanador['status'] = 0
+        self.returnbtenerGanador['roundWin'] = 1
 
     def parda(self):
-        self.returnObtenerGanador['status'] = 1
+        self.returnbtenerGanador['status'] = 1
 
-    def continuarRonda(self):
-        self.returnObtenerGanador['status'] = 3
+    def continueRound(self):
+        self.returnbtenerGanador['status'] = 3
 
-    def iniciar(self):
+    def showPointsTeams(self):
+        ''' Muestra los puntos de los equipos '''
+        for team in self.teams:
+            self.actionGame.showPoints(team.getID(), team.getPoints())
+            #print ('points team %d: %d') %(team, self.teamPoints[team])
+
+    def start(self):
         msg_debug("Iniciando Juego")
-        self.actionGame.setTeams(self.jEquipos)
-        self.actionGame.setPlayers(self.jugadores)
+        self.actionGame.setPlayers(self.players)
         while 1:
-            for equipo in self.getPuntosEquipos():
-                self.actionGame.showPoints(equipo, self.puntosEquipos[equipo])
-                #print ('puntos equipo %d: %d') %(equipo, self.puntosEquipos[equipo])
+            msg_info("Nueva ronda")
+            self.showPointsTeams()
             ''' Repartir cartas '''
-            cartasJugadores = self.repartirCartas()
-            cx = 0
-            for jugador in self.jugadores:
-                cartas = cartasJugadores[cx]
-                self.actionGame.giveCards(jugador.getID(), cartas);
-                jugador.setCards(cartas)
-                self.actionGame.showCards(jugador.getID(), cartas)
-                cx += 1
-
+            self.giveCardsToPlayers()
+            self.hands = []
             while 1:
-                nRonda = self.iniciarRonda()
-                ''' Se inicia el juego con el jugador que es mano '''
-                cJugadas = 0 #Alamacena la cantidad de jugadas en la ronda
-                while cJugadas < self.cantidadJugadores:
+                msg_info("StartHand")
+                nrond = self.startHand()
+                ''' Se inicia el juego con el jugador que es hand '''
+                self.actionGame.showMsgStartHand(nrond)
+                cJugadas = 0 #Alamacena la cantidad de jugadas en la rond
+                while cJugadas < self.numberPlayers:
                     '''Se inicia el juego'''
                     cJugadas += 1
-                    jugador = self.getTurno()
+                    jugador = self.getTurn()
 
                     while 1:
                         cartaAJugar = self.actionGame.getActionPlayer(jugador.getID())
-                        carta = self.decCartaID(cartaAJugar) #Corrobora que el valor de la carta sea correcto
-                        if(not carta == 20):
-                            if(jugador.playingCard(carta)): #Juega la carta y se comprueba que este disponible
-                                cartaJ = jugador.getCardPlayed() #Obitene el nombre completo de la carta
-                                self.setCarta(jugador.getID(),cartaJ)
-                                self.actionGame.showJugada(jugador.getTeam(), jugador.getID(), jugador.getName(),cartaJ)
+                        if(1 == 1):
+                            if(jugador.playingCardInRound(cartaAJugar)): #Juega la carta y se comprueba que este disponible
+                                cartaJ = jugador.getNameCardPlayed() #Obitene el nombre completo de la carta
+                                #self.giveCard(jugador.getID(),cartaJ)
+                                self.actionGame.showJugada(jugador.getTeam().getID(), jugador.getID(), jugador.getName(),cartaJ)
                                 break
                             else:
                                 self.actionGame.showError(jugador.getID(), 'cardPlayerd')
                         else:
                             self.actionGame.showError(jugador.getID(), 'invalidAction')
-                Resultados = self.obtenerGanador()
-                self.actionGame.returnStatus(Resultados)
-                print Resultados
 
-                if(Resultados['status'] == 1):
+
+                msg_info("HandEnd")
+                msg_info("Iniciando analisis de resultados")
+                Resultados = self.getStatusTheRound()
+                #ResultHand = self.getResultCurrentHand()
+                self.actionGame.returnStatus(Resultados)
+                #print Resultados
+                msg_debug("lastCodeResult:%d" % self.lastCodeResult)
+                if(self.statusGame == 1):
                     self.actionGame.Parda()
                     continue
+                '''elif self.statusGame == 3:
+                    continue'''
 
-                self.actionGame.showResultMano(Resultados['playeridWin'], self.jugadores[Resultados['playeridWin']].getName(),  Resultados['playerTeam'],  Resultados['cardWin'])
-                if(Resultados['roundWin']):
-                    if(Resultados['status'] == 0):
-                        self.actionGame.win(Resultados['teamWin'])
-                    elif(Resultados['status'] == 2):
-                        self.actionGame.winEmpate(Resultados['teamWin'])
-                    self.darPuntosEquipo(Resultados['teamWin'],2)
-                    self.resetRonda()
+                RPlayer = Resultados['player']
+                self.actionGame.showResultaTheHand(RPlayer.getID(), RPlayer.getName(),  RPlayer.getTeamID(),  RPlayer.getNameCardPlayed())
+                if(self.statusGame == 0):
+                    if(self.statusGame == 0):
+                        self.actionGame.win(Resultados['player'].getTeamID())
+                    elif(self.statusGame == 2):
+                        self.actionGame.winEmpate(Resultados['player'].getTeamID())
+                    self.givePointsTeam(Resultados['player'].getTeam(),2)
+                    self.resetRond()
                     break
 
-            break
+                self.finishRound()
+
+            msg_info("finaliza ronda")
+
         msg_debug("Juego Terminado")
+        
+    def finishRound(self):
+        pass
