@@ -1,5 +1,5 @@
 import logging
-#logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/libjuego.log', level='DEBUG')
+logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/accionGame.log', level='DEBUG')
 import random
 
 class AccionesJuego:
@@ -14,8 +14,51 @@ class AccionesJuego:
         self.players = []
         self.teams = []
         self.errors = {'cardPlayerd': 'Esta carta ya fue jugada', 'invalidAction': 'No puedes realizar esta accion'}
-    def startGame(self, players):
-        print ""
+
+    def showMsgStartGame(self, players):
+        ''' Esta funcion se dispara cuando se inicia un nuevo juego
+        params
+        null
+        '''
+        logging.debug("startGame")
+
+    def showMsgStartRound(self):
+        ''' Esta funcion se dispara cuando se inicia una nueva ronda
+        params
+        null
+        '''
+        logging.debug("startRound")
+
+    def showMsgStartHand(self, handsNumber):
+        ''' Esta funcion se llama cada vez que se inicia una nueva mano
+        params
+        handsNumber int'''
+        str1 =  ("Iniciando mano %d" % handsNumber).center(50,'-')
+        print str1
+        logging.debug("startHand(%d)" % handsNumber)
+        logging.info(str1)
+
+    def showMsgFinishHand(self):
+        ''' Esta funcion se dispara cuando finaliza una mano
+        params
+        null
+        '''
+        logging.debug("finishHand")
+
+    def showMsgFinishRound(self):
+        ''' Esta funcion se dispara cuando finaliza una ronda
+        params
+        null
+        '''
+        logging.debug("finishRound")
+
+    def showMsgFinishGame(self):
+        ''' Esta funcion se dispara cuando finaliza un juego
+        params
+        null
+        '''
+        logging.debug("finishGame")
+
     def setPlayers(self, players):
         self.players = players
 
@@ -38,7 +81,11 @@ class AccionesJuego:
         Ejemplo de uso:
         '''
         cards = [card.getText() for card in cards]
-        print 'Cartas de Jugador',playerid,':',cards
+        str1 = 'Cartas de Jugador',playerid,':',cards
+        print str1
+        str2 = 'showCards(',playerid,',',cards,')'
+        logging.info(str1)
+        logging.debug(str2)
 
     def showPoints(self, team, pointsTeam):
         ''' Esta funcion se dispara cuando se muestran los puntos de los equipos
@@ -46,7 +93,11 @@ class AccionesJuego:
         @pointsTeam: int
         Ejemplo de uso: '''
 
-        print "El equipo %d tiene %d puntos" % (team, pointsTeam)
+        str1 = "El equipo %d tiene %d puntos" % (team, pointsTeam)
+        print str1
+        str2 = "teamPoints(%d,%d)" % (team, pointsTeam)
+        logging.debug(str2)
+        logging.info(str1)
 
     def getActionPlayer(self, playerid):
         ''' Esta funcion se llama cuando se tiene que obtener un accion del jugador
@@ -59,15 +110,20 @@ class AccionesJuego:
 
         return random.randint(0,2)
 
-    def showJugada(self, teamid, playerid, playername, card):
+    def showCardPlaying(self, teamObject, playerObject, card):
         ''' Esta funcion se llama cuando se juega una carta
         @params
-        @playerid: int
+        @teamObject
+        @playerObject
         @playername: str Nombre del jugador
         @cardGaming: int Carta jugada
         Ejemplo:
         '''
-        print 'El jugador %d:%d jugo la carta %s' % (teamid, playerid, card.getText())
+        str1 = 'El jugador %d:%d jugo la carta %s' % (teamObject.getID(), playerObject.getID(), card.getText())
+        print str1
+        logging.info(str1)
+        str2 = 'showCardPlaying(%d,%d,%s)' % (teamObject.getID(), playerObject.getID(), card.getText())
+        logging.debug(str2)
 
     def showError(self, playerid, errorName):
         ''' Esta funcion se llama cuando ocurre un error por un jugador
@@ -87,18 +143,20 @@ class AccionesJuego:
         @teamID: int
         @card: int Carta
         Ejemplo:'''
-        print '%d:%d gano la mano con %s' % (teamid, playerid, card.getText())
-    def showMsgStartHand(self, handsNumber):
-        ''' Esta funcion se llama cada vez que se inicia una nueva mano
-        params
-        handsNumber int'''
-        print ("Iniciando mano %d" % handsNumber).center(50,'-')
-        
+        str1 =  '%d:%d gano la mano con %s' % (teamid, playerid, card.getText())
+        print str1
+        logging.info(str1)
+        str2 = 'showResultaTheHand(%d,%d,%s)' % (teamid, playerid, card.getText())
+        logging.debug(str2)
+
+
     def Parda(self):
         ''' Esta funcion se llama cuando termina la mano y hay una parda
         @params
         none'''
-        print 'Ocurrio una parda'
+        str1 = 'Ocurrio una parda'
+        logging.info(str1)
+        logging.debug("parda")
 
     def returnStatus(self, statusGame):
         ''' Esta funcion se llama cada vez que se busca un ganador
@@ -115,11 +173,21 @@ class AccionesJuego:
         @params
         @teamIDWinner: int
         '''
-        print 'Ocurrio un empate, los puntos son para el equipo %d' % teamIDWinner
+        str1 = 'Ocurrio un empate, los puntos son para el equipo %d' % teamIDWinner
+        logging.info(str1)
 
     def win(self, teamIDWinner):
         ''' Esta funcion se llama cuando se gana la ronda
         @params
         @teamIDWinner: int
         '''
-        print 'El equipo %s gano la ronda' % teamIDWinner
+        str1 = 'El equipo %s gano la ronda' % teamIDWinner
+        logging.info(str1)
+
+    def winGameTeam(self, teamObject):
+        ''' Esta funcion se llama cuando un equipo gana el juego
+        @params
+        @teamObject: object team
+        '''
+        str1 = 'El equipo %d gano el juego' % teamObject.getID()
+        logging.info(str1)

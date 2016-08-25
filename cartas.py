@@ -47,6 +47,10 @@ class Cartas():
     def __clonarCartas(self):
         self.clonCartas = self.cartas[:]
 
+    def prepararMaso(self):
+        '''Esta funcion copia los valores y nombres de las cartas en una variable temporal.
+         Esta funcion se debe llamar antes de repartir las cartas '''
+        self.__clonarCartas()
 
     #def obtener(self, cartasN):
 
@@ -98,9 +102,8 @@ class Cartas():
         return cartasJugadores
 
     def repartir_individual(self):
-        ''' Return list (1,2,3)'''
-
-        self.__clonarCartas()
+        ''' Esta funcion reparte 3 cartas
+        Return list (1,2,3)'''
 
         #debuggin
         if(self.debuggin):

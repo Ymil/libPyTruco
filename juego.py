@@ -7,7 +7,7 @@ import pdb
 import time
 import string
 logging.basicConfig(format='%(levelname)s [%(asctime)s][SVR]: %(message)s',
-    filename='./logs/libjuego.log', level='INFO')
+    filename='./logs/libjuego.log', level='DEBUG')
 
 global cuentaEjecucion
 cuentaEjecucion = 0
@@ -20,7 +20,7 @@ def msg_debug(str1):
     # print cuentaEjecucion
     str1 = 'EC %d' % cuentaEjecucion, str1
     # str1 = string.join(, ' ')
-    logging.debug(str1)
+    #logging.debug(str1)
     cuentaEjecucion += 1
 
 def msg_info(str1):
@@ -30,7 +30,7 @@ def msg_info(str1):
     # print cuentaEjecucion
     str1 = 'EC %d' % cuentaEjecucion, str1
     # str1 = string.join(, ' ')
-    logging.info(str1)
+    #logging.info(str1)
     cuentaEjecucion += 1
 
 class Game():
@@ -123,7 +123,7 @@ class Game():
 
     def giveCardsToPlayers(self):
         ''' Se reparten las cartas de los jugadores '''
-
+        self.cards.prepararMaso()
         for player in self.players:
                 cardsPlayer = self.cards.repartir_individual()
                 self.actionGame.giveCards(player.getID(), cardsPlayer)
@@ -200,6 +200,29 @@ class Game():
     def addResultHand(self, resultHand):
         ''' Agrega un resultado a la lista de manos '''
         self.hands.append(resultHand)
+    def searchTeamWinnerTheRound(self):
+        '''Esta funcion se ejecuta cuando se busca un equipo ganador de las rondas del juego
+        @params
+        null
+
+        @return
+        {
+            'team': object Team or int 0 = no winner,
+            'winner': int[1|0]
+        }
+        '''
+        result = {'team': 0, 'winner': 0}
+        msg_info("SearchTeamWinner")
+        for team in self.teams:
+            #pdb.set_trace()
+            #Se recorren los equipos
+            if team.getPoints() >= 30:
+                msg_info("TeamWinner")
+                #Un equipo tiene 30 o mas puntos
+                result['team'] = team
+                result['winner'] = 1
+                msg_debug("TeamWinnerID:%d" % result['team'].getID())
+        return result
 
     def getResultHandByNumber(self, numberHand):
         ''' Devuelve el resultado de una mano por su numero de mano '''
@@ -291,18 +314,16 @@ class Game():
             #print ('points team %d: %d') %(team, self.teamPoints[team])
 
     def start(self):
-        msg_debug("Iniciando Juego")
+        self.actionGame.showMsgStartGame(self.players)
         self.actionGame.setPlayers(self.players)
         while 1:
-            msg_info("Nueva ronda")
+            self.actionGame.showMsgStartRound()
             self.showPointsTeams()
             ''' Repartir cartas '''
             self.giveCardsToPlayers()
             self.hands = []
             while 1:
-                msg_info("StartHand")
                 nrond = self.startHand()
-                ''' Se inicia el juego con el jugador que es hand '''
                 self.actionGame.showMsgStartHand(nrond)
                 cJugadas = 0 #Alamacena la cantidad de jugadas en la rond
                 while cJugadas < self.numberPlayers:
@@ -316,7 +337,7 @@ class Game():
                             if(jugador.playingCardInRound(cartaAJugar)): #Juega la carta y se comprueba que este disponible
                                 cartaJ = jugador.getNameCardPlayed() #Obitene el nombre completo de la carta
                                 #self.giveCard(jugador.getID(),cartaJ)
-                                self.actionGame.showJugada(jugador.getTeam().getID(), jugador.getID(), jugador.getName(),cartaJ)
+                                self.actionGame.showCardPlaying(jugador.getTeam(), jugador,cartaJ)
                                 break
                             else:
                                 self.actionGame.showError(jugador.getID(), 'cardPlayerd')
@@ -324,7 +345,7 @@ class Game():
                             self.actionGame.showError(jugador.getID(), 'invalidAction')
 
 
-                msg_info("HandEnd")
+                self.actionGame.showMsgFinishHand()
                 msg_info("Iniciando analisis de resultados")
                 Resultados = self.getStatusTheRound()
                 #ResultHand = self.getResultCurrentHand()
@@ -348,11 +369,27 @@ class Game():
                     self.resetRond()
                     break
 
-                self.finishRound()
 
-            msg_info("finaliza ronda")
+            msg_info("EndRound")
+            resultTheRound = self.finishRound()
+            self.actionGame.showMsgFinishRound()
+            if resultTheRound['winner']:
+                self.showPointsTeams()
+                self.actionGame.winGameTeam(resultTheRound['team'])
+                break
+        self.actionGame.showMsgFinishGame()
 
-        msg_debug("Juego Terminado")
-        
     def finishRound(self):
-        pass
+        ''' finishround
+        Esta funcion se ejecuta al terminar una ronda y se fija si alguno de los equipos tiene mas de 30 puntos para determinar un ganador
+        @params
+        null
+
+        @return
+        {
+            'team': object Team or int 0 = no winner,
+            'winner': int[1|0]
+        }
+        '''
+        result = self.searchTeamWinnerTheRound()
+        return result
