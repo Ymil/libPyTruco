@@ -4,6 +4,8 @@ clase Jugador Servidor
 Lautaro Linquiman
 '''
 import pdb;
+import operator
+from collections import Counter
 class Jugador():
     def __init__(self, id):
         self.idJugador = id #IdCon
@@ -19,6 +21,7 @@ class Jugador():
 
     def getTeam(self):
         return self.team
+
     def getTeamID(self):
         return self.team.getID()
 
@@ -52,6 +55,7 @@ class Jugador():
             self.cartasJugadas.append(carta)
             self.ultimaCartaJugada = cartaID
             return 1
+
     def getCardsPlayer(self):
         ''' Esta funcion devuelve todas las cartas del jugador en forma de areglo '''
         print self.cartas
@@ -64,6 +68,53 @@ class Jugador():
     def getNameCardPlayed(self):
         ''' Devuelve el nombre completa de la ultima carta jugada '''
         return self.cartas[self.ultimaCartaJugada]
+
+    def getMaxCard(self):
+        '''
+        group: player, envido
+         Esta funcion devuelve la carta mayor del jugador (Para el envido)
+        @return{
+            int points
+        } '''
+        dicCards = {}
+        for carta in self.cartas:
+            nCard = carta.getNumber() #nCard
+            if nCard < 10:
+                dicCards[nCard] = carta
+        if len(dicCards) == 0:
+            ''' Todas las cartas del jugador son las consideradas viejas por lo tanto
+            tienen valor 0 '''
+            return 0
+        maxCard = max(dicCards.iteritems(), key=operator.itemgetter(0))
+        #pdb.set_trace()
+        return maxCard[1].getNumber()
+
+    def getCardByStick(self, stick):
+        '''
+        group: player, envido
+        Buscar cartas por su palo '''
+        cards = []
+        for card in self.cartas:
+            if card.getStick() == stick:
+                cards.append(card) #nCard
+        return cards
+
+    def getPointsEnvido(self):
+        '''
+        group: player, envido
+        Esta funcion devuelve los puntos que tiene el jugador para el envido '''
+        cardsSticks = []
+        points = 0
+        for carta in self.cartas:
+            cardsSticks.append(carta.getStick())
+        stickEnvido = Counter(cardsSticks).most_common(1)
+        if stickEnvido[0][1] == 1:
+            points = self.getMaxCard()
+        else:
+            stick = stickEnvido[0][0]
+            card = self.getCardByStick(stick)
+            points = card[0]+card[1]
+        return points
 
     def setStatus(self, valor):
         self.status = valor

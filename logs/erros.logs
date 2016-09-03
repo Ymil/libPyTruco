@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "example.py", line 52, in <module>
+    EjemploDeTruco()
+  File "example.py", line 48, in __init__
+    self.juego.start()
+  File "/home/ymil/Proyectos/PyTrucoProyect/PyTruco/servidor/libPyTruco/juego.py", line 414, in start
+    self.envido(jugador)
+  File "/home/ymil/Proyectos/PyTrucoProyect/PyTruco/servidor/libPyTruco/juego.py", line 340, in envido
+    self.loopEnvido()
+  File "/home/ymil/Proyectos/PyTrucoProyect/PyTruco/servidor/libPyTruco/juego.py", line 360, in loopEnvido
+    pdb.set_trace()
+  File "/usr/lib/python2.7/bdb.py", line 53, in trace_dispatch
+    return self.dispatch_return(frame, arg)
+  File "/usr/lib/python2.7/bdb.py", line 91, in dispatch_return
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit

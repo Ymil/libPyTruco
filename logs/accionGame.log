@@ -1,0 +1,23 @@
+
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,795]: startGame
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,795]: startRound
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,796]: teamPoints(1,0)
+[AccionesJuego] INFO [2016-09-02 23:16:22,796]: El equipo 1 tiene 0 puntos
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,796]: teamPoints(2,0)
+[AccionesJuego] INFO [2016-09-02 23:16:22,796]: El equipo 2 tiene 0 puntos
+[AccionesJuego] INFO [2016-09-02 23:16:22,796]: ('Cartas de Jugador', 1, ':', ['7_espada', '1_basto', '11_oro'])
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,797]: ('showCards(', 1, ',', ['7_espada', '1_basto', '11_oro'], ')')
+[AccionesJuego] INFO [2016-09-02 23:16:22,797]: ('Cartas de Jugador', 2, ':', ['3_espada', '6_basto', '2_copa'])
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,797]: ('showCards(', 2, ',', ['3_espada', '6_basto', '2_copa'], ')')
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,797]: startHand(1)
+[AccionesJuego] INFO [2016-09-02 23:16:22,798]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,798]: ('getActionPlayer 1', ['envido'])
+[AccionesJuego] INFO [2016-09-02 23:16:22,798]: 1 canto envido
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,798]: envido(1)
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,798]: ('getActionPlayer 2', ['Quiero', 1])
+[AccionesJuego] INFO [2016-09-02 23:16:22,798]: 1 tiene 7 de envido
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,798]: showEnvido(1,7)
+[AccionesJuego] INFO [2016-09-02 23:16:22,799]: 1 tiene 7 de envido
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,799]: showEnvido(1,7)
+[AccionesJuego] INFO [2016-09-02 23:16:22,799]: 1 gano el envido
+[AccionesJuego] DEBUG [2016-09-02 23:16:22,799]: winnerEnvido(1)

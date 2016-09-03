@@ -1,4 +1,6 @@
+ # -*- coding: utf-8 -*-
 import logging
+import pdb
 logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/accionGame.log', level='DEBUG')
 import random
 
@@ -99,16 +101,37 @@ class AccionesJuego:
         logging.debug(str2)
         logging.info(str1)
 
-    def getActionPlayer(self, playerid):
+    def getActionPlayer(self, playerObject, gameInfo = {}, quiero = False):
         ''' Esta funcion se llama cuando se tiene que obtener un accion del jugador
+        *Esta funcion entrega informacion del estado juego en la variable infoGame
         @params
         @playerid: int
+        @infoGame: contiene información del juego
+        @quiero: booleand
         Ejemplo:
         accion = raw_input("Escriba la accion o carta a jugar>")
-        return accion
+        return accion(accion, valorAccion)
+
+        Acciones[JugadorCarta, envido, real envido, falta envido, truco, re truco, vale 4]
+
+        formato de respuesta: (accion, valor)
         '''
 
-        return random.randint(0,2)
+        ''' Las siguientes funciones generan jugadas de forma aleatoria para debuggiar el sistema. '''
+        accionRDM = random.randint(0,10) #Obtiene un numero aleatorio para determinar una accion
+        #pdb.set_trace()
+        accion = []
+        if gameInfo['quiero'] == True:
+            accion.append('Quiero')
+            accion.append(random.randint(0,1))
+        elif gameInfo['hand'] == 0 and accionRDM%2 == 0:
+            accion.append('envido')
+        else:
+            accion.append('JugarCarta')
+            accion.append(random.randint(0,2))
+        str1 = "getActionPlayer %d" % playerObject.getID(),accion
+        logging.debug(str1)
+        return accion
 
     def showCardPlaying(self, teamObject, playerObject, card):
         ''' Esta funcion se llama cuando se juega una carta
@@ -191,3 +214,36 @@ class AccionesJuego:
         '''
         str1 = 'El equipo %d gano el juego' % teamObject.getID()
         logging.info(str1)
+
+    ''' startEnvidoBlock '''
+
+    def envido(self, player):
+        '''
+        group: envido
+        Esta funcion se llama cuando alguien canta envido
+        @params
+        none'''
+        str1 = '%d canto envido' % player.getID()
+        str2 = 'envido(%d)' % player.getID()
+        logging.info(str1)
+        logging.debug(str2)
+        
+    def showEnvido(self, player):
+        '''
+        group: envido
+        Esta funcion se llama cuando un jugar canta su envido '''
+        str1 = '%d tiene %d de envido' % (player.getID(),player.getPointsEnvido())
+        str2 = 'showEnvido(%d,%d)' % (player.getID(),player.getPointsEnvido())
+        logging.info(str1)
+        logging.debug(str2)
+
+    def showWinnerEnvido(self,player):
+        '''
+        group: envido
+        Esta funcion se llama cuando se define un ganador del envido '''
+
+        str1 = '%d gano el envido' % player.getID()
+        str2 = 'winnerEnvido(%d)' % player.getID()
+        logging.info(str1)
+        logging.debug(str2)
+    ''' endEnvidoBlock '''
