@@ -1,3 +1,12 @@
+#!/usr/bin/env python 2.7
+# -*- coding: utf-8 -*-
+__author__ = "Lautaro Linquiman"
+__email__ = "acc.limayyo@gmail.com"
+__status__ = "Developing"
+__data__ = "20-01-15 05:07AM"
+
+
+
 import sys
 from cartas import Cartas
 from accionesJuego import AccionesJuego
@@ -11,6 +20,7 @@ logging.basicConfig(format='%(levelname)s [%(asctime)s][SVR]: %(message)s',
 
 global cuentaEjecucion
 cuentaEjecucion = 0
+
 
 
 def msg_debug(str1):
@@ -34,9 +44,11 @@ def msg_info(str1):
     cuentaEjecucion += 1
 
 class Game():
-    ''' Clase controlador del Juego
-    20-01-15 05:07AM Lautaro Linquiman'''
-    def __init__(self, tableObject):
+    def __init__(self, tableObject, configGame = {}):
+        '''
+        @param tableObject:
+        @param configGame: dic
+        '''
         self.status = 0
         self.tableObject = tableObject
 
@@ -52,10 +64,11 @@ class Game():
         self.handNumber = 0
         self.turn = 0
         self.cards = Cartas()
-        self.__envido = {}
+        self.e__envido = {}
         self.actionGame = AccionesJuego()
         self.resultLastHand = []  # Resultado de la ultima mano
         self.statusGame = 3
+        self.pointsByWin = configGame['pointsByWin'] if 'pointsByWin' in configGame else 30
         ''' Esta variable almacena el estado actual del juego
         y es asignada por la funcion
         getResultHand [0:win|1:parda|2:empate|3:continue] '''
@@ -71,49 +84,57 @@ class Game():
         self.numberPlayers = len(self.players)# Obtiene la cantidad de jugadores
 
     def setActionGame(self, classActionGame):
+        ''' Se asigna otra objecto classActionGame
+        @param classActionGame:  '''
         self.actionGame = classActionGame()
 
     def getStatus(self):
+        '''
+        @return: Estado del juego
+        @rtype: int '''
         return self.status
 
     def setStatus(self, status):
+        ''' Se asgina una estado de juego
+        @param status: int '''
         self.status = status
 
     def getTurn(self):
-        ''' Obtiene el id del jugador que es mano
-        @return{
-            int
-        } '''
+        '''
+        @return: el numero de turno que toca jugar
+        @rtype: int'''
         return self.turn
+
     def getTurnAndChange(self):
-        ''' Obtiene el id del jugador que es hand y cambia la mano'''
-        try:
-            msg_debug('[getTurn-turn] %d' % self.turn)
-        except:
-            pdb.set_trace()
-        if(self.turn == self.numberPlayers):
-            self.turn = 0
+        ''' Obtiene el id del jugador que es hand y cambia la mano
+        @rtype: playerObject'''
+        msg_debug('[getTurn-turn] %d' % self.turn)
         turn = self.players[self.turn]
         if self.getNumberTheCurrentHand == 0 and self.hand == 0:
             self.hand = self.turn
         self.changeTurn()
         return turn
+
     def changeTurn(self):
         ''' Cambia la hand del juego '''
-        if(self.turn == self.numberPlayers):
+        self.turn += 1
+        if(self.turn >= self.numberPlayers):
             self.turn = 0
-        else:
-            self.turn += 1
+        #else:
+
 
     def setTurn(self, nListPlayer):
-        '''Asigna el turno al jugador '''
-        self.turn = self.players[nListPlayer]
+        '''Asigna el turno al jugador
+        @param nListPlayer: int'''
+        self.turn = nListPlayer
         '''if(self.turn == self.numberPlayers):
             self.turn = 0'''
         #self.turn = self.turn
 
     def decCartaID(self, carta):
-        ''' Valida que el valor ingresado por el jugador sea valido '''
+        ''' Valida que el valor ingresado por el jugador sea valido
+        @param carta:
+        @rtype: int'''
         try:
             cardID = int(carta)
             if(cardID <= 3):
@@ -124,6 +145,9 @@ class Game():
             return 20
 
     def getRond(self):
+        '''
+        @return: Deuelve el numero de la mano
+        @rtype: int '''
         return self.handNumber
 
     def giveCardsToPlayers(self):
@@ -139,19 +163,27 @@ class Game():
         self.playsCard[playerID] = []
         return self.cardPlayer[playerID]'''
 
-    def giveCard(self, player, card):
-        '''Asigna la carta jugada en la determinada ronda'''
+    def giveCard(self, playerObject, cardObject):
+        '''Asigna las carta jugadas en la determinada ronda
+        @param playerObject:
+        @param cardObject:'''
         nrond = self.getRond()
-        self.hands[nrond].append((player, card))
+        self.hands[nrond].append((playerObject, cardObject))
 
-    def givePointsTeam(self, team, points):
-        team.givePoints(points)
+    def givePointsTeam(self, teamObject, points):
+        '''Le suma punto a un equipo
+        @param teamObject:
+        @param points: int'''
+        teamObject.givePoints(points)
 
     def getPointsTeams(self):
+        ''' obsoleto ? '''
         return self.teamPoints
 
     def getNumberTheCurrentHand(self):
-        ''' Esta funcion duelve el numero de la mano actual '''
+        ''' Esta funcion duelve el
+        @return: numero de la mano actual
+        @rtype: int '''
         self.numberTheCurrentHand = len(self.hands)
         return self.numberTheCurrentHand
 
@@ -159,22 +191,16 @@ class Game():
         ''' Devuelve el resultado de la mano anterior
         Solo se puede llamar despues de que se obtiene el resultado de una ronda
         y la mano es agregada en la variable hands
-        return
-        {
-            'player': object Player,
-            'parda': bool
-        }
+        @return: {player: playerObject, parda: bool}
+        @rtype: dic
         '''
         numberThePreviusHand = self.getNumberTheCurrentHand()-1
         return self.hands[numberThePreviusHand]
 
     def getResultCurrentHand(self):
         '''Devuelve el ganador de la ultima mano
-        return
-        {
-            'player': object Player,
-            'parda': bool
-        }
+        @return: {player: playerObject, parda: bool}
+        @rtype: dic
         '''
 
         numberTheCurrentHand = self.getNumberTheCurrentHand()
@@ -205,20 +231,14 @@ class Game():
         return tempResultHand
 
     def addResultHand(self, resultHand):
-        ''' Agrega un resultado a la lista de manos '''
+        ''' Agrega un resultado a la lista de manos
+        @param resultHand:'''
         self.hands.append(resultHand)
 
     def searchTeamWinnerTheRound(self):
-        '''Esta funcion se ejecuta cuando se busca un equipo ganador
-        de las rondas del juego
-        @params
-        null
-
-        @return
-        {
-            'team': object Team or int 0 = no winner,
-            'winner': int[1|0]
-        }
+        '''Esta funcion se ejecuta cuando se busca un
+        @return: equipo ganador de las rondas del juego {'team': object Team, 'winner': int[1|0]}
+        @rtype: dic
         '''
         result = {'team': 0, 'winner': 0}
         msg_info("SearchTeamWinner")
@@ -234,21 +254,19 @@ class Game():
         return result
 
     def getResultHandByNumber(self, numberHand):
-        ''' Devuelve el resultado de una mano por su numero de mano '''
+        ''' Devuelve el resultado de una mano por su numero de mano
+        @param numberHand: int
+        @return: {player: playerObject, parda: bool}
+        @rtype: dic'''
         return self.hands[numberHand]
 
     def getStatusTheRound(self):
         '''
-            Esta funcion devuelve el resultado de la mano jugada y
-            devuelve el estado que termino la mano
-            @params
-            null
+        Esta funcion devuelve el resultado de la mano jugada y
+        devuelve el estado que termino la mano
+        @return: {player: playerObject, parda: bool}
+        @rtype: dic
 
-            @return
-            {
-                'player': object Player,
-                'parda': bool
-            }
         '''
         tempResult = {}
         '''Devuelve este resultado cuando no existe un ganador pero si
@@ -322,27 +340,30 @@ class Game():
             #print ('points team %d: %d') %(team, self.teamPoints[team])
 
     ''' startEnvidoBlock '''
-    def envido(self, player):
+    def envido(self, playerObject):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y inicia el loop de envido
+        @param playerObject:
         '''
-        self.actionGame.envido(player)
-        if len(self.__envido) == 0:
+        self.actionGame.envido(playerObject)
+        if len(self.e__envido) == 0:
             self.playerChant = self.getTurn()
-        self.__envido['player'] = player
+        self.e__envido['player'] = playerObject
         #pdb.set_trace()
-        if not 'points' in self.__envido:
-            self.__envido['points'] = 2
+        if not 'points' in self.e__envido:
+            self.e__envido['points'] = 2
         else:
-            self.__envido['points'] += 2
+            self.e__envido['points'] += 2
 
         if not self.__loopEnvido:
             self.loopEnvido()
-
+        self.setTurn(self.playerChant) #Se le assigna el turno al jugador que canto el envido y continua el juego normalmente
     def loopEnvido(self):
         ''' Esta funcion se llama despues de que un jugador canta envido '''
+        self.actionGame.startLoopEnvido()
         self.__loopEnvido = True
-        while not 'winner' in self.__envido:
+        while not 'winner' in self.e__envido:
+
             player = self.getTurnAndChange()
             gameInfo = self.getInfo()
             accion = self.actionGame.getActionPlayer(\
@@ -351,13 +372,17 @@ class Game():
                 self.envido(player)
             elif accion[0] == 'Quiero':
                 if accion[1] == 1:
+                    self.actionGame.quiero(player)
                     self.getWinnerEnvido()
                 else:
-                    self.actionGame.showWinnerEnvido(self.__envido['player'])
-                    self.givePointsTeam(self.__envido['player'].getTeam(),2)
+                    self.actionGame.noQuiero(player)
+                    self.actionGame.showWinnerEnvido(self.e__envido['player'])
+                    self.givePointsTeam(self.e__envido['player'].getTeam(),2)
 
-                self.__envido['winner'] = True
-        pdb.set_trace()
+                self.e__envido['winner'] = True
+            #pdb.set_trace()
+        self.actionGame.finishLoopEnvido()
+        #pdb.set_trace()
     def getWinnerEnvido(self):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y otro lo acepta con un quiero
@@ -368,23 +393,21 @@ class Game():
         self.setTurn(self.hand)
         while cJugadas < self.numberPlayers:
             cJugadas += 1
-            player = self.getTurn()
+            player = self.getTurnAndChange()
             pPoints = player.getPointsEnvido()
             self.actionGame.showEnvido(player) #El jugador canta sus tantos
             if tempWinnerPoints < player.getPointsEnvido():
                 winner = player
             tempWinnerPoints = player.getPointsEnvido()
         self.actionGame.showWinnerEnvido(winner)
-        self.givePointsTeam(winner.getTeam(),2)
-        try:
-            self.setTurn(self.playerChant)
-        except:
-            pdb.set_trace()
+        self.givePointsTeam(winner.getTeam(),self.e__envido['points']) #Se le asigna los puntos del envido al equipo ganador
+
     ''' endEnvidoBlock '''
 
 
 
     def start(self):
+        ''' Esta funcion se llama cuando se inicia el juego '''
         self.actionGame.showMsgStartGame(self.players)
         self.actionGame.setPlayers(self.players)
         while 1:
@@ -445,15 +468,13 @@ class Game():
 
     def getInfo(self):
         ''' Esta funcion devuelve un diccionario con informacion del juego
-        @return
-        {
-            hand: int numero de mano actual
-        }
+        @return: { hand: int numero de mano actual, envido: {}}
+        @rtype: dic
         '''
-        quiero = False if len(self.__envido) == 0 else True
+        #quiero = False if len(self.e__envido) == 0 or 'winner' in self.e__envido else True
         infoGame = {
             'hand': self.getNumberTheCurrentHand(),
-            'quiero': quiero
+            'envido': self.e__envido
         }
 
         return infoGame
@@ -462,8 +483,6 @@ class Game():
     #eventos
     def startRound(self):
         ''' Esta funcion se llama cada vez que se inicia una nueva ronda
-        @params: none
-        @return: none
         '''
         self.resetRond()
         self.actionGame.showMsgStartRound()
@@ -474,7 +493,7 @@ class Game():
 
     def resetRond(self):
         ''' Esta funcion se llama cada vez se inicia una nueva ronda y vuelve a cargar todas las variables del juego'''
-        self.__envido = {}
+        self.e__envido = {}
         self.hand = 0
         self.playerChant = 0 # Esta funcion alamacena al jugar que canta una jugada para volver a pararse en el al terminar el quiero
         self.__loopEnvido = False #Esta funcion indica si ya inicio el loop del envido
@@ -483,16 +502,12 @@ class Game():
         self.statusGame = 3
 
     def finishRound(self):
-        ''' finishround
-        Esta funcion se ejecuta al terminar una ronda y se fija si alguno de
+        ''' Esta funcion se ejecuta al terminar una ronda y se fija si alguno de
         los equipos tiene mas de 30 puntos para determinar un ganador
-        @params: null
 
-        @return
-        {
-            'team': object Team or int 0 = no winner,
-            'winner': int[1|0]
-        }
+        @return: {'team': objectTeam , 'winner': int[1|0]}
+        @rtype: dic
+
         '''
         self.actionGame.showMsgFinishRound()
         result = self.searchTeamWinnerTheRound()
@@ -500,7 +515,10 @@ class Game():
 
     def startHand(self):
         ''' Esta funcion se llama cada vez que inicia una nueva ronda
-        y se asigna el turno al jugador indicado '''
+        y se asigna el turno al jugador indicado
+        @return: Numero de la mano que se va iniciar
+        @rtype: int
+         '''
         self.handNumber += 1
         self.actionGame.showMsgStartHand(self.handNumber)
         #self.hand = self.getTurn()

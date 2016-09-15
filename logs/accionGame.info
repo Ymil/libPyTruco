@@ -1,0 +1,298 @@
+[AccionesJuego] INFO [2016-09-07 19:17:05,273]: El equipo 1 tiene 0 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,273]: El equipo 2 tiene 0 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,273]: ('Cartas de Jugador', 1, ':', ['7_espada', '5_espada', '12_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,273]: ('Cartas de Jugador', 2, ':', ['3_oro', '4_basto', '6_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,273]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 2 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 1 tiene 32 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 2 tiene 30 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,275]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,275]: El jugador 1:1 jugo la carta 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,275]: El jugador 2:2 jugo la carta 4_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,275]: 1:1 gano la mano con 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,276]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,276]: El jugador 1:1 jugo la carta 5_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,276]: El jugador 2:2 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,276]: 2:2 gano la mano con 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,277]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,278]: El jugador 1:1 jugo la carta 12_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,278]: El jugador 2:2 jugo la carta 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,279]: 2:2 gano la mano con 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,279]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,279]: El equipo 1 tiene 2 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,279]: El equipo 2 tiene 2 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,280]: ('Cartas de Jugador', 1, ':', ['6_basto', '1_copa', '10_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,280]: ('Cartas de Jugador', 2, ':', ['11_basto', '3_copa', '7_copa'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,280]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,280]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,281]: El jugador 2 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,281]: El jugador 1 tiene 26 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,281]: El jugador 2 tiene 30 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,282]: El jugador 2 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,282]: El jugador 1:1 jugo la carta 1_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,282]: El jugador 2:2 jugo la carta 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,282]: 2:2 gano la mano con 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,283]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,283]: El jugador 1:1 jugo la carta 10_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,283]: El jugador 2:2 jugo la carta 7_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,283]: 1:1 gano la mano con 10_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,284]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,284]: El jugador 1:1 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,284]: El jugador 2:2 jugo la carta 11_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,284]: 2:2 gano la mano con 11_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,285]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,285]: El equipo 1 tiene 2 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,285]: El equipo 2 tiene 6 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,285]: ('Cartas de Jugador', 1, ':', ['10_oro', '4_basto', '1_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,285]: ('Cartas de Jugador', 2, ':', ['11_copa', '6_copa', '6_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,286]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,286]: El jugador 1:1 jugo la carta 4_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,286]: El jugador 2 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,287]: El jugador 1 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,287]: El jugador 1 tiene 4 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,287]: El jugador 2 tiene 26 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,288]: El jugador 2 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,288]: El jugador 2:2 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,289]: 2:2 gano la mano con 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,289]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,289]: El jugador 1:1 jugo la carta 10_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,290]: El jugador 2:2 jugo la carta 11_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,290]: 2:2 gano la mano con 11_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,291]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,291]: El equipo 1 tiene 2 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,291]: El equipo 2 tiene 10 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,292]: ('Cartas de Jugador', 1, ':', ['4_oro', '6_oro', '1_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,292]: ('Cartas de Jugador', 2, ':', ['3_copa', '7_copa', '1_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,292]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,293]: El jugador 1:1 jugo la carta 6_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,293]: El jugador 2:2 jugo la carta 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,293]: 2:2 gano la mano con 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,294]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,294]: El jugador 1:1 jugo la carta 1_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,295]: El jugador 2:2 jugo la carta 7_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,295]: 1:1 gano la mano con 1_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,295]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,296]: El jugador 1:1 jugo la carta 4_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,296]: El jugador 2:2 jugo la carta 1_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,296]: 2:2 gano la mano con 1_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,296]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,297]: El equipo 1 tiene 2 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,297]: El equipo 2 tiene 12 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,297]: ('Cartas de Jugador', 1, ':', ['7_basto', '2_oro', '5_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,298]: ('Cartas de Jugador', 2, ':', ['12_oro', '5_espada', '7_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,299]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,299]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,300]: El jugador 2 dijo no quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,300]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,300]: El jugador 1:1 jugo la carta 2_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,301]: El jugador 2:2 jugo la carta 7_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,301]: 2:2 gano la mano con 7_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,301]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,302]: El jugador 1:1 jugo la carta 7_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,302]: El jugador 2:2 jugo la carta 5_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,302]: 1:1 gano la mano con 7_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,303]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,303]: El jugador 1:1 jugo la carta 5_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,303]: El jugador 2:2 jugo la carta 12_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,303]: 2:2 gano la mano con 12_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,304]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,305]: El equipo 1 tiene 4 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,305]: El equipo 2 tiene 14 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,305]: ('Cartas de Jugador', 1, ':', ['12_basto', '6_basto', '3_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,306]: ('Cartas de Jugador', 2, ':', ['11_copa', '7_copa', '7_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,307]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,307]: El jugador 1:1 jugo la carta 12_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,307]: El jugador 2 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,308]: El jugador 1 dijo no quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,308]: El jugador 2 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,308]: El jugador 2:2 jugo la carta 7_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,309]: 1:1 gano la mano con 12_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,309]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,309]: El jugador 1:1 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,309]: El jugador 2:2 jugo la carta 11_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,310]: 2:2 gano la mano con 11_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,310]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,311]: El jugador 1:1 jugo la carta 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,311]: El jugador 2:2 jugo la carta 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,312]: 2:2 gano la mano con 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,312]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,312]: El equipo 1 tiene 4 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,313]: El equipo 2 tiene 18 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,313]: ('Cartas de Jugador', 1, ':', ['1_espada', '3_espada', '10_copa'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,313]: ('Cartas de Jugador', 2, ':', ['2_espada', '6_oro', '5_copa'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,314]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,314]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,314]: El jugador 2 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,315]: El jugador 1 tiene 24 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,316]: El jugador 2 tiene 6 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,317]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,317]: El jugador 1:1 jugo la carta 10_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,317]: El jugador 2:2 jugo la carta 6_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,317]: 1:1 gano la mano con 10_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,317]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,318]: El jugador 1:1 jugo la carta 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,318]: El jugador 2:2 jugo la carta 5_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,318]: 1:1 gano la mano con 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,318]: El equipo 1 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,319]: El equipo 1 tiene 8 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,319]: El equipo 2 tiene 18 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,319]: ('Cartas de Jugador', 1, ':', ['6_espada', '11_espada', '12_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,319]: ('Cartas de Jugador', 2, ':', ['10_copa', '2_copa', '5_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,319]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,320]: El jugador 1:1 jugo la carta 6_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,320]: El jugador 2:2 jugo la carta 10_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,320]: 2:2 gano la mano con 10_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,320]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,321]: El jugador 1:1 jugo la carta 12_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,321]: El jugador 2:2 jugo la carta 5_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,321]: 1:1 gano la mano con 12_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,321]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,322]: El jugador 1:1 jugo la carta 11_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,322]: El jugador 2:2 jugo la carta 2_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,322]: 2:2 gano la mano con 2_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,323]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,323]: El equipo 1 tiene 8 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,323]: El equipo 2 tiene 20 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,323]: ('Cartas de Jugador', 1, ':', ['7_espada', '7_oro', '3_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,323]: ('Cartas de Jugador', 2, ':', ['6_oro', '11_copa', '2_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,324]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,324]: El jugador 1:1 jugo la carta 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,324]: El jugador 2 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,324]: El jugador 1 dijo no quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,325]: El jugador 2 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,325]: El jugador 2:2 jugo la carta 6_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,325]: 1:1 gano la mano con 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,325]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,326]: El jugador 1:1 jugo la carta 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,326]: El jugador 2:2 jugo la carta 2_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,326]: 1:1 gano la mano con 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,326]: El equipo 1 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,327]: El equipo 1 tiene 10 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,327]: El equipo 2 tiene 22 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,327]: ('Cartas de Jugador', 1, ':', ['2_oro', '2_espada', '11_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,327]: ('Cartas de Jugador', 2, ':', ['1_copa', '3_oro', '3_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,327]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 1:1 jugo la carta 2_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 2 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 1 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 1 tiene 22 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,329]: El jugador 2 tiene 3 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,329]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,329]: El jugador 2:2 jugo la carta 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,330]: 2:2 gano la mano con 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,330]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,330]: El jugador 1:1 jugo la carta 2_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El jugador 2:2 jugo la carta 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,331]: 2:2 gano la mano con 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El equipo 1 tiene 12 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El equipo 2 tiene 24 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,332]: ('Cartas de Jugador', 1, ':', ['11_basto', '2_espada', '3_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,332]: ('Cartas de Jugador', 2, ':', ['3_basto', '4_espada', '7_copa'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,332]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,332]: El jugador 1:1 jugo la carta 2_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,332]: El jugador 2:2 jugo la carta 7_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,333]: 1:1 gano la mano con 2_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,333]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,333]: El jugador 1:1 jugo la carta 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,334]: El jugador 2:2 jugo la carta 4_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,334]: 1:1 gano la mano con 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,334]: El equipo 1 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,334]: El equipo 1 tiene 14 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,335]: El equipo 2 tiene 24 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,335]: ('Cartas de Jugador', 1, ':', ['5_espada', '3_copa', '1_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,335]: ('Cartas de Jugador', 2, ':', ['2_espada', '6_basto', '4_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,335]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,335]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 2 dijo no quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 1:1 jugo la carta 1_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 2:2 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,337]: 1:1 gano la mano con 1_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,338]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,338]: El jugador 1:1 jugo la carta 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,339]: El jugador 2:2 jugo la carta 2_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,340]: 1:1 gano la mano con 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,340]: El equipo 1 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,341]: El equipo 1 tiene 18 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,341]: El equipo 2 tiene 24 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,341]: ('Cartas de Jugador', 1, ':', ['6_copa', '6_espada', '1_copa'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,342]: ('Cartas de Jugador', 2, ':', ['10_basto', '3_copa', '6_basto'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,342]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,342]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,342]: El jugador 2 dijo no quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,342]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,343]: El jugador 1:1 jugo la carta 1_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,343]: El jugador 2:2 jugo la carta 10_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,343]: 1:1 gano la mano con 1_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,343]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,344]: El jugador 1:1 jugo la carta 6_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,344]: El jugador 2:2 jugo la carta 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,344]: 2:2 gano la mano con 3_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,345]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,345]: El jugador 1:1 jugo la carta 6_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El jugador 2:2 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,346]: 1:1 gano la mano con 6_copa
+[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El equipo 1 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El equipo 1 tiene 22 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El equipo 2 tiene 24 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,347]: ('Cartas de Jugador', 1, ':', ['12_espada', '7_copa', '3_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,347]: ('Cartas de Jugador', 2, ':', ['10_espada', '6_basto', '4_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,347]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,347]: El jugador 1:1 jugo la carta 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,348]: El jugador 2 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,348]: El jugador 1 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,348]: El jugador 1 tiene 23 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,349]: El jugador 2 tiene 24 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,349]: El jugador 2 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,349]: El jugador 2:2 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,349]: 1:1 gano la mano con 3_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,349]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,350]: El jugador 1:1 jugo la carta 12_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,350]: El jugador 2:2 jugo la carta 10_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,350]: 1:1 gano la mano con 12_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,350]: El equipo 1 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,351]: El equipo 1 tiene 24 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,351]: El equipo 2 tiene 26 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,351]: ('Cartas de Jugador', 1, ':', ['1_basto', '10_espada', '6_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,351]: ('Cartas de Jugador', 2, ':', ['11_basto', '1_espada', '4_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,351]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,351]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 2 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 1 tiene 6 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 2 tiene 4 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,353]: El jugador 1:1 jugo la carta 1_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,353]: El jugador 2:2 jugo la carta 1_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,353]: 2:2 gano la mano con 1_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,353]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,353]: El jugador 1:1 jugo la carta 6_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,354]: El jugador 2:2 jugo la carta 4_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,354]: 1:1 gano la mano con 6_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,354]: -----------------Iniciando mano 3-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,354]: El jugador 1:1 jugo la carta 10_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El jugador 2:2 jugo la carta 11_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,355]: 2:2 gano la mano con 11_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El equipo 1 tiene 26 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El equipo 2 tiene 28 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,356]: ('Cartas de Jugador', 1, ':', ['2_basto', '6_basto', '12_oro'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,356]: ('Cartas de Jugador', 2, ':', ['1_copa', '3_oro', '7_espada'])
+[AccionesJuego] INFO [2016-09-07 19:17:05,356]: -----------------Iniciando mano 1-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,356]: El jugador 1 canto envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,356]: El jugador 2 dijo quiero
+[AccionesJuego] INFO [2016-09-07 19:17:05,357]: El jugador 1 tiene 28 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,357]: El jugador 2 tiene 7 de envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,357]: El jugador 1 gano el envido
+[AccionesJuego] INFO [2016-09-07 19:17:05,358]: El jugador 1:1 jugo la carta 6_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,358]: El jugador 2:2 jugo la carta 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,358]: 2:2 gano la mano con 3_oro
+[AccionesJuego] INFO [2016-09-07 19:17:05,358]: -----------------Iniciando mano 2-----------------
+[AccionesJuego] INFO [2016-09-07 19:17:05,359]: El jugador 1:1 jugo la carta 2_basto
+[AccionesJuego] INFO [2016-09-07 19:17:05,359]: El jugador 2:2 jugo la carta 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,359]: 2:2 gano la mano con 7_espada
+[AccionesJuego] INFO [2016-09-07 19:17:05,359]: El equipo 2 gano la ronda
+[AccionesJuego] INFO [2016-09-07 19:17:05,360]: El equipo 1 tiene 28 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,360]: El equipo 2 tiene 30 puntos
+[AccionesJuego] INFO [2016-09-07 19:17:05,360]: El equipo 2 gano el juego

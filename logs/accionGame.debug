@@ -1,52 +1,33 @@
-
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: startGame
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: teamPoints(1,0)
-[AccionesJuego] INFO [2016-09-07 19:17:05,273]: El equipo 1 tiene 0 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: teamPoints(2,0)
-[AccionesJuego] INFO [2016-09-07 19:17:05,273]: El equipo 2 tiene 0 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,273]: ('Cartas de Jugador', 1, ':', ['7_espada', '5_espada', '12_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: ('showCards(', 1, ',', ['7_espada', '5_espada', '12_espada'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,273]: ('Cartas de Jugador', 2, ':', ['3_oro', '4_basto', '6_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: ('showCards(', 2, ',', ['3_oro', '4_basto', '6_basto'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,273]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,273]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,274]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,274]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,274]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,274]: ('getActionPlayer 2', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 2 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,274]: Quiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 1 tiene 32 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,274]: showEnvido(1,32)
-[AccionesJuego] INFO [2016-09-07 19:17:05,274]: El jugador 2 tiene 30 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: showEnvido(2,30)
-[AccionesJuego] INFO [2016-09-07 19:17:05,275]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,275]: El jugador 1:1 jugo la carta 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: showCardPlaying(1,1,7_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,275]: El jugador 2:2 jugo la carta 4_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: showCardPlaying(2,2,4_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,275]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,275]: 1:1 gano la mano con 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: showResultaTheHand(1,1,7_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,276]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,276]: El jugador 1:1 jugo la carta 5_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: showCardPlaying(1,1,5_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,276]: El jugador 2:2 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: showCardPlaying(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,276]: 2:2 gano la mano con 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: showResultaTheHand(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,276]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,277]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,277]: ('getActionPlayer 1', ['JugarCarta', 0])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,277]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,277]: ('getActionPlayer 1', ['JugarCarta', 1])
@@ -61,769 +42,488 @@
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,278]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,278]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,278]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,278]: El jugador 1:1 jugo la carta 12_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,278]: showCardPlaying(1,1,12_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,278]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,278]: El jugador 2:2 jugo la carta 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: showCardPlaying(2,2,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,279]: 2:2 gano la mano con 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: showResultaTheHand(2,2,3_oro)
-[AccionesJuego] INFO [2016-09-07 19:17:05,279]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: teamPoints(1,2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,279]: El equipo 1 tiene 2 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,279]: teamPoints(2,2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,279]: El equipo 2 tiene 2 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,280]: ('Cartas de Jugador', 1, ':', ['6_basto', '1_copa', '10_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,280]: ('showCards(', 1, ',', ['6_basto', '1_copa', '10_basto'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,280]: ('Cartas de Jugador', 2, ':', ['11_basto', '3_copa', '7_copa'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,280]: ('showCards(', 2, ',', ['11_basto', '3_copa', '7_copa'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,280]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,280]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,280]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,280]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,280]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,281]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,281]: ('getActionPlayer 2', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,281]: El jugador 2 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,281]: Quiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,281]: El jugador 1 tiene 26 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,281]: showEnvido(1,26)
-[AccionesJuego] INFO [2016-09-07 19:17:05,281]: El jugador 2 tiene 30 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,281]: showEnvido(2,30)
-[AccionesJuego] INFO [2016-09-07 19:17:05,282]: El jugador 2 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: winnerEnvido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,282]: El jugador 1:1 jugo la carta 1_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: showCardPlaying(1,1,1_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,282]: El jugador 2:2 jugo la carta 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: showCardPlaying(2,2,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,282]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,282]: 2:2 gano la mano con 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: showResultaTheHand(2,2,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,283]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,283]: El jugador 1:1 jugo la carta 10_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: showCardPlaying(1,1,10_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,283]: El jugador 2:2 jugo la carta 7_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: showCardPlaying(2,2,7_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,283]: 1:1 gano la mano con 10_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,283]: showResultaTheHand(1,1,10_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,284]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,284]: El jugador 1:1 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: showCardPlaying(1,1,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,284]: El jugador 2:2 jugo la carta 11_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: showCardPlaying(2,2,11_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,284]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,284]: 2:2 gano la mano con 11_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,285]: showResultaTheHand(2,2,11_basto)
-[AccionesJuego] INFO [2016-09-07 19:17:05,285]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,285]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,285]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,285]: teamPoints(1,2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,285]: El equipo 1 tiene 2 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,285]: teamPoints(2,6)
-[AccionesJuego] INFO [2016-09-07 19:17:05,285]: El equipo 2 tiene 6 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,285]: ('Cartas de Jugador', 1, ':', ['10_oro', '4_basto', '1_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,285]: ('showCards(', 1, ',', ['10_oro', '4_basto', '1_espada'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,285]: ('Cartas de Jugador', 2, ':', ['11_copa', '6_copa', '6_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: ('showCards(', 2, ',', ['11_copa', '6_copa', '6_basto'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,286]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,286]: El jugador 1:1 jugo la carta 4_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: showCardPlaying(1,1,4_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: ('getActionPlayer 2', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,286]: El jugador 2 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: envido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,286]: ('getActionPlayer 1', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,287]: El jugador 1 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,287]: Quiero(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,287]: El jugador 1 tiene 4 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,287]: showEnvido(1,4)
-[AccionesJuego] INFO [2016-09-07 19:17:05,287]: El jugador 2 tiene 26 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,288]: showEnvido(2,26)
-[AccionesJuego] INFO [2016-09-07 19:17:05,288]: El jugador 2 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,288]: winnerEnvido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,288]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,288]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,288]: El jugador 2:2 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,289]: showCardPlaying(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,289]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,289]: 2:2 gano la mano con 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,289]: showResultaTheHand(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,289]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,289]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,289]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,289]: El jugador 1:1 jugo la carta 10_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,290]: showCardPlaying(1,1,10_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,290]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,290]: El jugador 2:2 jugo la carta 11_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,290]: showCardPlaying(2,2,11_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,290]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,290]: 2:2 gano la mano con 11_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,291]: showResultaTheHand(2,2,11_copa)
-[AccionesJuego] INFO [2016-09-07 19:17:05,291]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,291]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,291]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,291]: teamPoints(1,2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,291]: El equipo 1 tiene 2 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,291]: teamPoints(2,10)
-[AccionesJuego] INFO [2016-09-07 19:17:05,291]: El equipo 2 tiene 10 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,292]: ('Cartas de Jugador', 1, ':', ['4_oro', '6_oro', '1_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,292]: ('showCards(', 1, ',', ['4_oro', '6_oro', '1_basto'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,292]: ('Cartas de Jugador', 2, ':', ['3_copa', '7_copa', '1_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,292]: ('showCards(', 2, ',', ['3_copa', '7_copa', '1_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,292]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,292]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,293]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,293]: El jugador 1:1 jugo la carta 6_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,293]: showCardPlaying(1,1,6_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,293]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,293]: El jugador 2:2 jugo la carta 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,293]: showCardPlaying(2,2,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,293]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,293]: 2:2 gano la mano con 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,294]: showResultaTheHand(2,2,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,294]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,294]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,294]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,294]: El jugador 1:1 jugo la carta 1_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,294]: showCardPlaying(1,1,1_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,294]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,295]: El jugador 2:2 jugo la carta 7_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,295]: showCardPlaying(2,2,7_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,295]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,295]: 1:1 gano la mano con 1_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,295]: showResultaTheHand(1,1,1_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,295]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,295]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,295]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,296]: El jugador 1:1 jugo la carta 4_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: showCardPlaying(1,1,4_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,296]: El jugador 2:2 jugo la carta 1_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: showCardPlaying(2,2,1_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,296]: 2:2 gano la mano con 1_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: showResultaTheHand(2,2,1_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,296]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,296]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,297]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,297]: teamPoints(1,2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,297]: El equipo 1 tiene 2 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,297]: teamPoints(2,12)
-[AccionesJuego] INFO [2016-09-07 19:17:05,297]: El equipo 2 tiene 12 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,297]: ('Cartas de Jugador', 1, ':', ['7_basto', '2_oro', '5_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,297]: ('showCards(', 1, ',', ['7_basto', '2_oro', '5_basto'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,298]: ('Cartas de Jugador', 2, ':', ['12_oro', '5_espada', '7_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,298]: ('showCards(', 2, ',', ['12_oro', '5_espada', '7_oro'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,298]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,299]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,299]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,299]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,299]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: ('getActionPlayer 2', ['Quiero', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,300]: El jugador 2 dijo no quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: noQuiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,300]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,300]: El jugador 1:1 jugo la carta 2_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,300]: showCardPlaying(1,1,2_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,301]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,301]: El jugador 2:2 jugo la carta 7_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,301]: showCardPlaying(2,2,7_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,301]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,301]: 2:2 gano la mano con 7_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,301]: showResultaTheHand(2,2,7_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,301]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,301]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,302]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,302]: El jugador 1:1 jugo la carta 7_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,302]: showCardPlaying(1,1,7_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,302]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,302]: El jugador 2:2 jugo la carta 5_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,302]: showCardPlaying(2,2,5_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,302]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,302]: 1:1 gano la mano con 7_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,302]: showResultaTheHand(1,1,7_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,303]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,303]: El jugador 1:1 jugo la carta 5_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: showCardPlaying(1,1,5_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,303]: El jugador 2:2 jugo la carta 12_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: showCardPlaying(2,2,12_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,303]: 2:2 gano la mano con 12_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,303]: showResultaTheHand(2,2,12_oro)
-[AccionesJuego] INFO [2016-09-07 19:17:05,304]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,304]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,304]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,305]: teamPoints(1,4)
-[AccionesJuego] INFO [2016-09-07 19:17:05,305]: El equipo 1 tiene 4 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,305]: teamPoints(2,14)
-[AccionesJuego] INFO [2016-09-07 19:17:05,305]: El equipo 2 tiene 14 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,305]: ('Cartas de Jugador', 1, ':', ['12_basto', '6_basto', '3_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,306]: ('showCards(', 1, ',', ['12_basto', '6_basto', '3_oro'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,306]: ('Cartas de Jugador', 2, ':', ['11_copa', '7_copa', '7_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,306]: ('showCards(', 2, ',', ['11_copa', '7_copa', '7_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,307]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,307]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,307]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,307]: El jugador 1:1 jugo la carta 12_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,307]: showCardPlaying(1,1,12_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,307]: ('getActionPlayer 2', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,307]: El jugador 2 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,307]: envido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: ('getActionPlayer 1', ['Quiero', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,308]: El jugador 1 dijo no quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: noQuiero(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,308]: El jugador 2 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: winnerEnvido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,308]: El jugador 2:2 jugo la carta 7_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,308]: showCardPlaying(2,2,7_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,309]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,309]: 1:1 gano la mano con 12_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,309]: showResultaTheHand(1,1,12_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,309]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,309]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,309]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,309]: El jugador 1:1 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,309]: showCardPlaying(1,1,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,309]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,309]: El jugador 2:2 jugo la carta 11_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,310]: showCardPlaying(2,2,11_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,310]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,310]: 2:2 gano la mano con 11_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,310]: showResultaTheHand(2,2,11_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,310]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,310]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,310]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,311]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,311]: El jugador 1:1 jugo la carta 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,311]: showCardPlaying(1,1,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,311]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,311]: El jugador 2:2 jugo la carta 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,311]: showCardPlaying(2,2,7_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,311]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,312]: 2:2 gano la mano con 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,312]: showResultaTheHand(2,2,7_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,312]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,312]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,312]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,312]: teamPoints(1,4)
-[AccionesJuego] INFO [2016-09-07 19:17:05,312]: El equipo 1 tiene 4 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,313]: teamPoints(2,18)
-[AccionesJuego] INFO [2016-09-07 19:17:05,313]: El equipo 2 tiene 18 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,313]: ('Cartas de Jugador', 1, ':', ['1_espada', '3_espada', '10_copa'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,313]: ('showCards(', 1, ',', ['1_espada', '3_espada', '10_copa'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,313]: ('Cartas de Jugador', 2, ':', ['2_espada', '6_oro', '5_copa'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,313]: ('showCards(', 2, ',', ['2_espada', '6_oro', '5_copa'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,313]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,314]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,314]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,314]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,314]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,314]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,314]: ('getActionPlayer 2', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,314]: El jugador 2 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,314]: Quiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,315]: El jugador 1 tiene 24 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,315]: showEnvido(1,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,316]: El jugador 2 tiene 6 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,316]: showEnvido(2,6)
-[AccionesJuego] INFO [2016-09-07 19:17:05,317]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,317]: El jugador 1:1 jugo la carta 10_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: showCardPlaying(1,1,10_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,317]: El jugador 2:2 jugo la carta 6_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: showCardPlaying(2,2,6_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,317]: 1:1 gano la mano con 10_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: showResultaTheHand(1,1,10_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,317]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,317]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,318]: El jugador 1:1 jugo la carta 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: showCardPlaying(1,1,3_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,318]: El jugador 2:2 jugo la carta 5_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: showCardPlaying(2,2,5_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,318]: 1:1 gano la mano con 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: showResultaTheHand(1,1,3_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,318]: El equipo 1 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,318]: teamPoints(1,8)
-[AccionesJuego] INFO [2016-09-07 19:17:05,319]: El equipo 1 tiene 8 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,319]: teamPoints(2,18)
-[AccionesJuego] INFO [2016-09-07 19:17:05,319]: El equipo 2 tiene 18 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,319]: ('Cartas de Jugador', 1, ':', ['6_espada', '11_espada', '12_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,319]: ('showCards(', 1, ',', ['6_espada', '11_espada', '12_basto'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,319]: ('Cartas de Jugador', 2, ':', ['10_copa', '2_copa', '5_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,319]: ('showCards(', 2, ',', ['10_copa', '2_copa', '5_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,319]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,319]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,319]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,320]: El jugador 1:1 jugo la carta 6_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: showCardPlaying(1,1,6_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,320]: El jugador 2:2 jugo la carta 10_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: showCardPlaying(2,2,10_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,320]: 2:2 gano la mano con 10_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: showResultaTheHand(2,2,10_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,320]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,320]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,321]: El jugador 1:1 jugo la carta 12_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: showCardPlaying(1,1,12_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,321]: El jugador 2:2 jugo la carta 5_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: showCardPlaying(2,2,5_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,321]: 1:1 gano la mano con 12_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: showResultaTheHand(1,1,12_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,321]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,321]: ('getActionPlayer 1', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: ('getActionPlayer 1', ['JugarCarta', 0])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,322]: El jugador 1:1 jugo la carta 11_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: showCardPlaying(1,1,11_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: ('getActionPlayer 2', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: ('getActionPlayer 2', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: ('getActionPlayer 2', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,322]: El jugador 2:2 jugo la carta 2_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: showCardPlaying(2,2,2_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,322]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,322]: 2:2 gano la mano con 2_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,323]: showResultaTheHand(2,2,2_copa)
-[AccionesJuego] INFO [2016-09-07 19:17:05,323]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,323]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,323]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,323]: teamPoints(1,8)
-[AccionesJuego] INFO [2016-09-07 19:17:05,323]: El equipo 1 tiene 8 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,323]: teamPoints(2,20)
-[AccionesJuego] INFO [2016-09-07 19:17:05,323]: El equipo 2 tiene 20 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,323]: ('Cartas de Jugador', 1, ':', ['7_espada', '7_oro', '3_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,323]: ('showCards(', 1, ',', ['7_espada', '7_oro', '3_espada'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,323]: ('Cartas de Jugador', 2, ':', ['6_oro', '11_copa', '2_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: ('showCards(', 2, ',', ['6_oro', '11_copa', '2_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,324]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,324]: El jugador 1:1 jugo la carta 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: showCardPlaying(1,1,7_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: ('getActionPlayer 2', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,324]: El jugador 2 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: envido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,324]: ('getActionPlayer 1', ['Quiero', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,324]: El jugador 1 dijo no quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: noQuiero(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,325]: El jugador 2 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: winnerEnvido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,325]: El jugador 2:2 jugo la carta 6_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: showCardPlaying(2,2,6_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,325]: 1:1 gano la mano con 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: showResultaTheHand(1,1,7_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,325]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,325]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,326]: El jugador 1:1 jugo la carta 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: showCardPlaying(1,1,3_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,326]: El jugador 2:2 jugo la carta 2_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: showCardPlaying(2,2,2_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,326]: 1:1 gano la mano con 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: showResultaTheHand(1,1,3_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,326]: El equipo 1 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,326]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,327]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,327]: teamPoints(1,10)
-[AccionesJuego] INFO [2016-09-07 19:17:05,327]: El equipo 1 tiene 10 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,327]: teamPoints(2,22)
-[AccionesJuego] INFO [2016-09-07 19:17:05,327]: El equipo 2 tiene 22 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,327]: ('Cartas de Jugador', 1, ':', ['2_oro', '2_espada', '11_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,327]: ('showCards(', 1, ',', ['2_oro', '2_espada', '11_oro'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,327]: ('Cartas de Jugador', 2, ':', ['1_copa', '3_oro', '3_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,327]: ('showCards(', 2, ',', ['1_copa', '3_oro', '3_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,327]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,327]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 1:1 jugo la carta 2_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: showCardPlaying(1,1,2_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: ('getActionPlayer 2', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 2 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: envido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: ('getActionPlayer 1', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 1 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,328]: Quiero(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,328]: El jugador 1 tiene 22 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,329]: showEnvido(1,22)
-[AccionesJuego] INFO [2016-09-07 19:17:05,329]: El jugador 2 tiene 3 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,329]: showEnvido(2,3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,329]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,329]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,329]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,329]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,329]: El jugador 2:2 jugo la carta 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: showCardPlaying(2,2,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,330]: 2:2 gano la mano con 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: showResultaTheHand(2,2,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,330]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: ('getActionPlayer 1', ['JugarCarta', 0])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: ('getActionPlayer 1', ['JugarCarta', 0])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,330]: El jugador 1:1 jugo la carta 2_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: showCardPlaying(1,1,2_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,330]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El jugador 2:2 jugo la carta 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: showCardPlaying(2,2,3_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,331]: 2:2 gano la mano con 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: showResultaTheHand(2,2,3_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: teamPoints(1,12)
-[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El equipo 1 tiene 12 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,331]: teamPoints(2,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,331]: El equipo 2 tiene 24 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,332]: ('Cartas de Jugador', 1, ':', ['11_basto', '2_espada', '3_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,332]: ('showCards(', 1, ',', ['11_basto', '2_espada', '3_oro'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,332]: ('Cartas de Jugador', 2, ':', ['3_basto', '4_espada', '7_copa'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,332]: ('showCards(', 2, ',', ['3_basto', '4_espada', '7_copa'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,332]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,332]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,332]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,332]: El jugador 1:1 jugo la carta 2_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,332]: showCardPlaying(1,1,2_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,332]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,332]: El jugador 2:2 jugo la carta 7_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: showCardPlaying(2,2,7_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,333]: 1:1 gano la mano con 2_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: showResultaTheHand(1,1,2_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,333]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,333]: El jugador 1:1 jugo la carta 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: showCardPlaying(1,1,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,333]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,334]: El jugador 2:2 jugo la carta 4_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: showCardPlaying(2,2,4_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,334]: 1:1 gano la mano con 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: showResultaTheHand(1,1,3_oro)
-[AccionesJuego] INFO [2016-09-07 19:17:05,334]: El equipo 1 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: teamPoints(1,14)
-[AccionesJuego] INFO [2016-09-07 19:17:05,334]: El equipo 1 tiene 14 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,334]: teamPoints(2,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,335]: El equipo 2 tiene 24 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,335]: ('Cartas de Jugador', 1, ':', ['5_espada', '3_copa', '1_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: ('showCards(', 1, ',', ['5_espada', '3_copa', '1_basto'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,335]: ('Cartas de Jugador', 2, ':', ['2_espada', '6_basto', '4_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: ('showCards(', 2, ',', ['2_espada', '6_basto', '4_oro'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,335]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,335]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,335]: ('getActionPlayer 2', ['Quiero', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 2 dijo no quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: noQuiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 1:1 jugo la carta 1_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: showCardPlaying(1,1,1_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,336]: El jugador 2:2 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,336]: showCardPlaying(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,337]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,337]: 1:1 gano la mano con 1_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,337]: showResultaTheHand(1,1,1_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,338]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,338]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,338]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,338]: El jugador 1:1 jugo la carta 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,339]: showCardPlaying(1,1,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,339]: ('getActionPlayer 2', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,339]: ('getActionPlayer 2', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,339]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,339]: El jugador 2:2 jugo la carta 2_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,339]: showCardPlaying(2,2,2_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,339]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,340]: 1:1 gano la mano con 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,340]: showResultaTheHand(1,1,3_copa)
-[AccionesJuego] INFO [2016-09-07 19:17:05,340]: El equipo 1 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,340]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,340]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,340]: teamPoints(1,18)
-[AccionesJuego] INFO [2016-09-07 19:17:05,341]: El equipo 1 tiene 18 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,341]: teamPoints(2,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,341]: El equipo 2 tiene 24 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,341]: ('Cartas de Jugador', 1, ':', ['6_copa', '6_espada', '1_copa'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,341]: ('showCards(', 1, ',', ['6_copa', '6_espada', '1_copa'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,342]: ('Cartas de Jugador', 2, ':', ['10_basto', '3_copa', '6_basto'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: ('showCards(', 2, ',', ['10_basto', '3_copa', '6_basto'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,342]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,342]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: ('getActionPlayer 2', ['Quiero', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,342]: El jugador 2 dijo no quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: noQuiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,342]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,342]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,343]: El jugador 1:1 jugo la carta 1_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: showCardPlaying(1,1,1_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,343]: El jugador 2:2 jugo la carta 10_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: showCardPlaying(2,2,10_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,343]: 1:1 gano la mano con 1_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: showResultaTheHand(1,1,1_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,343]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,343]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,344]: El jugador 1:1 jugo la carta 6_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: showCardPlaying(1,1,6_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,344]: El jugador 2:2 jugo la carta 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: showCardPlaying(2,2,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,344]: 2:2 gano la mano con 3_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: showResultaTheHand(2,2,3_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,344]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,345]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 1', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 1', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,345]: El jugador 1:1 jugo la carta 6_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: showCardPlaying(1,1,6_copa)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 2', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 2', ['JugarCarta', 0])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,345]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El jugador 2:2 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: showCardPlaying(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,346]: 1:1 gano la mano con 6_copa
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: showResultaTheHand(1,1,6_copa)
-[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El equipo 1 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: teamPoints(1,22)
-[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El equipo 1 tiene 22 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,346]: teamPoints(2,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,346]: El equipo 2 tiene 24 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,347]: ('Cartas de Jugador', 1, ':', ['12_espada', '7_copa', '3_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,347]: ('showCards(', 1, ',', ['12_espada', '7_copa', '3_espada'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,347]: ('Cartas de Jugador', 2, ':', ['10_espada', '6_basto', '4_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,347]: ('showCards(', 2, ',', ['10_espada', '6_basto', '4_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,347]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,347]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,347]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,347]: El jugador 1:1 jugo la carta 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: showCardPlaying(1,1,3_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: ('getActionPlayer 2', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,348]: El jugador 2 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: envido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: ('getActionPlayer 1', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,348]: El jugador 1 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: Quiero(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,348]: El jugador 1 tiene 23 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,348]: showEnvido(1,23)
-[AccionesJuego] INFO [2016-09-07 19:17:05,349]: El jugador 2 tiene 24 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: showEnvido(2,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,349]: El jugador 2 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: winnerEnvido(2)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,349]: El jugador 2:2 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: showCardPlaying(2,2,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,349]: 1:1 gano la mano con 3_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: showResultaTheHand(1,1,3_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,349]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,349]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,350]: El jugador 1:1 jugo la carta 12_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: showCardPlaying(1,1,12_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: ('getActionPlayer 2', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: ('getActionPlayer 2', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,350]: El jugador 2:2 jugo la carta 10_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: showCardPlaying(2,2,10_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,350]: 1:1 gano la mano con 12_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: showResultaTheHand(1,1,12_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,350]: El equipo 1 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,350]: teamPoints(1,24)
-[AccionesJuego] INFO [2016-09-07 19:17:05,351]: El equipo 1 tiene 24 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: teamPoints(2,26)
-[AccionesJuego] INFO [2016-09-07 19:17:05,351]: El equipo 2 tiene 26 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,351]: ('Cartas de Jugador', 1, ':', ['1_basto', '10_espada', '6_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: ('showCards(', 1, ',', ['1_basto', '10_espada', '6_oro'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,351]: ('Cartas de Jugador', 2, ':', ['11_basto', '1_espada', '4_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: ('showCards(', 2, ',', ['11_basto', '1_espada', '4_oro'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,351]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,351]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,351]: ('getActionPlayer 2', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 2 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,352]: Quiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 1 tiene 6 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,352]: showEnvido(1,6)
-[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 2 tiene 4 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,352]: showEnvido(2,4)
-[AccionesJuego] INFO [2016-09-07 19:17:05,352]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,352]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,352]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,352]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,353]: El jugador 1:1 jugo la carta 1_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: showCardPlaying(1,1,1_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,353]: El jugador 2:2 jugo la carta 1_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: showCardPlaying(2,2,1_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,353]: 2:2 gano la mano con 1_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: showResultaTheHand(2,2,1_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,353]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: ('getActionPlayer 1', ['JugarCarta', 0])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: ('getActionPlayer 1', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,353]: El jugador 1:1 jugo la carta 6_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,353]: showCardPlaying(1,1,6_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,354]: El jugador 2:2 jugo la carta 4_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: showCardPlaying(2,2,4_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,354]: 1:1 gano la mano con 6_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: showResultaTheHand(1,1,6_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: startHand(3)
-[AccionesJuego] INFO [2016-09-07 19:17:05,354]: -----------------Iniciando mano 3-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: ('getActionPlayer 1', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: ('getActionPlayer 1', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,354]: El jugador 1:1 jugo la carta 10_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: showCardPlaying(1,1,10_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,354]: ('getActionPlayer 2', ['JugarCarta', 1])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: ('getActionPlayer 2', ['JugarCarta', 2])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: ('getActionPlayer 2', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El jugador 2:2 jugo la carta 11_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: showCardPlaying(2,2,11_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,355]: 2:2 gano la mano con 11_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: showResultaTheHand(2,2,11_basto)
-[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: startRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: teamPoints(1,26)
-[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El equipo 1 tiene 26 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,355]: teamPoints(2,28)
-[AccionesJuego] INFO [2016-09-07 19:17:05,355]: El equipo 2 tiene 28 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,356]: ('Cartas de Jugador', 1, ':', ['2_basto', '6_basto', '12_oro'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: ('showCards(', 1, ',', ['2_basto', '6_basto', '12_oro'], ')')
-[AccionesJuego] INFO [2016-09-07 19:17:05,356]: ('Cartas de Jugador', 2, ':', ['1_copa', '3_oro', '7_espada'])
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: ('showCards(', 2, ',', ['1_copa', '3_oro', '7_espada'], ')')
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: startHand(1)
-[AccionesJuego] INFO [2016-09-07 19:17:05,356]: -----------------Iniciando mano 1-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: ('getActionPlayer 1', ['envido'])
-[AccionesJuego] INFO [2016-09-07 19:17:05,356]: El jugador 1 canto envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: envido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: startLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: ('getActionPlayer 2', ['Quiero', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,356]: El jugador 2 dijo quiero
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,356]: Quiero(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,357]: El jugador 1 tiene 28 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,357]: showEnvido(1,28)
-[AccionesJuego] INFO [2016-09-07 19:17:05,357]: El jugador 2 tiene 7 de envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,357]: showEnvido(2,7)
-[AccionesJuego] INFO [2016-09-07 19:17:05,357]: El jugador 1 gano el envido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,357]: winnerEnvido(1)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,357]: finishLoopEnvido
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,357]: ('getActionPlayer 1', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,358]: El jugador 1:1 jugo la carta 6_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,358]: showCardPlaying(1,1,6_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,358]: ('getActionPlayer 2', ['JugarCarta', 1])
-[AccionesJuego] INFO [2016-09-07 19:17:05,358]: El jugador 2:2 jugo la carta 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,358]: showCardPlaying(2,2,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,358]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,358]: 2:2 gano la mano con 3_oro
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,358]: showResultaTheHand(2,2,3_oro)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,358]: startHand(2)
-[AccionesJuego] INFO [2016-09-07 19:17:05,358]: -----------------Iniciando mano 2-----------------
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,359]: ('getActionPlayer 1', ['JugarCarta', 0])
-[AccionesJuego] INFO [2016-09-07 19:17:05,359]: El jugador 1:1 jugo la carta 2_basto
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,359]: showCardPlaying(1,1,2_basto)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,359]: ('getActionPlayer 2', ['JugarCarta', 2])
-[AccionesJuego] INFO [2016-09-07 19:17:05,359]: El jugador 2:2 jugo la carta 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,359]: showCardPlaying(2,2,7_espada)
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,359]: finishHand
-[AccionesJuego] INFO [2016-09-07 19:17:05,359]: 2:2 gano la mano con 7_espada
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,359]: showResultaTheHand(2,2,7_espada)
-[AccionesJuego] INFO [2016-09-07 19:17:05,359]: El equipo 2 gano la ronda
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,360]: finishRound
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,360]: teamPoints(1,28)
-[AccionesJuego] INFO [2016-09-07 19:17:05,360]: El equipo 1 tiene 28 puntos
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,360]: teamPoints(2,30)
-[AccionesJuego] INFO [2016-09-07 19:17:05,360]: El equipo 2 tiene 30 puntos
-[AccionesJuego] INFO [2016-09-07 19:17:05,360]: El equipo 2 gano el juego
 [AccionesJuego] DEBUG [2016-09-07 19:17:05,360]: finishGame
-[AccionesJuego] DEBUG [2016-09-14 21:09:44,917]: startGame

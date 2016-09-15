@@ -1,16 +1,20 @@
-''' Paso x: Crear equipos
-Se importa el modulo equipo el cual almacena la informacion de cada equipo
-'''
+#!/usr/bin/env python 2.7
+# -*- coding: utf-8 -*-
+__author__ = "Lautaro Linquiman"
+__email__ = "acc.limayyo@gmail.com"
+__status__ = "Developing"
 
 from team import Team
 
 class Mesa():
     def __init__(self, cantidadJugadores, creadaPor, mesaID):
         '''
-        Esta clase crea una mesa de partida
-        @cantidadJugadores int
-        @creadoPor int idJugador
-        @mesaID int ID de la mesa
+        Esta clase contiene toda la funcionalidad para crear y manejar las mesas
+        2015-01
+        @author: Lautaro Linquiman
+        @param cantidadJugadores: int
+        @param creadaPor: int idJugador
+        @param mesaID: int ID de la mesa
         '''
         self.cantidadJugadores = cantidadJugadores
         self.creadaPor = creadaPor
@@ -23,41 +27,53 @@ class Mesa():
         self.__createTeams__()
 
     def getInfo(self):
-        ''' Retorna informacion sobre la mesa '''
+        ''' Retorna informacion sobre la mesa
+        @return: (mesaID, cantidadJugadores, cantidadJugadores, creadaPor)
+        @rtype: tuple
+        '''
         return (self.mesaID, self.cantidadJugadores, len(self.jugadores), self.creadaPor)
 
     def getStatus(self):
-        ''' Devuelve true si la cantidad de jugadores en la mesa es igual a la que se indico'''
+        '''
+        @return: true si la cantidad de jugadores en la mesa es igual a la que se indico
+        @rtype: bool
+        '''
         print(len(self.jugadores))
         if(self.cantidadJugadores == len(self.jugadores)):
             self.status = 1
-            return 1
+            return True
         else:
             self.status = 0
-            return 0
+            return False
+
     def __createTeams__(self):
         self.team.append(Team(1))
         self.team.append(Team(2))
 
-    def newPlayer(self, player):
-
-        ''' @params
-        class player
-        Ingresa un nuevo jugador a la mesa'''
-        self.jugadores.append(player)
-        player.setTeam(self.team[self.equipoN])
+    def newPlayer(self, playerObject):
+        '''
+        Ingresa un nuevo jugador a la mesa
+        @param playerObject:'''
+        self.jugadores.append(playerObject)
+        playerObject.setTeam(self.team[self.equipoN])
         self.equipoN += 1
         if(self.equipoN == 2):
             self.equipoN = 0
 
     def getPlayers(self):
-        ''' Obitne las id de los jugadores '''
+        '''
+        @return: Devuelve todos los jugadores
+        @rtype: list'''
         return self.jugadores
 
     def getTeams(self):
-        '''Retorna la configuracion de equipos '''
+        '''
+        @return: Equipos
+        @rtype: list'''
         return self.team
 
     def getID(self):
-        '''Retorna el ID de la mesa'''
+        '''
+        @return: ID de la mesa
+        @rtype: int'''
         return self.mesaID

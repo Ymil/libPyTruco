@@ -1,4 +1,9 @@
- # -*- coding: utf-8 -*-
+#!/usr/bin/env python 2.7\n# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+__author__ = "Lautaro Linquiman"
+__email__ = "acc.limayyo@gmail.com"
+__status__ = "Developing"
+__date__ = " 04/08/16"
 import logging
 import pdb
 logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/accionGame.log', level='DEBUG')
@@ -19,22 +24,18 @@ class AccionesJuego:
 
     def showMsgStartGame(self, players):
         ''' Esta funcion se dispara cuando se inicia un nuevo juego
-        params
-        null
+        @param players:
         '''
         logging.debug("startGame")
 
     def showMsgStartRound(self):
         ''' Esta funcion se dispara cuando se inicia una nueva ronda
-        params
-        null
         '''
         logging.debug("startRound")
 
     def showMsgStartHand(self, handsNumber):
         ''' Esta funcion se llama cada vez que se inicia una nueva mano
-        params
-        handsNumber int'''
+        @param handsNumber: int'''
         str1 =  ("Iniciando mano %d" % handsNumber).center(50,'-')
         print str1
         logging.debug("startHand(%d)" % handsNumber)
@@ -42,35 +43,25 @@ class AccionesJuego:
 
     def showMsgFinishHand(self):
         ''' Esta funcion se dispara cuando finaliza una mano
-        params
-        null
         '''
         logging.debug("finishHand")
 
     def showMsgFinishRound(self):
         ''' Esta funcion se dispara cuando finaliza una ronda
-        params
-        null
         '''
         logging.debug("finishRound")
 
     def showMsgFinishGame(self):
         ''' Esta funcion se dispara cuando finaliza un juego
-        params
-        null
         '''
         logging.debug("finishGame")
 
-    def setPlayers(self, players):
-        self.players = players
-
-    def setTeams(self, teams):
-        self.teams = teams
 
     def giveCards(self, playerid, cards):
         ''' Esta funcion se dispara cuando se reparten las cartas,
         recibe como parametro el playerid y las cartas del jugador
-
+        @param playerid:
+        @param cards: list cardsObjects
         Ejemplo de uso:
         partida.mostrarCartas(player, cards) '''
 
@@ -78,8 +69,8 @@ class AccionesJuego:
     def showCards(self, playerid, cards):
         ''' Esta funcion se dispara cuando se le muestran las cartas al jugador
         params
-        @playerid: int
-        @cartas: [3]
+        @param playerid:
+        @param cards: list cardsObjects
         Ejemplo de uso:
         '''
         cards = [card.getText() for card in cards]
@@ -91,8 +82,8 @@ class AccionesJuego:
 
     def showPoints(self, team, pointsTeam):
         ''' Esta funcion se dispara cuando se muestran los puntos de los equipos
-        @team: int teamID
-        @pointsTeam: int
+        @param team: int teamID
+        @param pointsTeam: int
         Ejemplo de uso: '''
 
         str1 = "El equipo %d tiene %d puntos" % (team, pointsTeam)
@@ -103,11 +94,15 @@ class AccionesJuego:
 
     def getActionPlayer(self, playerObject, gameInfo = {}, quiero = False):
         ''' Esta funcion se llama cuando se tiene que obtener un accion del jugador
-        *Esta funcion entrega informacion del estado juego en la variable infoGame
-        @params
-        @playerid: int
-        @infoGame: contiene información del juego
-        @quiero: booleand
+
+
+        @param playerObject:
+        @param gameInfo: contiene información del juego
+
+        @return:Esta funcion entrega informacion del estado juego en la variable infoGame
+        @rtype: list
+
+
         Ejemplo:
         accion = raw_input("Escriba la accion o carta a jugar>")
         return accion(accion, valorAccion)
@@ -121,10 +116,13 @@ class AccionesJuego:
         accionRDM = random.randint(0,10) #Obtiene un numero aleatorio para determinar una accion
         #pdb.set_trace()
         accion = []
-        if gameInfo['quiero'] == True:
+        quiero = False if len(gameInfo['envido']) == 0 or 'winner' in gameInfo['envido'] else True
+        if quiero == True:
             accion.append('Quiero')
             accion.append(random.randint(0,1))
-        elif gameInfo['hand'] == 0 and accionRDM%2 == 0:
+        elif gameInfo['hand'] == 0 and accionRDM%2 == 0 and len(gameInfo['envido']) == 0:
+            ''' La condicion len(gameInfo['envido']) == 0 significa que todavia no se canto el envido '''
+
             accion.append('envido')
         else:
             accion.append('JugarCarta')
@@ -133,49 +131,46 @@ class AccionesJuego:
         logging.debug(str1)
         return accion
 
-    def showCardPlaying(self, teamObject, playerObject, card):
+    def showCardPlaying(self, teamObject, playerObject, cardObject):
         ''' Esta funcion se llama cuando se juega una carta
-        @params
-        @teamObject
-        @playerObject
-        @playername: str Nombre del jugador
-        @cardGaming: int Carta jugada
+        @param teamObject:
+        @param playerObject:
+        @param cardObject:
         Ejemplo:
         '''
-        str1 = 'El jugador %d:%d jugo la carta %s' % (teamObject.getID(), playerObject.getID(), card.getText())
+        str1 = 'El jugador %d:%d jugo la carta %s' % (teamObject.getID(), playerObject.getID(), cardObject.getText())
         print str1
         logging.info(str1)
-        str2 = 'showCardPlaying(%d,%d,%s)' % (teamObject.getID(), playerObject.getID(), card.getText())
+        str2 = 'showCardPlaying(%d,%d,%s)' % (teamObject.getID(), playerObject.getID(), cardObject.getText())
         logging.debug(str2)
 
-    def showError(self, playerid, errorName):
+    def showError(self, playerObject, errorName):
         ''' Esta funcion se llama cuando ocurre un error por un jugador
-        @params
-        @playerid: int
-        @errorName: str ['cardPlayerd', 'invalidAction']
+        @param playerObject:
+        @param errorName: str ['cardPlayerd', 'invalidAction']
         Ejemplo:
         '''
         #print self.errors[errorName]
         pass
 
-    def showResultaTheHand(self, playerid, playername, teamid, card):
+    def showResultaTheHand(self, playerid, playername, teamid, cardObject):
         ''' Esta funcion se llama cuando termina una mano
-        @params
-        @playerid: int
-        @playername: str Nombre del jugador
-        @teamID: int
-        @card: int Carta
+
+        @param playerid: int
+        @param playername: str Nombre del jugador
+        @param teamid: int
+        @param cardObject:
         Ejemplo:'''
-        str1 =  '%d:%d gano la mano con %s' % (teamid, playerid, card.getText())
+        str1 =  '%d:%d gano la mano con %s' % (teamid, playerid, cardObject.getText())
         print str1
         logging.info(str1)
-        str2 = 'showResultaTheHand(%d,%d,%s)' % (teamid, playerid, card.getText())
+        str2 = 'showResultaTheHand(%d,%d,%s)' % (teamid, playerid, cardObject.getText())
         logging.debug(str2)
 
 
     def Parda(self):
         ''' Esta funcion se llama cuando termina la mano y hay una parda
-        @params
+
         none'''
         str1 = 'Ocurrio una parda'
         logging.info(str1)
@@ -183,8 +178,7 @@ class AccionesJuego:
 
     def returnStatus(self, statusGame):
         ''' Esta funcion se llama cada vez que se busca un ganador
-        @params
-        @statusGame: [StatusGame=(win,empate), teamWinner], [StatusGame=empate, CartaMayor], [StatusGame=continue, CartaMayor, playerid]
+        @param statusGame: [StatusGame=(win,empate), teamWinner], [StatusGame=empate, CartaMayor], [StatusGame=continue, CartaMayor, playerid]
         '''
         #logging.debug("ReturnStatus")
         #print 'Status:',statusGame
@@ -193,57 +187,99 @@ class AccionesJuego:
     ''' Win Actions '''
     def winEmpate(self, teamIDWinner):
         ''' Esta funcion se llama cuando ocurre un empate
-        @params
-        @teamIDWinner: int
+
+        @param teamIDWinner: int
         '''
         str1 = 'Ocurrio un empate, los puntos son para el equipo %d' % teamIDWinner
+        print str1
         logging.info(str1)
 
     def win(self, teamIDWinner):
         ''' Esta funcion se llama cuando se gana la ronda
-        @params
-        @teamIDWinner: int
+
+        @param teamIDWinner: int
         '''
         str1 = 'El equipo %s gano la ronda' % teamIDWinner
+        print str1
         logging.info(str1)
 
     def winGameTeam(self, teamObject):
         ''' Esta funcion se llama cuando un equipo gana el juego
-        @params
-        @teamObject: object team
+
+        @param teamObject:
         '''
         str1 = 'El equipo %d gano el juego' % teamObject.getID()
+        print str1
         logging.info(str1)
+
+    ''' Start Quiero/Noquiero '''
+
+    def quiero(self, playerObject):
+        ''' Esta funcion se llama cuando un jugador quiere a un canto
+
+        @param playerObject:
+        '''
+
+        str1 = 'El jugador %d dijo quiero' % playerObject.getID()
+        str2 = 'Quiero(%d)' % playerObject.getID()
+        print str1
+        logging.info(str1)
+        logging.debug(str2)
+
+    def noQuiero(self, playerObject):
+        ''' Esta funcion se llama cuando un jugador no quiere a un canto
+
+        @param playerObject:
+        '''
+
+        str1 = 'El jugador %d dijo no quiero' % playerObject.getID()
+        str2 = 'noQuiero(%d)' % playerObject.getID()
+        print str1
+        logging.info(str1)
+        logging.debug(str2)
+
+    ''' Finish Quiero/Noquiero '''
 
     ''' startEnvidoBlock '''
 
-    def envido(self, player):
+    def startLoopEnvido(self):
+        ''' Esta funcion se llama cuando se inicia el loop del envido '''
+        logging.debug("startLoopEnvido")
+
+    def finishLoopEnvido(self):
+        ''' Esta funcion se llama cuando finaliza el loop del envido '''
+        logging.debug("finishLoopEnvido")
+
+    def envido(self, playerObject):
         '''
-        group: envido
         Esta funcion se llama cuando alguien canta envido
-        @params
-        none'''
-        str1 = '%d canto envido' % player.getID()
-        str2 = 'envido(%d)' % player.getID()
-        logging.info(str1)
-        logging.debug(str2)
-        
-    def showEnvido(self, player):
+        @param playerObject:
         '''
-        group: envido
-        Esta funcion se llama cuando un jugar canta su envido '''
-        str1 = '%d tiene %d de envido' % (player.getID(),player.getPointsEnvido())
-        str2 = 'showEnvido(%d,%d)' % (player.getID(),player.getPointsEnvido())
+        str1 = 'El jugador %d canto envido' % playerObject.getID()
+        str2 = 'envido(%d)' % playerObject.getID()
+        print str1
         logging.info(str1)
         logging.debug(str2)
 
-    def showWinnerEnvido(self,player):
+    def showEnvido(self, playerObject):
         '''
-        group: envido
-        Esta funcion se llama cuando se define un ganador del envido '''
+        Esta funcion se llama cuando un jugar canta su envido
+        @param playerObject: '''
+        str1 = 'El jugador %d tiene %d de envido' % (playerObject.getID(),playerObject.getPointsEnvido())
+        str2 = 'showEnvido(%d,%d)' % (playerObject.getID(),playerObject.getPointsEnvido())
+        print str1
+        logging.info(str1)
+        logging.debug(str2)
 
-        str1 = '%d gano el envido' % player.getID()
-        str2 = 'winnerEnvido(%d)' % player.getID()
+    def showWinnerEnvido(self,playerObject):
+        '''
+        Esta funcion se llama cuando se define un ganador del envido
+        @param playerObject:
+        '''
+
+        str1 = 'El jugador %d gano el envido' % playerObject.getID()
+        str2 = 'winnerEnvido(%d)' % playerObject.getID()
+        print str1
         logging.info(str1)
         logging.debug(str2)
     ''' endEnvidoBlock '''

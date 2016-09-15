@@ -1,8 +1,11 @@
-'''
-Clase Cartas del juego
-06-01-2015
-Programador: Lautaro Linquiman
-'''
+#!/usr/bin/env python 2.7
+# -*- coding: utf-8 -*-
+
+__author__ = "Lautaro Linquiman"
+__email__ = "acc.limayyo@gmail.com"
+__status__ = "Developing"
+__date__ = "06-01-2015"
+
 from random import randrange
 from card import Card
 class Cartas():

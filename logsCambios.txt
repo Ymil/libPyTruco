@@ -1,4 +1,9 @@
++Se agrega la estructura de documentacion epydoc en todo el proyecto
+
+-------------------------------------------------------------------------------
+
 #01 se corrigue el bug ( No se estaba resetiando la variable statusGame en 3)
+*Se comienza la implementacion del sistema de envidos
 *Se modifica el sistema de cartas
 
 
