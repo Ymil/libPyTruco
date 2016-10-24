@@ -11,6 +11,9 @@ Descripcion: Esta clase almacena la informacion de cada carta repartidas
 
 class Card:
     def __init__(self, cardList):
+        '''
+        @param cardList: list[numTheCard, stick, value]
+        '''
         self.cardList = cardList
 
     def __add__(self, otherCardObject):

@@ -67,6 +67,7 @@ class Game():
         self.e__envido = {}
         self.actionGame = AccionesJuego()
         self.resultLastHand = []  # Resultado de la ultima mano
+        self.resultLast = [] #Almacena los ultimos rezultados de la func
         self.statusGame = 3
         self.pointsByWin = configGame['pointsByWin'] if 'pointsByWin' in configGame else 30
         ''' Esta variable almacena el estado actual del juego
@@ -217,6 +218,7 @@ class Game():
                 '''Esta exception se captura cuando todavia no hay un jugador en
                 el resultado ganador'''
                 tempCardWin = 0
+            #pdb.set_trace()
             playsCard = player.getCardTheNumberHand(numberTheCurrentHand).getValue()
 
             if tempCardWin < playsCard:
@@ -529,13 +531,15 @@ class Game():
         Analiza los datos del juego y determina si hay un ganador '''
         self.actionGame.showMsgFinishHand()
         msg_info("Iniciando analisis de resultados")
-        Resultados = self.getStatusTheRound()
+        self.resultLastHand = self.getStatusTheRound()
+        Resultados = self.resultLastHand
         self.actionGame.returnStatus(Resultados)
         #print Resultados
         msg_debug("lastCodeResult:%d" % self.lastCodeResult)
         if(self.statusGame == 1):
             self.actionGame.Parda()
             return
+
         RPlayer = Resultados['player']
         self.actionGame.showResultaTheHand(RPlayer.getID(),\
                             RPlayer.getName(),  RPlayer.getTeamID(),\
