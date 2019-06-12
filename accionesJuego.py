@@ -6,7 +6,7 @@ __status__ = "Developing"
 __date__ = " 04/08/16"
 import logging
 import pdb
-logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='/home/ymil/Proyectos/PyTrucoProyect/PyTruco/servidor/libPyTruco/logs/accionGame.log', level='DEBUG')
+logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/accionGame.log', level='DEBUG')
 import random
 
 class AccionesJuego:
