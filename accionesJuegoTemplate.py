@@ -9,7 +9,7 @@ import pdb
 logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='/home/ymil/Proyectos/PyTrucoProyect/PyTruco/servidor/libPyTruco/logs/accionGame.log', level='DEBUG')
 import random
 
-class AccionesJuego:
+class AccionesJuegoTemplate:
     '''
     Esta clase almacena los eventos que se disparan a medida que se va ejecuntado el juego.
 
@@ -71,14 +71,8 @@ class AccionesJuego:
         params
         @param playerid:
         @param cards: list cardsObjects
-        Ejemplo de uso:
         '''
-        cards = [card.getText() for card in cards]
-        str1 = 'Cartas de Jugador',playerid,':',cards
-        print str1
-        str2 = 'showCards(',playerid,',',cards,')'
-        logging.info(str1)
-        logging.debug(str2)
+
 
     def showPoints(self, team, pointsTeam):
         ''' Esta funcion se dispara cuando se muestran los puntos de los equipos

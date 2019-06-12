@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>accionesJuego</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/Ymil/libPyTruco">LibPyTrucoAr</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;accionesJuego
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="accionesJuego-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="accionesJuego-module.html">Module accionesJuego</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python 2.7\n# -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-docstring">"Lautaro Linquiman"</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable accionesJuego.__email__=accionesJuego-module.html#__email__,Variable card.__email__=card-module.html#__email__,Variable cartas.__email__=cartas-module.html#__email__,Variable example.__email__=example-module.html#__email__,Variable juego.__email__=juego-module.html#__email__,Variable jugador.__email__=jugador-module.html#__email__,Variable mesa.__email__=mesa-module.html#__email__,Variable team.__email__=team-module.html#__email__"><a title="accionesJuego.__email__
+card.__email__
+cartas.__email__
+example.__email__
+juego.__email__
+jugador.__email__
+mesa.__email__
+team.__email__" class="py-name" href="#" onclick="return doclink('link-0', '__email__', 'link-0');">__email__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"acc.limayyo@gmail.com"</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable accionesJuego.__status__=accionesJuego-module.html#__status__,Variable card.__status__=card-module.html#__status__,Variable cartas.__status__=cartas-module.html#__status__,Variable example.__status__=example-module.html#__status__,Variable juego.__status__=juego-module.html#__status__,Variable jugador.__status__=jugador-module.html#__status__,Variable mesa.__status__=mesa-module.html#__status__,Variable team.__status__=team-module.html#__status__"><a title="accionesJuego.__status__
+card.__status__
+cartas.__status__
+example.__status__
+juego.__status__
+jugador.__status__
+mesa.__status__
+team.__status__" class="py-name" href="#" onclick="return doclink('link-1', '__status__', 'link-1');">__status__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"Developing"</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable card.__date__=card-module.html#__date__"><a title="card.__date__" class="py-name" href="#" onclick="return doclink('link-2', '__date__', 'link-2');">__date__</a></tt> <tt class="py-op">=</tt> <tt class="py-string">" 04/08/16"</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">pdb</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">basicConfig</tt><tt class="py-op">(</tt><tt class="py-name">format</tt><tt class="py-op">=</tt><tt class="py-string">'[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s'</tt><tt class="py-op">,</tt><tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-string">'./logs/accionGame.log'</tt><tt class="py-op">,</tt> <tt class="py-name">level</tt><tt class="py-op">=</tt><tt class="py-string">'DEBUG'</tt><tt class="py-op">)</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">random</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego"></a><div id="AccionesJuego-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="AccionesJuego-toggle" onclick="return toggle('AccionesJuego');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html">AccionesJuego</a><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AccionesJuego-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">    Esta clase almacena los eventos que se disparan a medida que se va ejecuntado el juego.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">    Como mostrar mensajes, dar cartas etc.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">    Esta clase es de ejemplo</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="AccionesJuego.__init__"></a><div id="AccionesJuego.__init__-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="AccionesJuego.__init__-toggle" onclick="return toggle('AccionesJuego.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.__init__-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">players</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">teams</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">errors</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'cardPlayerd'</tt><tt class="py-op">:</tt> <tt class="py-string">'Esta carta ya fue jugada'</tt><tt class="py-op">,</tt> <tt class="py-string">'invalidAction'</tt><tt class="py-op">:</tt> <tt class="py-string">'No puedes realizar esta accion'</tt><tt class="py-op">}</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showMsgStartGame"></a><div id="AccionesJuego.showMsgStartGame-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="AccionesJuego.showMsgStartGame-toggle" onclick="return toggle('AccionesJuego.showMsgStartGame');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showMsgStartGame">showMsgStartGame</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">players</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showMsgStartGame-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showMsgStartGame-expanded"><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando se inicia un nuevo juego</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        @param players:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"startGame"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showMsgStartRound"></a><div id="AccionesJuego.showMsgStartRound-def"><a name="L31"></a><tt class="py-lineno"> 31</tt> <a class="py-toggle" href="#" id="AccionesJuego.showMsgStartRound-toggle" onclick="return toggle('AccionesJuego.showMsgStartRound');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showMsgStartRound">showMsgStartRound</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showMsgStartRound-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showMsgStartRound-expanded"><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando se inicia una nueva ronda</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"startRound"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showMsgStartHand"></a><div id="AccionesJuego.showMsgStartHand-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="AccionesJuego.showMsgStartHand-toggle" onclick="return toggle('AccionesJuego.showMsgStartHand');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showMsgStartHand">showMsgStartHand</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">handsNumber</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showMsgStartHand-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showMsgStartHand-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cada vez que se inicia una nueva mano</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        @param handsNumber: int'''</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt>  <tt class="py-op">(</tt><tt class="py-string">"Iniciando mano %d"</tt> <tt class="py-op">%</tt> <tt class="py-name">handsNumber</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">center</tt><tt class="py-op">(</tt><tt class="py-number">50</tt><tt class="py-op">,</tt><tt class="py-string">'-'</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"startHand(%d)"</tt> <tt class="py-op">%</tt> <tt class="py-name">handsNumber</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showMsgFinishHand"></a><div id="AccionesJuego.showMsgFinishHand-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="AccionesJuego.showMsgFinishHand-toggle" onclick="return toggle('AccionesJuego.showMsgFinishHand');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showMsgFinishHand">showMsgFinishHand</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showMsgFinishHand-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showMsgFinishHand-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando finaliza una mano</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"finishHand"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showMsgFinishRound"></a><div id="AccionesJuego.showMsgFinishRound-def"><a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="AccionesJuego.showMsgFinishRound-toggle" onclick="return toggle('AccionesJuego.showMsgFinishRound');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showMsgFinishRound">showMsgFinishRound</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showMsgFinishRound-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showMsgFinishRound-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando finaliza una ronda</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"finishRound"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showMsgFinishGame"></a><div id="AccionesJuego.showMsgFinishGame-def"><a name="L54"></a><tt class="py-lineno"> 54</tt> <a class="py-toggle" href="#" id="AccionesJuego.showMsgFinishGame-toggle" onclick="return toggle('AccionesJuego.showMsgFinishGame');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showMsgFinishGame">showMsgFinishGame</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showMsgFinishGame-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showMsgFinishGame-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando finaliza un juego</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"finishGame"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.giveCards"></a><div id="AccionesJuego.giveCards-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="AccionesJuego.giveCards-toggle" onclick="return toggle('AccionesJuego.giveCards');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#giveCards">giveCards</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerid</tt><tt class="py-op">,</tt> <tt class="py-param">cards</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.giveCards-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.giveCards-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando se reparten las cartas,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        recibe como parametro el playerid y las cartas del jugador</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerid:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">        @param cards: list cardsObjects</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo de uso:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">        partida.mostrarCartas(player, cards) '''</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="AccionesJuego.showCards"></a><div id="AccionesJuego.showCards-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="AccionesJuego.showCards-toggle" onclick="return toggle('AccionesJuego.showCards');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showCards">showCards</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerid</tt><tt class="py-op">,</tt> <tt class="py-param">cards</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showCards-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showCards-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando se le muestran las cartas al jugador</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        params</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerid:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        @param cards: list cardsObjects</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo de uso:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">cards</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-3" class="py-name" targets="Module card=card-module.html"><a title="card" class="py-name" href="#" onclick="return doclink('link-3', 'card', 'link-3');">card</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method card.Card.getText()=card.Card-class.html#getText"><a title="card.Card.getText" class="py-name" href="#" onclick="return doclink('link-4', 'getText', 'link-4');">getText</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt id="link-5" class="py-name"><a title="card" class="py-name" href="#" onclick="return doclink('link-5', 'card', 'link-3');">card</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">cards</tt><tt class="py-op">]</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'Cartas de Jugador'</tt><tt class="py-op">,</tt><tt class="py-name">playerid</tt><tt class="py-op">,</tt><tt class="py-string">':'</tt><tt class="py-op">,</tt><tt class="py-name">cards</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'showCards('</tt><tt class="py-op">,</tt><tt class="py-name">playerid</tt><tt class="py-op">,</tt><tt class="py-string">','</tt><tt class="py-op">,</tt><tt class="py-name">cards</tt><tt class="py-op">,</tt><tt class="py-string">')'</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showPoints"></a><div id="AccionesJuego.showPoints-def"><a name="L83"></a><tt class="py-lineno"> 83</tt> <a class="py-toggle" href="#" id="AccionesJuego.showPoints-toggle" onclick="return toggle('AccionesJuego.showPoints');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showPoints">showPoints</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">team</tt><tt class="py-op">,</tt> <tt class="py-param">pointsTeam</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showPoints-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showPoints-expanded"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se dispara cuando se muestran los puntos de los equipos</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">        @param team: int teamID</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">        @param pointsTeam: int</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo de uso: '''</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">"El equipo %d tiene %d puntos"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-6" class="py-name" targets="Module team=team-module.html"><a title="team" class="py-name" href="#" onclick="return doclink('link-6', 'team', 'link-6');">team</a></tt><tt class="py-op">,</tt> <tt class="py-name">pointsTeam</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">"teamPoints(%d,%d)"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="team" class="py-name" href="#" onclick="return doclink('link-7', 'team', 'link-6');">team</a></tt><tt class="py-op">,</tt> <tt class="py-name">pointsTeam</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.getActionPlayer"></a><div id="AccionesJuego.getActionPlayer-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="AccionesJuego.getActionPlayer-toggle" onclick="return toggle('AccionesJuego.getActionPlayer');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#getActionPlayer">getActionPlayer</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">,</tt> <tt class="py-param">gameInfo</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> <tt class="py-param">quiero</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.getActionPlayer-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.getActionPlayer-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando se tiene que obtener un accion del jugador</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">        @param gameInfo: contiene informaci&#243;n del juego</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">        @return:Esta funcion entrega informacion del estado juego en la variable infoGame</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype: list</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">        accion = raw_input("Escriba la accion o carta a jugar&gt;")</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">        return accion(accion, valorAccion)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        Acciones[JugadorCarta, envido, real envido, falta envido, truco, re truco, vale 4]</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">        formato de respuesta: (accion, valor)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-string">''' Las siguientes funciones generan jugadas de forma aleatoria para debuggiar el sistema. '''</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">accionRDM</tt> <tt class="py-op">=</tt> <tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">randint</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">10</tt><tt class="py-op">)</tt> <tt class="py-comment">#Obtiene un numero aleatorio para determinar una accion</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-comment">#pdb.set_trace()</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">accion</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Method accionesJuego.AccionesJuego.quiero()=accionesJuego.AccionesJuego-class.html#quiero"><a title="accionesJuego.AccionesJuego.quiero" class="py-name" href="#" onclick="return doclink('link-8', 'quiero', 'link-8');">quiero</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">gameInfo</tt><tt class="py-op">[</tt><tt class="py-string">'envido'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt> <tt class="py-keyword">or</tt> <tt class="py-string">'winner'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">gameInfo</tt><tt class="py-op">[</tt><tt class="py-string">'envido'</tt><tt class="py-op">]</tt> <tt class="py-keyword">else</tt> <tt class="py-name">True</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-9" class="py-name"><a title="accionesJuego.AccionesJuego.quiero" class="py-name" href="#" onclick="return doclink('link-9', 'quiero', 'link-8');">quiero</a></tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">            <tt class="py-name">accion</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'Quiero'</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">            <tt class="py-name">accion</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">randint</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">gameInfo</tt><tt class="py-op">[</tt><tt class="py-string">'hand'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt class="py-name">accionRDM</tt><tt class="py-op">%</tt><tt class="py-number">2</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt> <tt class="py-keyword">and</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">gameInfo</tt><tt class="py-op">[</tt><tt class="py-string">'envido'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">            <tt class="py-string">''' La condicion len(gameInfo['envido']) == 0 significa que todavia no se canto el envido '''</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt class="py-name">accion</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'envido'</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">            <tt class="py-name">accion</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'JugarCarta'</tt><tt class="py-op">)</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-name">accion</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">.</tt><tt class="py-name">randint</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">"getActionPlayer %d"</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method jugador.Jugador.getID()=jugador.Jugador-class.html#getID,Method mesa.Mesa.getID()=mesa.Mesa-class.html#getID,Method team.Team.getID()=team.Team-class.html#getID"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-10', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">accion</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">accion</tt> </tt>
+</div><a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showCardPlaying"></a><div id="AccionesJuego.showCardPlaying-def"><a name="L134"></a><tt class="py-lineno">134</tt> <a class="py-toggle" href="#" id="AccionesJuego.showCardPlaying-toggle" onclick="return toggle('AccionesJuego.showCardPlaying');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showCardPlaying">showCardPlaying</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">teamObject</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">,</tt> <tt class="py-param">cardObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showCardPlaying-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showCardPlaying-expanded"><a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando se juega una carta</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">        @param teamObject:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt class="py-docstring">        @param cardObject:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo:</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El jugador %d:%d jugo la carta %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">teamObject</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-11', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-12', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">cardObject</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="card.Card.getText" class="py-name" href="#" onclick="return doclink('link-13', 'getText', 'link-4');">getText</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'showCardPlaying(%d,%d,%s)'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">teamObject</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-14', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-15', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">cardObject</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="card.Card.getText" class="py-name" href="#" onclick="return doclink('link-16', 'getText', 'link-4');">getText</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showError"></a><div id="AccionesJuego.showError-def"><a name="L147"></a><tt class="py-lineno">147</tt> <a class="py-toggle" href="#" id="AccionesJuego.showError-toggle" onclick="return toggle('AccionesJuego.showError');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showError">showError</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">,</tt> <tt class="py-param">errorName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showError-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showError-expanded"><a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando ocurre un error por un jugador</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt class="py-docstring">        @param errorName: str ['cardPlayerd', 'invalidAction']</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-comment">#print self.errors[errorName]</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showResultaTheHand"></a><div id="AccionesJuego.showResultaTheHand-def"><a name="L156"></a><tt class="py-lineno">156</tt> <a class="py-toggle" href="#" id="AccionesJuego.showResultaTheHand-toggle" onclick="return toggle('AccionesJuego.showResultaTheHand');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showResultaTheHand">showResultaTheHand</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerid</tt><tt class="py-op">,</tt> <tt class="py-param">playername</tt><tt class="py-op">,</tt> <tt class="py-param">teamid</tt><tt class="py-op">,</tt> <tt class="py-param">cardObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showResultaTheHand-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showResultaTheHand-expanded"><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando termina una mano</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerid: int</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">        @param playername: str Nombre del jugador</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">        @param teamid: int</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">        @param cardObject:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"><tt class="py-docstring">        Ejemplo:'''</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt>  <tt class="py-string">'%d:%d gano la mano con %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">teamid</tt><tt class="py-op">,</tt> <tt class="py-name">playerid</tt><tt class="py-op">,</tt> <tt class="py-name">cardObject</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="card.Card.getText" class="py-name" href="#" onclick="return doclink('link-17', 'getText', 'link-4');">getText</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'showResultaTheHand(%d,%d,%s)'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">teamid</tt><tt class="py-op">,</tt> <tt class="py-name">playerid</tt><tt class="py-op">,</tt> <tt class="py-name">cardObject</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="card.Card.getText" class="py-name" href="#" onclick="return doclink('link-18', 'getText', 'link-4');">getText</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.Parda"></a><div id="AccionesJuego.Parda-def"><a name="L171"></a><tt class="py-lineno">171</tt> <a class="py-toggle" href="#" id="AccionesJuego.Parda-toggle" onclick="return toggle('AccionesJuego.Parda');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#Parda">Parda</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.Parda-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.Parda-expanded"><a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando termina la mano y hay una parda</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">        none'''</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'Ocurrio una parda'</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"parda"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.returnStatus"></a><div id="AccionesJuego.returnStatus-def"><a name="L179"></a><tt class="py-lineno">179</tt> <a class="py-toggle" href="#" id="AccionesJuego.returnStatus-toggle" onclick="return toggle('AccionesJuego.returnStatus');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#returnStatus">returnStatus</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">statusGame</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.returnStatus-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.returnStatus-expanded"><a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cada vez que se busca un ganador</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-docstring">        @param statusGame: [StatusGame=(win,empate), teamWinner], [StatusGame=empate, CartaMayor], [StatusGame=continue, CartaMayor, playerid]</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-comment">#logging.debug("ReturnStatus")</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-comment">#print 'Status:',statusGame</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line"> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">    <tt class="py-string">''' Win Actions '''</tt> </tt>
+<a name="AccionesJuego.winEmpate"></a><div id="AccionesJuego.winEmpate-def"><a name="L188"></a><tt class="py-lineno">188</tt> <a class="py-toggle" href="#" id="AccionesJuego.winEmpate-toggle" onclick="return toggle('AccionesJuego.winEmpate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#winEmpate">winEmpate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">teamIDWinner</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.winEmpate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.winEmpate-expanded"><a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando ocurre un empate</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-docstring">        @param teamIDWinner: int</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'Ocurrio un empate, los puntos son para el equipo %d'</tt> <tt class="py-op">%</tt> <tt class="py-name">teamIDWinner</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.win"></a><div id="AccionesJuego.win-def"><a name="L197"></a><tt class="py-lineno">197</tt> <a class="py-toggle" href="#" id="AccionesJuego.win-toggle" onclick="return toggle('AccionesJuego.win');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#win">win</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">teamIDWinner</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.win-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.win-expanded"><a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando se gana la ronda</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-docstring">        @param teamIDWinner: int</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El equipo %s gano la ronda'</tt> <tt class="py-op">%</tt> <tt class="py-name">teamIDWinner</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.winGameTeam"></a><div id="AccionesJuego.winGameTeam-def"><a name="L206"></a><tt class="py-lineno">206</tt> <a class="py-toggle" href="#" id="AccionesJuego.winGameTeam-toggle" onclick="return toggle('AccionesJuego.winGameTeam');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#winGameTeam">winGameTeam</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">teamObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.winGameTeam-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.winGameTeam-expanded"><a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando un equipo gana el juego</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line"><tt class="py-docstring">        @param teamObject:</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El equipo %d gano el juego'</tt> <tt class="py-op">%</tt> <tt class="py-name">teamObject</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-19', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">    <tt class="py-string">''' Start Quiero/Noquiero '''</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.quiero"></a><div id="AccionesJuego.quiero-def"><a name="L217"></a><tt class="py-lineno">217</tt> <a class="py-toggle" href="#" id="AccionesJuego.quiero-toggle" onclick="return toggle('AccionesJuego.quiero');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#quiero">quiero</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.quiero-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.quiero-expanded"><a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando un jugador quiere a un canto</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El jugador %d dijo quiero'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-20', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'Quiero(%d)'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-21', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.noQuiero"></a><div id="AccionesJuego.noQuiero-def"><a name="L229"></a><tt class="py-lineno">229</tt> <a class="py-toggle" href="#" id="AccionesJuego.noQuiero-toggle" onclick="return toggle('AccionesJuego.noQuiero');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#noQuiero">noQuiero</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.noQuiero-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.noQuiero-expanded"><a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando un jugador no quiere a un canto</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El jugador %d dijo no quiero'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-22', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'noQuiero(%d)'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-23', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">    <tt class="py-string">''' Finish Quiero/Noquiero '''</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">    <tt class="py-string">''' startEnvidoBlock '''</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.startLoopEnvido"></a><div id="AccionesJuego.startLoopEnvido-def"><a name="L245"></a><tt class="py-lineno">245</tt> <a class="py-toggle" href="#" id="AccionesJuego.startLoopEnvido-toggle" onclick="return toggle('AccionesJuego.startLoopEnvido');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#startLoopEnvido">startLoopEnvido</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.startLoopEnvido-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.startLoopEnvido-expanded"><a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando se inicia el loop del envido '''</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"startLoopEnvido"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.finishLoopEnvido"></a><div id="AccionesJuego.finishLoopEnvido-def"><a name="L249"></a><tt class="py-lineno">249</tt> <a class="py-toggle" href="#" id="AccionesJuego.finishLoopEnvido-toggle" onclick="return toggle('AccionesJuego.finishLoopEnvido');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#finishLoopEnvido">finishLoopEnvido</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.finishLoopEnvido-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.finishLoopEnvido-expanded"><a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">        <tt class="py-docstring">''' Esta funcion se llama cuando finaliza el loop del envido '''</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"finishLoopEnvido"</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.envido"></a><div id="AccionesJuego.envido-def"><a name="L253"></a><tt class="py-lineno">253</tt> <a class="py-toggle" href="#" id="AccionesJuego.envido-toggle" onclick="return toggle('AccionesJuego.envido');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#envido">envido</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.envido-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.envido-expanded"><a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"><tt class="py-docstring">        Esta funcion se llama cuando alguien canta envido</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El jugador %d canto envido'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-24', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'envido(%d)'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-25', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showEnvido"></a><div id="AccionesJuego.showEnvido-def"><a name="L264"></a><tt class="py-lineno">264</tt> <a class="py-toggle" href="#" id="AccionesJuego.showEnvido-toggle" onclick="return toggle('AccionesJuego.showEnvido');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showEnvido">showEnvido</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">playerObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showEnvido-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showEnvido-expanded"><a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-docstring">        Esta funcion se llama cuando un jugar canta su envido</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject: '''</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El jugador %d tiene %d de envido'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-26', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Method jugador.Jugador.getPointsEnvido()=jugador.Jugador-class.html#getPointsEnvido"><a title="jugador.Jugador.getPointsEnvido" class="py-name" href="#" onclick="return doclink('link-27', 'getPointsEnvido', 'link-27');">getPointsEnvido</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'showEnvido(%d,%d)'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-28', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="jugador.Jugador.getPointsEnvido" class="py-name" href="#" onclick="return doclink('link-29', 'getPointsEnvido', 'link-27');">getPointsEnvido</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"> </tt>
+<a name="AccionesJuego.showWinnerEnvido"></a><div id="AccionesJuego.showWinnerEnvido-def"><a name="L274"></a><tt class="py-lineno">274</tt> <a class="py-toggle" href="#" id="AccionesJuego.showWinnerEnvido-toggle" onclick="return toggle('AccionesJuego.showWinnerEnvido');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="accionesJuego.AccionesJuego-class.html#showWinnerEnvido">showWinnerEnvido</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">playerObject</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AccionesJuego.showWinnerEnvido-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AccionesJuego.showWinnerEnvido-expanded"><a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line"><tt class="py-docstring">        Esta funcion se llama cuando se define un ganador del envido</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line"><tt class="py-docstring">        @param playerObject:</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">        <tt class="py-name">str1</tt> <tt class="py-op">=</tt> <tt class="py-string">'El jugador %d gano el envido'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-30', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt class="py-name">str2</tt> <tt class="py-op">=</tt> <tt class="py-string">'winnerEnvido(%d)'</tt> <tt class="py-op">%</tt> <tt class="py-name">playerObject</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="jugador.Jugador.getID
+mesa.Mesa.getID
+team.Team.getID" class="py-name" href="#" onclick="return doclink('link-31', 'getID', 'link-10');">getID</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">str1</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-name">str1</tt><tt class="py-op">)</tt> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">        <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-name">str2</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">    <tt class="py-string">''' endEnvidoBlock '''</tt> </tt>
+</div><a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="https://github.com/Ymil/libPyTruco">LibPyTrucoAr</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Sep 14 21:10:06 2016
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
