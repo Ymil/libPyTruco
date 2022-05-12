@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 *pyc
 *log
+=======
+*.pyc
+*.log
+*.info
+*.debug
+>>>>>>> dev

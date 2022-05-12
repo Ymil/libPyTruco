@@ -1,3 +1,15 @@
++Se agrega la estructura de documentacion epydoc en todo el proyecto
+
+-------------------------------------------------------------------------------
+
+#01 se corrigue el bug ( No se estaba resetiando la variable statusGame en 3)
+*Se comienza la implementacion del sistema de envidos
+*Se modifica el sistema de cartas
+
+
+-------------------------------------------------------------------------------
+
+
 *Se añadio la busqueda de un equipo ganador al finalizar cada ronda en juego.py
 *Se arregla el bug de las cartas repetidas con prepararMaso en la clase cartas.
 *Se agregar mensajes de debug y info en accionesJuego.py para poder analizar las simulaciones

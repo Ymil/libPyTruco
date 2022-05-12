@@ -1,17 +1,17 @@
-'''
-Clase Cartas del juego
-06-01-2015
-Programador: Lautaro Linquiman
-'''
+#!/usr/bin/env python 2.7
+# -*- coding: utf-8 -*-
+
+__author__ = "Lautaro Linquiman"
+__email__ = "acc.limayyo@gmail.com"
+__status__ = "Developing"
+__date__ = "06-01-2015"
+
 from random import randrange
 from card import Card
 class Cartas():
     '''Clase encargada de el manejo de las cartas del juego'''
-    def __init__(self,cantidadJugadores, debuggin = 1):
-        self.debuggin = debuggin
+    def __init__(self):
 
-        if(self.debuggin):
-            print('Clase cartas iniciada')
         '''
         Puntaje de cada carta
         4 = 1
@@ -29,20 +29,22 @@ class Cartas():
         1 Basto = 13
         1 Espada = 14
         '''
-        self.cantidadJugadores = cantidadJugadores
-        self.cartas = ['oro_1','oro_2','oro_3','oro_4','oro_5','oro_6','oro_7','oro_10','oro_11','oro_12',
-        'espada_1','espada_2','espada_3','espada_4','espada_5','espada_6','espada_7','espada_10','espada_11','espada_12',
-        'basto_1','basto_2','basto_3','basto_4','basto_5','basto_6','basto_7','basto_10','basto_11','basto_12',
-        'copa_1','copa_2','copa_3','copa_4','copa_5','copa_6','copa_7','copa_10','copa_11','copa_12']
+        self.cartas = [
+            #[Numero de carta, palo, valor]
+            [1,'oro',8],  [1,'espada',14], [1,'basto',13], [1,'copa',8],
+            [2,'oro',9],  [2,'espada',9],  [2,'basto',9],  [2,'copa',9],
+            [3,'oro',10], [3,'espada',10], [3,'basto',10], [3,'copa',10],
+            [4,'oro',1],  [4,'espada',1],  [4,'basto',1],  [4,'copa',1],
+            [5,'oro',2],  [5,'espada',2],  [5,'basto',2],  [5,'copa',2],
+            [6,'oro',3],  [6,'espada',3],  [6,'basto',3],  [6,'copa',3],
+            [7,'oro',11], [7,'espada',12], [7,'basto',4],  [7,'copa',4],
+            [10,'oro',5], [10,'espada',5], [10,'basto',5], [10,'copa',5],
+            [11,'oro',6], [11,'espada',6], [11,'basto',6], [11,'copa',6],
+            [12,'oro',7], [12,'espada',7], [12,'basto',7], [12,'copa',7]
+        ]
 
-        self.cartasPuntaje = {'oro_1':8,'oro_2':9,'oro_3':10,'oro_4':1,'oro_5':2,'oro_6':3,'oro_7':11,'oro_10':5,'oro_11':6,'oro_12':7,
-        'espada_1':14,'espada_2':9,'espada_3':10,'espada_4':1,'espada_5':2,'espada_6':3,'espada_7':12,'espada_10':5,'espada_11':6,'espada_12':7,
-        'basto_1':13,'basto_2':9,'basto_3':10,'basto_4':1,'basto_5':2,'basto_6':3,'basto_7':4,'basto_10':5,'basto_11':6,'basto_12':7,
-        'copa_1':8,'copa_2':9,'copa_3':10,'copa_4':1,'copa_5':2,'copa_6':3,'copa_7':4,'copa_10':5,'copa_11':6,'copa_12':7}
         self.clonCartas = []
         self.cartasRepartidas = []
-
-        self.cartasJugador = [] #Almacena las cartas de los jugadores
 
     def __clonarCartas(self):
         self.clonCartas = self.cartas[:]
@@ -52,84 +54,18 @@ class Cartas():
          Esta funcion se debe llamar antes de repartir las cartas '''
         self.__clonarCartas()
 
-    #def obtener(self, cartasN):
-
-    def obtener(self, jugadorID, cartaID):
-        return self.cartasJugadores[jugadorID-1][cartaID-1]
-
-    def getPoints(self,cartaSTRID):
-        return self.cartasPuntaje[cartaSTRID]
-
-    def repartir(self):
-        ''' Return list ((1,2,3),(1,2,3))'''
-
-        self.__clonarCartas()
-
-        #debuggin
-        if(self.debuggin):
-            print('Repartiendo carta')
-        #debuggin
-
-        cartasJugadores = [] #Cartas de los juegador repartidas
-        for x in range(self.cantidadJugadores): #Recorre cada uno de los jugadores
-
-            #debuggin
-            if(self.debuggin):
-                print(x)
-            #debuggin
-
-            cartasJugador = [] #Acomoda las cartas de cada jugador
-
-            for c in range(3): #reparte las tres cartas a cada jugadores
-
-                cartaStr = randrange(0,len(self.clonCartas) - 1)
-                cartaValor = self.clonCartas[carta]
-                cartaObject = Card(cartaStr,cartaValor)
-                cartasJugador.append(cartaObject)
-                self.clonCartas.remove(cartaStr)
-
-            cartasJugadores.append(cartasJugador)
-
-            cartasJugador = None
-
-        #debuggin
-        if(self.debuggin):
-            print('Cartas Repartidas a jugar!')
-            print(cartasJugadores)
-        #debuggin
-
-        self.cartasJugadores = cartasJugadores
-        return cartasJugadores
-
     def repartir_individual(self):
         ''' Esta funcion reparte 3 cartas
         Return list (1,2,3)'''
 
-        #debuggin
-        if(self.debuggin):
-            print('Repartiendo carta')
-
-        #debuggin
-        if(self.debuggin):
-            print(x)
-        #debuggin
-
         cartasJugador = [] #Acomoda las cartas de cada jugador
 
-        for c in range(3): #reparte las tres cartas a cada jugadores
+        for c in range(3): #reparte tres cartas aleatorias
             cartaN = randrange(0,len(self.clonCartas) - 1)
-            cartaStr = self.clonCartas[cartaN]
-            cartaValue = self.cartasPuntaje[cartaStr]
-            cartaObject = Card(cartaStr,cartaValue)
+            cartaList = self.clonCartas[cartaN]
+            cartaObject = Card(cartaList)
             cartasJugador.append(cartaObject)
-            self.clonCartas.remove(cartaStr)
+            self.clonCartas.remove(cartaList)
             del cartaObject
-
-
-        #debuggin
-        if(self.debuggin):
-            print('Cartas Repartidas a jugar!')
-            print(cartasJugador)
-        #debuggin
 
         return cartasJugador

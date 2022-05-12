@@ -1,7 +1,12 @@
+#!/usr/bin/env python 2.7
+# -*- coding: utf-8 -*-
+
+__author__ = "Lautaro Linquiman"
+__email__ = "acc.limayyo@gmail.com"
+__status__ = "Developing"
+
 '''
 Simulacion de ejemplo de como utilizar la libreria PyTruco
-@Autor: Lautaro Linquiman
-@Email: acc.limayyo@gmail.com
 
 Paso 1: Definir parametros de la Simulacion
     CantidadDeJugadores
@@ -46,7 +51,10 @@ class EjemploDeTruco:
             self.juego = Game(self.mesa)
             ''' Paso 7: se inicia la partida y se comienza el juego en modo automatico con bots '''
             self.juego.start()
-
+def _test():
+    import doctest
+    doctest.testmod()
 
 if __name__ == "__main__":
+    _test()
     EjemploDeTruco()
