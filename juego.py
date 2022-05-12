@@ -15,6 +15,7 @@ import inspect
 import pdb
 import time
 import string
+
 logging.basicConfig(format='%(levelname)s [%(asctime)s][SVR]: %(message)s',
     filename='./logs/libjuego.log', level='DEBUG')
 
@@ -340,73 +341,6 @@ class Game():
         for team in self.teams:
             self.actionGame.showPoints(team.getID(), team.getPoints())
             #print ('points team %d: %d') %(team, self.teamPoints[team])
-
-    ''' startEnvidoBlock '''
-    def envido(self, playerObject):
-        ''' group: envido
-        Esta funcion se llama cuando un jugador canta envido y inicia el loop de envido
-        @param playerObject:
-        '''
-        self.actionGame.envido(playerObject)
-        if len(self.e__envido) == 0:
-            self.playerChant = self.getTurn()
-        self.e__envido['player'] = playerObject
-        #pdb.set_trace()
-        if not 'points' in self.e__envido:
-            self.e__envido['points'] = 2
-        else:
-            self.e__envido['points'] += 2
-
-        if not self.__loopEnvido:
-            self.loopEnvido()
-        self.setTurn(self.playerChant) #Se le assigna el turno al jugador que canto el envido y continua el juego normalmente
-    def loopEnvido(self):
-        ''' Esta funcion se llama despues de que un jugador canta envido '''
-        self.actionGame.startLoopEnvido()
-        self.__loopEnvido = True
-        while not 'winner' in self.e__envido:
-
-            player = self.getTurnAndChange()
-            gameInfo = self.getInfo()
-            accion = self.actionGame.getActionPlayer(\
-                                player, gameInfo=gameInfo)
-            if accion[0] == 'envido':
-                self.envido(player)
-            elif accion[0] == 'Quiero':
-                if accion[1] == 1:
-                    self.actionGame.quiero(player)
-                    self.getWinnerEnvido()
-                else:
-                    self.actionGame.noQuiero(player)
-                    self.actionGame.showWinnerEnvido(self.e__envido['player'])
-                    self.givePointsTeam(self.e__envido['player'].getTeam(),2)
-
-                self.e__envido['winner'] = True
-            #pdb.set_trace()
-        self.actionGame.finishLoopEnvido()
-        #pdb.set_trace()
-    def getWinnerEnvido(self):
-        ''' group: envido
-        Esta funcion se llama cuando un jugador canta envido y otro lo acepta con un quiero
-        '''
-        winner = {'player': False}
-        tempWinnerPoints = 0 #Esta variable almacena los puntos ganadores del envido
-        cJugadas = 0
-        self.setTurn(self.hand)
-        while cJugadas < self.numberPlayers:
-            cJugadas += 1
-            player = self.getTurnAndChange()
-            pPoints = player.getPointsEnvido()
-            self.actionGame.showEnvido(player) #El jugador canta sus tantos
-            if tempWinnerPoints < player.getPointsEnvido():
-                winner = player
-            tempWinnerPoints = player.getPointsEnvido()
-        self.actionGame.showWinnerEnvido(winner)
-        self.givePointsTeam(winner.getTeam(),self.e__envido['points']) #Se le asigna los puntos del envido al equipo ganador
-
-    ''' endEnvidoBlock '''
-
-
 
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
