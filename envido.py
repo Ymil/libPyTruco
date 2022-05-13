@@ -11,8 +11,8 @@ NO = 0
 class envido_handler(State):
     _game_instance = None
     _history : list = []
-    _player_chant : int = 0 # Indica quien fue el jugador que canto la primera ves.
-    _active : bool = False # Indica si alguien canto bingo.
+    _player_chant : int = None # Indica quien fue el jugador que canto la primera ves.
+    _active : bool = False # Indica si alguien canto envido.
     _points : int = 0 # Indica la cantidad de puntos sumados en el envido.
     _last_chant : int = 0 # Indica cual es el ultimo usuario en cantar.
     _loop_envido : bool = False # Inidica nos encontramos en el loop de envido.
@@ -31,6 +31,8 @@ class envido_handler(State):
                 self = args[0]
                 player = args[1]
                 self.state = new_state
+                if self._game_instance._truco_handler.state > 0:
+                    raise ValueError("No puedes cantar envido despues del truco")
                 if self._game_instance.handNumber != 1:
                     raise ValueError("No podes cantar envido en esta mano")
                 
@@ -38,11 +40,11 @@ class envido_handler(State):
 
                 self._game_instance.actionGame.envido(player)
                 self._last_chant = player
-                if self._active:
-                    self.playerChant = self._game_instance.getTurn()
+                if self._player_chant == None:
+                    self._player_chant = self._game_instance.getTurn()
                 if not self._loop_envido:
                     self.loopEnvido()
-                self._game_instance.setTurn(self._game_instance.playerChant) #Se le assigna el turno al jugador que canto el envido y continua el juego normalmente
+                self._game_instance.setTurn(self._player_chant) #Se le assigna el turno al jugador que canto el envido y continua el juego normalmente
             return wrapper
         return decorator
     
