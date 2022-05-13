@@ -118,7 +118,7 @@ class Jugador():
             ''' Todas las cartas del jugador son las consideradas viejas por lo tanto
             tienen valor 0 '''
             return 0
-        maxCard = max(dicCards.iteritems(), key=operator.itemgetter(0))
+        maxCard = max(dicCards.items(), key=operator.itemgetter(0))
         #pdb.set_trace()
         return maxCard[1].getNumber()
 

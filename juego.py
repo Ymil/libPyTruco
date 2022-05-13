@@ -11,6 +11,7 @@ import sys
 from cartas import Cartas
 from accionesJuego import AccionesJuego
 from envido import envido_handler
+from truco_handler import truco_handler
 import logging
 import inspect
 import pdb
@@ -85,7 +86,8 @@ class Game():
         self.players = self.tableObject.getPlayers()
         self.teams = self.tableObject.getTeams()
         self.numberPlayers = len(self.players)# Obtiene la cantidad de jugadores
-        self._envidoHandler = envido_handler(self)
+        # self._envidoHandler = envido_handler(self)
+        # self._truco_handler = truco_handler(self)
 
     def setActionGame(self, classActionGame):
         ''' Se asigna otra objecto classActionGame
@@ -112,7 +114,7 @@ class Game():
     def getTurnAndChange(self):
         ''' Obtiene el id del jugador que es hand y cambia la mano
         @rtype: playerObject'''
-        msg_debug('[getTurn-turn] %d' % self.turn)
+        # msg_debug('[getTurn-turn] %d' % self.turn)
         turn = self.players[self.turn]
         if self.getNumberTheCurrentHand == 0 and self.hand == 0:
             self.hand = self.turn
@@ -359,17 +361,20 @@ class Game():
     CHANGE_TURN_FLAG = False
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
-        _actions_map : dict = {
-            "envido": self._envidoHandler.envido_handler,
-            "real_envido": self._envidoHandler.real_envido_handler,
-            "falta_envido": self._envidoHandler.falta_envido_handler,
-            "jugarCarta": self.playingCardInRound
-        }
     
         self.actionGame.showMsgStartGame(self.players)
         self.actionGame.setPlayers(self.players)
         while 1:
             self.startRound()
+            _actions_map : dict = {
+                "envido": self._envidoHandler.envido_handler,
+                "real_envido": self._envidoHandler.real_envido_handler,
+                "falta_envido": self._envidoHandler.falta_envido_handler,
+                "truco": self._truco_handler.truco_handler,
+                "retruco": self._truco_handler.retruco_handler,
+                "value_4": self._truco_handler.vale4_handler,
+                "jugarCarta": self.playingCardInRound
+            }
             while not ( self.statusGame == 0 or self.statusGame == 2 ):
                 #pdb.set_trace()
                 self.startHand()
@@ -435,11 +440,11 @@ class Game():
         self.e__envido = {}
         self.hand = 0
         self.playerChant = 0 # Esta funcion alamacena al jugar que canta una jugada para volver a pararse en el al terminar el quiero
-        self.__loopEnvido = False #Esta funcion indica si ya inicio el loop del envido
         self.handNumber = 0
         self.pardaObtenerGanador = 0
         self.statusGame = 3
         self._envidoHandler = envido_handler(self)
+        self._truco_handler = truco_handler(self)
 
     def finishRound(self):
         ''' Esta funcion se ejecuta al terminar una ronda y se fija si alguno de
@@ -488,4 +493,7 @@ class Game():
             elif(self.statusGame == 2):
                 self.actionGame.winEmpate(\
                                     Resultados['player'].getTeamID())
-            self.givePointsTeam(Resultados['player'].getTeam(),2)
+            self.givePointsTeam(
+                Resultados['player'].getTeam(),
+                self._truco_handler.get_points() # Se obtienen los puntos del truco en caso de existir
+            )
