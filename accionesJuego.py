@@ -121,13 +121,16 @@ class AccionesJuego:
             print()
         else:
             accionRDM = random.randint(0,10) #Obtiene un numero aleatorio para determinar una accion
-            quiero = bool(action == 'envido')
+            quiero = bool(action == 'envido' or action == 'truco')
             if quiero == True:
                 accion.append('quiero')
                 accion.append(random.randint(0,1))
             elif accionRDM % 2 == 0:
                 ''' La condicion len(gameInfo['envido']) == 0 significa que todavia no se canto el envido '''
                 accion.append('envido')
+                accion.append(0)
+            elif accionRDM % 4 == 0:
+                accion.append('truco')
                 accion.append(0)
             else:
                 accion.append('jugarCarta')
