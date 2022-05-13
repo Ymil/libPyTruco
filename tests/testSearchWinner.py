@@ -16,16 +16,16 @@ from jugador import Jugador
 from juego import Game
 from accionesJuegoTemplate import AccionesJuegoTemplate
 import pdb
-print "Iniciando test".center(len(__descripcion__), "-")
-print __descripcion__
-print "".center(len(__descripcion__), "-")
+print("Iniciando test".center(len(__descripcion__), "-"))
+print(__descripcion__)
+print("".center(len(__descripcion__), "-"))
 class testSearchWinner(unittest.TestCase):
 
     def test(self):
 
         game = Game(self.mesa)
-        j1 = self.jugadores[0]
-        j2 = self.jugadores[1]
+        j1 : Jugador = self.jugadores[0]
+        j2 : Jugador = self.jugadores[1]
         game.setActionGame(AccionesJuegoTemplate)
         game.startRound()
 
@@ -46,8 +46,6 @@ class testSearchWinner(unittest.TestCase):
 
         j1.playingCardInRound(0)
         j2.playingCardInRound(2)
-
-
 
         game.finishHand()
         Resultado = game.resultLastHand
