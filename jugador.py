@@ -86,7 +86,7 @@ class Jugador():
         @return: lista de cardObject
         @rtype: list
         '''
-        #print self.cartas
+        #print(self.cartas)
         return self.cartas
 
     def getCardTheNumberHand(self, roundNumber):

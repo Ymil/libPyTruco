@@ -10,6 +10,7 @@ __data__ = "20-01-15 05:07AM"
 import sys
 from cartas import Cartas
 from accionesJuego import AccionesJuego
+from envido import envido_handler
 import logging
 import inspect
 import pdb
@@ -28,7 +29,7 @@ def msg_debug(str1):
     global cuentaEjecucion
     # if(type(str1) is list):
     #    str1 = ' | '.join(tuple(list(str1))[0:])
-    # print cuentaEjecucion
+    # print(cuentaEjecucion)
     str1 = 'EC %d' % cuentaEjecucion, str1
     # str1 = string.join(, ' ')
     #logging.debug(str1)
@@ -38,7 +39,7 @@ def msg_info(str1):
     global cuentaEjecucion
     # if(type(str1) is list):
     #    str1 = ' | '.join(tuple(list(str1))[0:])
-    # print cuentaEjecucion
+    # print(cuentaEjecucion)
     str1 = 'EC %d' % cuentaEjecucion, str1
     # str1 = string.join(, ' ')
     #logging.info(str1)
@@ -84,6 +85,7 @@ class Game():
         self.players = self.tableObject.getPlayers()
         self.teams = self.tableObject.getTeams()
         self.numberPlayers = len(self.players)# Obtiene la cantidad de jugadores
+        self._envidoHandler = envido_handler(self)
 
     def setActionGame(self, classActionGame):
         ''' Se asigna otra objecto classActionGame
@@ -340,7 +342,7 @@ class Game():
         ''' Muestra los puntos de los equipos '''
         for team in self.teams:
             self.actionGame.showPoints(team.getID(), team.getPoints())
-            #print ('points team %d: %d') %(team, self.teamPoints[team])
+            #print(('points team %d: %d') %(team, self.teamPoints[team]))
 
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
@@ -361,18 +363,25 @@ class Game():
 
                     while 1:
                         while 1:
-                            ''' Este loop obtiene la accion del jugador hasta que sea JugarCarta '''
+                            ''' Este loop obtiene la accion del jugador hasta que sea jugarCarta '''
                             gameInfo = self.getInfo()
                             accion = self.actionGame.getActionPlayer(\
-                                                jugador, gameInfo=gameInfo)
-
-                            if accion[0] == 'JugarCarta':
-                                cartaAJugar = accion[1]
-                                break
-                            elif accion[0] == 'envido':
-                                self.envido(jugador)
-                                continue
-
+                                                jugador)
+                            try:
+                                if accion[0] == 'jugarCarta':
+                                    cartaAJugar = accion[1]
+                                    break
+                                elif accion[0] == 'envido':
+                                    self._envidoHandler.envido(jugador)
+                                    continue
+                                elif accion[0] == 'real_envido':
+                                    self._envidoHandler.real_envido(jugador)
+                                    continue
+                                elif accion[0] == 'falta_envido':
+                                    self._envidoHandler.falta_envido(jugador)
+                            except ValueError as msg:
+                                self.actionGame.showError(jugador.getID(),\
+                                                            msg)
                         if(1 == 1):
                             try:
                                 if(jugador.playingCardInRound(cartaAJugar)):
@@ -436,6 +445,7 @@ class Game():
         self.handNumber = 0
         self.pardaObtenerGanador = 0
         self.statusGame = 3
+        self._envidoHandler = envido_handler(self)
 
     def finishRound(self):
         ''' Esta funcion se ejecuta al terminar una ronda y se fija si alguno de
@@ -468,7 +478,7 @@ class Game():
         self.resultLastHand = self.getStatusTheRound()
         Resultados = self.resultLastHand
         self.actionGame.returnStatus(Resultados)
-        #print Resultados
+        #print(Resultados)
         msg_debug("lastCodeResult:%d" % self.lastCodeResult)
         if(self.statusGame == 1):
             self.actionGame.Parda()

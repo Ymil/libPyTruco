@@ -1,57 +1,98 @@
+from abc import ABC, abstractmethod
+from state import State
+
 ENVIDO_SECUENCE = ["envido", "real_envido", "falta_envido"]
-class envidoHandler:
-    _gameInstance = None
+STATE_ENVIDO = 1
+STATE_REAL_ENVIDO = 2
+STATE_FALTA_ENVIDO = 3
+STATE_FINALIZADO = 4
+
+class envido_handler(State):
+    _game_instance = None
     _history : list = []
-    _playerChant : int = 0 # Indica quien fue el jugador que canto la primera ves.
+    _player_chant : int = 0 # Indica quien fue el jugador que canto la primera ves.
     _active : bool = False # Indica si alguien canto bingo.
     _points : int = 0 # Indica la cantidad de puntos sumados en el envido.
-    _lastChant : int = 0 # Indica cual es el ultimo usuario en cantar.
-    _loopEnvido : bool = False # Inidica nos encontramos en el loop de envido.
+    _last_chant : int = 0 # Indica cual es el ultimo usuario en cantar.
+    _loop_envido : bool = False # Inidica nos encontramos en el loop de envido.
     def __init__(self, gameInstance):
-        self._gameInstance = gameInstance
+        self._game_instance = gameInstance
     
-    def _generalEnvidoLogic(self, playerObject, name: str):
-        self._lastChant = playerObject
-        if self._active:
-            self_playerChant = self._gameInstance.getTurn()
-        if not self._loopEnvido:
-            self.loopEnvido()
-        self._gameInstance.setTurn(self._gameInstance.playerChant) #Se le assigna el turno al jugador que canto el envido y continua el juego normalmente
-        
+    def _general_envido_logic(new_state):
+        def decorator(func):
+            def wrapper(*args):
+                self = args[0]
+                playerObject = args[1]
+                self.state = new_state
+                if self._game_instance.handNumber != 1:
+                    raise ValueError("No podes cantar envido en esta mano")
+                
+                func(*args)
+
+                self._last_chant = playerObject
+                if self._active:
+                    self.playerChant = self._game_instance.getTurn()
+                if not self._loop_envido:
+                    self.loopEnvido()
+                self._game_instance.setTurn(self._game_instance.playerChant) #Se le assigna el turno al jugador que canto el envido y continua el juego normalmente
+            return wrapper
+        return decorator
+    
+    @_general_envido_logic(STATE_ENVIDO)
     def envido(self, playerObject):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y inicia el loop de envido
         @param playerObject:
         '''
         self._points += 2
-        self._gameInstance.actionGame.envido(playerObject)
-        self._generalEnvidoLogic(playerObject, 'envido')
+        self._game_instance.actionGame.envido(playerObject)
+    
+    @_general_envido_logic(STATE_REAL_ENVIDO)
+    def real_envido(self, playerObject):
+        ''' group: envido
+        Esta funcion se llama cuando un jugador canta envido y inicia el loop de envido
+        @param playerObject:
+        '''
+        self._points += 3
+        self._game_instance.actionGame.envido(playerObject)
+    
+    @_general_envido_logic(STATE_FALTA_ENVIDO)
+    def falta_envido(self, playerObject):
+        ''' group: envido
+        Esta funcion se llama cuando un jugador canta envido y inicia el loop de envido
+        @param playerObject:
+        '''
+        self._points += 15
+        self._game_instance.actionGame.envido(playerObject)
     
     def loopEnvido(self):
         ''' Esta funcion se llama despues de que un jugador canta envido '''
-        self._gameInstance.actionGame.startLoopEnvido()
-        self._loopEnvido = True
-        while not 'winner' in self._gameInstance.e__envido:
-            player = self._gameInstance.getTurnAndChange()
-            gameInfo = self._gameInstance.getInfo()
-            accion = self._gameInstance.actionGame.getActionPlayer(\
-                                player, gameInfo=gameInfo)
+        self._game_instance.actionGame.startLoopEnvido()
+        self._loop_envido = True
+        while not 'winner' in self._game_instance.e__envido:
+            player = self._game_instance.getTurnAndChange()
+            gameInfo = self._game_instance.getInfo()
+            accion = self._game_instance.actionGame.getActionPlayer(\
+                                player, action="envido")
             if accion[0] == 'envido':
                 self.envido(player)
-            elif accion[0] == 'Quiero':
+            elif accion[0] == 'real_envido':
+                self.real_envido(player)
+            elif accion[0] == 'falta_envido':
+                self.falta_envido(player)
+            elif accion[0] == 'quiero':
                 if accion[1] == 1:
-                    self._gameInstance.actionGame.quiero(player)
+                    self._game_instance.actionGame.quiero(player)
                     self.getWinnerEnvido()
                 else:
-                    self._gameInstance.actionGame.noQuiero(player)
-                    self._gameInstance.actionGame.showWinnerEnvido(self._lastChant)
-                    self._gameInstance.givePointsTeam(self._lastChant.getTeam(), 2)
+                    self._game_instance.actionGame.noquiero(player)
+                    self._game_instance.actionGame.showWinnerEnvido(self._last_chant)
+                    self._game_instance.givePointsTeam(self._last_chant.getTeam(), 2)
+                break
 
-                # self._gameInstance.e__envido['winner'] = True
-            #pdb.set_trace()
-        self._gameInstance.actionGame.finishLoopEnvido()
+        self._game_instance.actionGame.finishLoopEnvido()
+        self.state = STATE_FINALIZADO
 
-        #pdb.set_trace()
     def getWinnerEnvido(self):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y otro lo acepta con un quiero
@@ -59,14 +100,16 @@ class envidoHandler:
         winner = {'player': False}
         tempWinnerPoints = 0 #Esta variable almacena los puntos ganadores del envido
         cJugadas = 0
-        self._gameInstance.setTurn(self._gameInstance.hand)
-        while cJugadas < self._gameInstance.numberPlayers:
+        self._game_instance.setTurn(self._game_instance.hand)
+        while cJugadas < self._game_instance.numberPlayers:
             cJugadas += 1
-            player = self._gameInstance.getTurnAndChange()
+            player = self._game_instance.getTurnAndChange()
             pPoints = player.getPointsEnvido()
-            self._gameInstance.actionGame.showEnvido(player) #El jugador canta sus tantos
+            self._game_instance.actionGame.showEnvido(player) #El jugador canta sus tantos
             if tempWinnerPoints < player.getPointsEnvido():
                 winner = player
             tempWinnerPoints = player.getPointsEnvido()
-        self._gameInstance.actionGame.showWinnerEnvido(winner)
-        self._gameInstance.givePointsTeam(winner.getTeam(), self._points) #Se le asigna los puntos del envido al equipo ganador
+        self._game_instance.actionGame.showWinnerEnvido(winner)
+        self._game_instance.givePointsTeam(
+            winner.getTeam(), self._points
+        ) #Se le asigna los puntos del envido al equipo ganador

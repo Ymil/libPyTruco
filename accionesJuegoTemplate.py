@@ -37,7 +37,7 @@ class AccionesJuegoTemplate:
         ''' Esta funcion se llama cada vez que se inicia una nueva mano
         @param handsNumber: int'''
         str1 =  ("Iniciando mano %d" % handsNumber).center(50,'-')
-        print str1
+        print(str1)
         logging.debug("startHand(%d)" % handsNumber)
         logging.info(str1)
 
@@ -81,7 +81,7 @@ class AccionesJuegoTemplate:
         Ejemplo de uso: '''
 
         str1 = "El equipo %d tiene %d puntos" % (team, pointsTeam)
-        print str1
+        print(str1)
         str2 = "teamPoints(%d,%d)" % (team, pointsTeam)
         logging.debug(str2)
         logging.info(str1)
@@ -112,14 +112,14 @@ class AccionesJuegoTemplate:
         accion = []
         quiero = False if len(gameInfo['envido']) == 0 or 'winner' in gameInfo['envido'] else True
         if quiero == True:
-            accion.append('Quiero')
+            accion.append('quiero')
             accion.append(random.randint(0,1))
         elif gameInfo['hand'] == 0 and accionRDM%2 == 0 and len(gameInfo['envido']) == 0:
             ''' La condicion len(gameInfo['envido']) == 0 significa que todavia no se canto el envido '''
 
             accion.append('envido')
         else:
-            accion.append('JugarCarta')
+            accion.append('jugarCarta')
             accion.append(random.randint(0,2))
         str1 = "getActionPlayer %d" % playerObject.getID(),accion
         logging.debug(str1)
@@ -133,7 +133,7 @@ class AccionesJuegoTemplate:
         Ejemplo:
         '''
         str1 = 'El jugador %d:%d jugo la carta %s' % (teamObject.getID(), playerObject.getID(), cardObject.getText())
-        print str1
+        print(str1)
         logging.info(str1)
         str2 = 'showCardPlaying(%d,%d,%s)' % (teamObject.getID(), playerObject.getID(), cardObject.getText())
         logging.debug(str2)
@@ -144,7 +144,7 @@ class AccionesJuegoTemplate:
         @param errorName: str ['cardPlayerd', 'invalidAction']
         Ejemplo:
         '''
-        #print self.errors[errorName]
+        #print(self.errors[errorName])
         pass
 
     def showResultaTheHand(self, playerid, playername, teamid, cardObject):
@@ -156,7 +156,7 @@ class AccionesJuegoTemplate:
         @param cardObject:
         Ejemplo:'''
         str1 =  '%d:%d gano la mano con %s' % (teamid, playerid, cardObject.getText())
-        print str1
+        print(str1)
         logging.info(str1)
         str2 = 'showResultaTheHand(%d,%d,%s)' % (teamid, playerid, cardObject.getText())
         logging.debug(str2)
@@ -175,7 +175,7 @@ class AccionesJuegoTemplate:
         @param statusGame: [StatusGame=(win,empate), teamWinner], [StatusGame=empate, CartaMayor], [StatusGame=continue, CartaMayor, playerid]
         '''
         #logging.debug("ReturnStatus")
-        #print 'Status:',statusGame
+        #print('Status:',statusGame)
         pass
 
     ''' Win Actions '''
@@ -185,7 +185,7 @@ class AccionesJuegoTemplate:
         @param teamIDWinner: int
         '''
         str1 = 'Ocurrio un empate, los puntos son para el equipo %d' % teamIDWinner
-        print str1
+        print(str1)
         logging.info(str1)
 
     def win(self, teamIDWinner):
@@ -194,7 +194,7 @@ class AccionesJuegoTemplate:
         @param teamIDWinner: int
         '''
         str1 = 'El equipo %s gano la ronda' % teamIDWinner
-        print str1
+        print(str1)
         logging.info(str1)
 
     def winGameTeam(self, teamObject):
@@ -203,10 +203,10 @@ class AccionesJuegoTemplate:
         @param teamObject:
         '''
         str1 = 'El equipo %d gano el juego' % teamObject.getID()
-        print str1
+        print(str1)
         logging.info(str1)
 
-    ''' Start Quiero/Noquiero '''
+    ''' Start quiero/Noquiero '''
 
     def quiero(self, playerObject):
         ''' Esta funcion se llama cuando un jugador quiere a un canto
@@ -215,24 +215,24 @@ class AccionesJuegoTemplate:
         '''
 
         str1 = 'El jugador %d dijo quiero' % playerObject.getID()
-        str2 = 'Quiero(%d)' % playerObject.getID()
-        print str1
+        str2 = 'quiero(%d)' % playerObject.getID()
+        print(str1)
         logging.info(str1)
         logging.debug(str2)
 
-    def noQuiero(self, playerObject):
+    def noquiero(self, playerObject):
         ''' Esta funcion se llama cuando un jugador no quiere a un canto
 
         @param playerObject:
         '''
 
         str1 = 'El jugador %d dijo no quiero' % playerObject.getID()
-        str2 = 'noQuiero(%d)' % playerObject.getID()
-        print str1
+        str2 = 'noquiero(%d)' % playerObject.getID()
+        print(str1)
         logging.info(str1)
         logging.debug(str2)
 
-    ''' Finish Quiero/Noquiero '''
+    ''' Finish quiero/Noquiero '''
 
     ''' startEnvidoBlock '''
 
@@ -251,7 +251,7 @@ class AccionesJuegoTemplate:
         '''
         str1 = 'El jugador %d canto envido' % playerObject.getID()
         str2 = 'envido(%d)' % playerObject.getID()
-        print str1
+        print(str1)
         logging.info(str1)
         logging.debug(str2)
 
@@ -261,7 +261,7 @@ class AccionesJuegoTemplate:
         @param playerObject: '''
         str1 = 'El jugador %d tiene %d de envido' % (playerObject.getID(),playerObject.getPointsEnvido())
         str2 = 'showEnvido(%d,%d)' % (playerObject.getID(),playerObject.getPointsEnvido())
-        print str1
+        print(str1)
         logging.info(str1)
         logging.debug(str2)
 
@@ -273,7 +273,7 @@ class AccionesJuegoTemplate:
 
         str1 = 'El jugador %d gano el envido' % playerObject.getID()
         str2 = 'winnerEnvido(%d)' % playerObject.getID()
-        print str1
+        print(str1)
         logging.info(str1)
         logging.debug(str2)
     ''' endEnvidoBlock '''
