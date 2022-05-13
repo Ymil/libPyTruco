@@ -7,6 +7,10 @@ __status__ = "Developing"
 
 from accionesJuego import AccionesJuego
 
+import sys
+
+sys.path.append("../src")
+
 '''
 Simulacion de ejemplo de como utilizar la libreria PyTruco
 

@@ -76,7 +76,7 @@ class truco_handler(state_decorator):
                 next_player = self._game_instance.getTurnAndChange()
                 accion_name, accion_values = get_response(
                     self._actions_map,
-                    self._game_instance.actionGame.getActionPlayer,
+                    self._game_instance.signals_handler.getActionPlayer,
                     next_player, 
                     'truco'
                 )
@@ -88,21 +88,21 @@ class truco_handler(state_decorator):
 
     @_general_truco_logic(STATE_TRUCO)
     def truco_handler(self, player: Jugador, *args):
-        self._game_instance.actionGame.showMessage(
+        self._game_instance.signals_handler.showMessage(
             player, f"Jugador {player.getID()} canto truco"
         )
         self._points = 2
 
     @_general_truco_logic(STATE_RETRUCO)
     def retruco_handler(self, player: Jugador, *args):
-        self._game_instance.actionGame.showMessage(
+        self._game_instance.signals_handler.showMessage(
             player, f"Jugador {player.getID()} canto retruco"
         )
         self._points = 3
 
     @_general_truco_logic(STATE_VALE_4)
     def vale4_handler(self, player: Jugador, *args):
-        self._game_instance.actionGame.showMessage(
+        self._game_instance.signals_handler.showMessage(
             player, f"Jugador {player.getID()} canto vale 4"
         )
         self._points = 4
@@ -110,12 +110,12 @@ class truco_handler(state_decorator):
 
     def quiero_handler(self, player: Jugador, decision):
         if decision == SI:
-            self._game_instance.actionGame.showMessage(
+            self._game_instance.signals_handler.showMessage(
                 player, f"Jugador {player.getID()} quiso el truco"
             )
             self._quiero_team = player.team
         else:
-            self._game_instance.actionGame.showMessage(
+            self._game_instance.signals_handler.showMessage(
                 player, f"Jugador {player.getID()} no quiso el truco"
             )
             self._points -= 1

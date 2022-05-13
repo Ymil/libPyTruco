@@ -7,7 +7,7 @@ __date__ = " 04/08/16"
 from abc import ABC
 import logging
 import pdb
-logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/accionGame.log', level='DEBUG')
+logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='../logs/accionGame.log', level='DEBUG')
 import random
 
 class AccionesJuego(ABC):

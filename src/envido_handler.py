@@ -38,7 +38,7 @@ class envido_handler(State):
                 
                 func(*args)
 
-                self._game_instance.actionGame.envido(player)
+                self._game_instance.signals_handler.envido(player)
                 self._last_chant = player
                 if self._player_chant == None:
                     self._player_chant = self._game_instance.getTurn()
@@ -75,28 +75,28 @@ class envido_handler(State):
     
     def quiero_handler(self, player, decision):
         if decision == SI:
-            self._game_instance.actionGame.quiero(player)
+            self._game_instance.signals_handler.quiero(player)
             self.getWinnerEnvido()
         else:
-            self._game_instance.actionGame.noquiero(player)
-            self._game_instance.actionGame.showWinnerEnvido(self._last_chant)
+            self._game_instance.signals_handler.noquiero(player)
+            self._game_instance.signals_handler.showWinnerEnvido(self._last_chant)
             self._game_instance.givePointsTeam(self._last_chant.getTeam(), 2)
         self.state = STATE_FINALIZADO
 
     
     def loopEnvido(self):
         ''' Esta funcion se llama despues de que un jugador canta envido '''
-        self._game_instance.actionGame.startLoopEnvido()
+        self._game_instance.signals_handler.startLoopEnvido()
         self._loop_envido = True
         while (self.state is not STATE_FINALIZADO):
             player = self._game_instance.getTurnAndChange()
-            accion_name, accion_values = self._game_instance.actionGame.getActionPlayer(\
+            accion_name, accion_values = self._game_instance.signals_handler.getActionPlayer(\
                                 player, action='envido')
 
             if accion_name in self._actions_map:
                 self._actions_map[accion_name](player, accion_values)
 
-        self._game_instance.actionGame.finishLoopEnvido()
+        self._game_instance.signals_handler.finishLoopEnvido()
         
 
     def getWinnerEnvido(self):
@@ -111,11 +111,11 @@ class envido_handler(State):
             cJugadas += 1
             player = self._game_instance.getTurnAndChange()
             pPoints = player.getPointsEnvido()
-            self._game_instance.actionGame.showEnvido(player) #El jugador canta sus tantos
+            self._game_instance.signals_handler.showEnvido(player) #El jugador canta sus tantos
             if tempWinnerPoints < player.getPointsEnvido():
                 winner = player
             tempWinnerPoints = player.getPointsEnvido()
-        self._game_instance.actionGame.showWinnerEnvido(winner)
+        self._game_instance.signals_handler.showWinnerEnvido(winner)
         self._game_instance.givePointsTeam(
             winner.getTeam(), self._points
         ) #Se le asigna los puntos del envido al equipo ganador
