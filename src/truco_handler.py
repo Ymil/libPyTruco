@@ -1,7 +1,4 @@
-from multiprocessing.sharedctypes import Value
-from shutil import ExecError
 from jugador import Jugador
-# from juego import Game
 from team import Team
 from state import State
 
@@ -53,7 +50,7 @@ class truco_handler(state_decorator):
         self._actions_map = {
             "truco": self.truco_handler,
             "retruco": self.retruco_handler,
-            "value_4": self.vale4_handler,
+            "vale_4": self.vale4_handler,
             "quiero": self.quiero_handler
         }
     
@@ -65,15 +62,17 @@ class truco_handler(state_decorator):
                 
                 if self._last_state_eq_new_state(new_state):
                     raise ValueError("No podes volver a cantar")
-                else:
-                    if self.state != 0:
-                        if self._quiero_team is not player.team:
-                            raise ValueError("No podes cantar, tu oponente tiene el quiero")
-                    self.state = new_state
+                
+                self.state = new_state
+                
+                if self._quiero_team != None:
+                    if self._quiero_team is not player.team:
+                        raise ValueError("No podes cantar, tu oponente tiene el quiero")
+                
 
                 func(*args)
 
-                next_player = self._game_instance.getTurnAndChange()
+                next_player = self._game_instance.getNextTurn(player)
                 accion_name, accion_values = get_response(
                     self._actions_map,
                     self._game_instance.signals_handler.getActionPlayer,
@@ -82,43 +81,43 @@ class truco_handler(state_decorator):
                 )
 
                 self._actions_map[accion_name](next_player, accion_values)
-                self._game_instance.getTurnAndChange()
             return wrapper
         return decorator
 
     @_general_truco_logic(STATE_TRUCO)
     def truco_handler(self, player: Jugador, *args):
-        self._game_instance.signals_handler.showMessage(
-            player, f"Jugador {player.getID()} canto truco"
+        self._game_instance.signals_handler.sendMessageAll(
+            f"Jugador {player.getID()} canto truco"
         )
         self._points = 2
 
     @_general_truco_logic(STATE_RETRUCO)
     def retruco_handler(self, player: Jugador, *args):
-        self._game_instance.signals_handler.showMessage(
-            player, f"Jugador {player.getID()} canto retruco"
+        self._game_instance.signals_handler.sendMessageAll(
+            f"Jugador {player.getID()} canto retruco"
         )
         self._points = 3
 
     @_general_truco_logic(STATE_VALE_4)
     def vale4_handler(self, player: Jugador, *args):
-        self._game_instance.signals_handler.showMessage(
-            player, f"Jugador {player.getID()} canto vale 4"
+        self._game_instance.signals_handler.sendMessageAll(
+            f"Jugador {player.getID()} canto vale 4"
         )
         self._points = 4
     
 
     def quiero_handler(self, player: Jugador, decision):
         if decision == SI:
-            self._game_instance.signals_handler.showMessage(
-                player, f"Jugador {player.getID()} quiso el truco"
+            self._game_instance.signals_handler.sendMessageAll(
+                f"Jugador {player.getID()} quiso el truco"
             )
             self._quiero_team = player.team
         else:
-            self._game_instance.signals_handler.showMessage(
-                player, f"Jugador {player.getID()} no quiso el truco"
+            self._game_instance.signals_handler.sendMessageAll(
+                f"Jugador {player.getID()} no quiso el truco"
             )
             self._points -= 1
+            self.freeze()
         
     
     def get_points(self):
