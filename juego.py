@@ -9,8 +9,7 @@ __data__ = "20-01-15 05:07AM"
 
 import sys
 from cartas import Cartas
-from accionesJuego import AccionesJuego
-from envido import envido_handler
+from envido_handler import envido_handler
 from truco_handler import truco_handler
 import logging
 import inspect
@@ -47,7 +46,7 @@ def msg_info(str1):
     cuentaEjecucion += 1
 
 class Game():
-    def __init__(self, tableObject, configGame = {}):
+    def __init__(self, tableObject, signalsHandler, configGame = {}):
         '''
         @param tableObject:
         @param configGame: dic
@@ -68,7 +67,7 @@ class Game():
         self.turn = 0
         self.cards = Cartas()
         self.e__envido = {}
-        self.actionGame = AccionesJuego()
+        self.signals_handler = signalsHandler
         self.resultLastHand = []  # Resultado de la ultima mano
         self.resultLast = [] #Almacena los ultimos rezultados de la func
         self.statusGame = 3
@@ -92,7 +91,7 @@ class Game():
     def setActionGame(self, classActionGame):
         ''' Se asigna otra objecto classActionGame
         @param classActionGame:  '''
-        self.actionGame = classActionGame()
+        self.signals_handler = classActionGame()
 
     def getStatus(self):
         '''
@@ -161,9 +160,9 @@ class Game():
         self.cards.prepararMaso()
         for player in self.players:
                 cardsPlayer = self.cards.repartir_individual()
-                self.actionGame.giveCards(player.getID(), cardsPlayer)
+                self.signals_handler.giveCards(player.getID(), cardsPlayer)
                 player.setCards(cardsPlayer)
-                self.actionGame.showCards(player.getID(), cardsPlayer)
+                self.signals_handler.showCards(player.getID(), cardsPlayer)
 
     '''def darCartas(self, playerID):
         self.playsCard[playerID] = []
@@ -343,7 +342,7 @@ class Game():
     def showPointsTeams(self):
         ''' Muestra los puntos de los equipos '''
         for team in self.teams:
-            self.actionGame.showPoints(team.getID(), team.getPoints())
+            self.signals_handler.showPoints(team.getID(), team.getPoints())
             #print(('points team %d: %d') %(team, self.teamPoints[team]))
 
     def playingCardInRound(self, player, card):
@@ -352,18 +351,18 @@ class Game():
             cartaJ = player.getNameCardPlayed()
             #Obitene el nombre completo de la carta
             #self.giveCard(jugador.getID(),cartaJ)
-            self.actionGame.showCardPlaying(\
+            self.signals_handler.showCardPlaying(\
                             player.getTeam(), player,cartaJ)
             self.CHANGE_TURN_FLAG = True
         else:
-            self.actionGame.showError(player.getID(),\
+            self.signals_handler.showError(player.getID(),\
                                     'cardPlayerd')
     CHANGE_TURN_FLAG = False
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
     
-        self.actionGame.showMsgStartGame(self.players)
-        self.actionGame.setPlayers(self.players)
+        self.signals_handler.showMsgStartGame(self.players)
+        self.signals_handler.setPlayers(self.players)
         while 1:
             self.startRound()
             _actions_map : dict = {
@@ -391,14 +390,14 @@ class Game():
                     while not self.CHANGE_TURN_FLAG:
                         ''' Este loop obtiene la accion del jugador hasta que sea jugarCarta '''
                         gameInfo = self.getInfo()
-                        accion_name, accion_value = self.actionGame.getActionPlayer(\
+                        accion_name, accion_value = self.signals_handler.getActionPlayer(\
                                             jugador)
 
                         try:
                             if accion_name in _actions_map:
                                 _actions_map[accion_name](jugador, accion_value)
                         except ValueError as msg:
-                            self.actionGame.showError(jugador.getID(),\
+                            self.signals_handler.showError(jugador.getID(),\
                                                         msg)
                 self.finishHand()
             msg_info("EndRound")
@@ -406,9 +405,9 @@ class Game():
 
             if resultTheRound['winner']:
                 self.showPointsTeams()
-                self.actionGame.winGameTeam(resultTheRound['team'])
+                self.signals_handler.winGameTeam(resultTheRound['team'])
                 break
-        self.actionGame.showMsgFinishGame()
+        self.signals_handler.showMsgFinishGame()
 
     def getInfo(self):
         ''' Esta funcion devuelve un diccionario con informacion del juego
@@ -429,7 +428,7 @@ class Game():
         ''' Esta funcion se llama cada vez que se inicia una nueva ronda
         '''
         self.resetRond()
-        self.actionGame.showMsgStartRound()
+        self.signals_handler.showMsgStartRound()
         self.showPointsTeams()
         ''' Repartir cartas '''
         self.giveCardsToPlayers()
@@ -454,7 +453,7 @@ class Game():
         @rtype: dic
 
         '''
-        self.actionGame.showMsgFinishRound()
+        self.signals_handler.showMsgFinishRound()
         result = self.searchTeamWinnerTheRound()
         return result
 
@@ -465,33 +464,33 @@ class Game():
         @rtype: int
          '''
         self.handNumber += 1
-        self.actionGame.showMsgStartHand(self.handNumber)
+        self.signals_handler.showMsgStartHand(self.handNumber)
         #self.hand = self.getTurn()
         return self.handNumber
 
     def finishHand(self):
         ''' Esta funciona se llama cada vez que finaliza una ronda
         Analiza los datos del juego y determina si hay un ganador '''
-        self.actionGame.showMsgFinishHand()
+        self.signals_handler.showMsgFinishHand()
         msg_info("Iniciando analisis de resultados")
         self.resultLastHand = self.getStatusTheRound()
         Resultados = self.resultLastHand
-        self.actionGame.returnStatus(Resultados)
+        self.signals_handler.returnStatus(Resultados)
         #print(Resultados)
         msg_debug("lastCodeResult:%d" % self.lastCodeResult)
         if(self.statusGame == 1):
-            self.actionGame.Parda()
+            self.signals_handler.Parda()
             return
 
         RPlayer = Resultados['player']
-        self.actionGame.showResultaTheHand(RPlayer.getID(),\
+        self.signals_handler.showResultaTheHand(RPlayer.getID(),\
                             RPlayer.getName(),  RPlayer.getTeamID(),\
                             RPlayer.getNameCardPlayed())
         if(self.statusGame == 0):
             if(self.statusGame == 0):
-                self.actionGame.win(Resultados['player'].getTeamID())
+                self.signals_handler.win(Resultados['player'].getTeamID())
             elif(self.statusGame == 2):
-                self.actionGame.winEmpate(\
+                self.signals_handler.winEmpate(\
                                     Resultados['player'].getTeamID())
             self.givePointsTeam(
                 Resultados['player'].getTeam(),

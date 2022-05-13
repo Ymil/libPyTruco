@@ -5,6 +5,8 @@ __author__ = "Lautaro Linquiman"
 __email__ = "acc.limayyo@gmail.com"
 __status__ = "Developing"
 
+from accionesJuego import AccionesJuego
+
 '''
 Simulacion de ejemplo de como utilizar la libreria PyTruco
 
@@ -48,7 +50,7 @@ class EjemploDeTruco:
         #Se verifica que se pueda iniciar la partida
         if(self.mesa.getStatus()):
             ''' Paso 6: Se crea una nueva instancia de juego, con todos los parametros para poder crear la mesa '''
-            self.juego = Game(self.mesa)
+            self.juego = Game(self.mesa, AccionesJuego())
             ''' Paso 7: se inicia la partida y se comienza el juego en modo automatico con bots '''
             self.juego.start()
 def _test():
