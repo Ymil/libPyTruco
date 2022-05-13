@@ -32,6 +32,8 @@ class Card:
             points -= 20
         return points
 
+    def __str__(self):
+        return self.getText()
     def getText(self):
         '''
         @return: Esta funcion devuelve el numero de la carta y el palo

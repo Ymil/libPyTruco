@@ -17,8 +17,6 @@ import pdb
 import time
 import string
 
-logging.basicConfig(format='%(levelname)s [%(asctime)s][SVR]: %(message)s',
-    filename='./logs/libjuego.log', level='DEBUG')
 
 global cuentaEjecucion
 cuentaEjecucion = 0
@@ -110,6 +108,12 @@ class Game():
         @rtype: int'''
         return self.turn
 
+    def getNextTurn(self, player):
+        nextTurn = self.players.index(player) + 1
+        if(nextTurn >= self.numberPlayers):
+            return self.players[0]
+        return self.players[nextTurn]
+
     def getTurnAndChange(self):
         ''' Obtiene el id del jugador que es hand y cambia la mano
         @rtype: playerObject'''
@@ -162,7 +166,7 @@ class Game():
                 cardsPlayer = self.cards.repartir_individual()
                 self.signals_handler.giveCards(player.getID(), cardsPlayer)
                 player.setCards(cardsPlayer)
-                self.signals_handler.showCards(player.getID(), cardsPlayer)
+                self.signals_handler.showCards(player, cardsPlayer)
 
     '''def darCartas(self, playerID):
         self.playsCard[playerID] = []
@@ -355,7 +359,7 @@ class Game():
                             player.getTeam(), player,cartaJ)
             self.CHANGE_TURN_FLAG = True
         else:
-            self.signals_handler.showError(player.getID(),\
+            self.signals_handler.showError(player,\
                                     'cardPlayerd')
     CHANGE_TURN_FLAG = False
     def start(self):
@@ -390,6 +394,7 @@ class Game():
                     while not self.CHANGE_TURN_FLAG:
                         ''' Este loop obtiene la accion del jugador hasta que sea jugarCarta '''
                         gameInfo = self.getInfo()
+
                         accion_name, accion_value = self.signals_handler.getActionPlayer(\
                                             jugador)
 
@@ -397,7 +402,7 @@ class Game():
                             if accion_name in _actions_map:
                                 _actions_map[accion_name](jugador, accion_value)
                         except ValueError as msg:
-                            self.signals_handler.showError(jugador.getID(),\
+                            self.signals_handler.showError(jugador,\
                                                         msg)
                 self.finishHand()
             msg_info("EndRound")
