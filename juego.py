@@ -344,8 +344,28 @@ class Game():
             self.actionGame.showPoints(team.getID(), team.getPoints())
             #print(('points team %d: %d') %(team, self.teamPoints[team]))
 
+    def playingCardInRound(self, player, card):
+        if(player.playingCardInRound(card)):
+            #Juega la carta y se comprueba que este disponible
+            cartaJ = player.getNameCardPlayed()
+            #Obitene el nombre completo de la carta
+            #self.giveCard(jugador.getID(),cartaJ)
+            self.actionGame.showCardPlaying(\
+                            player.getTeam(), player,cartaJ)
+            self.CHANGE_TURN_FLAG = True
+        else:
+            self.actionGame.showError(player.getID(),\
+                                    'cardPlayerd')
+    CHANGE_TURN_FLAG = False
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
+        _actions_map : dict = {
+            "envido": self._envidoHandler.envido_handler,
+            "real_envido": self._envidoHandler.real_envido_handler,
+            "falta_envido": self._envidoHandler.falta_envido_handler,
+            "jugarCarta": self.playingCardInRound
+        }
+    
         self.actionGame.showMsgStartGame(self.players)
         self.actionGame.setPlayers(self.players)
         while 1:
@@ -355,52 +375,26 @@ class Game():
                 self.startHand()
 
                 cJugadas = 0 #Alamacena la cantidad de jugadas en la rond
-                while cJugadas < self.numberPlayers:
+                # while cJugadas < self.numberPlayers:
+                for _ in self.players:
+                    self.CHANGE_TURN_FLAG = False
                     '''Se inicia el juego'''
                     #pdb.set_trace()
-                    cJugadas += 1
+                    # cJugadas += 1
                     jugador = self.getTurnAndChange()
 
-                    while 1:
-                        while 1:
-                            ''' Este loop obtiene la accion del jugador hasta que sea jugarCarta '''
-                            gameInfo = self.getInfo()
-                            accion = self.actionGame.getActionPlayer(\
-                                                jugador)
-                            try:
-                                if accion[0] == 'jugarCarta':
-                                    cartaAJugar = accion[1]
-                                    break
-                                elif accion[0] == 'envido':
-                                    self._envidoHandler.envido(jugador)
-                                    continue
-                                elif accion[0] == 'real_envido':
-                                    self._envidoHandler.real_envido(jugador)
-                                    continue
-                                elif accion[0] == 'falta_envido':
-                                    self._envidoHandler.falta_envido(jugador)
-                            except ValueError as msg:
-                                self.actionGame.showError(jugador.getID(),\
-                                                            msg)
-                        if(1 == 1):
-                            try:
-                                if(jugador.playingCardInRound(cartaAJugar)):
-                                    #Juega la carta y se comprueba que este disponible
-                                    cartaJ = jugador.getNameCardPlayed()
-                                    #Obitene el nombre completo de la carta
-                                    #self.giveCard(jugador.getID(),cartaJ)
-                                    self.actionGame.showCardPlaying(\
-                                                    jugador.getTeam(), jugador,cartaJ)
-                                    break
-                                else:
-                                    self.actionGame.showError(jugador.getID(),\
-                                                            'cardPlayerd')
-                            except:
-                                pdb.set_trace()
+                    while not self.CHANGE_TURN_FLAG:
+                        ''' Este loop obtiene la accion del jugador hasta que sea jugarCarta '''
+                        gameInfo = self.getInfo()
+                        accion_name, accion_value = self.actionGame.getActionPlayer(\
+                                            jugador)
 
-                        else:
-                            self.actionGame.showError(jugador.getID(), \
-                                                        'invalidAction')
+                        try:
+                            if accion_name in _actions_map:
+                                _actions_map[accion_name](jugador, accion_value)
+                        except ValueError as msg:
+                            self.actionGame.showError(jugador.getID(),\
+                                                        msg)
                 self.finishHand()
             msg_info("EndRound")
             resultTheRound = self.finishRound()

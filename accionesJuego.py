@@ -128,6 +128,7 @@ class AccionesJuego:
             elif accionRDM % 2 == 0:
                 ''' La condicion len(gameInfo['envido']) == 0 significa que todavia no se canto el envido '''
                 accion.append('envido')
+                accion.append(0)
             else:
                 accion.append('jugarCarta')
                 accion.append(random.randint(0,2))
@@ -150,7 +151,7 @@ class AccionesJuego:
 
     def showMessage(self, playerObject, msg):
         print(msg)
-        
+
     def showError(self, playerObject, errorName):
         ''' Esta funcion se llama cuando ocurre un error por un jugador
         @param playerObject:

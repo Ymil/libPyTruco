@@ -118,6 +118,7 @@ class AccionesJuegoTemplate:
             ''' La condicion len(gameInfo['envido']) == 0 significa que todavia no se canto el envido '''
 
             accion.append('envido')
+            accion.append(0)
         else:
             accion.append('jugarCarta')
             accion.append(random.randint(0,2))
