@@ -2,3 +2,5 @@
 *.log
 *.info
 *.debug
+.vscode
+logs/*

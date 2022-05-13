@@ -4,12 +4,13 @@ __author__ = "Lautaro Linquiman"
 __email__ = "acc.limayyo@gmail.com"
 __status__ = "Developing"
 __date__ = " 04/08/16"
+from abc import ABC
 import logging
 import pdb
 logging.basicConfig(format='[AccionesJuego] %(levelname)s [%(asctime)s]: %(message)s',filename='./logs/accionGame.log', level='DEBUG')
 import random
 
-class AccionesJuego:
+class AccionesJuego(ABC):
     '''
     Esta clase almacena los eventos que se disparan a medida que se va ejecuntado el juego.
 

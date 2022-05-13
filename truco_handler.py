@@ -1,6 +1,5 @@
 from multiprocessing.sharedctypes import Value
 from shutil import ExecError
-from envido import STATE_FINALIZADO
 from jugador import Jugador
 # from juego import Game
 from team import Team
