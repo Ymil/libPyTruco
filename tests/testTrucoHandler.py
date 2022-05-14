@@ -1,12 +1,11 @@
-import sys  # noqa
-sys.path.append('..')  # noqa
+from unittest import mock
+from unittest import TestCase
 
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
 from pyTrucoLib.mesa import Mesa
 from pyTrucoLib.truco_handler import TrucoNoQuerido
-from unittest import TestCase, mock
 
 
 class testTrucoHandler(TestCase):
@@ -57,8 +56,10 @@ class testTrucoHandler(TestCase):
         # Inicio de la pimera mano
         self.game.startHand()
         mock_response.return_value = ('quiero', 0)
-        self.assertRaises(TrucoNoQuerido,
-            self.game._truco_handler.truco_handler, self.jugadores[0])
+        self.assertRaises(
+            TrucoNoQuerido,
+            self.game._truco_handler.truco_handler, self.jugadores[0],
+        )
         self.assertEqual(self.game._truco_handler.get_points(), 1)
         self.assertRaises(
             KeyError, self.game._truco_handler.retruco_handler,

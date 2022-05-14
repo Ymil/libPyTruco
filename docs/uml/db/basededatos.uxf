@@ -79,7 +79,7 @@ puntos int</panel_attributes>
 --
 id int
 cartas textjson {
-    0:'carta_', 
+    0:'carta_',
     1:[...]
 }</panel_attributes>
     <additional_attributes/>
@@ -131,11 +131,11 @@ manos array { mano1id , mano2id [...] }</panel_attributes>
     <panel_attributes>_table: mano_
 --
 id int
-jugadormanoid int 
+jugadormanoid int
 resultadoid int
 cartasJugadas  textjson (
-    { 
-        'jugador':jugadorID, 
+    {
+        'jugador':jugadorID,
         'carta': cartaN
     },
     [...]
@@ -177,8 +177,8 @@ cartasJugadas  textjson (
 --
 id int
 resultado textjson {
-    'jugador': jugadorID, 
-    'cartajugadorn': cartaid, 
+    'jugador': jugadorID,
+    'cartajugadorn': cartaid,
     parda: [0|1]
 
 }</panel_attributes>

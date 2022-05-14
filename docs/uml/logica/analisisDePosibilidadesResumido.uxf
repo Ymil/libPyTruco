@@ -8,7 +8,7 @@
       <w>238</w>
       <h>42</h>
     </coordinates>
-    <panel_attributes>Logica de comparacion para 
+    <panel_attributes>Logica de comparacion para
 obtener ganador en truco</panel_attributes>
     <additional_attributes/>
   </element>
@@ -687,7 +687,7 @@ Opcion ganadora</panel_attributes>
       <w>147</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>Resultado: 
+    <panel_attributes>Resultado:
 El Jugador1 gana la ronda</panel_attributes>
     <additional_attributes/>
   </element>

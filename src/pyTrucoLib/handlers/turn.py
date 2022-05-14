@@ -5,6 +5,9 @@ from typing import List
 
 
 class TurnHandler(list):
+    """
+    Clsae encargada de las gestion de los turnos de los jugadores
+    """
     _players: List[Any] = []
     _players_order: List[Any] = []
 

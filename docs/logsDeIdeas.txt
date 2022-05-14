@@ -1,4 +1,4 @@
-+Implentar las variable group en los comentarios para despues generar una documentancion espesifica de los grupos de funciones 
++Implentar las variable group en los comentarios para despues generar una documentancion espesifica de los grupos de funciones
 +showResultaTheHand Cambiar los ids por objects
 +Implementar https://docs.python.org/2/howto/logging.html#advanced-logging-tutorial
 +Poner acciones juego como herencia de la clase juego

@@ -35,8 +35,8 @@ class state_decorator(State):
 
 
 class truco_handler(state_decorator):
-     # Indica cual es equipo que puede volver a canta
-    _quiero_team: Team = None # noqa
+    # Indica cual es equipo que puede volver a canta
+    _quiero_team: Team = None  # noqa
     _points: int = 1  # Indica la cantidad de puntos sumados en el truco.
     _end_state = STATE_NO_QUERIDO
 

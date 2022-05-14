@@ -36,7 +36,7 @@ y equipo ganador de mano</panel_attributes>
 --
 ''' Se inicia la comparacion logica '''
 Global Var Mano = {
-    Turno0:{Jugador1, CartaJugada, Equipo}, 
+    Turno0:{Jugador1, CartaJugada, Equipo},
     Turno1:(Jugador2, CartaJugada, Equipo)
 }
 </panel_attributes>
@@ -119,7 +119,7 @@ Global Var Mano = {
     <panel_attributes>jugador = infoMano[jugador]
 cartaJugada = infoMano[cartaJugada]
 equipo = infoMano[equipo]
-cartaGanadora == 0 or cartaGanadora &gt; cartaJugada: 
+cartaGanadora == 0 or cartaGanadora &gt; cartaJugada:
     __asignarGanadorTemp(
         jugador, cartaJugada, equipo
     )
@@ -147,7 +147,7 @@ elseif cartaGanadora == cartaJugada:
       <h>54</h>
     </coordinates>
     <panel_attributes>function __asignarGanadorTemp
-param1 name = jugador | type int      
+param1 name = jugador | type int
 param2 name = cartaJugada | type int (puntos de carta)</panel_attributes>
     <additional_attributes/>
   </element>
@@ -195,8 +195,8 @@ resultado['equipoGanador'] = equipo</panel_attributes>
       <h>108</h>
     </coordinates>
     <panel_attributes>__asginarGanadorTemp(
-    mano[Turno0][cartaJugada], 
-    mano[Turno0][jugador], 
+    mano[Turno0][cartaJugada],
+    mano[Turno0][jugador],
     mano[Turno0][equipo]
     )
 resultado['parda'] = 1</panel_attributes>
@@ -235,8 +235,8 @@ param1 name = mano | type list length &gt; 1</panel_attributes>
     </coordinates>
     <panel_attributes>''' Asignacion de variables '''
 Resultado = {
-    'cartaGanadora': 0, 
-    'jugadorGanador': 0, 
+    'cartaGanadora': 0,
+    'jugadorGanador': 0,
     'Parda': 0,
     'Equipo': 0
 }
