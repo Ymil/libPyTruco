@@ -65,7 +65,8 @@ class EchoFactory(protocol.Factory, signals):
 
     def getActionPlayer(self, player, action = ''):
         try:
-            accion_name, accion_value = str(player.awaitForResponse()).split(",")
+            response = player.awaitForResponse()
+            accion_name, accion_value = str(response).split(",")
         except:
             return self.getActionPlayer(player, action)
         return str(accion_name), int(accion_value.split("\\")[0])

@@ -1,7 +1,7 @@
 from jugador import Jugador
 from team import Team
 from state import State
-
+from utils import get_response
 STATE_TRUCO = 1
 STATE_RETRUCO = 2
 STATE_VALE_4 = 3
@@ -9,15 +9,6 @@ STATE_FINALIZADO = 4
 
 SI = 1
 NO = 0
-
-def get_response(actions_maps, callback, *args):
-    """
-        Ejecuta las consultas hasta que optiene una respuesta correcta
-    """
-    while 1:
-        accion_name, accion_values = callback(*args)
-        if accion_name in actions_maps:
-            return accion_name, accion_values
 
 class state_decorator(State):
     def _last_state_eq_new_state(self, new_state):
