@@ -1,13 +1,17 @@
 from copy import copy
-from typing import Any, List
 from itertools import cycle
+from typing import Any
+from typing import List
+
+
 class TurnHandler(list):
-    _players : List[Any] = []
-    _players_order : List[Any] = []
-    def __init__(self, players : List[Any]):
+    _players: List[Any] = []
+    _players_order: List[Any] = []
+
+    def __init__(self, players: List[Any]):
         self._players = copy(players)
         self._players_order = copy(players)
-    
+
     def change_hand(self, player):
         idx_player = self._players.index(player)
         player_infinity = cycle(self._players)
@@ -18,7 +22,7 @@ class TurnHandler(list):
             player = next(player_infinity)
             if(idx >= initial_post):
                 self._players_order.append(player)
-    
+
     def change_round(self):
         player_infinity = cycle(self._players)
         initial_post = 1
@@ -31,7 +35,6 @@ class TurnHandler(list):
 
     def __getitem__(self, index):
         return self._players_order[index]
-    
+
     def __iter__(self):
-        for elem in self._players_order:
-            yield elem
+        yield from self._players_order

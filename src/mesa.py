@@ -1,15 +1,16 @@
 #!/usr/bin/env python 2.7
-# -*- coding: utf-8 -*-
-__author__ = "Lautaro Linquiman"
-__email__ = "acc.limayyo@gmail.com"
-__status__ = "Developing"
+__author__ = 'Lautaro Linquiman'
+__email__ = 'acc.limayyo@gmail.com'
+__status__ = 'Developing'
 
 from team import Team
+
 
 class Mesa():
     def __init__(self, cantidadJugadores, creadaPor, mesaID):
         '''
-        Esta clase contiene toda la funcionalidad para crear y manejar las mesas
+        Esta clase contiene toda la funcionalidad para crear y
+        manejar las mesas
         2015-01
         @author: Lautaro Linquiman
         @param cantidadJugadores: int
@@ -23,7 +24,7 @@ class Mesa():
         self.equipoJugadores = []
         self.equipoN = 0
         self.status = 0
-        self.team = [] #Almacena los objectos de los equipos
+        self.team = []  # Almacena los objectos de los equipos
         self.__createTeams__()
 
     def getInfo(self):
@@ -31,11 +32,15 @@ class Mesa():
         @return: (mesaID, cantidadJugadores, cantidadJugadores, creadaPor)
         @rtype: tuple
         '''
-        return (self.mesaID, self.cantidadJugadores, len(self.jugadores), self.creadaPor)
+        return (
+            self.mesaID,
+            self.cantidadJugadores, len(self.jugadores), self.creadaPor,
+        )
 
     def getStatus(self):
         '''
-        @return: true si la cantidad de jugadores en la mesa es igual a la que se indico
+        @return: true si la cantidad de jugadores en la mesa es
+        igual a la que se indico
         @rtype: bool
         '''
         print(len(self.jugadores))

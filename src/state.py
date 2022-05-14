@@ -5,6 +5,7 @@ class State(ABC):
     _state = 0
     _state_end = None
     _freeze = False
+
     def change_status_condicional(self, new_state):
         """
             Se define la condicion para cambiar de status
@@ -22,8 +23,8 @@ class State(ABC):
     @state.setter
     def state(self, new_state):
         if self._state == self._state_end or self._freeze:
-            raise KeyError("No se puede cambiar de estatus")
+            raise KeyError('No se puede cambiar de estatus')
         if self.change_status_condicional(new_state):
             self._state = new_state
         else:
-            raise ValueError("No se puede cantar ahora")
+            raise ValueError('No se puede cantar ahora')

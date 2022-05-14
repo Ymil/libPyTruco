@@ -1,19 +1,23 @@
-from ctypes.wintypes import tagRECT
+import sys  # noqa
+sys.path.append('src')  # noqa
 import threading
 import time
-from twisted.internet import protocol, reactor
-from twisted.protocols import basic
-import sys
-sys.path.append("src")
+
+from handlers.signals import signals
+from juego import Game
 from jugador import Jugador
 from mesa import Mesa
-from juego import Game
-from handlers.signals import signals
+from twisted.internet import protocol
+from twisted.internet import reactor
+from twisted.protocols import basic
+
+
 class playerCon(basic.LineReceiver, Jugador):
     delimiter = '\n'
     state = ''
     username = ''
     waitData = ''
+
     def __init__(self, factory, id):
         self.factory = factory
         Jugador.__init__(self, id)
@@ -24,23 +28,25 @@ class playerCon(basic.LineReceiver, Jugador):
 
     def connectionLost(self, reason):
         self.factory.players.remove(self)
-    
+
     def connectionMade(self):
-        self.transport.write(b"Bienvenido al PyTruco Argentino\n\r")
-        self.transport.write(b"Ingresa tu nombre> ")
+        self.transport.write(b'Bienvenido al PyTruco Argentino\n\r')
+        self.transport.write(b'Ingresa tu nombre> ')
         self.state = 'state'
         self.factory.players.append(self)
-    
+
     def awaitForResponse(self):
         self.waitData = ''
-        self.transport.write(b">")
+        self.transport.write(b'>')
         while 1:
             if(len(self.waitData) > 0):
                 return self.waitData.decode()
             time.sleep(0.5)
 
+
 class EchoFactory(protocol.Factory, signals):
-    id : int = 0
+    id: int = 0
+
     def startGame(self):
         mesa = Mesa(2, 1, 0)
         for player in self.players:
@@ -55,21 +61,21 @@ class EchoFactory(protocol.Factory, signals):
             # Comenzamos el juego
             threading.Thread(target=self.startGame).start()
         return r
-    
+
     def sendMessageAll(self, msg):
         for player in self.players:
-            player.transport.write(str.encode(f"{msg}\n\r"))
+            player.transport.write(str.encode(f'{msg}\n\r'))
 
     def sendMessageToPlayer(self, player, msg):
-        player.transport.write(str.encode(f"{msg}\n\r"))
+        player.transport.write(str.encode(f'{msg}\n\r'))
 
-    def getActionPlayer(self, player, action = ''):
+    def getActionPlayer(self, player, action=''):
         try:
             response = player.awaitForResponse()
-            accion_name, accion_value = str(response).split(",")
+            accion_name, accion_value = str(response).split(',')
         except:
             return self.getActionPlayer(player, action)
-        return str(accion_name), int(accion_value.split("\\")[0])
+        return str(accion_name), int(accion_value.split('\\')[0])
 
     def showCards(self, player, cards):
         ''' Esta funcion se dispara cuando se le muestran las cartas al jugador
@@ -78,8 +84,7 @@ class EchoFactory(protocol.Factory, signals):
         @param cards: list cardsObjects
         '''
         for pos, card in enumerate(cards):
-            player.transport.write(str.encode(f"{pos} - {card}\n\r"))
-
+            player.transport.write(str.encode(f'{pos} - {card}\n\r'))
 
 
 reactor.listenTCP(1234, EchoFactory())

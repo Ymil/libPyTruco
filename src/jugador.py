@@ -1,11 +1,11 @@
 #!/usr/bin/env python 2.7
-# -*- coding: utf-8 -*-
-__author__ = "Lautaro Linquiman"
-__email__ = "acc.limayyo@gmail.com"
-__status__ = "Developing"
-import pdb;
+__author__ = 'Lautaro Linquiman'
+__email__ = 'acc.limayyo@gmail.com'
+__status__ = 'Developing'
 import operator
 from collections import Counter
+
+
 class Jugador():
     def __init__(self, id):
         '''
@@ -15,13 +15,13 @@ class Jugador():
         @param id: int
         @rtype: playerOjbect
         '''
-        self.idJugador = id #IdCon
+        self.idJugador = id  # IdCon
         self.status = 0
         self.nombre = ''
         self.team = False
-        self.cartas = [] #Almacena las cartas del jugador
-        self.cartasJugadas = [] #Almacena las cartas que el jugador ya jugo
-        self.ultimaCartaJugada = 0 #Almacena el id de la ultima carta jugada
+        self.cartas = []  # Almacena las cartas del jugador
+        self.cartasJugadas = []  # Almacena las cartas que el jugador ya jugo
+        self.ultimaCartaJugada = 0  # Almacena el id de la ultima carta jugada
 
     def setTeam(self, teamObject):
         '''
@@ -86,7 +86,7 @@ class Jugador():
         @return: lista de cardObject
         @rtype: list
         '''
-        #print(self.cartas)
+        # print(self.cartas)
         return self.cartas
 
     def getCardTheNumberHand(self, roundNumber):
@@ -111,7 +111,7 @@ class Jugador():
         '''
         dicCards = {}
         for carta in self.cartas:
-            nCard = carta.getNumber() #nCard
+            nCard = carta.getNumber()  # nCard
             if nCard < 10:
                 dicCards[nCard] = carta
         if len(dicCards) == 0:
@@ -119,7 +119,7 @@ class Jugador():
             tienen valor 0 '''
             return 0
         maxCard = max(dicCards.items(), key=operator.itemgetter(0))
-        #pdb.set_trace()
+        # pdb.set_trace()
         return maxCard[1].getNumber()
 
     def getCardByStick(self, stick):
@@ -132,7 +132,7 @@ class Jugador():
         cards = []
         for card in self.cartas:
             if card.getStick() == stick:
-                cards.append(card) #nCard
+                cards.append(card)  # nCard
         return cards
 
     def getPointsEnvido(self):

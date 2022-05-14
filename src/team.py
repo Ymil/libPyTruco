@@ -1,8 +1,7 @@
 #!/usr/bin/env python 2.7
-# -*- coding: utf-8 -*-
-__author__ = "Lautaro Linquiman"
-__email__ = "acc.limayyo@gmail.com"
-__status__ = "Developing"
+__author__ = 'Lautaro Linquiman'
+__email__ = 'acc.limayyo@gmail.com'
+__status__ = 'Developing'
 
 
 class Team:

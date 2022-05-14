@@ -1,65 +1,68 @@
-#!/usr/bin/env python 2.7\n# -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
-__author__ = "Lautaro Linquiman"
-__email__ = "acc.limayyo@gmail.com"
-__status__ = "Developing"
-__date__ = " 04/08/16"
+__author__ = 'Lautaro Linquiman'
+__email__ = 'acc.limayyo@gmail.com'
+__status__ = 'Developing'
+__date__ = ' 04/08/16'
 from abc import ABC
 import logging
-import random
+
 
 class signals(ABC):
     '''
-    Esta clase almacena los eventos que se disparan a medida que se va ejecuntado el juego.
+    Esta clase almacena los eventos que se disparan a medida que se
+    va ejecuntado el juego.
 
     Como mostrar mensajes, dar cartas etc.
 
     Esta clase es de ejemplo
     '''
+
     def __init__(self):
         self.players = []
         self.teams = []
-        self.errors = {'cardPlayerd': 'Esta carta ya fue jugada', 'invalidAction': 'No puedes realizar esta accion'}
+        self.errors = {
+            'cardPlayerd': 'Esta carta ya fue jugada',
+            'invalidAction': 'No puedes realizar esta accion',
+        }
 
-    def showMsgStartGame(self, players):
+    def showMsgStartGame(self):
         ''' Esta funcion se dispara cuando se inicia un nuevo juego
         @param players:
         '''
         pass
-    
+
     def sendMessageAll(self, msg):
         pass
-    
+
     def sendMessageToPlayer(self, player, msg):
         pass
+
     def showMsgStartRound(self):
         ''' Esta funcion se dispara cuando se inicia una nueva ronda
         '''
-        logging.debug("startRound")
+        logging.debug('startRound')
 
     def showMsgStartHand(self, handsNumber):
         ''' Esta funcion se llama cada vez que se inicia una nueva mano
         @param handsNumber: int'''
-        str1 =  ("Iniciando mano %d" % handsNumber).center(50,'-')
+        str1 = ('Iniciando mano %d' % handsNumber).center(50, '-')
         self.sendMessageAll(str1)
-        logging.debug("startHand(%d)" % handsNumber)
+        logging.debug('startHand(%d)' % handsNumber)
         logging.info(str1)
 
     def showMsgFinishHand(self):
         ''' Esta funcion se dispara cuando finaliza una mano
         '''
-        logging.debug("finishHand")
+        logging.debug('finishHand')
 
     def showMsgFinishRound(self):
         ''' Esta funcion se dispara cuando finaliza una ronda
         '''
-        logging.debug("finishRound")
+        logging.debug('finishRound')
 
     def showMsgFinishGame(self):
         ''' Esta funcion se dispara cuando finaliza un juego
         '''
-        logging.debug("finishGame")
-
+        logging.debug('finishGame')
 
     def giveCards(self, playerid, cards):
         ''' Esta funcion se dispara cuando se reparten las cartas,
@@ -70,7 +73,7 @@ class signals(ABC):
         partida.mostrarCartas(player, cards) '''
 
         pass
-    
+
     def showCards(self, player, cards):
         ''' Esta funcion se dispara cuando se le muestran las cartas al jugador
         params
@@ -85,20 +88,22 @@ class signals(ABC):
         @param pointsTeam: int
         Ejemplo de uso: '''
 
-        str1 = "El equipo %d tiene %d puntos" % (team, pointsTeam)
+        str1 = 'El equipo %d tiene %d puntos' % (team, pointsTeam)
         self.sendMessageAll(str1)
-        str2 = "teamPoints(%d,%d)" % (team, pointsTeam)
+        str2 = 'teamPoints(%d,%d)' % (team, pointsTeam)
         logging.debug(str2)
         logging.info(str1)
 
-    def getActionPlayer(self, playerObject, action = ''):
-        ''' Esta funcion se llama cuando se tiene que obtener un accion del jugador
+    def getActionPlayer(self, playerObject, action=''):
+        ''' Esta funcion se llama cuando se tiene que obtener un
+        accion del jugador
 
 
         @param playerObject:
         @param gameInfo: contiene información del juego
 
-        @return:Esta funcion entrega informacion del estado juego en la variable infoGame
+        @return:Esta funcion entrega informacion del estado
+        juego en la variable infoGame
         @rtype: list
 
 
@@ -106,12 +111,14 @@ class signals(ABC):
         accion = raw_input("Escriba la accion o carta a jugar>")
         return accion(accion, valorAccion)
 
-        Acciones[JugadorCarta, envido, real envido, falta envido, truco, re truco, vale 4]
+        Acciones[JugadorCarta, envido, real envido,
+         falta envido, truco, re truco, vale 4]
 
         formato de respuesta: (accion, valor)
         '''
 
-        ''' Las siguientes funciones generan jugadas de forma aleatoria para debuggiar el sistema. '''
+        ''' Las siguientes funciones generan jugadas de forma aleatoria
+        para debuggiar el sistema. '''
 
         pass
 
@@ -122,10 +129,14 @@ class signals(ABC):
         @param cardObject:
         Ejemplo:
         '''
-        str1 = 'El jugador %d:%d jugo la carta %s' % (teamObject.getID(), playerObject.getID(), cardObject.getText())
+        str1 = 'El jugador %d:%d jugo la carta %s' % (
+            teamObject.getID(), playerObject.getID(), cardObject.getText(),
+        )
         self.sendMessageAll(str1)
         logging.info(str1)
-        str2 = 'showCardPlaying(%d,%d,%s)' % (teamObject.getID(), playerObject.getID(), cardObject.getText())
+        str2 = 'showCardPlaying(%d,%d,%s)' % (
+            teamObject.getID(), playerObject.getID(), cardObject.getText(),
+        )
         logging.debug(str2)
 
     def showError(self, playerObject, errorName):
@@ -135,7 +146,7 @@ class signals(ABC):
         Ejemplo:
         '''
         self.sendMessageToPlayer(playerObject, errorName)
-        #self.sendMessageAll(self.errors[errorName])
+        # self.sendMessageAll(self.errors[errorName])
         pass
 
     def showResultaTheHand(self, playerid, playername, teamid, cardObject):
@@ -146,12 +157,15 @@ class signals(ABC):
         @param teamid: int
         @param cardObject:
         Ejemplo:'''
-        str1 =  '%d:%d gano la mano con %s' % (teamid, playerid, cardObject.getText())
+        str1 = '%d:%d gano la mano con %s' % (
+            teamid, playerid, cardObject.getText(),
+        )
         self.sendMessageAll(str1)
         logging.info(str1)
-        str2 = 'showResultaTheHand(%d,%d,%s)' % (teamid, playerid, cardObject.getText())
+        str2 = 'showResultaTheHand(%d,%d,%s)' % (
+            teamid, playerid, cardObject.getText(),
+        )
         logging.debug(str2)
-
 
     def Parda(self):
         ''' Esta funcion se llama cuando termina la mano y hay una parda
@@ -159,23 +173,27 @@ class signals(ABC):
         none'''
         str1 = 'Ocurrio una parda'
         logging.info(str1)
-        logging.debug("parda")
+        logging.debug('parda')
 
     def returnStatus(self, statusGame):
         ''' Esta funcion se llama cada vez que se busca un ganador
-        @param statusGame: [StatusGame=(win,empate), teamWinner], [StatusGame=empate, CartaMayor], [StatusGame=continue, CartaMayor, playerid]
+        @param statusGame: [StatusGame=(win,empate), teamWinner],
+         [StatusGame=empate, CartaMayor],
+         [StatusGame=continue, CartaMayor, playerid]
         '''
-        #logging.debug("ReturnStatus")
-        #self.sendMessageAll('Status:',statusGame)
+        # logging.debug("ReturnStatus")
+        # self.sendMessageAll('Status:',statusGame)
         pass
 
     ''' Win Actions '''
+
     def winEmpate(self, teamIDWinner):
         ''' Esta funcion se llama cuando ocurre un empate
 
         @param teamIDWinner: int
         '''
-        str1 = 'Ocurrio un empate, los puntos son para el equipo %d' % teamIDWinner
+        str1 = 'Ocurrio un empate, los puntos son para el ' \
+            f'equipo {teamIDWinner}'
         self.sendMessageAll(str1)
         logging.info(str1)
 
@@ -229,11 +247,11 @@ class signals(ABC):
 
     def startLoopEnvido(self):
         ''' Esta funcion se llama cuando se inicia el loop del envido '''
-        logging.debug("startLoopEnvido")
+        logging.debug('startLoopEnvido')
 
     def finishLoopEnvido(self):
         ''' Esta funcion se llama cuando finaliza el loop del envido '''
-        logging.debug("finishLoopEnvido")
+        logging.debug('finishLoopEnvido')
 
     def envido(self, playerObject):
         '''
@@ -250,13 +268,18 @@ class signals(ABC):
         '''
         Esta funcion se llama cuando un jugar canta su envido
         @param playerObject: '''
-        str1 = 'El jugador %d tiene %d de envido' % (playerObject.getID(),playerObject.getPointsEnvido())
-        str2 = 'showEnvido(%d,%d)' % (playerObject.getID(),playerObject.getPointsEnvido())
+        str1 = 'El jugador %d tiene %d de envido' % (
+            playerObject.getID(), playerObject.getPointsEnvido(),
+        )
+        str2 = 'showEnvido(%d,%d)' % (
+            playerObject.getID(),
+            playerObject.getPointsEnvido(),
+        )
         self.sendMessageAll(str1)
         logging.info(str1)
         logging.debug(str2)
 
-    def showWinnerEnvido(self,playerObject):
+    def showWinnerEnvido(self, playerObject):
         '''
         Esta funcion se llama cuando se define un ganador del envido
         @param playerObject:
@@ -269,5 +292,5 @@ class signals(ABC):
         logging.debug(str2)
     ''' endEnvidoBlock '''
 
-    def setPlayers(self,playerObject):
+    def setPlayers(self, playerObject):
         pass
