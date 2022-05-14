@@ -10,6 +10,7 @@ __data__ = "20-01-15 05:07AM"
 import sys
 from cartas import Cartas
 from envido_handler import envido_handler
+from handlers.turn import TurnHandler
 from truco_handler import truco_handler
 import logging
 import inspect
@@ -70,6 +71,7 @@ class Game():
         self.resultLast = [] #Almacena los ultimos rezultados de la func
         self.statusGame = 3
         self.pointsByWin = configGame['pointsByWin'] if 'pointsByWin' in configGame else 30
+        
         ''' Esta variable almacena el estado actual del juego
         y es asignada por la funcion
         getResultHand [0:win|1:parda|2:empate|3:continue] '''
@@ -81,6 +83,7 @@ class Game():
     def __loadVarsTheTable__(self):
         ''' Carga todas las variables necesarias de la mesa para poder iniciar el juego '''
         self.players = self.tableObject.getPlayers()
+        self.turn_handler = TurnHandler(self.players)        
         self.teams = self.tableObject.getTeams()
         self.numberPlayers = len(self.players)# Obtiene la cantidad de jugadores
         # self._envidoHandler = envido_handler(self)
@@ -203,39 +206,6 @@ class Game():
         numberThePreviusHand = self.getNumberTheCurrentHand()-1
         return self.hands[numberThePreviusHand]
 
-    def getResultCurrentHand(self):
-        '''Devuelve el ganador de la ultima mano
-        @return: {player: playerObject, parda: bool}
-        @rtype: dic
-        '''
-
-        numberTheCurrentHand = self.getNumberTheCurrentHand()
-
-        tempResultHand = {'player': False, 'parda': False}
-        # Resultado temporal de la mano
-        for player in self.players:
-            # No concuerda con la mano, falta terminar esto.
-
-            try:
-                tempCardWin = tempResultHand['player'].getCardTheNumberHand(\
-                                        numberTheCurrentHand).getValue()
-            except:
-                '''Esta exception se captura cuando todavia no hay un jugador en
-                el resultado ganador'''
-                tempCardWin = 0
-            #pdb.set_trace()
-            playsCard = player.getCardTheNumberHand(numberTheCurrentHand).getValue()
-
-            if tempCardWin < playsCard:
-                tempResultHand['player'] = player
-                tempResultHand['parda'] = False
-            elif tempCardWin == playsCard:
-                #Hay una parda
-                tempResultHand['parda'] = True
-        if tempResultHand['parda'] == True:
-            self.statusGame = 1
-
-        return tempResultHand
 
     def addResultHand(self, resultHand):
         ''' Agrega un resultado a la lista de manos
@@ -267,6 +237,43 @@ class Game():
         @rtype: dic'''
         return self.hands[numberHand]
 
+    def getResultCurrentHand(self):
+        '''Devuelve el ganador de la ultima mano
+        @return: {player: playerObject, parda: bool}
+        @rtype: dic
+        '''
+
+        numberTheCurrentHand = self.getNumberTheCurrentHand()
+
+        tempResultHand = {
+            'player': None, 
+            'parda': False
+        }
+        # Resultado temporal de la mano
+        for player in self.players:
+            # No concuerda con la mano, falta terminar esto.
+
+            if tempResultHand['player'] is not None:
+                tempCardWin = tempResultHand['player'].getCardTheNumberHand(\
+                                        numberTheCurrentHand).getValue()
+            else:
+                '''Esta exception se captura cuando todavia no hay un jugador en
+                el resultado ganador'''
+                tempCardWin = 0
+            #pdb.set_trace()
+            playsCard = player.getCardTheNumberHand(numberTheCurrentHand).getValue()
+
+            if tempCardWin < playsCard:
+                tempResultHand['player'] = player
+                tempResultHand['parda'] = False
+            elif tempCardWin == playsCard:
+                #Hay una parda
+                tempResultHand['parda'] = True
+        if tempResultHand['parda'] == True:
+            self.statusGame = 1
+
+        return tempResultHand
+
     def getStatusTheRound(self):
         '''
         Esta funcion devuelve el resultado de la mano jugada y
@@ -279,6 +286,8 @@ class Game():
         '''Devuelve este resultado cuando no existe un ganador pero si
         se captura un resultado'''
         resultCurrentHand = self.getResultCurrentHand()
+        if resultCurrentHand['player'] is not None:
+            self.turn_handler.change_hand(resultCurrentHand['player'])
         numberTheCurrentHand = self.getNumberTheCurrentHand()
         self.addResultHand(resultCurrentHand)
         if numberTheCurrentHand == 0:
@@ -381,25 +390,21 @@ class Game():
 
                 cJugadas = 0 #Alamacena la cantidad de jugadas en la rond
                 # while cJugadas < self.numberPlayers:
-                for _ in self.players:
+                for player in self.turn_handler:
                     self.CHANGE_TURN_FLAG = False
                     '''Se inicia el juego'''
                     #pdb.set_trace()
                     # cJugadas += 1
-                    jugador = self.getTurnAndChange()
-
                     while not self.CHANGE_TURN_FLAG:
                         ''' Este loop obtiene la accion del jugador hasta que sea jugarCarta '''
-                        gameInfo = self.getInfo()
-
                         accion_name, accion_value = self.signals_handler.getActionPlayer(\
-                                            jugador)
+                                            player)
 
                         try:
                             if accion_name in _actions_map:
-                                _actions_map[accion_name](jugador, accion_value)
+                                _actions_map[accion_name](player, accion_value)
                         except ValueError as msg:
-                            self.signals_handler.showError(jugador,\
+                            self.signals_handler.showError(player,\
                                                         msg)
                 self.finishHand()
             msg_info("EndRound")
@@ -440,7 +445,6 @@ class Game():
         ''' Esta funcion se llama cada vez se inicia una nueva ronda y vuelve a cargar todas las variables del juego'''
         self.e__envido = {}
         self.hand = 0
-        self.playerChant = 0 # Esta funcion alamacena al jugar que canta una jugada para volver a pararse en el al terminar el quiero
         self.handNumber = 0
         self.pardaObtenerGanador = 0
         self.statusGame = 3
@@ -456,6 +460,7 @@ class Game():
 
         '''
         self.signals_handler.showMsgFinishRound()
+        self.turn_handler.change_round()
         result = self.searchTeamWinnerTheRound()
         return result
 
