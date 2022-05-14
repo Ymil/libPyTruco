@@ -8,7 +8,7 @@ __data__ = '20-01-15 05:07AM'
 from .cartas import Cartas
 from .envido_handler import envido_handler
 from .handlers.turn import TurnHandler
-from .truco_handler import truco_handler
+from .truco_handler import truco_handler, TrucoNoQuerido
 
 from .utils import get_response
 
@@ -355,25 +355,33 @@ class Game():
             while not (self.statusGame == 0 or self.statusGame == 2):
                 self.startHand()
 
-                for player in self.turn_handler:
-                    self.CHANGE_TURN_FLAG = False
-                    '''Se inicia el juego'''
+                try:
+                    for player in self.turn_handler:
+                        self.CHANGE_TURN_FLAG = False
+                        '''Se inicia el juego'''
 
-                    while not self.CHANGE_TURN_FLAG:
-                        ''' Este loop obtiene la accion del
-                            jugador hasta que sea jugarCarta '''
-                        accion_name, accion_value = get_response(
-                            _actions_map, self.signals_handler.getActionPlayer,
-                            player,
-                        )
-                        try:
-                            if accion_name in _actions_map:
-                                _actions_map[accion_name](player, accion_value)
-                        except ValueError as msg:
-                            self.signals_handler.showError(
+                        while not self.CHANGE_TURN_FLAG:
+                            ''' Este loop obtiene la accion del
+                                jugador hasta que sea jugarCarta '''
+                            accion_name, accion_value = get_response(
+                                _actions_map,
+                                self.signals_handler.getActionPlayer,
                                 player,
-                                msg,
                             )
+                            try:
+                                if accion_name in _actions_map:
+                                    _actions_map[accion_name](
+                                        player, accion_value,
+                                    )
+                            except ValueError as msg:
+                                self.signals_handler.showError(
+                                    player,
+                                    msg,
+                                )
+                except TrucoNoQuerido as e:
+                    self.finishHand(e.winPlayer)
+                    break
+
                 self.finishHand()
             msg_info('EndRound')
             resultTheRound = self.finishRound()
@@ -443,13 +451,19 @@ class Game():
         self.signals_handler.showMsgStartHand(self.handNumber)
         return self.handNumber
 
-    def finishHand(self):
+    def finishHand(self, winner=None):
         ''' Esta funciona se llama cada vez que finaliza una ronda
         Analiza los datos del juego y determina si hay un ganador '''
         self.signals_handler.showMsgFinishHand()
         msg_info('Iniciando analisis de resultados')
-        self.resultLastHand = self.getStatusTheRound()
-        Resultados = self.resultLastHand
+        if winner is None:
+            self.resultLastHand = self.getStatusTheRound()
+            Resultados = self.resultLastHand
+        else:
+            Resultados = {
+                'player': winner,
+            }
+            self.statusGame = 0
         self.signals_handler.returnStatus(Resultados)
         msg_debug('lastCodeResult:%d' % self.lastCodeResult)
         if(self.statusGame == 1):

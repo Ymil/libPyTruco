@@ -12,8 +12,8 @@ NO = 0
 
 
 class TrucoNoQuerido(Exception):
-    def __init__(self, player, message):
-        self.player = player
+    def __init__(self, winPlayer, message):
+        self.winPlayer = winPlayer
         self.message = message
         super().__init__(self.message)
 
@@ -37,6 +37,8 @@ class state_decorator(State):
 class truco_handler(state_decorator):
     # Indica cual es equipo que puede volver a canta
     _quiero_team: Team = None  # noqa
+    # INdica cual fue el ultimo jugador en cantar
+    _last_player: Jugador = None  # Noqa
     _points: int = 1  # Indica la cantidad de puntos sumados en el truco.
     _end_state = STATE_NO_QUERIDO
 
@@ -65,6 +67,8 @@ class truco_handler(state_decorator):
                         raise ValueError(
                             'No podes cantar, tu oponente tiene el quiero',
                         )
+
+                self._last_player = player
 
                 func(*args)
 
@@ -113,7 +117,7 @@ class truco_handler(state_decorator):
             )
             self._points -= 1
             self.freeze()
-            raise TrucoNoQuerido(player, '')
+            raise TrucoNoQuerido(self._last_player, '')
 
     def get_points(self):
         return self._points
