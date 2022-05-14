@@ -6,7 +6,7 @@ __status__ = 'Developing'
 __date__ = '06-01-2015'
 
 from random import randrange
-from card import Card
+from .card import Card
 
 
 class Cartas():

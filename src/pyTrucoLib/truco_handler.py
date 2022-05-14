@@ -1,7 +1,7 @@
-from jugador import Jugador
-from state import State
-from team import Team
-from utils import get_response
+from .jugador import Jugador
+from .state import State
+from .team import Team
+from .utils import get_response
 STATE_TRUCO = 1
 STATE_RETRUCO = 2
 STATE_VALE_4 = 3

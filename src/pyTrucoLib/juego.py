@@ -5,12 +5,12 @@ __status__ = 'Developing'
 __data__ = '20-01-15 05:07AM'
 
 
-from cartas import Cartas
-from envido_handler import envido_handler
-from handlers.turn import TurnHandler
-from truco_handler import truco_handler
+from .cartas import Cartas
+from .envido_handler import envido_handler
+from .handlers.turn import TurnHandler
+from .truco_handler import truco_handler
 
-from utils import get_response
+from .utils import get_response
 
 
 global cuentaEjecucion

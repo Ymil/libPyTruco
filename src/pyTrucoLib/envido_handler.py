@@ -1,5 +1,5 @@
-from state import State
-from utils import get_response
+from .state import State
+from .utils import get_response
 
 STATE_ENVIDO = 1
 STATE_REAL_ENVIDO = 2
