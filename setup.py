@@ -11,7 +11,7 @@ setuptools.setup(
     description="Libreria",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="",
+    url="softwarebrc.com.ar",
     project_urls={
         "Bug Tracker": "",
     },

@@ -1,10 +1,11 @@
 import sys  # noqa
 sys.path.append('..')  # noqa
 
-from handlers.signals import signals
-from juego import Game
-from jugador import Jugador
-from mesa import Mesa
+from pyTrucoLib.handlers.signals import signals
+from pyTrucoLib.juego import Game
+from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.truco_handler import TrucoNoQuerido
 from unittest import TestCase, mock
 
 
@@ -33,7 +34,7 @@ class testTrucoHandler(TestCase):
     def tearDown(self):
         del self.game
 
-    @mock.patch('truco_handler.get_response')
+    @mock.patch('pyTrucoLib.truco_handler.get_response')
     def test_verify_all_quiero(self, mock_response):
         self.game.startRound()
 
@@ -49,14 +50,15 @@ class testTrucoHandler(TestCase):
         self.game._truco_handler.vale4_handler(self.jugadores[0])
         self.assertEqual(self.game._truco_handler.get_points(), 4)
 
-    @mock.patch('truco_handler.get_response')
+    @mock.patch('pyTrucoLib.truco_handler.get_response')
     def test_verify_all_no_quiero(self, mock_response):
         self.game.startRound()
 
         # Inicio de la pimera mano
         self.game.startHand()
         mock_response.return_value = ('quiero', 0)
-        self.game._truco_handler.truco_handler(self.jugadores[0])
+        self.assertRaises(TrucoNoQuerido,
+            self.game._truco_handler.truco_handler, self.jugadores[0])
         self.assertEqual(self.game._truco_handler.get_points(), 1)
         self.assertRaises(
             KeyError, self.game._truco_handler.retruco_handler,

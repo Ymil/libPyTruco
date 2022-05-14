@@ -1,9 +1,7 @@
 #!/usr/bin/env python 2.7
-import sys  # noqa
-sys.path.append('src')  # noqa
-from juego import Game  # noqa
-from jugador import Jugador  # noqa
-from mesa import Mesa  # noqa
+from pyTrucoLib.juego import Game
+from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.mesa import Mesa
 __author__ = 'Lautaro Linquiman'
 __email__ = 'acc.limayyo@gmail.com'
 __status__ = 'Developing'

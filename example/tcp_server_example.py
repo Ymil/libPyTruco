@@ -1,12 +1,10 @@
-import sys  # noqa
-sys.path.append('src')  # noqa
 import threading
 import time
 
-from handlers.signals import signals
-from juego import Game
-from jugador import Jugador
-from mesa import Mesa
+from pyTrucoLib.handlers.signals import signals
+from pyTrucoLib.juego import Game
+from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.mesa import Mesa
 from twisted.internet import protocol
 from twisted.internet import reactor
 from twisted.protocols import basic
@@ -31,7 +29,6 @@ class playerCon(basic.LineReceiver, Jugador):
 
     def connectionMade(self):
         self.transport.write(b'Bienvenido al PyTruco Argentino\n\r')
-        self.transport.write(b'Ingresa tu nombre> ')
         self.state = 'state'
         self.factory.players.append(self)
 

@@ -1,19 +1,15 @@
 #!/usr/bin/env python 2.7
-import sys  # noqa
 from unittest import mock
 from unittest import TestCase
 
-from card import Card
-from handlers.signals import signals
-from juego import Game
-from jugador import Jugador
-from mesa import Mesa
-
-# Add the ptdraft folder path to the sys.path list
-sys.path.append('..')  # noqa
+from pyTrucoLib.card import Card
+from pyTrucoLib.handlers.signals import signals
+from pyTrucoLib.juego import Game
+from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.mesa import Mesa
 
 
-@mock.patch('juego.Game.giveCardsToPlayers', return_value=None)
+@mock.patch('pyTrucoLib.juego.Game.giveCardsToPlayers', return_value=None)
 class testTrucoHandler(TestCase):
     def setUp(self):
         """ Paso 1: Definiendo parametros de la simulacion """
@@ -50,7 +46,7 @@ class testTrucoHandler(TestCase):
 
         self.game = Game(self.mesa, signals())
 
-    @mock.patch('envido_handler.get_response')
+    @mock.patch('pyTrucoLib.envido_handler.get_response')
     def test_verify_envido_quiero(self, mock_response, *args):
         self.game.startRound()
         mock_response.return_value = ('quiero', 1)
@@ -61,7 +57,7 @@ class testTrucoHandler(TestCase):
 
         self.assertEqual(self.jugadores[0].team.getPoints(), 2)
 
-    @mock.patch('envido_handler.get_response')
+    @mock.patch('pyTrucoLib.envido_handler.get_response')
     def test_verify_envido_no_quiero(self, mock_response, *args):
         mock_response.return_value = ('quiero', 0)
 
@@ -74,7 +70,7 @@ class testTrucoHandler(TestCase):
         self.assertEqual(self.jugadores[0].team.getPoints(), 1)
 
     @mock.patch(
-        'envido_handler.get_response', side_effect=[
+        'pyTrucoLib.envido_handler.get_response', side_effect=[
             ('envido', 0), ('real_envido', 0), ('real_envido', 0),
             ('quiero', 1),
         ],

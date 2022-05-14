@@ -1,14 +1,10 @@
-import sys  # noqa
 import unittest
 
-from card import Card
-from handlers.signals import signals
-from juego import Game
-from jugador import Jugador
-from mesa import Mesa
-
-# Add the ptdraft folder path to the sys.path list
-sys.path.append('..')  # noqa
+from pyTrucoLib.card import Card
+from pyTrucoLib.handlers.signals import signals
+from pyTrucoLib.juego import Game
+from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.mesa import Mesa
 
 
 class testSearchWinner(unittest.TestCase):

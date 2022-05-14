@@ -3,7 +3,7 @@ __author__ = 'Lautaro Linquiman'
 __email__ = 'acc.limayyo@gmail.com'
 __status__ = 'Developing'
 
-from team import Team
+from .team import Team
 
 
 class Mesa():
