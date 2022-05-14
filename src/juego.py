@@ -114,6 +114,7 @@ class Game():
             return self.players[0]
         return self.players[nextTurn]
 
+    
     def getTurnAndChange(self):
         ''' Obtiene el id del jugador que es hand y cambia la mano
         @rtype: playerObject'''
@@ -167,10 +168,6 @@ class Game():
                 self.signals_handler.giveCards(player.getID(), cardsPlayer)
                 player.setCards(cardsPlayer)
                 self.signals_handler.showCards(player, cardsPlayer)
-
-    '''def darCartas(self, playerID):
-        self.playsCard[playerID] = []
-        return self.cardPlayer[playerID]'''
 
     def giveCard(self, playerObject, cardObject):
         '''Asigna las carta jugadas en la determinada ronda
