@@ -9,7 +9,7 @@ from .cartas import Cartas
 from .envido_handler import envido_handler
 from .handlers.turn import TurnHandler
 from .truco_handler import truco_handler, TrucoNoQuerido
-
+from .handlers.signals import signals
 from .utils import get_response
 
 
@@ -50,7 +50,7 @@ class Game():
         self.turn = 0
         self.cards = Cartas()
         self.e__envido = {}
-        self.signals_handler = signalsHandler
+        self.signals_handler: signals = signalsHandler
         self.resultLastHand = []  # Resultado de la ultima mano
         self.resultLast = []  # Almacena los ultimos rezultados de la func
         self.statusGame = 3
@@ -71,38 +71,11 @@ class Game():
         self.teams = self.tableObject.getTeams()
         self.numberPlayers = len(self.players)
 
-    def setActionGame(self, classActionGame):
-        ''' Se asigna otra objecto classActionGame
-        @param classActionGame:  '''
-        self.signals_handler = classActionGame()
-
     def getNextTurn(self, player):
         nextTurn = self.players.index(player) + 1
         if(nextTurn >= self.numberPlayers):
             return self.players[0]
         return self.players[nextTurn]
-
-    def getTurnAndChange(self):
-        ''' Obtiene el id del jugador que es hand y cambia la mano
-        @rtype: playerObject'''
-        # msg_debug('[getTurn-turn] %d' % self.turn)
-        turn = self.players[self.turn]
-        if self.getNumberTheCurrentHand == 0 and self.hand == 0:
-            self.hand = self.turn
-        self.changeTurn()
-        return turn
-
-    def changeTurn(self):
-        ''' Cambia la hand del juego '''
-        self.turn += 1
-        if(self.turn >= self.numberPlayers):
-            self.turn = 0
-        # else:
-
-    def setTurn(self, nListPlayer):
-        '''Asigna el turno al jugador
-        @param nListPlayer: int'''
-        self.turn = nListPlayer
 
     def getRond(self):
         '''
@@ -339,7 +312,7 @@ class Game():
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
 
-        self.signals_handler.showMsgStartGame(self.players)
+        self.signals_handler.showMsgStartGame()
         self.signals_handler.setPlayers(self.players)
         while 1:
             self.startRound()
@@ -371,8 +344,7 @@ class Game():
                             try:
                                 if accion_name in _actions_map:
                                     _actions_map[accion_name](
-                                        player, accion_value,
-                                    )
+                                        player, accion_value)
                             except ValueError as msg:
                                 self.signals_handler.showError(
                                     player,
@@ -451,7 +423,7 @@ class Game():
         self.signals_handler.showMsgStartHand(self.handNumber)
         return self.handNumber
 
-    def finishHand(self, winner=None):
+    def finishHand(self, winner = None):
         ''' Esta funciona se llama cada vez que finaliza una ronda
         Analiza los datos del juego y determina si hay un ganador '''
         self.signals_handler.showMsgFinishHand()
@@ -461,7 +433,7 @@ class Game():
             Resultados = self.resultLastHand
         else:
             Resultados = {
-                'player': winner,
+                "player": winner
             }
             self.statusGame = 0
         self.signals_handler.returnStatus(Resultados)
