@@ -70,7 +70,7 @@ class EchoFactory(protocol.Factory, signals):
         try:
             response = player.awaitForResponse()
             accion_name, accion_value = str(response).split(',')
-        except:
+        except:  # noqa
             return self.getActionPlayer(player, action)
         return str(accion_name), int(accion_value.split('\\')[0])
 

@@ -86,35 +86,25 @@ class truco_handler(state_decorator):
 
     @_general_truco_logic(STATE_TRUCO)
     def truco_handler(self, player: Jugador, *args):
-        self._game_instance.signals_handler.sendMessageAll(
-            f'Jugador {player.getID()} canto truco',
-        )
+        self._game_instance.signals_handler.truco(player)
         self._points = 2
 
     @_general_truco_logic(STATE_RETRUCO)
     def retruco_handler(self, player: Jugador, *args):
-        self._game_instance.signals_handler.sendMessageAll(
-            f'Jugador {player.getID()} canto retruco',
-        )
+        self._game_instance.signals_handler.retruco(player)
         self._points = 3
 
     @_general_truco_logic(STATE_VALE_4)
     def vale4_handler(self, player: Jugador, *args):
-        self._game_instance.signals_handler.sendMessageAll(
-            f'Jugador {player.getID()} canto vale 4',
-        )
+        self._game_instance.signals_handler.vale_4(player)
         self._points = 4
 
     def quiero_handler(self, player: Jugador, decision):
         if decision == SI:
-            self._game_instance.signals_handler.sendMessageAll(
-                f'Jugador {player.getID()} quiso el truco',
-            )
+            self._game_instance.signals_handler.quiero(player)
             self._quiero_team = player.team
         else:
-            self._game_instance.signals_handler.sendMessageAll(
-                f'Jugador {player.getID()} no quiso el truco',
-            )
+            self._game_instance.signals_handler.noquiero(player)
             self._points -= 1
             self.freeze()
             raise TrucoNoQuerido(self._last_player, '')

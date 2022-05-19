@@ -16,9 +16,10 @@ class signals(ABC):
     Esta clase es de ejemplo
     '''
 
+    players: list = []
+    teams = []
+
     def __init__(self):
-        self.players = []
-        self.teams = []
         self.errors = {
             'cardPlayerd': 'Esta carta ya fue jugada',
             'invalidAction': 'No puedes realizar esta accion',
@@ -36,12 +37,12 @@ class signals(ABC):
     def sendMessageToPlayer(self, player, msg):
         pass
 
-    def showMsgStartRound(self):
+    def start_new_round(self):
         ''' Esta funcion se dispara cuando se inicia una nueva ronda
         '''
         logging.debug('startRound')
 
-    def showMsgStartHand(self, handsNumber):
+    def start_new_hand(self, handsNumber):
         ''' Esta funcion se llama cada vez que se inicia una nueva mano
         @param handsNumber: int'''
         str1 = ('Iniciando mano %d' % handsNumber).center(50, '-')
@@ -82,7 +83,7 @@ class signals(ABC):
         '''
         pass
 
-    def showPoints(self, team, pointsTeam):
+    def show_points_for_team(self, team, pointsTeam):
         ''' Esta funcion se dispara cuando se muestran los puntos de los equipos
         @param team: int teamID
         @param pointsTeam: int
@@ -294,3 +295,12 @@ class signals(ABC):
 
     def setPlayers(self, playerObject):
         pass
+
+    def truco(self, player):
+        raise NotImplementedError
+
+    def retruco(self, player):
+        raise NotImplementedError
+
+    def vale_4(self, player):
+        raise NotImplementedError

@@ -9,29 +9,6 @@ __status__ = 'Developing'
 from accionesJuego import AccionesJuego
 
 
-'''
-Simulacion de ejemplo de como utilizar la libreria PyTruco
-
-Paso 1: Definir parametros de la Simulacion
-    CantidadDeJugadores
-
-Paso 2: Definir jugadores
-Se importa el modulo jugador, el cual alamacena todos los parametros
-y funcionalidades.
-'''
-
-'''
-Paso 3: Crear mesa
-Se importa el modulo mesa, el cual alamacena todos los parametros
-y funcionalidades.
-'''
-
-''' Paso 5: Crear una nueva partida
-Se importa el modulo Juego, el cual alamacena todos los parametros
-y funcionalidades.
-'''
-
-
 class EjemploDeTruco:
     def __init__(self):
         ''' Paso 1: Definiendo parametros de la simulacion '''
