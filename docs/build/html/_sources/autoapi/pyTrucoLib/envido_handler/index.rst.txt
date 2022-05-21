@@ -1,0 +1,137 @@
+:py:mod:`pyTrucoLib.envido_handler`
+===================================
+
+.. py:module:: pyTrucoLib.envido_handler
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.envido_handler.envido_handler
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.envido_handler.STATE_ENVIDO
+   pyTrucoLib.envido_handler.STATE_REAL_ENVIDO
+   pyTrucoLib.envido_handler.STATE_FALTA_ENVIDO
+   pyTrucoLib.envido_handler.STATE_FINALIZADO
+   pyTrucoLib.envido_handler.SI
+   pyTrucoLib.envido_handler.NO
+
+
+.. py:data:: STATE_ENVIDO
+   :annotation: = 1
+
+   
+
+.. py:data:: STATE_REAL_ENVIDO
+   :annotation: = 2
+
+   
+
+.. py:data:: STATE_FALTA_ENVIDO
+   :annotation: = 3
+
+   
+
+.. py:data:: STATE_FINALIZADO
+   :annotation: = 4
+
+   
+
+.. py:data:: SI
+   :annotation: = 1
+
+   
+
+.. py:data:: NO
+   :annotation: = 0
+
+   
+
+.. py:class:: envido_handler(gameInstance)
+
+   Bases: :py:obj:`pyTrucoLib.state.State`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: _game_instance
+      
+
+      
+
+   .. py:attribute:: _history
+      :annotation: :list = []
+
+      
+
+   .. py:attribute:: _points
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: _last_chant
+      :annotation: :int = 0
+
+      
+
+   .. py:attribute:: _loop_envido
+      :annotation: :bool = False
+
+      
+
+   .. py:method:: _general_envido_logic(new_state: int)
+
+
+   .. py:method:: envido_handler(self, player, *args)
+
+      group: envido
+      Esta funcion se llama cuando un jugador canta envido y
+       inicia el loop de envido
+      :param player:
+
+
+   .. py:method:: real_envido_handler(self, player, *args)
+
+      group: envido
+      Esta funcion se llama cuando un jugador canta envido y
+      inicia el loop de envido
+      :param player:
+
+
+   .. py:method:: falta_envido_handler(self, player, *args)
+
+      group: envido
+      Esta funcion se llama cuando un jugador canta envido y
+      inicia el loop de envido
+      :param player:
+
+
+   .. py:method:: quiero_handler(self, player, decision)
+
+
+   .. py:method:: loopEnvido(self)
+
+      Esta funcion se llama despues de que un jugador canta envido 
+
+
+   .. py:method:: getWinnerEnvido(self)
+
+      group: envido
+      Esta funcion se llama cuando un jugador canta envido y otro
+      lo acepta con un quiero
+
+
+

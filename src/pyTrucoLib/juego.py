@@ -52,7 +52,7 @@ class Game():
 
     def getRond(self):
         '''
-        
+
         :return: Deuelve el numero de la mano
         :rtype: int '''
         return self.handNumber
@@ -119,12 +119,9 @@ class Game():
         :rtype: dic
         '''
         result = {'team': 0, 'winner': 0}
-        msg_info('SearchTeamWinner')
         for team in self.teams:
-            # pdb.set_trace()
             # Se recorren los equipos
             if team.getPoints() >= 30:
-                msg_info('TeamWinner')
                 # Un equipo tiene 30 o mas puntos
                 result['team'] = team
                 result['winner'] = 1
@@ -340,7 +337,6 @@ class Game():
                     break
 
                 self.finishHand()
-            msg_info('EndRound')
             resultTheRound = self.finishRound()
 
             if resultTheRound['winner']:
@@ -414,7 +410,6 @@ class Game():
         ''' Esta funciona se llama cada vez que finaliza una ronda
         Analiza los datos del juego y determina si hay un ganador '''
         self.signals_handler.showMsgFinishHand()
-        msg_info('Iniciando analisis de resultados')
         if winner is None:
             self.resultLastHand = self.getStatusTheRound()
             Resultados = self.resultLastHand

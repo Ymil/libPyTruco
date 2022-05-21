@@ -19,6 +19,19 @@ cd docs
 ./make.bat html
 ```
 
+## Ejecutando test
+
+### Requirimientos
+
+```
+pip install coverage unittest
+```
+
+### Ejecutando
+
+```
+coverage run -m unittest && coverage html
+```
 ## Ejemplos
 
 Se puede observar los ejemplos en la carpeta `example`

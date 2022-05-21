@@ -297,10 +297,13 @@ class signals(ABC):
         pass
 
     def truco(self, player):
-        raise NotImplementedError
+        pass
+        # raise NotImplementedError
 
     def retruco(self, player):
-        raise NotImplementedError
+        pass
+        # raise NotImplementedError
 
     def vale_4(self, player):
-        raise NotImplementedError
+        pass
+        # raise NotImplementedError
