@@ -36,6 +36,7 @@ class testTrucoHandler(TestCase):
 
         """ Paso : Creando mesa """
         self.mesa = Mesa(
+            signals(),
             self.cantidadDeJugadores,
             self.jugadores[0].getID(), 0,
         )
@@ -44,7 +45,7 @@ class testTrucoHandler(TestCase):
         self.mesa.newPlayer(self.jugadores[0])
         self.mesa.newPlayer(self.jugadores[1])
 
-        self.game = Game(self.mesa, signals())
+        self.game = Game(self.mesa)
 
     @mock.patch('pyTrucoLib.envido_handler.get_response')
     def test_verify_envido_quiero(self, mock_response, *args):

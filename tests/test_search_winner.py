@@ -10,7 +10,7 @@ from pyTrucoLib.mesa import Mesa
 class testSearchWinner(unittest.TestCase):
     def test(self):
 
-        game = Game(self.mesa, signals())
+        game = Game(self.mesa)
         j1: Jugador = self.jugadores[0]
         j2: Jugador = self.jugadores[1]
         # game.setActionGame(signals)
@@ -73,6 +73,7 @@ class testSearchWinner(unittest.TestCase):
 
         """ Paso : Creando mesa """
         self.mesa = Mesa(
+            signals(),
             self.cantidadDeJugadores,
             self.jugadores[0].getID(), 0,
         )

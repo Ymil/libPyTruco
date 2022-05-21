@@ -42,7 +42,7 @@ class envido_handler(State):
 
                 func(*args)
 
-                self._game_instance.signals_handler.envido(player)
+                self._game_instance.table.signals_handler.envido(player)
                 self._last_chant = player
                 if not self._loop_envido:
                     self.loopEnvido()
@@ -78,33 +78,33 @@ class envido_handler(State):
 
     def quiero_handler(self, player, decision):
         if decision == SI:
-            self._game_instance.signals_handler.quiero(player)
+            self._game_instance.table.signals_handler.quiero(player)
             self.getWinnerEnvido()
         else:
-            self._game_instance.signals_handler.noquiero(player)
-            self._game_instance.signals_handler.showWinnerEnvido(
+            self._game_instance.table.signals_handler.noquiero(player)
+            self._game_instance.table.signals_handler.showWinnerEnvido(
                 self._last_chant,
             )
-            self._game_instance.givePointsTeam(self._last_chant.getTeam(), 1)
+            self._last_chant.getTeam().givePoints(1)
         self.state = STATE_FINALIZADO
 
     def loopEnvido(self):
         ''' Esta funcion se llama despues de que un jugador canta envido '''
-        self._game_instance.signals_handler.startLoopEnvido()
+        self._game_instance.table.signals_handler.startLoopEnvido()
         self._loop_envido = True
         while (self.state is not STATE_FINALIZADO):
 
             next_player = self._game_instance.getNextTurn(self._last_chant)
             accion_name, accion_values = get_response(
                 self._actions_map,
-                self._game_instance.signals_handler.getActionPlayer,
+                self._game_instance.table.signals_handler.getActionPlayer,
                 next_player,
                 'envido',
             )
 
             self._actions_map[accion_name](next_player, accion_values)
 
-        self._game_instance.signals_handler.finishLoopEnvido()
+        self._game_instance.table.signals_handler.finishLoopEnvido()
 
     def getWinnerEnvido(self):
         ''' group: envido
@@ -119,13 +119,12 @@ class envido_handler(State):
         for player in self._game_instance.players:
             cJugadas += 1
             # player = self._game_instance.getTurnAndChange()
-            self._game_instance.signals_handler.showEnvido(
+            self._game_instance.table.signals_handler.showEnvido(
                 player,
             )  # El jugador canta sus tantos
             if tempWinnerPoints < player.getPointsEnvido():
                 winner = player
             tempWinnerPoints = player.getPointsEnvido()
-        self._game_instance.signals_handler.showWinnerEnvido(winner)
-        self._game_instance.givePointsTeam(
-            winner.getTeam(), self._points,
+        self._game_instance.table.signals_handler.showWinnerEnvido(winner)
+        winner.getTeam().givePoints(self._points,
         )  # Se le asigna los puntos del envido al equipo ganador

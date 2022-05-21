@@ -20,6 +20,7 @@ class testTrucoHandler(TestCase):
 
         """ Paso : Creando mesa """
         self.mesa = Mesa(
+            signals(),
             self.cantidadDeJugadores,
             self.jugadores[0].getID(), 0,
         )
@@ -28,7 +29,7 @@ class testTrucoHandler(TestCase):
         self.mesa.newPlayer(self.jugadores[0])
         self.mesa.newPlayer(self.jugadores[1])
 
-        self.game = Game(self.mesa, signals())
+        self.game = Game(self.mesa)
 
     def tearDown(self):
         del self.game

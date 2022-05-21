@@ -161,4 +161,4 @@ cython_debug/
 
 logs/*
 
-!docs\build\html
+!docs/build/html

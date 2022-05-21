@@ -6,13 +6,13 @@ from .handlers.signals import signals
 from .utils import get_response
 
 class Game():
-    def __init__(self, tableObject, signalsHandler, configGame={}):
+    def __init__(self, table, configGame={}):
         '''
         :param tableObject:
         :param configGame: dic
         '''
         self.status = 0
-        self.tableObject = tableObject
+        self.table = table
 
         self.__loadVarsTheTable__()
 
@@ -23,7 +23,6 @@ class Game():
         self.turn = 0
         self.cards = Cartas()
         self.e__envido = {}
-        self.signals_handler: signals = signalsHandler
         self.resultLastHand = []  # Resultado de la ultima mano
         self.resultLast = []  # Almacena los ultimos rezultados de la func
         self.statusGame = 3
@@ -39,9 +38,9 @@ class Game():
     def __loadVarsTheTable__(self):
         ''' Carga todas las variables necesarias de la mesa
         para poder iniciar el juego '''
-        self.players = self.tableObject.getPlayers()
+        self.players = self.table.getPlayers()
         self.turn_handler = TurnHandler(self.players)
-        self.teams = self.tableObject.getTeams()
+        self.teams = self.table.getTeams()
         self.numberPlayers = len(self.players)
 
     def getNextTurn(self, player):
@@ -62,9 +61,9 @@ class Game():
         self.cards.prepararMaso()
         for player in self.players:
             cardsPlayer = self.cards.repartir_individual()
-            self.signals_handler.giveCards(player.getID(), cardsPlayer)
+            self.table.signals_handler.giveCards(player.getID(), cardsPlayer)
             player.setCards(cardsPlayer)
-            self.signals_handler.showCards(player, cardsPlayer)
+            self.table.signals_handler.showCards(player, cardsPlayer)
 
     def giveCard(self, playerObject, cardObject):
         '''Asigna las carta jugadas en la determinada ronda
@@ -80,10 +79,6 @@ class Game():
         :param teamObject:
         :param points: int'''
         teamObject.givePoints(points)
-
-    def getPointsTeams(self):
-        ''' obsoleto ? '''
-        return self.teamPoints
 
     def getNumberTheCurrentHand(self):
         ''' Esta funcion duelve el
@@ -270,7 +265,7 @@ class Game():
     def showPointsTeams(self):
         ''' Muestra los puntos de los equipos '''
         for team in self.teams:
-            self.signals_handler.show_points_for_team(
+            self.table.signals_handler.show_points_for_team(
                 team.getID(), team.getPoints(),
             )
 
@@ -279,12 +274,12 @@ class Game():
             # Juega la carta y se comprueba que este disponible
             cartaJ = player.getNameCardPlayed()
             # Obitene el nombre completo de la carta
-            self.signals_handler.showCardPlaying(
+            self.table.signals_handler.showCardPlaying(
                 player.getTeam(), player, cartaJ,
             )
             self.CHANGE_TURN_FLAG = True
         else:
-            self.signals_handler.showError(
+            self.table.signals_handler.showError(
                 player,
                 'cardPlayerd',
             )
@@ -293,8 +288,8 @@ class Game():
     def start(self):
         ''' Esta funcion se llama cuando se inicia el juego '''
 
-        self.signals_handler.showMsgStartGame()
-        self.signals_handler.setPlayers(self.players)
+        self.table.signals_handler.showMsgStartGame()
+        self.table.signals_handler.setPlayers(self.players)
         while 1:
             self.startRound()
             _actions_map: dict = {
@@ -319,7 +314,7 @@ class Game():
                                 jugador hasta que sea jugarCarta '''
                             accion_name, accion_value = get_response(
                                 _actions_map,
-                                self.signals_handler.getActionPlayer,
+                                self.table.signals_handler.getActionPlayer,
                                 player,
                             )
                             try:
@@ -328,7 +323,7 @@ class Game():
                                         player, accion_value,
                                     )
                             except ValueError as msg:
-                                self.signals_handler.showError(
+                                self.table.signals_handler.showError(
                                     player,
                                     msg,
                                 )
@@ -341,9 +336,9 @@ class Game():
 
             if resultTheRound['winner']:
                 self.showPointsTeams()
-                self.signals_handler.winGameTeam(resultTheRound['team'])
+                self.table.signals_handler.winGameTeam(resultTheRound['team'])
                 break
-        self.signals_handler.showMsgFinishGame()
+        self.table.signals_handler.showMsgFinishGame()
 
     def getInfo(self):
         ''' Esta funcion devuelve un diccionario con informacion del juego
@@ -364,7 +359,7 @@ class Game():
         ''' Esta funcion se llama cada vez que se inicia una nueva ronda
         '''
         self.resetRond()
-        self.signals_handler.start_new_round()
+        self.table.signals_handler.start_new_round()
         self.showPointsTeams()
         ''' Repartir cartas '''
         self.giveCardsToPlayers()
@@ -390,7 +385,7 @@ class Game():
         :rtype: dic
 
         '''
-        self.signals_handler.showMsgFinishRound()
+        self.table.signals_handler.showMsgFinishRound()
         self.turn_handler.change_round()
         result = self.searchTeamWinnerTheRound()
         return result
@@ -403,13 +398,13 @@ class Game():
         :rtype: int
          '''
         self.handNumber += 1
-        self.signals_handler.start_new_hand(self.handNumber)
+        self.table.signals_handler.start_new_hand(self.handNumber)
         return self.handNumber
 
     def finishHand(self, winner=None):
         ''' Esta funciona se llama cada vez que finaliza una ronda
         Analiza los datos del juego y determina si hay un ganador '''
-        self.signals_handler.showMsgFinishHand()
+        self.table.signals_handler.showMsgFinishHand()
         if winner is None:
             self.resultLastHand = self.getStatusTheRound()
             Resultados = self.resultLastHand
@@ -418,26 +413,25 @@ class Game():
                 'player': winner,
             }
             self.statusGame = 0
-        self.signals_handler.returnStatus(Resultados)
+        self.table.signals_handler.returnStatus(Resultados)
         if(self.statusGame == 1):
-            self.signals_handler.Parda()
+            self.table.signals_handler.Parda()
             return
 
         RPlayer = Resultados['player']
-        self.signals_handler.showResultaTheHand(
+        self.table.signals_handler.showResultaTheHand(
             RPlayer.getID(),
             RPlayer.getName(),  RPlayer.getTeamID(),
             RPlayer.getNameCardPlayed(),
         )
         if(self.statusGame == 0):
             if(self.statusGame == 0):
-                self.signals_handler.win(Resultados['player'].getTeamID())
+                self.table.signals_handler.win(Resultados['player'].getTeamID())
             elif(self.statusGame == 2):
-                self.signals_handler.winEmpate(
+                self.table.signals_handler.winEmpate(
                     Resultados['player'].getTeamID(),
                 )
-            self.givePointsTeam(
-                Resultados['player'].getTeam(),
-                # Se obtienen los puntos del truco en caso de existir
-                self._truco_handler.get_points(),
+
+            Resultados['player'].getTeam().givePoints(
+                self._truco_handler.get_points()
             )
