@@ -18,12 +18,12 @@ class signals(ABC):
 
     players: list = []
     teams = []
-
-    def __init__(self):
+    def __init__(self, players):
         self.errors = {
             'cardPlayerd': 'Esta carta ya fue jugada',
             'invalidAction': 'No puedes realizar esta accion',
         }
+        self.players = players
 
     def showMsgStartGame(self):
         ''' Esta funcion se dispara cuando se inicia un nuevo juego
@@ -31,7 +31,7 @@ class signals(ABC):
         '''
         pass
 
-    def sendMessageAll(self, msg):
+    def sendMessageAll(self, players, msg):
         pass
 
     def sendMessageToPlayer(self, player, msg):

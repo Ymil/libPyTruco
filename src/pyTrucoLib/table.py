@@ -26,11 +26,12 @@ class Table:
         self.equipoN = 0
         self.status = 0
         self.team = []  # Almacena los objectos de los equipos
-        self.signals_handler: signals = signalsHandler
+        self.signals_handler: signals = signalsHandler(self.jugadores)
         self.__createTeams__()
 
     def getInfo(self):
         """ Retorna informacion sobre la mesa
+
         :return: (mesaID, cantidadJugadores, cantidadJugadores, creadaPor)
         :rtype: tuple
         """

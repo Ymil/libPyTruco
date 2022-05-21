@@ -21,11 +21,11 @@ class web_socket_signals_adapter(json_signal_adapter):
         player.sendMessage(str.encode(f"{msg}"))
 
 
-class GameManager(web_socket_signals_adapter):
+class GameManager():
     id: int = 0
-
+    players: list = []
     def startGame(self):
-        mesa = Table(2, 1, 0)
+        mesa = Table(web_socket_signals_adapter, 2, 1, 0)
         for player in self.players[-2:]:
             mesa.newPlayer(player)
             player.sendMessage(
@@ -56,8 +56,7 @@ class GameManager(web_socket_signals_adapter):
 
 gameManager = GameManager()
 
-
-class MyServerProtocol(WebSocketServerProtocol, Jugador):
+class playerCon(WebSocketServerProtocol, Jugador):
     def onOpen(self):
         player_id = gameManager.newPlayer(self)
         Jugador.__init__(self, player_id)
@@ -94,7 +93,7 @@ if __name__ == "__main__":
 
     log.startLogging(sys.stdout)
     factory = WebSocketServerFactory()
-    factory.protocol = MyServerProtocol
+    factory.protocol = playerCon
     reactor.listenTCP(9000, factory)
     reactor.run()
 
