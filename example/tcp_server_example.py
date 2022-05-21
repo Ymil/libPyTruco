@@ -4,7 +4,7 @@ import time
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.table import Table
 from twisted.internet import protocol
 from twisted.internet import reactor
 from twisted.protocols import basic
@@ -45,7 +45,7 @@ class EchoFactory(protocol.Factory, signals):
     id: int = 0
 
     def startGame(self):
-        mesa = Mesa(2, 1, 0)
+        mesa = Table(2, 1, 0)
         for player in self.players:
             mesa.newPlayer(player)
         juego = Game(mesa, self)

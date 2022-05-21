@@ -1,7 +1,7 @@
 #!/usr/bin/env python 2.7
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.table import Table
 __author__ = 'Lautaro Linquiman'
 __email__ = 'acc.limayyo@gmail.com'
 __status__ = 'Developing'
@@ -20,7 +20,7 @@ class EjemploDeTruco:
         self.jugadores.append(Jugador(2))
 
         ''' Paso : Creando mesa '''
-        self.mesa = Mesa(
+        self.mesa = Table(
             self.cantidadDeJugadores,
             self.jugadores[0].getID(), 0,
         )

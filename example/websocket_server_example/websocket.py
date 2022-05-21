@@ -8,7 +8,7 @@ from autobahn.twisted.websocket import WebSocketServerFactory
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.table import Table
 from pyTrucoLib.card import Card
 from jsonSignalAdapter import json_signal_adapter
 
@@ -25,7 +25,7 @@ class GameManager(web_socket_signals_adapter):
     id: int = 0
 
     def startGame(self):
-        mesa = Mesa(2, 1, 0)
+        mesa = Table(2, 1, 0)
         for player in self.players[-2:]:
             mesa.newPlayer(player)
             player.sendMessage(

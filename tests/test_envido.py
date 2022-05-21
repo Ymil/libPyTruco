@@ -6,7 +6,7 @@ from pyTrucoLib.card import Card
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.table import Table
 
 
 @mock.patch('pyTrucoLib.juego.Game.giveCardsToPlayers', return_value=None)
@@ -35,7 +35,7 @@ class testTrucoHandler(TestCase):
         )
 
         """ Paso : Creando mesa """
-        self.mesa = Mesa(
+        self.mesa = Table(
             signals(),
             self.cantidadDeJugadores,
             self.jugadores[0].getID(), 0,

@@ -4,7 +4,7 @@ from unittest import TestCase
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.table import Table
 from pyTrucoLib.truco_handler import TrucoNoQuerido
 
 
@@ -19,7 +19,7 @@ class testTrucoHandler(TestCase):
         self.jugadores.append(Jugador(2))
 
         """ Paso : Creando mesa """
-        self.mesa = Mesa(
+        self.mesa = Table(
             signals(),
             self.cantidadDeJugadores,
             self.jugadores[0].getID(), 0,

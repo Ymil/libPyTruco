@@ -8,7 +8,7 @@ from autobahn.twisted.websocket import WebSocketServerFactory
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
 from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.mesa import Mesa
+from pyTrucoLib.table import Table
 from pyTrucoLib.card import Card
 
 

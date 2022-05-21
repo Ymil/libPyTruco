@@ -7,7 +7,7 @@ from .handlers.signals import signals
 from .team import Team
 
 
-class Mesa:
+class Table:
     def __init__(self, signalsHandler: signals, cantidadJugadores, creadaPor, mesaID):
         """
         Esta clase contiene toda la funcionalidad para crear y
