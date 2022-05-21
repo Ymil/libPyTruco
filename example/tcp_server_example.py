@@ -77,8 +77,8 @@ class EchoFactory(protocol.Factory, signals):
     def showCards(self, player, cards):
         ''' Esta funcion se dispara cuando se le muestran las cartas al jugador
         params
-        @param playerid:
-        @param cards: list cardsObjects
+        :param playerid:
+        :param cards: list cardsObjects
         '''
         for pos, card in enumerate(cards):
             player.transport.write(str.encode(f'{pos} - {card}\n\r'))

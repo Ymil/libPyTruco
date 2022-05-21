@@ -1,0 +1,88 @@
+:py:mod:`pyTrucoLib.mesa`
+=========================
+
+.. py:module:: pyTrucoLib.mesa
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.mesa.Mesa
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.mesa.__author__
+   pyTrucoLib.mesa.__email__
+   pyTrucoLib.mesa.__status__
+
+
+.. py:data:: __author__
+   :annotation: = Lautaro Linquiman
+
+   
+
+.. py:data:: __email__
+   :annotation: = acc.limayyo@gmail.com
+
+   
+
+.. py:data:: __status__
+   :annotation: = Developing
+
+   
+
+.. py:class:: Mesa(cantidadJugadores, creadaPor, mesaID)
+
+   .. py:method:: getInfo(self)
+
+      Retorna informacion sobre la mesa
+      :return: (mesaID, cantidadJugadores, cantidadJugadores, creadaPor)
+      :rtype: tuple
+
+
+   .. py:method:: getStatus(self)
+
+      :return: true si la cantidad de jugadores en la mesa es
+      igual a la que se indico
+      :rtype: bool
+
+
+   .. py:method:: __createTeams__(self)
+
+
+   .. py:method:: newPlayer(self, playerObject)
+
+      Ingresa un nuevo jugador a la mesa
+      :param playerObject:
+
+
+   .. py:method:: getPlayers(self)
+
+      :return: Devuelve todos los jugadores
+      :rtype: list
+
+
+   .. py:method:: getTeams(self)
+
+      :return: Equipos
+      :rtype: list
+
+
+   .. py:method:: getID(self)
+
+      :return: ID de la mesa
+      :rtype: int
+
+
+

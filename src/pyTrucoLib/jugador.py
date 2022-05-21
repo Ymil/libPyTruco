@@ -12,8 +12,8 @@ class Jugador():
         Esta clase controla toda la funcionalidad de los jugadores
         09-01-15 06:24
         @author: Lautaro Linquiman
-        @param id: int
-        @rtype: playerOjbect
+        :param id: int
+        :rtype: playerOjbect
         '''
         self.idJugador = id  # IdCon
         self.status = 0
@@ -25,39 +25,39 @@ class Jugador():
 
     def setTeam(self, teamObject):
         '''
-        @param teamObject:
+        :param teamObject:
         '''
         self.team = teamObject
 
     def getTeam(self):
-        ''' @return: equipo del jugador
-        @rtype: teamObject '''
+        ''' :return: equipo del jugador
+        :rtype: teamObject '''
         return self.team
 
     def getTeamID(self):
-        ''' @return: ID del equipo del jugador
-        @rtype: int '''
+        ''' :return: ID del equipo del jugador
+        :rtype: int '''
         return self.team.getID()
 
     def setName(self, nombre):
         ''' Asgina el nombre del jugador
-        @param nombre: str '''
+        :param nombre: str '''
         self.nombre = nombre
 
     def getName(self):
         ''' Devuelve el nombre del jugador
-        @rtype: str'''
+        :rtype: str'''
         return self.nombre
 
     def getID(self):
         '''
-        @return: ID del jugador
-        @rtype: int'''
+        :return: ID del jugador
+        :rtype: int'''
         return self.idJugador
 
     def setCards(self, cartas):
         ''' Se ingresan la cartas que les da el juego
-        @param cartas: list cardObjects'''
+        :param cartas: list cardObjects'''
         self.resetCards()
         self.cartas = cartas
 
@@ -70,8 +70,8 @@ class Jugador():
 
     def playingCardInRound(self, cartaID):
         ''' Corrobora que las cartas del jugador sea valida y la juega
-        @param cartaID: int
-        @rtype: bool
+        :param cartaID: int
+        :rtype: bool
         '''
         carta = self.cartas[cartaID]
         if carta in self.cartasJugadas:
@@ -83,31 +83,31 @@ class Jugador():
 
     def getCardsPlayer(self):
         ''' Esta funcion devuelve todas las cartas del jugador en forma de areglo
-        @return: lista de cardObject
-        @rtype: list
+        :return: lista de cardObject
+        :rtype: list
         '''
         # print(self.cartas)
         return self.cartas
 
     def getCardTheNumberHand(self, roundNumber):
         ''' Devuelve la carta jugada en la mano x
-        @param roundNumber: int
-        @rtype: cardObject
+        :param roundNumber: int
+        :rtype: cardObject
         '''
         return self.cartasJugadas[roundNumber]
 
     def getNameCardPlayed(self):
         ''' Devuelve el nombre completa de la ultima carta jugada
-        @return: Nombre completo de la carta
-        @rtype: str'''
+        :return: Nombre completo de la carta
+        :rtype: str'''
         return self.cartas[self.ultimaCartaJugada]
 
     def getMaxCard(self):
         '''
         group: player, envido
         Esta funcion devuelve la carta mayor del jugador (Para el envido)
-        @return: points
-        @rtype: int
+        :return: points
+        :rtype: int
         '''
         dicCards = {}
         for carta in self.cartas:
@@ -126,9 +126,9 @@ class Jugador():
         '''
         group: player, envido
         Agrupa las cartas de un palo determinado
-        @param stick: str
-        @return: lista de cartas
-        @rtype: list'''
+        :param stick: str
+        :return: lista de cartas
+        :rtype: list'''
         cards = []
         for card in self.cartas:
             if card.getStick() == stick:
@@ -139,8 +139,8 @@ class Jugador():
         '''
         group: player, envido
         Esta funcion devuelve los puntos que tiene el jugador para el envido
-        @return: points
-        @rtype: int'''
+        :return: points
+        :rtype: int'''
         cardsSticks = []
         points = 0
         for carta in self.cartas:

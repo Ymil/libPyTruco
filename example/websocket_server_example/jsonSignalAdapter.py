@@ -35,8 +35,8 @@ class json_signal_adapter(signals):
     def showCards(self, player, cards):
         """ Esta funcion se dispara cuando se le muestran las cartas al jugador
         params
-        @param playerid:
-        @param cards: list cardsObjects
+        :param playerid:
+        :param cards: list cardsObjects
         """
         r = {"action": "showCards", "payload": {}}
         for pos, card in enumerate(cards):
@@ -70,8 +70,8 @@ class json_signal_adapter(signals):
 
     def show_points_for_team(self, team, pointsTeam):
         """ Esta funcion se dispara cuando se muestran los puntos de los equipos
-        @param team: int teamID
-        @param pointsTeam: int
+        :param team: int teamID
+        :param pointsTeam: int
         Ejemplo de uso: """
 
         self.sendMessageAll(
@@ -89,10 +89,10 @@ class json_signal_adapter(signals):
     def showResultaTheHand(self, playerid, playername, teamid, cardObject):
         """ Esta funcion se llama cuando termina una mano
 
-        @param playerid: int
-        @param playername: str Nombre del jugador
-        @param teamid: int
-        @param cardObject:
+        :param playerid: int
+        :param playername: str Nombre del jugador
+        :param teamid: int
+        :param cardObject:
         Ejemplo:"""
         self.sendMessageAll(
             json.dumps(
@@ -110,7 +110,7 @@ class json_signal_adapter(signals):
     def envido(self, playerObject):
         '''
         Esta funcion se llama cuando alguien canta envido
-        @param playerObject:
+        :param playerObject:
         '''
         str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} canto envido' 
         self.sendMessageAll(
@@ -125,7 +125,7 @@ class json_signal_adapter(signals):
     def showEnvido(self, playerObject):
         '''
         Esta funcion se llama cuando un jugar canta su envido
-        @param playerObject: '''
+        :param playerObject: '''
         str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} tiene {playerObject.getPointsEnvido()} de envido'
         self.sendMessageAll(
              json.dumps(
@@ -139,7 +139,7 @@ class json_signal_adapter(signals):
     def showWinnerEnvido(self, playerObject):
         '''
         Esta funcion se llama cuando se define un ganador del envido
-        @param playerObject:
+        :param playerObject:
         '''
 
         str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} gano el envido'
@@ -154,7 +154,7 @@ class json_signal_adapter(signals):
     def quiero(self, playerObject):
         ''' Esta funcion se llama cuando un jugador quiere a un canto
 
-        @param playerObject:
+        :param playerObject:
         '''
 
         str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} dijo quiero'
@@ -170,7 +170,7 @@ class json_signal_adapter(signals):
     def noquiero(self, playerObject):
         ''' Esta funcion se llama cuando un jugador no quiere a un canto
 
-        @param playerObject:
+        :param playerObject:
         '''
 
         str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} dijo no quiero'

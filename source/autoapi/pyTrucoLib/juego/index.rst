@@ -1,0 +1,205 @@
+:py:mod:`pyTrucoLib.juego`
+==========================
+
+.. py:module:: pyTrucoLib.juego
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.juego.Game
+
+
+
+
+.. py:class:: Game(tableObject, signalsHandler, configGame={})
+
+   .. py:attribute:: pointsByWin
+      :annotation: = 30
+
+      Esta variable almacena el estado actual del juego
+      y es asignada por la funcion
+      getResultHand [0:win|1:parda|2:empate|3:continue] 
+
+
+   .. py:attribute:: lastCodeResult
+      :annotation: = 0
+
+      Esta variable almacena un ID de la condicion verdadera al
+      buscar un ganador
+
+
+   .. py:attribute:: CHANGE_TURN_FLAG
+      :annotation: = False
+
+      
+
+   .. py:method:: __loadVarsTheTable__(self)
+
+      Carga todas las variables necesarias de la mesa
+      para poder iniciar el juego 
+
+
+   .. py:method:: getNextTurn(self, player)
+
+
+   .. py:method:: getRond(self)
+
+      :return: Deuelve el numero de la mano
+      :rtype: int 
+
+
+   .. py:method:: giveCardsToPlayers(self)
+
+      Se reparten las cartas de los jugadores 
+
+
+   .. py:method:: giveCard(self, playerObject, cardObject)
+
+      Asigna las carta jugadas en la determinada ronda
+
+      :param playerObject:
+      :param cardObject:
+
+
+   .. py:method:: givePointsTeam(self, teamObject, points)
+
+      Le suma punto a un equipo
+
+      :param teamObject:
+      :param points: int
+
+
+   .. py:method:: getPointsTeams(self)
+
+      obsoleto ? 
+
+
+   .. py:method:: getNumberTheCurrentHand(self)
+
+      Esta funcion duelve el
+
+      :return: numero de la mano actual
+      :rtype: int 
+
+
+   .. py:method:: getResultBeforeHand(self)
+
+      Devuelve el resultado de la mano anterior
+      Solo se puede llamar despues de que se obtiene el
+       resultado de una ronda
+      y la mano es agregada en la variable hands
+
+      :return: {player: playerObject, parda: bool}
+      :rtype: dic
+
+
+   .. py:method:: addResultHand(self, resultHand)
+
+      Agrega un resultado a la lista de manos
+
+      :param resultHand:
+
+
+   .. py:method:: searchTeamWinnerTheRound(self)
+
+      Esta funcion se ejecuta cuando se busca un
+
+      :return: equipo ganador de las rondas del juego
+          {'team': object Team, 'winner': int[1|0]}
+      :rtype: dic
+
+
+   .. py:method:: getResultHandByNumber(self, numberHand)
+
+      Devuelve el resultado de una mano por su numero de mano
+
+      :param numberHand: int        
+      :return: {player: playerObject, parda: bool}
+      :rtype: dic
+
+
+   .. py:method:: getResultCurrentHand(self)
+
+      Devuelve el ganador de la ultima mano
+
+      :return: {player: playerObject, parda: bool}
+      :rtype: dic
+
+
+   .. py:method:: getStatusTheRound(self)
+
+      Esta funcion devuelve el resultado de la mano jugada y
+      devuelve el estado que termino la mano
+
+      :return: {player: playerObject, parda: bool}
+      :rtype: dic
+
+
+
+   .. py:method:: showPointsTeams(self)
+
+      Muestra los puntos de los equipos 
+
+
+   .. py:method:: playingCardInRound(self, player, card)
+
+
+   .. py:method:: start(self)
+
+      Esta funcion se llama cuando se inicia el juego 
+
+
+   .. py:method:: getInfo(self)
+
+      Esta funcion devuelve un diccionario con informacion del juego
+
+      :return: { hand: int numero de mano actual, envido: {}}
+      :rtype: dic
+
+
+   .. py:method:: startRound(self)
+
+      Esta funcion se llama cada vez que se inicia una nueva ronda
+              
+
+
+   .. py:method:: resetRond(self)
+
+      Esta funcion se llama cada vez se inicia una nueva ronda y
+      vuelve a cargar todas las variables del juego
+
+
+   .. py:method:: finishRound(self)
+
+      Esta funcion se ejecuta al terminar una ronda y se fija si alguno
+      de
+      los equipos tiene mas de 30 puntos para determinar un ganador
+
+      :return: {'team': objectTeam , 'winner': int[1|0]}
+      :rtype: dic
+
+
+
+   .. py:method:: startHand(self)
+
+      Esta funcion se llama cada vez que inicia una nueva ronda
+      y se asigna el turno al jugador indicado
+
+      :return: Numero de la mano que se va iniciar
+      :rtype: int
+       
+
+
+   .. py:method:: finishHand(self, winner=None)
+
+      Esta funciona se llama cada vez que finaliza una ronda
+      Analiza los datos del juego y determina si hay un ganador 
+
+
+

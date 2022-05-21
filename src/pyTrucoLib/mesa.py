@@ -13,9 +13,9 @@ class Mesa():
         manejar las mesas
         2015-01
         @author: Lautaro Linquiman
-        @param cantidadJugadores: int
-        @param creadaPor: int idJugador
-        @param mesaID: int ID de la mesa
+        :param cantidadJugadores: int
+        :param creadaPor: int idJugador
+        :param mesaID: int ID de la mesa
         '''
         self.cantidadJugadores = cantidadJugadores
         self.creadaPor = creadaPor
@@ -29,8 +29,8 @@ class Mesa():
 
     def getInfo(self):
         ''' Retorna informacion sobre la mesa
-        @return: (mesaID, cantidadJugadores, cantidadJugadores, creadaPor)
-        @rtype: tuple
+        :return: (mesaID, cantidadJugadores, cantidadJugadores, creadaPor)
+        :rtype: tuple
         '''
         return (
             self.mesaID,
@@ -39,9 +39,9 @@ class Mesa():
 
     def getStatus(self):
         '''
-        @return: true si la cantidad de jugadores en la mesa es
+        :return: true si la cantidad de jugadores en la mesa es
         igual a la que se indico
-        @rtype: bool
+        :rtype: bool
         '''
         print(len(self.jugadores))
         if(self.cantidadJugadores == len(self.jugadores)):
@@ -58,7 +58,7 @@ class Mesa():
     def newPlayer(self, playerObject):
         '''
         Ingresa un nuevo jugador a la mesa
-        @param playerObject:'''
+        :param playerObject:'''
         self.jugadores.append(playerObject)
         playerObject.setTeam(self.team[self.equipoN])
         self.equipoN += 1
@@ -67,18 +67,18 @@ class Mesa():
 
     def getPlayers(self):
         '''
-        @return: Devuelve todos los jugadores
-        @rtype: list'''
+        :return: Devuelve todos los jugadores
+        :rtype: list'''
         return self.jugadores
 
     def getTeams(self):
         '''
-        @return: Equipos
-        @rtype: list'''
+        :return: Equipos
+        :rtype: list'''
         return self.team
 
     def getID(self):
         '''
-        @return: ID de la mesa
-        @rtype: int'''
+        :return: ID de la mesa
+        :rtype: int'''
         return self.mesaID

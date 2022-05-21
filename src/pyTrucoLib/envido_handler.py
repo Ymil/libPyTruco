@@ -54,7 +54,7 @@ class envido_handler(State):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y
          inicia el loop de envido
-        @param player:
+        :param player:
         '''
         self._points += 2
 
@@ -63,7 +63,7 @@ class envido_handler(State):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y
         inicia el loop de envido
-        @param player:
+        :param player:
         '''
         self._points += 3
 
@@ -72,7 +72,7 @@ class envido_handler(State):
         ''' group: envido
         Esta funcion se llama cuando un jugador canta envido y
         inicia el loop de envido
-        @param player:
+        :param player:
         '''
         self._points += 15
 

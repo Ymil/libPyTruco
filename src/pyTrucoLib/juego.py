@@ -1,10 +1,3 @@
-#!/usr/bin/env python 2.7
-__author__ = 'Lautaro Linquiman'
-__email__ = 'acc.limayyo@gmail.com'
-__status__ = 'Developing'
-__data__ = '20-01-15 05:07AM'
-
-
 from .cartas import Cartas
 from .envido_handler import envido_handler
 from .handlers.turn import TurnHandler
@@ -12,28 +5,11 @@ from .truco_handler import truco_handler, TrucoNoQuerido
 from .handlers.signals import signals
 from .utils import get_response
 
-
-global cuentaEjecucion
-cuentaEjecucion = 0
-
-
-def msg_debug(str1):
-    global cuentaEjecucion
-    str1 = 'EC %d' % cuentaEjecucion, str1
-    cuentaEjecucion += 1
-
-
-def msg_info(str1):
-    global cuentaEjecucion
-    str1 = 'EC %d' % cuentaEjecucion, str1
-    cuentaEjecucion += 1
-
-
 class Game():
     def __init__(self, tableObject, signalsHandler, configGame={}):
         '''
-        @param tableObject:
-        @param configGame: dic
+        :param tableObject:
+        :param configGame: dic
         '''
         self.status = 0
         self.tableObject = tableObject
@@ -76,8 +52,9 @@ class Game():
 
     def getRond(self):
         '''
-        @return: Deuelve el numero de la mano
-        @rtype: int '''
+        
+        :return: Deuelve el numero de la mano
+        :rtype: int '''
         return self.handNumber
 
     def giveCardsToPlayers(self):
@@ -91,15 +68,17 @@ class Game():
 
     def giveCard(self, playerObject, cardObject):
         '''Asigna las carta jugadas en la determinada ronda
-        @param playerObject:
-        @param cardObject:'''
+
+        :param playerObject:
+        :param cardObject:'''
         nrond = self.getRond()
         self.hands[nrond].append((playerObject, cardObject))
 
     def givePointsTeam(self, teamObject, points):
         '''Le suma punto a un equipo
-        @param teamObject:
-        @param points: int'''
+
+        :param teamObject:
+        :param points: int'''
         teamObject.givePoints(points)
 
     def getPointsTeams(self):
@@ -108,8 +87,9 @@ class Game():
 
     def getNumberTheCurrentHand(self):
         ''' Esta funcion duelve el
-        @return: numero de la mano actual
-        @rtype: int '''
+
+        :return: numero de la mano actual
+        :rtype: int '''
         self.numberTheCurrentHand = len(self.hands)
         return self.numberTheCurrentHand
 
@@ -118,22 +98,25 @@ class Game():
         Solo se puede llamar despues de que se obtiene el
          resultado de una ronda
         y la mano es agregada en la variable hands
-        @return: {player: playerObject, parda: bool}
-        @rtype: dic
+
+        :return: {player: playerObject, parda: bool}
+        :rtype: dic
         '''
         numberThePreviusHand = self.getNumberTheCurrentHand()-1
         return self.hands[numberThePreviusHand]
 
     def addResultHand(self, resultHand):
         ''' Agrega un resultado a la lista de manos
-        @param resultHand:'''
+
+        :param resultHand:'''
         self.hands.append(resultHand)
 
     def searchTeamWinnerTheRound(self):
         '''Esta funcion se ejecuta cuando se busca un
-        @return: equipo ganador de las rondas del juego
+
+        :return: equipo ganador de las rondas del juego
             {'team': object Team, 'winner': int[1|0]}
-        @rtype: dic
+        :rtype: dic
         '''
         result = {'team': 0, 'winner': 0}
         msg_info('SearchTeamWinner')
@@ -145,20 +128,21 @@ class Game():
                 # Un equipo tiene 30 o mas puntos
                 result['team'] = team
                 result['winner'] = 1
-                msg_debug('TeamWinnerID:%d' % result['team'].getID())
         return result
 
     def getResultHandByNumber(self, numberHand):
         ''' Devuelve el resultado de una mano por su numero de mano
-        @param numberHand: int
-        @return: {player: playerObject, parda: bool}
-        @rtype: dic'''
+
+        :param numberHand: int        
+        :return: {player: playerObject, parda: bool}
+        :rtype: dic'''
         return self.hands[numberHand]
 
     def getResultCurrentHand(self):
         '''Devuelve el ganador de la ultima mano
-        @return: {player: playerObject, parda: bool}
-        @rtype: dic
+
+        :return: {player: playerObject, parda: bool}
+        :rtype: dic
         '''
 
         numberTheCurrentHand = self.getNumberTheCurrentHand()
@@ -200,8 +184,9 @@ class Game():
         '''
         Esta funcion devuelve el resultado de la mano jugada y
         devuelve el estado que termino la mano
-        @return: {player: playerObject, parda: bool}
-        @rtype: dic
+
+        :return: {player: playerObject, parda: bool}
+        :rtype: dic
 
         '''
         tempResult = {}
@@ -223,13 +208,13 @@ class Game():
             if resultCurrentHand['parda'] and \
                     self.getResultHandByNumber(numberThePreviusHand)['parda']:
                 self.lastCodeResult = 1
-                msg_info(' En la mano actual y en \
+                ''' En la mano actual y en \
                      la anterior ocurrio una parta:  \
                 El Juego continua siempre y \
                      cuando esto ocurra en la segunda ronda  \
                 En el caso de que esto ocurra \
                      en la tercera mano el jugador mano \
-                de la primera mano es el ganador de la ronda')
+                de la primera mano es el ganador de la ronda'''
                 if numberTheCurrentHand != 1:
                     winner = self.getResultHandByNumber(0)
             elif not resultCurrentHand['parda'] and \
@@ -237,39 +222,39 @@ class Game():
                         numberThePreviusHand,
                     )['parda']:
                 self.lastCodeResult = 2
-                msg_info(' En la mano anterior ocurrio una parda pero \
-                en la mano actual no El ganador de la mano actual es \
-                el ganador de la ronda')
+                ''' En la mano anterior ocurrio una parda pero
+                en la mano actual no El ganador de la mano actual es
+                el ganador de la ronda'''
                 winner = resultCurrentHand
             elif resultCurrentHand['parda'] and \
                     not self.getResultHandByNumber(
                         numberThePreviusHand,
                     )['parda']:
                 self.lastCodeResult = 3
-                msg_info(' En la mano anterior no hubo parda pero en la mano\
-                 actual hay una parda \n \
-                El jugador que gano la primera mano es el ganador de la \
-                    ronda ')
+                ''' En la mano anterior no hubo parda pero en la mano
+                 actual hay una parda \n 
+                El jugador que gano la primera mano es el ganador de la 
+                    ronda '''
                 winner = self.getResultHandByNumber(0)
             elif resultCurrentHand['player'].getTeam() == \
                     self.getResultHandByNumber(
                         numberThePreviusHand,
                     )['player'].getTeam():
                 self.lastCodeResult = 4
-                msg_info(' El Jugador que gana la mano actual es de \
-                el mismo equipo que gano la mano anterior \
-                El jugador de la mano actual es el ganador de la ronda')
+                ''' El Jugador que gana la mano actual es de
+                el mismo equipo que gano la mano anterior
+                El jugador de la mano actual es el ganador de la ronda'''
                 winner = self.getResultHandByNumber(numberTheCurrentHand)
             elif resultCurrentHand['player'].getTeam() !=  \
                     self.getResultHandByNumber(
                         numberThePreviusHand,
                     )['player'].getTeam():
                 self.lastCodeResult = 5
-                msg_info(' C0: El jugador que gana la mano actual \
-                no es del mismo equipo que gano la mano anterior  \
-                El Juego continua siempre y cuando ocurra en la segunda mano \
-                Si esto ocurre en la tercera mano se verifica si el ganador de\
-                la mano es igual a el ganador de la primera mano')
+                ''' C0: El jugador que gana la mano actual
+                no es del mismo equipo que gano la mano anterior 
+                El Juego continua siempre y cuando ocurra en la segunda mano
+                Si esto ocurre en la tercera mano se verifica si el ganador d
+                la mano es igual a el ganador de la primera mano'''
                 if numberTheCurrentHand == 1:
                     self.statusGame = 3
                     tempResult = self.getResultHandByNumber(1)
@@ -366,8 +351,9 @@ class Game():
 
     def getInfo(self):
         ''' Esta funcion devuelve un diccionario con informacion del juego
-        @return: { hand: int numero de mano actual, envido: {}}
-        @rtype: dic
+
+        :return: { hand: int numero de mano actual, envido: {}}
+        :rtype: dic
         '''
         infoGame = {
             'hand': self.getNumberTheCurrentHand(),
@@ -404,8 +390,8 @@ class Game():
         de
         los equipos tiene mas de 30 puntos para determinar un ganador
 
-        @return: {'team': objectTeam , 'winner': int[1|0]}
-        @rtype: dic
+        :return: {'team': objectTeam , 'winner': int[1|0]}
+        :rtype: dic
 
         '''
         self.signals_handler.showMsgFinishRound()
@@ -416,8 +402,9 @@ class Game():
     def startHand(self):
         ''' Esta funcion se llama cada vez que inicia una nueva ronda
         y se asigna el turno al jugador indicado
-        @return: Numero de la mano que se va iniciar
-        @rtype: int
+
+        :return: Numero de la mano que se va iniciar
+        :rtype: int
          '''
         self.handNumber += 1
         self.signals_handler.start_new_hand(self.handNumber)
@@ -437,7 +424,6 @@ class Game():
             }
             self.statusGame = 0
         self.signals_handler.returnStatus(Resultados)
-        msg_debug('lastCodeResult:%d' % self.lastCodeResult)
         if(self.statusGame == 1):
             self.signals_handler.Parda()
             return
