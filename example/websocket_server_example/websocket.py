@@ -24,43 +24,67 @@ class web_socket_signals_adapter(json_signal_adapter):
 class GameManager():
     id: int = 0
     players: list = []
-    def startGame(self):
-        mesa = Table(web_socket_signals_adapter, 2, 1, 0)
-        for player in self.players[-2:]:
-            mesa.newPlayer(player)
-            player.sendMessage(
-                str.encode(
-                    json.dumps(
-                        {
-                            "action": "config_player",
-                            "payload": {
-                                "playerid": player.getID(),
-                                "teamid": player.team.getID(),
-                            },
-                        }
-                    )
-                )
+    tables: list[Table] = []
+    
+    def getTables(self, player):
+        r_ = []
+        for idx, table in enumerate(self.tables):
+            r_.append([idx, table.getInfo()[1], idx])
+        
+        player.sendMessage(
+            str.encode(
+                json.dumps({"action": "refresh_tables", "payload": r_} )
             )
-        juego = Game(mesa, self)
-        juego.start()
+        )
+
+    def createTable(self, player):
+        self.tables.append(
+            Table(web_socket_signals_adapter, 2, 1, 0)
+        )
+         
+        player.sendMessage(
+            str.encode(
+                json.dumps({"action": "join_to_table", "payload": len(self.tables) - 1} )
+            )
+        )
+
+
+    def joinPlayerToTable(self, player, tableID):
+        table = self.tables[int(tableID)]
+        if(not table.getStatus()):
+            table.newPlayer(player)
+            if(table.getStatus()):
+                for player in table.getPlayers():
+                    player._conState = 2
+                    player.sendMessage(
+                        str.encode(
+                            json.dumps(
+                                {
+                                    "action": "config_player",
+                                    "payload": {
+                                        "playerid": player.getID(),
+                                        "teamid": player.team.getID(),
+                                    },
+                                }
+                            )
+                        )
+                    )
+                juego = Game(table)
+                threading.Thread(target=juego.start).start()
+        
 
     def newPlayer(self, player):
         self.players.append(player)
         return len(self.players)
 
-    def checkStartGame(self):
-        if len(self.players) % 2 == 0:
-            # Comenzamos el juego
-            threading.Thread(target=self.startGame).start()
-
 
 gameManager = GameManager()
 
 class playerCon(WebSocketServerProtocol, Jugador):
+    _conState = 1
     def onOpen(self):
         player_id = gameManager.newPlayer(self)
         Jugador.__init__(self, player_id)
-        gameManager.checkStartGame()
         self.sendMessage(
             str.encode(
                 json.dumps(
@@ -71,6 +95,16 @@ class playerCon(WebSocketServerProtocol, Jugador):
         return super().onOpen()
 
     def onMessage(self, payload, isBinary):
+        payload = payload.decode()
+        if self._conState == 1:
+            spayload = payload.split(",")
+            if spayload[0] == 'get_tables':
+                gameManager.getTables(self)
+            elif spayload[0] == 'create_table':
+                gameManager.createTable(self)
+            elif spayload[0] == "join":
+                gameManager.joinPlayerToTable(self, spayload[1])
+            return
         self.waitData = payload
 
     def awaitForResponse(self, player):
@@ -80,7 +114,7 @@ class playerCon(WebSocketServerProtocol, Jugador):
         )
         while 1:
             if len(self.waitData) > 0:
-                return self.waitData.decode()
+                return self.waitData
             time.sleep(0.5)
 
 
