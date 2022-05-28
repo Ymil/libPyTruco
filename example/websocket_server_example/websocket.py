@@ -5,8 +5,9 @@ import time
 from twisted.internet import protocol
 from autobahn.twisted.websocket import WebSocketServerProtocol
 from autobahn.twisted.websocket import WebSocketServerFactory
+from pyTrucoLib.controllers.game_controller import game_controller
 from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.juego import Game
+
 from pyTrucoLib.jugador import Jugador
 from pyTrucoLib.table import Table
 from pyTrucoLib.card import Card
@@ -69,7 +70,9 @@ class GameManager():
                             )
                         )
                     )
-                juego = Game(table)
+                juego = game_controller(
+                    set(table.getTeams()), table.getPlayers(), web_socket_signals_adapter(table.getPlayers())
+                )
                 threading.Thread(target=juego.start).start()
         
 

@@ -1,16 +1,5 @@
 import json
-import threading
-import time
-
-from twisted.internet import protocol
-from autobahn.twisted.websocket import WebSocketServerProtocol
-from autobahn.twisted.websocket import WebSocketServerFactory
 from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.juego import Game
-from pyTrucoLib.jugador import Jugador
-from pyTrucoLib.table import Table
-from pyTrucoLib.card import Card
-
 
 class json_signal_adapter(signals):
     def getActionPlayer(self, player, action=""):
@@ -25,12 +14,7 @@ class json_signal_adapter(signals):
                 }
             )
         )
-        try:
-            response = player.awaitForResponse(player)
-            accion_name, accion_value = str(response).split(",")
-        except:
-            return self.getActionPlayer(player, action)
-        return str(accion_name), int(accion_value.split("\\")[0])
+        return player.awaitForResponse(player)
 
     def showCards(self, player, cards):
         """ Esta funcion se dispara cuando se le muestran las cartas al jugador

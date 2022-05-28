@@ -1,5 +1,5 @@
 from abc import ABC
-from controller import Controler
+from .controller import Controler
 from ..cartas import Cartas
 from .hand_controllers import hand_controller
 
