@@ -289,7 +289,6 @@ class Game():
         ''' Esta funcion se llama cuando se inicia el juego '''
 
         self.table.signals_handler.showMsgStartGame()
-        self.table.signals_handler.setPlayers(self.players)
         while 1:
             self.startRound()
             _actions_map: dict = {

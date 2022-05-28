@@ -12,6 +12,7 @@ class quiero_truco(Action):
         self.truco_manager.start_player = None
         self.truco_manager.quiero_expected = False
         self.truco_manager.quiero_player = self.player
+        self.signals.quiero(self.player)
         if isinstance(self.from_action, truco):
             self._availables_next_actions = {jugar_carta, re_truco}
         elif isinstance(self.from_action, re_truco):
@@ -27,8 +28,9 @@ class no_quiero_truco(Action):
         return "no_quiero"
     
     def execute(self, *args):
-        print(self.player, "perdio")
+        
         list(self.game.teams - {self.player.team})[0].givePoints(self.truco_manager.points-1)
+        self.signals.noquiero(self.player)
         return ('truco_no_quiero', self.player, None)
 
 
@@ -43,6 +45,7 @@ class vale_4(Action):
         self.truco_manager.next_availables_actions = set()
         self.truco_manager.points = 4
         self.truco_manager.quiero_expected = True
+        self.signals.vale_4(self.player)
         return super().execute(action_value)
 
 
@@ -55,6 +58,7 @@ class re_truco(Action):
         self.truco_manager.next_availables_actions = {vale_4,}
         self.truco_manager.points = 3
         self.truco_manager.quiero_expected = True
+        self.signals.retruco(self.player)
         return super().execute(action_value)
 
 
@@ -68,6 +72,7 @@ class truco(Action):
         self.truco_manager.points = 2
         self.truco_manager.cantado = True
         self.truco_manager.quiero_expected = True
+        self.signals.truco(self.player)
         return super().execute(action_value)
 
 

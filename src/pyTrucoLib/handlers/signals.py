@@ -31,11 +31,12 @@ class signals(ABC):
         '''
         pass
 
-    def sendMessageAll(self, players, msg):
-        pass
+    def sendMessageAll(self, msg):
+        for player in self.players:
+            self.sendMessageToPlayer(player, msg)
 
     def sendMessageToPlayer(self, player, msg):
-        pass
+        print(f"{player}: {msg}")
 
     def start_new_round(self):
         ''' Esta funcion se dispara cuando se inicia una nueva ronda
@@ -72,7 +73,6 @@ class signals(ABC):
         :param cards: list cardsObjects
         Ejemplo de uso:
         partida.mostrarCartas(player, cards) '''
-
         pass
 
     def showCards(self, player, cards):
@@ -81,6 +81,7 @@ class signals(ABC):
         :param playerid:
         :param cards: list cardsObjects
         '''
+        print(f'{player} {cards}')
         pass
 
     def show_points_for_team(self, team, pointsTeam):
@@ -95,12 +96,12 @@ class signals(ABC):
         logging.debug(str2)
         logging.info(str1)
 
-    def getActionPlayer(self, playerObject, action=''):
+    def getActionPlayer(self, player, actions_availables=''):
         ''' Esta funcion se llama cuando se tiene que obtener un
         accion del jugador
 
 
-        :param playerObject:
+        :param player:
         :param gameInfo: contiene información del juego
 
         :return:Esta funcion entrega informacion del estado
@@ -120,33 +121,33 @@ class signals(ABC):
 
         ''' Las siguientes funciones generan jugadas de forma aleatoria
         para debuggiar el sistema. '''
+        print(player, " ", actions_availables)
+        return input(">")
 
-        pass
-
-    def showCardPlaying(self, teamObject, playerObject, cardObject):
+    def showCardPlaying(self, teamObject, player, cardObject):
         ''' Esta funcion se llama cuando se juega una carta
         :param teamObject:
-        :param playerObject:
+        :param player:
         :param cardObject:
         Ejemplo:
         '''
         str1 = 'El jugador %d:%d jugo la carta %s' % (
-            teamObject.getID(), playerObject.getID(), cardObject.getText(),
+            teamObject.getID(), player.getID(), cardObject.getText(),
         )
         self.sendMessageAll(str1)
         logging.info(str1)
         str2 = 'showCardPlaying(%d,%d,%s)' % (
-            teamObject.getID(), playerObject.getID(), cardObject.getText(),
+            teamObject.getID(), player.getID(), cardObject.getText(),
         )
         logging.debug(str2)
 
-    def showError(self, playerObject, errorName):
+    def showError(self, player, errorName):
         ''' Esta funcion se llama cuando ocurre un error por un jugador
-        :param playerObject:
+        :param player:
         :param errorName: str ['cardPlayerd', 'invalidAction']
         Ejemplo:
         '''
-        self.sendMessageToPlayer(playerObject, errorName)
+        self.sendMessageToPlayer(player, errorName)
         # self.sendMessageAll(self.errors[errorName])
         pass
 
@@ -218,26 +219,26 @@ class signals(ABC):
 
     ''' Start quiero/Noquiero '''
 
-    def quiero(self, playerObject):
+    def quiero(self, player):
         ''' Esta funcion se llama cuando un jugador quiere a un canto
 
-        :param playerObject:
+        :param player:
         '''
 
-        str1 = 'El jugador %d dijo quiero' % playerObject.getID()
-        str2 = 'quiero(%d)' % playerObject.getID()
+        str1 = 'El jugador %d dijo quiero' % player.getID()
+        str2 = 'quiero(%d)' % player.getID()
         self.sendMessageAll(str1)
         logging.info(str1)
         logging.debug(str2)
 
-    def noquiero(self, playerObject):
+    def noquiero(self, player):
         ''' Esta funcion se llama cuando un jugador no quiere a un canto
 
-        :param playerObject:
+        :param player:
         '''
 
-        str1 = 'El jugador %d dijo no quiero' % playerObject.getID()
-        str2 = 'noquiero(%d)' % playerObject.getID()
+        str1 = 'El jugador %d dijo no quiero' % player.getID()
+        str2 = 'noquiero(%d)' % player.getID()
         self.sendMessageAll(str1)
         logging.info(str1)
         logging.debug(str2)
@@ -254,46 +255,60 @@ class signals(ABC):
         ''' Esta funcion se llama cuando finaliza el loop del envido '''
         logging.debug('finishLoopEnvido')
 
-    def envido(self, playerObject):
+    def envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
-        :param playerObject:
+        :param player:
         '''
-        str1 = 'El jugador %d canto envido' % playerObject.getID()
-        str2 = 'envido(%d)' % playerObject.getID()
+        str1 = 'El jugador %d canto envido' % player.getID()
         self.sendMessageAll(str1)
-        logging.info(str1)
-        logging.debug(str2)
 
-    def showEnvido(self, playerObject):
+    def real_envido(self, player):
+        '''
+        Esta funcion se llama cuando alguien canta envido
+        :param player:
+        '''
+        str1 = 'El jugador %d canto real envido' % player.getID()
+        str2 = 'envido(%d)' % player.getID()
+        self.sendMessageAll(str1)
+    
+    def falta_envido(self, player):
+        '''
+        Esta funcion se llama cuando alguien canta envido
+        :param player:
+        '''
+        str1 = 'El jugador %d canto falta envido' % player.getID()
+        self.sendMessageAll(str1)
+
+    def showEnvido(self, player):
         '''
         Esta funcion se llama cuando un jugar canta su envido
-        :param playerObject: '''
+        :param player: '''
         str1 = 'El jugador %d tiene %d de envido' % (
-            playerObject.getID(), playerObject.getPointsEnvido(),
+            player.getID(), player.getPointsEnvido(),
         )
         str2 = 'showEnvido(%d,%d)' % (
-            playerObject.getID(),
-            playerObject.getPointsEnvido(),
+            player.getID(),
+            player.getPointsEnvido(),
         )
         self.sendMessageAll(str1)
         logging.info(str1)
         logging.debug(str2)
 
-    def showWinnerEnvido(self, playerObject):
+    def showWinnerEnvido(self, player):
         '''
         Esta funcion se llama cuando se define un ganador del envido
-        :param playerObject:
+        :param player:
         '''
 
-        str1 = 'El jugador %d gano el envido' % playerObject.getID()
-        str2 = 'winnerEnvido(%d)' % playerObject.getID()
+        str1 = 'El jugador %d gano el envido' % player.getID()
+        str2 = 'winnerEnvido(%d)' % player.getID()
         self.sendMessageAll(str1)
         logging.info(str1)
         logging.debug(str2)
     ''' endEnvidoBlock '''
 
-    def setPlayers(self, playerObject):
+    def setPlayers(self, player):
         pass
 
     def truco(self, player):

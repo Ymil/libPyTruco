@@ -16,13 +16,15 @@ class hand_controller(Controler):
 
     def __post_init__(self, *args):
         self._played_cards = []
+        self.signals = self.game.signals
 
     def start(self):
-        print("Iniciando mano")
+        self.signals.start_new_hand(self.number)
         player = next(self.game.turn_manager)
         self._signal = get_action(
             initial_action(self.game, self.round, self, get_action, player), player
         )
+        self.signals.showMsgFinishHand()
 
     def playing_card(self, player, card):
         self._played_cards.append((player, card))
@@ -55,9 +57,16 @@ class hand_controller(Controler):
                 temp_result["parda"] = True
             else:
                 temp_result["player"] = player
+                self.signals.showResultaTheHand(
+                    player.getID(),
+                    player.getName(),  player.getTeamID(),
+                    player.getNameCardPlayed(),
+                )
         if self._signal[0] == "truco_no_quiero":
             temp_result["finish_round"] = True
-            return temp_result
+        
+        self.signals.returnStatus(temp_result)
+        
         return temp_result
 
 
@@ -70,4 +79,4 @@ if __name__ == "__main__":
     # )
     # hc.start()
     # hc.search_winner()
-    # print(gc.teams)
+    # 

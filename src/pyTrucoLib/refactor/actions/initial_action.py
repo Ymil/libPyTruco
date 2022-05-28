@@ -20,6 +20,7 @@ class initial_action(Action):
         self.hand = hand
         self.round = round
         self.player = player
+        self.signals = self.game.signals
         if self.truco_manager.cantado:
             self._availables_next_actions = self._availables_next_actions | self.truco_manager.next_availables_actions
         else:

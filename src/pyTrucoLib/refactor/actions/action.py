@@ -21,6 +21,7 @@ class Action(ABC):
         self.game = self.from_action.game
         self.round = self.from_action.round
         self.hand = self.from_action.hand
+        self.signals = self.game.signals
 
     def get_availables_actions(self):
         return self._availables_next_actions

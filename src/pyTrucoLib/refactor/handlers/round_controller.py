@@ -38,6 +38,7 @@ class round_controller(Controler):
 
     def __init__(self, game_controller):
         self.game = game_controller
+        self.signals = self.game.signals
         self._truco_manager = truco_manager()
         self._envido_manager = envido_manager()
 
@@ -46,12 +47,14 @@ class round_controller(Controler):
         for player in self.game.players:
             
             cardsPlayer = cards.repartir_individual()
-            # self.table.signals_handler.giveCards(player.getID(), cardsPlayer)
+            self.signals.giveCards(player.getID(), cardsPlayer)
             player.setCards(cardsPlayer)
-            # self.table.signals_handler.showCards(player, cardsPlayer)
-            print(f'{player} cartas: {cardsPlayer}')
+            self.signals.showCards(player, cardsPlayer)
+            
 
     def start(self):
+        self.signals.start_new_round()
+
         self.give_cards()
 
         player_winner = None
@@ -82,13 +85,10 @@ class round_controller(Controler):
             return
         else:
             if result_first_hand["player"] == result_second_hand["player"]:
-                print(f"Ganador {result_second_hand['player']}")
                 player_winner = result_second_hand['player']
             if result_first_hand["parda"] and not result_second_hand["parda"]:
-                print(f"Ganador {result_second_hand['player']}")
                 player_winner = result_second_hand['player']
             elif result_second_hand["parda"]:
-                print(f"Ganador {result_first_hand['player']}")
                 player_winner = result_first_hand['player']
         
         if "player" in result_first_hand:
@@ -110,16 +110,13 @@ class round_controller(Controler):
             return
         else:
             if result_second_hand["player"] == result_third_hand["player"]:
-                print(f"Ganador {result_third_hand['player']}")
+                
                 player_winner = result_third_hand['player']
             elif result_second_hand["parda"] and not result_third_hand["parda"]:
-                print(f"Ganador {result_third_hand['player']}")
                 player_winner = result_third_hand['player']
             elif result_third_hand["parda"]:
-                print(f"Ganador {result_first_hand['player']}")
                 player_winner = result_first_hand['player']
             else:
-                print(f"Ganador {result_third_hand['player']}")
                 player_winner = result_third_hand['player']
         if(self.search_winner(player_winner)):
             return
@@ -127,13 +124,12 @@ class round_controller(Controler):
     def showPointsTeams(self):
         ''' Muestra los puntos de los equipos '''
         for team in self.game.teams:
-            print(
-                f"Team {team.getID()} Points {team.getPoints()}"
-            )
+            self.signals.show_points_for_team(team.getID(), team.getPoints())
 
     def search_winner(self, player_winner) -> bool:
         if player_winner is not None:
             player_winner.getTeam().givePoints(self._truco_manager.points)
+            self.signals.win(player_winner.getTeamID())
             self.showPointsTeams()
             return True
         self.showPointsTeams()
