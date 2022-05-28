@@ -8,6 +8,8 @@ class quiero_truco(Action):
         return "quiero"
 
     def execute(self, *args):
+        self.game.turn_manager.set_next(self.truco_manager.start_player)
+        self.truco_manager.start_player = None
         self.truco_manager.quiero_expected = False
         self.truco_manager.quiero_player = self.player
         if isinstance(self.from_action, truco):
@@ -36,6 +38,9 @@ class vale_4(Action):
     _availables_next_actions = DEFAULT_TRUCO_ACTIONS
 
     def execute(self, action_value):
+        if self.truco_manager.start_player is None:
+            self.truco_manager.start_player = self.player
+        self.truco_manager.next_availables_actions = set()
         self.truco_manager.points = 4
         self.truco_manager.quiero_expected = True
         return super().execute(action_value)
@@ -45,6 +50,9 @@ class re_truco(Action):
     _availables_next_actions = {vale_4} | DEFAULT_TRUCO_ACTIONS
 
     def execute(self, action_value):
+        if self.truco_manager.start_player is None:
+            self.truco_manager.start_player = self.player
+        self.truco_manager.next_availables_actions = {vale_4,}
         self.truco_manager.points = 3
         self.truco_manager.quiero_expected = True
         return super().execute(action_value)
@@ -54,6 +62,9 @@ class truco(Action):
     _availables_next_actions = {re_truco} | DEFAULT_TRUCO_ACTIONS
 
     def execute(self, action_value):
+        if self.truco_manager.start_player is None:
+            self.truco_manager.start_player = self.player
+        self.truco_manager.next_availables_actions = {re_truco,}
         self.truco_manager.points = 2
         self.truco_manager.cantado = True
         self.truco_manager.quiero_expected = True

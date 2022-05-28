@@ -20,7 +20,12 @@ def get_action(action , player) -> None:
     actions_str = actions_to_str(actions)
     print(player, actions_str)
 
-    action_name, action_value = input("").split(",")
+    input_ = input(">")
+    if "," in input_:
+        action_name, action_value = input_.split(",")
+    else:
+        action_name, action_value = (input_, None)
+        
     if action_name in actions_str:
         new_action = action.get_action_from_name(action_name)
         action = new_action(action, player)

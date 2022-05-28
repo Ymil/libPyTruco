@@ -28,6 +28,7 @@ class quiero_envido(Action):
             tempWinnerPoints = player.getPointsEnvido()
         winner.getTeam().givePoints(self.envido_manager.points)
         print(f'{winner} gano el envido con {winner.getPointsEnvido()} puntos')
+        self.game.turn_manager.set_next(self.envido_manager.start_player)
         return super().execute(action_value)
 
 
@@ -38,6 +39,10 @@ class no_quiero_envido(Action):
     def name(cls):
         return "no_quiero"
 
+    def execute(self, action_value):
+        list(self.game.teams - {self.player.team})[0].givePoints(1)
+        self.game.turn_manager.set_next(self.envido_manager.start_player)
+        return super().execute(action_value)
 
 DEFAULT_ENVIDO_ACTIONS = {quiero_envido, no_quiero_envido}
 
@@ -45,11 +50,19 @@ DEFAULT_ENVIDO_ACTIONS = {quiero_envido, no_quiero_envido}
 class falta_envido(Action):
     _availables_next_actions = DEFAULT_ENVIDO_ACTIONS
 
+    def execute(self, action_value):
+        if self.envido_manager.start_player is None:
+            self.envido_manager.start_player = self.player
+        return super().execute(action_value)
+
 
 class real_envido(Action):
     _availables_next_actions = {falta_envido} | DEFAULT_ENVIDO_ACTIONS
 
     def execute(self, action_value):
+        if self.envido_manager.start_player is None:
+            self.envido_manager.start_player = self.player
+        self.envido_manager.points += 3
         self._availables_next_actions = self._availables_next_actions | {eval("envido")}
         return super().execute(action_value)
 
@@ -57,6 +70,9 @@ class envido(Action):
     _availables_next_actions = {real_envido, falta_envido} | DEFAULT_ENVIDO_ACTIONS
 
     def execute(self, action_value):
+        if self.envido_manager.start_player is None:
+            self.envido_manager.start_player = self.player
+        self.envido_manager.points += 2
         self._availables_next_actions = self._availables_next_actions | {eval("envido")}
         return super().execute(action_value)
 

@@ -1,7 +1,6 @@
 from abc import ABC
 from controller import Controler
 from pyTrucoLib.cartas import Cartas
-from pyTrucoLib.refactor.handlers.game_controller import game_controller
 from pyTrucoLib.refactor.handlers.hand_controllers import hand_controller
 
 HAND_CONTROLLERS = []
@@ -20,13 +19,17 @@ class points_manager(ABC):
 
 
 class truco_manager(points_manager):
+    start_player: str = None
     quiero_player: str = None
     cantado: bool = False
     quiero_expected = False
+    _points: int = 1
+    next_availables_actions = set()
 
 
 class envido_manager(points_manager):
     cantado: bool = True
+    start_player: str = None
 
 
 class round_controller(Controler):
@@ -51,39 +54,55 @@ class round_controller(Controler):
     def start(self):
         self.give_cards()
 
+        player_winner = None
+
         first_hand = hand_controller(
             self.game,
-            self
+            self,
+            1
         )
         first_hand.start()
         result_first_hand = first_hand.search_winner()
-        del first_hand
         if result_first_hand["finish_round"]:
             return
-
+        if "player" in result_first_hand:
+            self.game.turn_manager.set_next(
+                result_first_hand["player"]
+            )
+        
+        self.showPointsTeams()
         second_hand = hand_controller(
             self.game,
-            self
+            self,
+            2
         )
         second_hand.start()
         result_second_hand = second_hand.search_winner()
-        del second_hand
         if result_first_hand["finish_round"]:
             return
         else:
             if result_first_hand["player"] == result_second_hand["player"]:
                 print(f"Ganador {result_second_hand['player']}")
-                return
+                player_winner = result_second_hand['player']
             if result_first_hand["parda"] and not result_second_hand["parda"]:
                 print(f"Ganador {result_second_hand['player']}")
-                return
+                player_winner = result_second_hand['player']
             elif result_second_hand["parda"]:
                 print(f"Ganador {result_first_hand['player']}")
-                return
+                player_winner = result_first_hand['player']
+        
+        if "player" in result_first_hand:
+            self.game.turn_manager.set_next(
+                result_first_hand["player"]
+            )
+        
+        if(self.search_winner(player_winner)):
+            return
 
         third_hand = hand_controller(
             self.game,
-            self
+            self,
+            3
         )
         third_hand.start()
         result_third_hand = third_hand.search_winner()
@@ -92,22 +111,30 @@ class round_controller(Controler):
         else:
             if result_second_hand["player"] == result_third_hand["player"]:
                 print(f"Ganador {result_third_hand['player']}")
-                return
-            if result_second_hand["parda"] and not result_third_hand["parda"]:
+                player_winner = result_third_hand['player']
+            elif result_second_hand["parda"] and not result_third_hand["parda"]:
                 print(f"Ganador {result_third_hand['player']}")
-                return
+                player_winner = result_third_hand['player']
             elif result_third_hand["parda"]:
+                print(f"Ganador {result_first_hand['player']}")
+                player_winner = result_first_hand['player']
+            else:
                 print(f"Ganador {result_third_hand['player']}")
-                return
+                player_winner = result_third_hand['player']
+        if(self.search_winner(player_winner)):
+            return
+    
+    def showPointsTeams(self):
+        ''' Muestra los puntos de los equipos '''
+        for team in self.game.teams:
+            print(
+                f"Team {team.getID()} Points {team.getPoints()}"
+            )
 
-
-        if self.search_winner():
+    def search_winner(self, player_winner) -> bool:
+        if player_winner is not None:
+            player_winner.getTeam().givePoints(self._truco_manager.points)
+            self.showPointsTeams()
             return True
-
-    def search_winner(self) -> bool:
-        return super().search_winner()
-
-if __name__ == "__main__":
-    gc = game_controller()
-    rc = round_controller(gc)
-    rc.start()
+        self.showPointsTeams()
+        return False

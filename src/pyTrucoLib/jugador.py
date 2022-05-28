@@ -154,5 +154,8 @@ class Jugador():
             points = card[0]+card[1]
         return points
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Player: {self.getID()} Team: {self.getTeamID()}'
+    
+    def __repr__(self) -> str:
+        return self.__str__()
