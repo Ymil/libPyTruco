@@ -36,3 +36,6 @@ class Team:
         :rtype: int
         '''
         return self.points
+
+    def __str__(self):
+        return f'Team: {self.id} Points: {self.points}'

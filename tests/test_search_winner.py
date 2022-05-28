@@ -33,8 +33,8 @@ class testSearchWinner(unittest.TestCase):
         # Inicio de la pimera mano
         game.startHand()
 
-        j1.playingCardInRound(0)
-        j2.playingCardInRound(2)
+        j1.playing_card(0)
+        j2.playing_card(2)
 
         game.finishHand()
         Resultado = game.resultLastHand
@@ -43,8 +43,8 @@ class testSearchWinner(unittest.TestCase):
         # Inicio de la segunda mano
         game.startHand()
 
-        j1.playingCardInRound(1)
-        j2.playingCardInRound(1)
+        j1.playing_card(1)
+        j2.playing_card(1)
 
         game.finishHand()
         Resultado = game.resultLastHand
@@ -52,8 +52,8 @@ class testSearchWinner(unittest.TestCase):
         # Inicio de la tercera mano
         game.startHand()
 
-        j1.playingCardInRound(2)
-        j2.playingCardInRound(0)
+        j1.playing_card(2)
+        j2.playing_card(0)
 
         game.finishHand()
 

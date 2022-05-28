@@ -68,7 +68,7 @@ class Jugador():
         self.cartasJugadas = []
         self.ultimaCartaJugada = 0
 
-    def playingCardInRound(self, cartaID):
+    def playing_card(self, cartaID):
         ''' Corrobora que las cartas del jugador sea valida y la juega
         :param cartaID: int
         :rtype: bool
@@ -154,10 +154,5 @@ class Jugador():
             points = card[0]+card[1]
         return points
 
-    def setStatus(self, valor):
-        ''' Obsoleto ? '''
-        self.status = valor
-
-    def getStatus(self):
-        ''' Obsoleto ? '''
-        return self.status
+    def __str__(self):
+        return f'Player: {self.getID()} Team: {self.getTeamID()}'

@@ -74,11 +74,11 @@ class Cartas():
         cartasJugador = []  # Acomoda las cartas de cada jugador
 
         for _ in range(3):  # reparte tres cartas aleatorias
-            cartaN = randrange(0, len(self.clonCartas) - 1)
-            cartaList = self.clonCartas[cartaN]
+            cartaN = randrange(0, len(self.cartas) - 1)
+            cartaList = self.cartas[cartaN]
             cartaObject = Card(cartaList)
             cartasJugador.append(cartaObject)
-            self.clonCartas.remove(cartaList)
+            self.cartas.remove(cartaList)
             del cartaObject
 
         return cartasJugador

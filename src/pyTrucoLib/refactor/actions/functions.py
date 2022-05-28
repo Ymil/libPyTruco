@@ -1,4 +1,4 @@
-from truco_actions import TRUCO_ACTIONS
+from pyTrucoLib.refactor.actions.truco_actions import TRUCO_ACTIONS
 
 
 def actions_truco_filter(action, player, actions):
@@ -24,6 +24,6 @@ def get_action(action , player) -> None:
     if action_name in actions_str:
         new_action = action.get_action_from_name(action_name)
         action = new_action(action, player)
-        action.execute(action_value)
+        return action.execute(action_value)
     else:
-        get_action(action, player)
+        return get_action(action, player)

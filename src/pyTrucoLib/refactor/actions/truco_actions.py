@@ -1,5 +1,5 @@
-from action import Action
-from jugar_carta_action import jugar_carta
+from pyTrucoLib.refactor.actions.action import Action
+from pyTrucoLib.refactor.actions.jugar_carta_action import jugar_carta
 
 
 class quiero_truco(Action):
@@ -26,7 +26,8 @@ class no_quiero_truco(Action):
     
     def execute(self, *args):
         print(self.player, "perdio")
-        return 0
+        list(self.game.teams - {self.player.team})[0].givePoints(self.truco_manager.points-1)
+        return ('truco_no_quiero', self.player, None)
 
 
 DEFAULT_TRUCO_ACTIONS = {quiero_truco, no_quiero_truco}
