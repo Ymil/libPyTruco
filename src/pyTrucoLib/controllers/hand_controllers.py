@@ -1,9 +1,9 @@
 from dataclasses import InitVar, dataclass
 from itertools import count
 from typing import Counter, List
-from controller import Controler
-from pyTrucoLib.refactor.actions.functions import get_action
-from pyTrucoLib.refactor.actions.initial_action import initial_action
+from .controller import Controler
+from ..actions.functions import get_action
+from ..actions.initial_action import initial_action
 
 
 @dataclass

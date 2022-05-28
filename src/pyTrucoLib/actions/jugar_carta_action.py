@@ -1,5 +1,5 @@
 from multiprocessing.sharedctypes import Value
-from pyTrucoLib.refactor.actions.action import Action
+from pyTrucoLib.actions.action import Action
 
 class jugar_carta(Action):
     def get_availables_actions(self):

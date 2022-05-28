@@ -1,5 +1,5 @@
-from pyTrucoLib.refactor.actions.action import Action
-from pyTrucoLib.refactor.actions.jugar_carta_action import jugar_carta
+from pyTrucoLib.actions.action import Action
+from pyTrucoLib.actions.jugar_carta_action import jugar_carta
 
 
 class quiero_truco(Action):

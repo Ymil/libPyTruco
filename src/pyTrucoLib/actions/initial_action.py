@@ -1,10 +1,10 @@
 from abc import ABC
 from itertools import cycle
-from pyTrucoLib.refactor.actions.action import Action
-from pyTrucoLib.refactor.actions.envido_actions import envido, real_envido, falta_envido
-from pyTrucoLib.refactor.actions.functions import get_action
-from pyTrucoLib.refactor.actions.truco_actions import truco
-from pyTrucoLib.refactor.actions.jugar_carta_action import jugar_carta
+from pyTrucoLib.actions.action import Action
+from pyTrucoLib.actions.envido_actions import envido, real_envido, falta_envido
+from pyTrucoLib.actions.functions import get_action
+from pyTrucoLib.actions.truco_actions import truco
+from pyTrucoLib.actions.jugar_carta_action import jugar_carta
 
 class initial_action(Action):
     _availables_next_actions = {

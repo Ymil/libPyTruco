@@ -1,4 +1,4 @@
-from pyTrucoLib.refactor.actions.truco_actions import TRUCO_ACTIONS
+from pyTrucoLib.actions.truco_actions import TRUCO_ACTIONS
 
 
 def actions_truco_filter(action, player, actions):

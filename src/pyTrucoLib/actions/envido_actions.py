@@ -1,6 +1,6 @@
-from pyTrucoLib.refactor.actions.action import Action
-from pyTrucoLib.refactor.actions.jugar_carta_action import jugar_carta
-from pyTrucoLib.refactor.actions.truco_actions import *
+from pyTrucoLib.actions.action import Action
+from pyTrucoLib.actions.jugar_carta_action import jugar_carta
+from pyTrucoLib.actions.truco_actions import *
 
 class quiero_envido(Action):
     _availables_next_actions = {jugar_carta, truco}

@@ -1,7 +1,7 @@
 from abc import ABC
 from controller import Controler
-from pyTrucoLib.cartas import Cartas
-from pyTrucoLib.refactor.handlers.hand_controllers import hand_controller
+from ..cartas import Cartas
+from .hand_controllers import hand_controller
 
 HAND_CONTROLLERS = []
 

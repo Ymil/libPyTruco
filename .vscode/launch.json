@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Módulo",
+            "type": "python",
+            "request": "launch",
+            "module": "-m pyTrucoLib.controllers.game_controller",
+            "justMyCode": true
+        },
+        {
             "name": "Python: Archivo actual",
             "type": "python",
             "request": "launch",
@@ -18,7 +25,10 @@
             "request": "launch",
             "module": "unittest",
             "justMyCode": true,
-            "args": ["${file}", "-v"],
+            "args": [
+                "${file}",
+                "-v"
+            ],
             "cwd": "${fileDirname}"
         }
     ]
