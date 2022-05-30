@@ -106,6 +106,36 @@ class json_signal_adapter(signals):
             )
         )
 
+    def real_envido(self, playerObject):
+        '''
+        Esta funcion se llama cuando alguien canta envido
+        :param playerObject:
+        '''
+        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} canto real envido' 
+        self.sendMessageAll(
+             json.dumps(
+                {
+                    "action": "msg",
+                    "payload": str_
+                }
+            )
+        )
+
+    def falta_envido(self, player):
+        '''
+        Esta funcion se llama cuando alguien canta envido
+        :param playerObject:
+        '''
+        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} canto falta envido' 
+        self.sendMessageAll(
+             json.dumps(
+                {
+                    "action": "msg",
+                    "payload": str_
+                }
+            )
+        )
+
     def showEnvido(self, playerObject):
         '''
         Esta funcion se llama cuando un jugar canta su envido

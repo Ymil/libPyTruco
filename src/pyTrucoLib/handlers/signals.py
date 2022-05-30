@@ -255,7 +255,7 @@ class signals(ABC):
         ''' Esta funcion se llama cuando finaliza el loop del envido '''
         logging.debug('finishLoopEnvido')
 
-    def envido(self, player):
+    def real_envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
         :param player:
