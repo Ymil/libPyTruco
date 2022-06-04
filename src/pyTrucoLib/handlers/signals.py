@@ -240,16 +240,6 @@ class signals(ABC):
 
     ''' Finish quiero/Noquiero '''
 
-    ''' startEnvidoBlock '''
-
-    def startLoopEnvido(self):
-        ''' Esta funcion se llama cuando se inicia el loop del envido '''
-        logging.debug('startLoopEnvido')
-
-    def finishLoopEnvido(self):
-        ''' Esta funcion se llama cuando finaliza el loop del envido '''
-        logging.debug('finishLoopEnvido')
-
     def envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
