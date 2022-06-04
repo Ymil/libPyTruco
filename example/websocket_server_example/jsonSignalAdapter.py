@@ -2,7 +2,7 @@ import json
 from pyTrucoLib.handlers.signals import signals
 
 class json_signal_adapter(signals):
-    def getActionPlayer(self, player, action=""):
+    def get_action(self, player, action=""):
         self.sendMessageAll(
             json.dumps(
                 {
@@ -150,13 +150,13 @@ class json_signal_adapter(signals):
             )
         )
 
-    def showWinnerEnvido(self, playerObject):
+    def showWinnerEnvido(self, team):
         '''
         Esta funcion se llama cuando se define un ganador del envido
         :param playerObject:
         '''
 
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} gano el envido'
+        str_ = f'El equipo {team.getID()} gano el envido'
         self.sendMessageAll(
              json.dumps(
                 {
@@ -165,6 +165,7 @@ class json_signal_adapter(signals):
                 }
             )
         )
+
     def quiero(self, playerObject):
         ''' Esta funcion se llama cuando un jugador quiere a un canto
 

@@ -66,12 +66,12 @@ class EchoFactory(protocol.Factory, signals):
     def sendMessageToPlayer(self, player, msg):
         player.transport.write(str.encode(f'{msg}\n\r'))
 
-    def getActionPlayer(self, player, action=''):
+    def get_action(self, player, action=''):
         try:
             response = player.awaitForResponse()
             accion_name, accion_value = str(response).split(',')
         except:  # noqa
-            return self.getActionPlayer(player, action)
+            return self.get_action(player, action)
         return str(accion_name), int(accion_value.split('\\')[0])
 
     def showCards(self, player, cards):

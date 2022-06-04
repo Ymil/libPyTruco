@@ -40,7 +40,7 @@ class GameManager():
 
     def createTable(self, player):
         self.tables.append(
-            Table(web_socket_signals_adapter, 2, 1, 0)
+            Table(2, 1, 0)
         )
          
         player.sendMessage(
