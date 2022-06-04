@@ -32,8 +32,9 @@ class signals(ABC):
         pass
 
     def sendMessageAll(self, msg):
-        for player in self.players:
-            self.sendMessageToPlayer(player, msg)
+        print(msg)
+        # for player in self.players:
+            # self.sendMessageToPlayer(player, msg)
 
     def sendMessageToPlayer(self, player, msg):
         print(f"{player}: {msg}")
@@ -96,7 +97,7 @@ class signals(ABC):
         logging.debug(str2)
         logging.info(str1)
 
-    def getActionPlayer(self, player, actions_availables=''):
+    def get_action(self, player, actions_availables=''):
         ''' Esta funcion se llama cuando se tiene que obtener un
         accion del jugador
 
@@ -225,11 +226,8 @@ class signals(ABC):
         :param player:
         '''
 
-        str1 = 'El jugador %d dijo quiero' % player.getID()
-        str2 = 'quiero(%d)' % player.getID()
+        str1 = f'{player} dijo quiero'
         self.sendMessageAll(str1)
-        logging.info(str1)
-        logging.debug(str2)
 
     def noquiero(self, player):
         ''' Esta funcion se llama cuando un jugador no quiere a un canto
@@ -237,11 +235,8 @@ class signals(ABC):
         :param player:
         '''
 
-        str1 = 'El jugador %d dijo no quiero' % player.getID()
-        str2 = 'noquiero(%d)' % player.getID()
+        str1 = f'{player} dijo no quiero'
         self.sendMessageAll(str1)
-        logging.info(str1)
-        logging.debug(str2)
 
     ''' Finish quiero/Noquiero '''
 
@@ -255,7 +250,7 @@ class signals(ABC):
         ''' Esta funcion se llama cuando finaliza el loop del envido '''
         logging.debug('finishLoopEnvido')
 
-    def real_envido(self, player):
+    def envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
         :param player:
@@ -295,30 +290,26 @@ class signals(ABC):
         logging.info(str1)
         logging.debug(str2)
 
-    def showWinnerEnvido(self, player):
+    def showWinnerEnvido(self, team):
         '''
         Esta funcion se llama cuando se define un ganador del envido
         :param player:
         '''
 
-        str1 = 'El jugador %d gano el envido' % player.getID()
-        str2 = 'winnerEnvido(%d)' % player.getID()
+        str1 = 'El equipo %d gano el envido' % team.getID()
         self.sendMessageAll(str1)
-        logging.info(str1)
-        logging.debug(str2)
-    ''' endEnvidoBlock '''
 
     def setPlayers(self, player):
         pass
 
     def truco(self, player):
-        pass
-        # raise NotImplementedError
+        str1 = f'{player} canto truco'
+        self.sendMessageAll(str1)
 
     def retruco(self, player):
-        pass
-        # raise NotImplementedError
+        str1 = f'{player} canto re truco'
+        self.sendMessageAll(str1)
 
     def vale_4(self, player):
-        pass
-        # raise NotImplementedError
+        str1 = f'{player} canto vale 4'
+        self.sendMessageAll(str1)

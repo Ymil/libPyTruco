@@ -8,7 +8,7 @@ from pyTrucoLib.controllers.round_controller import round_controller
 from pyTrucoLib.jugador import Jugador
 from pyTrucoLib.team import Team
 from pyTrucoLib.handlers.signals import signals
-
+from ..actions.functions import get_action
 
 class TurnManager:
     def __init__(self, players):
@@ -48,6 +48,33 @@ class TurnManager:
     def __next__(self):
         return self.next()
 
+class game_mediator:
+    def __init__(self):
+        self.game = None
+        self.round = None
+        self.hand = None
+        self.truco_manager = None
+        self.envido_manager = None
+        self.turn_manager = None
+        self.get_action = None
+    
+    def set_game(self, game):
+        self.game = game
+        self.signals = self.game.signals
+    
+    def set_round(self, round):
+        self.round = round
+        self.truco_manager = self.round.truco_manager
+        self.envido_manager = self.round.envido_manager
+    
+    def set_hand(self, hand):
+        self.hand = hand
+    
+    def set_turn_manager(self, turn_manager):
+        self.turn_manager = turn_manager
+
+    def set_funcion_get_action(self, funcion):
+        self.get_action = funcion
 
 @dataclass
 class game_controller(Controler):
@@ -55,24 +82,31 @@ class game_controller(Controler):
     players: List
     signals: str = None
 
-    def __post_init__(self, *args):
-        self.turn_manager = TurnManager(self.players)
+    def __post_init__(self):
+        self.GM = game_mediator()
+        self.GM.set_game(self)
+        self.GM.set_turn_manager(
+            TurnManager(self.players)
+        )
+        self.GM.set_funcion_get_action(
+            get_action
+        )
 
     def start(self):
-        self.signals.showMsgStartGame()
-        while True:
 
-            start_player_round = self.turn_manager.next_without_changes()
-            round_controller(self).start()
-            self.turn_manager.set_next_from_player(start_player_round)
+        self.GM.signals.showMsgStartGame()
+        while True:
+            start_player_round = self.GM.turn_manager.next_without_changes()
+            round_controller(self.GM).start()
+            self.GM.turn_manager.set_next_from_player(start_player_round)
             if self.search_winner():
                 break
-        self.signals.showMsgFinishGame()
+        self.GM.signals.showMsgFinishGame()
 
     def search_winner(self) -> bool:
         for team in self.teams:
             if team.getPoints() >= 30:
-                self.signals.winGameTeam(team)
+                self.GM.signals.winGameTeam(team)
                 return True
         return False
 

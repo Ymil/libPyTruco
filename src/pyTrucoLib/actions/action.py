@@ -8,20 +8,10 @@ from typing import List, Set
 class Action(ABC):
     from_action: str
     player: str
-    truco_manager: str = field(init=False)
-    envido_manager:str = field(init=False)
-    get_action_func:str = field(init=False)
-    game:str = field(init=False)
     _availables_next_actions: InitVar[Set] = {}
 
     def __post_init__(self, *args):
-        self.truco_manager = self.from_action.truco_manager
-        self.envido_manager = self.from_action.envido_manager
-        self.get_action_func = self.from_action.get_action_func
-        self.game = self.from_action.game
-        self.round = self.from_action.round
-        self.hand = self.from_action.hand
-        self.signals = self.game.signals
+        self.GM = self.from_action.GM
 
     def get_availables_actions(self):
         return self._availables_next_actions
@@ -37,9 +27,13 @@ class Action(ABC):
         ]
 
     def execute(self, action_value):
-        next_player = next(self.game.turn_manager)
-        return self.get_action_func(self, next_player)
+        next_player = next(self.GM.turn_manager)
+        return self.GM.get_action(self, next_player)
     
+    @classmethod
+    def __repr__(cls) -> str:
+        cls.name()
+
     @classmethod
     def name(cls):
         return cls.__name__

@@ -2,7 +2,6 @@ from abc import ABC
 from itertools import cycle
 from pyTrucoLib.actions.action import Action
 from pyTrucoLib.actions.envido_actions import envido, real_envido, falta_envido
-from pyTrucoLib.actions.functions import get_action
 from pyTrucoLib.actions.truco_actions import truco
 from pyTrucoLib.actions.jugar_carta_action import jugar_carta
 
@@ -11,23 +10,16 @@ class initial_action(Action):
         jugar_carta,
     }
 
-    def __init__(self, game, round, hand, get_action_function, player):
-        self.from_action = None
-        self.truco_manager = round._truco_manager
-        self.envido_manager = round._envido_manager
-        self.get_action_func = get_action_function
-        self.game = game
-        self.hand = hand
-        self.round = round
+    def __init__(self, game_mediator, player):
+        self.GM = game_mediator
         self.player = player
-        self.signals = self.game.signals
-        if self.truco_manager.cantado:
-            self._availables_next_actions = self._availables_next_actions | self.truco_manager.next_availables_actions
+        if self.GM.truco_manager.cantado:
+            self._availables_next_actions = self._availables_next_actions | self.GM.truco_manager.next_availables_actions
         else:
             self._availables_next_actions = self._availables_next_actions | {
                 truco,
             }
-        if self.hand.number == 1:
+        if self.GM.hand.number == 1:
             self._availables_next_actions = self._availables_next_actions | {
                 envido, real_envido, falta_envido
             }

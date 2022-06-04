@@ -1,30 +1,30 @@
 from dataclasses import InitVar, dataclass
 from itertools import count
 from typing import Counter, List
+
 from .controller import Controler
-from ..actions.functions import get_action
+
 from ..actions.initial_action import initial_action
 
 
 @dataclass
 class hand_controller(Controler):
-    game: str
-    round: str
+    GM: int
     number: int
     _played_cards: InitVar[List] = []
     _signal: InitVar[List] = []
 
     def __post_init__(self, *args):
         self._played_cards = []
-        self.signals = self.game.signals
+        self.GM.set_hand(self)
 
     def start(self):
-        self.signals.start_new_hand(self.number)
-        player = next(self.game.turn_manager)
-        self._signal = get_action(
-            initial_action(self.game, self.round, self, get_action, player), player
+        self.GM.signals.start_new_hand(self.number)
+        player = next(self.GM.turn_manager)
+        self._signal = self.GM.get_action(
+            initial_action(self.GM, player), player
         )
-        self.signals.showMsgFinishHand()
+        self.GM.signals.showMsgFinishHand()
 
     def playing_card(self, player, card):
         self._played_cards.append((player, card))
@@ -57,7 +57,7 @@ class hand_controller(Controler):
                 temp_result["parda"] = True
             else:
                 temp_result["player"] = player
-                self.signals.showResultaTheHand(
+                self.GM.signals.showResultaTheHand(
                     player.getID(),
                     player.getName(),  player.getTeamID(),
                     player.getNameCardPlayed(),
@@ -65,18 +65,6 @@ class hand_controller(Controler):
         if self._signal[0] == "truco_no_quiero":
             temp_result["finish_round"] = True
         
-        self.signals.returnStatus(temp_result)
+        self.GM.signals.returnStatus(temp_result)
         
         return temp_result
-
-
-if __name__ == "__main__":
-    pass
-    # gc = game_controller()
-    # hc = hand_controller(
-    #     gc,
-    #     round_controller(gc)
-    # )
-    # hc.start()
-    # hc.search_winner()
-    # 

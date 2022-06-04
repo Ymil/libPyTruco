@@ -8,7 +8,7 @@ from .team import Team
 
 
 class Table:
-    def __init__(self, signalsHandler: signals, cantidadJugadores, creadaPor, mesaID):
+    def __init__(self, cantidadJugadores, creadaPor, mesaID):
         """
         Esta clase contiene toda la funcionalidad para crear y
         manejar las mesas
@@ -26,7 +26,6 @@ class Table:
         self.equipoN = 0
         self.status = 0
         self.team = []  # Almacena los objectos de los equipos
-        self.signals_handler: signals = signalsHandler(self.jugadores)
         self.__createTeams__()
 
     def getInfo(self):

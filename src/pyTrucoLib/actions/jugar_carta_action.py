@@ -11,18 +11,18 @@ class jugar_carta(Action):
             raise ValueError("Se debe ingresar el indice de la carta")
         card_idx = int(action_value)
         if(not self.player.playing_card(card_idx)):
-            self.signals.showError(
+            self.GM.signals.showError(
                 player,
                 'cardPlayerd',
             )
-            return self.get_action_func(self, self.player)
+            return self.get_action(self, self.player)
         
-        self.signals.showCardPlaying(
+        self.GM.signals.showCardPlaying(
             self.player.getTeam(), self.player, self.player.getNameCardPlayed()
         )
 
-        self.hand.playing_card(self.player, self.player.cartas[card_idx])
-        if(len(self.hand._played_cards) >= len(self.game.players)):
+        self.GM.hand.playing_card(self.player, self.player.cartas[card_idx])
+        if(len(self.GM.hand._played_cards) >= len(self.GM.game.players)):
             return ('hand_finish', self.player, None)
         return super().execute(action_value)
 
