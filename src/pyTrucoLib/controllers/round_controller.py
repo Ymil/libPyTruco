@@ -1,7 +1,7 @@
 from abc import ABC
 from dataclasses import dataclass
 
-from ..cartas import Cartas
+from ..cards import Cards
 from .controller import Controler
 from .hand_controllers import hand_controller
 
@@ -51,7 +51,7 @@ class round_controller(Controler):
         self.GM.set_round(self)
 
     def give_cards(self):
-        cards = Cartas()
+        cards = Cards()
         for player in self.GM.game.players:
             cardsPlayer = cards.repartir_individual()
             self.GM.signals.giveCards(player.getID(), cardsPlayer)

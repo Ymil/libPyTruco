@@ -8,7 +8,7 @@ from jsonSignalAdapter import json_signal_adapter
 from pyTrucoLib.card import Card
 from pyTrucoLib.controllers.game_controller import game_controller
 from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.player import Player
 from pyTrucoLib.table import Table
 from twisted.internet import protocol
 
@@ -86,12 +86,12 @@ class GameManager():
 gameManager = GameManager()
 
 
-class playerCon(WebSocketServerProtocol, Jugador):
+class playerCon(WebSocketServerProtocol, Player):
     _conState = 1
 
     def onOpen(self):
         player_id = gameManager.newPlayer(self)
-        Jugador.__init__(self, player_id)
+        Player.__init__(self, player_id)
         self.sendMessage(
             str.encode(
                 json.dumps(

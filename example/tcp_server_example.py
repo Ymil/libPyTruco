@@ -3,14 +3,14 @@ import time
 
 from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.juego import Game
-from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.player import Player
 from pyTrucoLib.table import Table
 from twisted.internet import protocol
 from twisted.internet import reactor
 from twisted.protocols import basic
 
 
-class playerCon(basic.LineReceiver, Jugador):
+class playerCon(basic.LineReceiver, Player):
     delimiter = '\n'
     state = ''
     username = ''
@@ -18,7 +18,7 @@ class playerCon(basic.LineReceiver, Jugador):
 
     def __init__(self, factory, id):
         self.factory = factory
-        Jugador.__init__(self, id)
+        Player.__init__(self, id)
 
     def dataReceived(self, data):
         self.waitData = data

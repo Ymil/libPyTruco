@@ -10,7 +10,7 @@ from random import randrange
 from .card import Card
 
 
-class Cartas():
+class Cards():
     '''Clase encargada de el manejo de las cartas del juego'''
 
     def __init__(self):

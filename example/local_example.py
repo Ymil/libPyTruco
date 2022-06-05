@@ -1,6 +1,6 @@
 #!/usr/bin/env python 2.7
 from pyTrucoLib.juego import Game
-from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.player import Player
 from pyTrucoLib.table import Table
 __author__ = 'Lautaro Linquiman'
 __email__ = 'acc.limayyo@gmail.com'
@@ -16,8 +16,8 @@ class EjemploDeTruco:
 
         '''Paso 2: Definiendo jugadores'''
         self.jugadores = []
-        self.jugadores.append(Jugador(1))
-        self.jugadores.append(Jugador(2))
+        self.jugadores.append(Player(1))
+        self.jugadores.append(Player(2))
 
         ''' Paso : Creando mesa '''
         self.mesa = Table(

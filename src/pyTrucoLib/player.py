@@ -6,7 +6,7 @@ import operator
 from collections import Counter
 
 
-class Jugador():
+class Player():
     def __init__(self, id):
         '''
         Esta clase controla toda la funcionalidad de los jugadores

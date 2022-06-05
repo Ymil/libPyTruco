@@ -8,7 +8,7 @@ from unittest import signals
 from pyTrucoLib.controllers.controller import Controler
 from pyTrucoLib.controllers.round_controller import round_controller
 from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.player import Player
 from pyTrucoLib.team import Team
 
 from ..actions.functions import get_action
@@ -120,9 +120,9 @@ class game_controller(Controler):
 if __name__ == '__main__':
     t1 = Team(0)
     t2 = Team(1)
-    j1 = Jugador(0)
+    j1 = Player(0)
     j1.setTeam(t1)
-    j2 = Jugador(0)
+    j2 = Player(0)
     j2.setTeam(t2)
     teams = {t1, t2}
     players = [j1, j2]

@@ -2,12 +2,11 @@ from unittest import mock
 from unittest import TestCase
 
 from pyTrucoLib.card import Card
-from pyTrucoLib.cartas import Cartas
 from pyTrucoLib.controllers.game_controller import game_controller
 from pyTrucoLib.controllers.hand_controllers import hand_controller
 from pyTrucoLib.controllers.round_controller import round_controller
 from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.jugador import Jugador
+from pyTrucoLib.player import Player
 from pyTrucoLib.table import Table
 
 
@@ -33,8 +32,8 @@ class test_hand(TestCase):
 
         """Paso 2: Definiendo jugadores"""
         self.jugadores = []
-        self.jugadores.append(Jugador(1))
-        self.jugadores.append(Jugador(2))
+        self.jugadores.append(Player(1))
+        self.jugadores.append(Player(2))
 
         """ Paso : Creando mesa """
         self.mesa = Table(
