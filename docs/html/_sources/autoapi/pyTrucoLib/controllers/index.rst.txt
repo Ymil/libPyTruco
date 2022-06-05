@@ -1,0 +1,18 @@
+:py:mod:`pyTrucoLib.controllers`
+================================
+
+.. py:module:: pyTrucoLib.controllers
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   controller/index.rst
+   game_controller/index.rst
+   hand_controllers/index.rst
+   round_controller/index.rst
+
+

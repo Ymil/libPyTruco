@@ -1,0 +1,24 @@
+:py:mod:`pyTrucoLib.utils`
+==========================
+
+.. py:module:: pyTrucoLib.utils
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.utils.get_response
+
+
+
+.. py:function:: get_response(actions_maps, callback, *args)
+
+   Ejecuta las consultas hasta que optiene una respuesta correcta
+
+

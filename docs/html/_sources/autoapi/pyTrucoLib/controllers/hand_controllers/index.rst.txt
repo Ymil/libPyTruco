@@ -1,0 +1,93 @@
+:py:mod:`pyTrucoLib.controllers.hand_controllers`
+=================================================
+
+.. py:module:: pyTrucoLib.controllers.hand_controllers
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.controllers.hand_controllers.hand_result
+   pyTrucoLib.controllers.hand_controllers.hand_controller
+
+
+
+
+.. py:class:: hand_result
+
+   .. py:attribute:: player
+      
+
+      
+
+   .. py:attribute:: team
+      
+
+      
+
+   .. py:attribute:: card
+      
+
+      
+
+   .. py:attribute:: parda
+      :annotation: :bool = False
+
+      
+
+   .. py:attribute:: finish_round
+      :annotation: :bool
+
+      
+
+
+.. py:class:: hand_controller
+
+   Bases: :py:obj:`pyTrucoLib.controllers.controller.Controler`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: GM
+      :annotation: :int
+
+      
+
+   .. py:attribute:: number
+      :annotation: :int
+
+      
+
+   .. py:attribute:: _played_cards
+      :annotation: :dataclasses.InitVar[List] = []
+
+      
+
+   .. py:attribute:: _signal
+      :annotation: :dataclasses.InitVar[List] = []
+
+      
+
+   .. py:method:: __post_init__(self, *args)
+
+
+   .. py:method:: start(self)
+
+
+   .. py:method:: playing_card(self, player, card)
+
+
+   .. py:method:: search_parda(self, max_card)
+
+      No soporta pardas en equipos.
+
+
+   .. py:method:: search_winner(self) -> dict
+
+
+

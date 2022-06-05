@@ -1,0 +1,70 @@
+:py:mod:`pyTrucoLib.team`
+=========================
+
+.. py:module:: pyTrucoLib.team
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.team.Team
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.team.__author__
+   pyTrucoLib.team.__email__
+   pyTrucoLib.team.__status__
+
+
+.. py:data:: __author__
+   :annotation: = Lautaro Linquiman
+
+   
+
+.. py:data:: __email__
+   :annotation: = acc.limayyo@gmail.com
+
+   
+
+.. py:data:: __status__
+   :annotation: = Developing
+
+   
+
+.. py:class:: Team(ID)
+
+   .. py:method:: getID(self)
+
+      :return: Esta funcion devuelve el ID del equipo
+      :rtype: int
+
+
+   .. py:method:: givePoints(self, points)
+
+      Esta funcion asigna puntos al equipo
+      :param points: int
+
+
+   .. py:method:: getPoints(self)
+
+      :return: Esta funcion devuelve los puntos del equipo
+      :rtype: int
+
+
+   .. py:method:: __str__(self)
+
+      Return str(self).
+
+
+
