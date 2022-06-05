@@ -77,14 +77,12 @@ class test_hand(TestCase):
         hand = hand_controller(self.GM, 1)
         hand.start()
         result = hand.search_winner()
-        self.assertIn("parda", result)
-        self.assertTrue(result["parda"])
+        self.assertTrue(result.parda)
 
         hand = hand_controller(self.GM, 2)
         hand.start()
         result = hand.search_winner()
-        self.assertIn("parda", result)
-        self.assertTrue(result["parda"])
+        self.assertTrue(result.parda)
 
     @mock.patch(
         "pyTrucoLib.handlers.signals.signals.get_action",
@@ -97,8 +95,7 @@ class test_hand(TestCase):
         hand = hand_controller(self.GM, 1)
         hand.start()
         result = hand.search_winner()
-        self.assertIn("finish_round", result)
-        self.assertTrue(result["finish_round"])
+        self.assertTrue(result.finish_round)
 
     @mock.patch(
         "pyTrucoLib.handlers.signals.signals.get_action",
@@ -111,8 +108,7 @@ class test_hand(TestCase):
         hand = hand_controller(self.GM, 1)
         hand.start()
         result = hand.search_winner()
-        self.assertIn("finish_round", result)
-        self.assertTrue(result["finish_round"])
+        self.assertTrue(result.finish_round)
 
     @mock.patch(
         "pyTrucoLib.handlers.signals.signals.get_action",
@@ -126,8 +122,7 @@ class test_hand(TestCase):
         hand = hand_controller(self.GM, 1)
         hand.start()
         result = hand.search_winner()
-        self.assertIn("finish_round", result)
-        self.assertTrue(result["finish_round"])
+        self.assertTrue(result.finish_round)
 
     @mock.patch(
         "pyTrucoLib.handlers.signals.signals.get_action",

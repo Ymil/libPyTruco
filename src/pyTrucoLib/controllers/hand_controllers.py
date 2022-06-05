@@ -6,6 +6,12 @@ from .controller import Controler
 
 from ..actions.initial_action import initial_action
 
+class hand_result:
+    player = None 
+    team = None
+    card = None
+    parda : bool = False
+    finish_round : bool = None
 
 @dataclass
 class hand_controller(Controler):
@@ -44,27 +50,22 @@ class hand_controller(Controler):
         return True
 
     def search_winner(self) -> dict:
-        temp_result = {
-            "player": None,
-            "team": None,
-            "card": None,
-            "parda": False,
-            "finish_round": False,
-        }
+        result = hand_result()
         if self._signal[0] == "hand_finish":
             player, card = max(self._played_cards, key=lambda x: x[1].getValue())
             if self.search_parda(card):
-                temp_result["parda"] = True
+                result.parda = True
             else:
-                temp_result["player"] = player
+                result.player = player
                 self.GM.signals.showResultaTheHand(
                     player.getID(),
                     player.getName(),  player.getTeamID(),
                     player.getNameCardPlayed(),
                 )
         if self._signal[0] == "truco_no_quiero":
-            temp_result["finish_round"] = True
+            result.finish_round = True
+            result.player = self.GM.truco_manager.start_player
         
-        self.GM.signals.returnStatus(temp_result)
+        self.GM.signals.returnStatus(result)
         
-        return temp_result
+        return result

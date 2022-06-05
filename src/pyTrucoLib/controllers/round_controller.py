@@ -1,4 +1,5 @@
 from abc import ABC
+from dataclasses import dataclass
 from .controller import Controler
 from ..cartas import Cartas
 from .hand_controllers import hand_controller
@@ -31,7 +32,10 @@ class envido_manager(points_manager):
     cantado: bool = False
     start_player: str = None
 
-
+@dataclass
+class round_result:
+    player:int = None
+    team:int = None
 class round_controller(Controler):
     _current_hand = 0
     game = None
@@ -49,7 +53,6 @@ class round_controller(Controler):
             self.GM.signals.giveCards(player.getID(), cardsPlayer)
             player.setCards(cardsPlayer)
             self.GM.signals.showCards(player, cardsPlayer)
-            
 
     def start(self):
         self.GM.signals.start_new_round()
@@ -68,13 +71,16 @@ class round_controller(Controler):
         )
         first_hand.start()
         result_first_hand = first_hand.search_winner()
-        if result_first_hand["finish_round"]:
-            return
-        if "player" in result_first_hand:
-            self.GM.turn_manager.set_next(
-                result_first_hand["player"]
+        if result_first_hand.finish_round:
+            return round_result(
+                result_first_hand.player,
+                result_first_hand.player.getTeam()
             )
-        if "parda" in result_first_hand:
+        elif result_first_hand.player:
+            self.GM.turn_manager.set_next(
+                result_first_hand.player
+            )
+        elif result_first_hand.parda:
             self.GM.turn_manager.set_next(
                 start_player_round
             )
@@ -90,23 +96,34 @@ class round_controller(Controler):
         )
         second_hand.start()
         result_second_hand = second_hand.search_winner()
-        if result_second_hand["finish_round"]:
-            return
+        if result_second_hand.finish_round:
+            return round_result(
+                result_second_hand.player,
+                result_second_hand.player.getTeam()
+            ) 
         else:
-            if result_first_hand["player"] == result_second_hand["player"]:
-                player_winner = result_second_hand['player']
-            if result_first_hand["parda"] and not result_second_hand["parda"]:
-                player_winner = result_second_hand['player']
-            elif result_second_hand["parda"]:
-                player_winner = result_first_hand['player']
+            if result_first_hand.player == result_second_hand.player:
+                player_winner = result_second_hand.player
+            elif result_first_hand.parda and not result_second_hand.parda:
+                player_winner = result_second_hand.player
+            elif result_second_hand.parda:
+                player_winner = result_first_hand.player
         
-        if "player" in result_second_hand:
+            if(self.search_winner(player_winner)):
+                return round_result(
+                    player_winner,
+                    player_winner.getTeam()
+                ) 
+        
+        if result_second_hand.player:
             self.GM.turn_manager.set_next(
-                result_second_hand["player"]
+                result_second_hand.player
+            )
+        elif result_second_hand.parda:
+            self.GM.turn_manager.set_next(
+                start_player_round
             )
         
-        if(self.search_winner(player_winner)):
-            return
 
         """
             Se inicia la tercera mano
@@ -117,19 +134,28 @@ class round_controller(Controler):
         )
         third_hand.start()
         result_third_hand = third_hand.search_winner()
-        if result_third_hand["finish_round"]:
-            return
+        if result_third_hand.finish_round:
+            return round_result(
+                result_second_hand.player,
+                result_second_hand.player.getTeam()
+            ) 
         else:
-            if result_second_hand["player"] == result_third_hand["player"]:
-                player_winner = result_third_hand['player']
-            elif result_second_hand["parda"] and not result_third_hand["parda"]:
-                player_winner = result_third_hand['player']
-            elif result_third_hand["parda"]:
-                player_winner = result_first_hand['player']
+            if result_second_hand.parda and not result_third_hand.parda:
+                player_winner = result_third_hand.player
+            elif result_second_hand.parda and result_third_hand.parda:
+                player_winner = start_player_round
+            elif result_third_hand.parda:
+                player_winner = result_second_hand.player
+            elif result_second_hand.player == result_third_hand.player:
+                player_winner = result_third_hand.player
             else:
-                player_winner = result_third_hand['player']
-        if(self.search_winner(player_winner)):
-            return
+                player_winner = result_third_hand.player
+
+            if(self.search_winner(player_winner)):
+                return round_result(
+                    player_winner,
+                    player_winner.getTeam()
+                ) 
     
     def showPointsTeams(self):
         ''' Muestra los puntos de los equipos '''
