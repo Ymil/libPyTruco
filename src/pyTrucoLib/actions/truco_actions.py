@@ -29,8 +29,10 @@ class no_quiero_truco(Action):
     
     def execute(self, *args):
         
-        list(self.GM.game.teams - {self.player.team})[0].givePoints(self.GM.truco_manager.points-1)
+        winner_team = list(self.GM.game.teams - {self.player.team})[0]
+        winner_team.givePoints(self.GM.truco_manager.points-1)
         self.GM.signals.noquiero(self.player)
+        self.GM.signals.win(winner_team.getID())
         return ('truco_no_quiero', self.player, None)
 
 
