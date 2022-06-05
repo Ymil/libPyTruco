@@ -1,8 +1,13 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 from copy import copy
-from dataclasses import InitVar, dataclass, field
+from dataclasses import dataclass
+from dataclasses import field
+from dataclasses import InitVar
 from itertools import cycle
-from typing import List, Set
+from typing import List
+from typing import Set
+
 
 @dataclass
 class Action(ABC):
@@ -18,9 +23,9 @@ class Action(ABC):
 
     def get_availables_actions_str(self):
         return list(
-            map(lambda c: c.name(), self.get_availables_actions())
+            map(lambda c: c.name(), self.get_availables_actions()),
         )
-    
+
     def get_action_from_name(self, name):
         return list(self._availables_next_actions)[
             self.get_availables_actions_str().index(name)
@@ -29,7 +34,7 @@ class Action(ABC):
     def execute(self, action_value):
         next_player = next(self.GM.turn_manager)
         return self.GM.get_action(self, next_player)
-    
+
     @classmethod
     def __repr__(cls) -> str:
         cls.name()

@@ -1,7 +1,8 @@
 from abc import ABC
 from dataclasses import dataclass
-from .controller import Controler
+
 from ..cartas import Cartas
+from .controller import Controler
 from .hand_controllers import hand_controller
 
 HAND_CONTROLLERS = []
@@ -32,10 +33,13 @@ class envido_manager(points_manager):
     cantado: bool = False
     start_player: str = None
 
+
 @dataclass
 class round_result:
-    player:int = None
-    team:int = None
+    player: int = None
+    team: int = None
+
+
 class round_controller(Controler):
     _current_hand = 0
     game = None
@@ -67,24 +71,24 @@ class round_controller(Controler):
         """
         first_hand = hand_controller(
             self.GM,
-            1
+            1,
         )
         first_hand.start()
         result_first_hand = first_hand.search_winner()
         if result_first_hand.finish_round:
             return round_result(
                 result_first_hand.player,
-                result_first_hand.player.getTeam()
+                result_first_hand.player.getTeam(),
             )
         elif result_first_hand.player:
             self.GM.turn_manager.set_next(
-                result_first_hand.player
+                result_first_hand.player,
             )
         elif result_first_hand.parda:
             self.GM.turn_manager.set_next(
-                start_player_round
+                start_player_round,
             )
-        
+
         self.showPointsTeams()
 
         """
@@ -92,15 +96,15 @@ class round_controller(Controler):
         """
         second_hand = hand_controller(
             self.GM,
-            2
+            2,
         )
         second_hand.start()
         result_second_hand = second_hand.search_winner()
         if result_second_hand.finish_round:
             return round_result(
                 result_second_hand.player,
-                result_second_hand.player.getTeam()
-            ) 
+                result_second_hand.player.getTeam(),
+            )
         else:
             if result_first_hand.player == result_second_hand.player:
                 player_winner = result_second_hand.player
@@ -108,37 +112,36 @@ class round_controller(Controler):
                 player_winner = result_second_hand.player
             elif result_second_hand.parda:
                 player_winner = result_first_hand.player
-        
+
             if(self.search_winner(player_winner)):
                 return round_result(
                     player_winner,
-                    player_winner.getTeam()
-                ) 
-        
+                    player_winner.getTeam(),
+                )
+
         if result_second_hand.player:
             self.GM.turn_manager.set_next(
-                result_second_hand.player
+                result_second_hand.player,
             )
         elif result_second_hand.parda:
             self.GM.turn_manager.set_next(
-                start_player_round
+                start_player_round,
             )
-        
 
         """
             Se inicia la tercera mano
         """
         third_hand = hand_controller(
             self.GM,
-            3
+            3,
         )
         third_hand.start()
         result_third_hand = third_hand.search_winner()
         if result_third_hand.finish_round:
             return round_result(
                 result_second_hand.player,
-                result_second_hand.player.getTeam()
-            ) 
+                result_second_hand.player.getTeam(),
+            )
         else:
             if result_second_hand.parda and not result_third_hand.parda:
                 player_winner = result_third_hand.player
@@ -154,13 +157,15 @@ class round_controller(Controler):
             if(self.search_winner(player_winner)):
                 return round_result(
                     player_winner,
-                    player_winner.getTeam()
-                ) 
-    
+                    player_winner.getTeam(),
+                )
+
     def showPointsTeams(self):
         ''' Muestra los puntos de los equipos '''
         for team in self.GM.game.teams:
-            self.GM.signals.show_points_for_team(team.getID(), team.getPoints())
+            self.GM.signals.show_points_for_team(
+                team.getID(), team.getPoints(),
+            )
 
     def search_winner(self, player_winner) -> bool:
         if player_winner is not None:

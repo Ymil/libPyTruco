@@ -31,22 +31,22 @@ Attributes
 .. py:data:: __author__
    :annotation: = Lautaro Linquiman
 
-   
+
 
 .. py:data:: __email__
    :annotation: = acc.limayyo@gmail.com
 
-   
+
 
 .. py:data:: __status__
    :annotation: = Developing
 
-   
+
 
 .. py:data:: __date__
    :annotation: = 06-01-2015
 
-   
+
 
 .. py:class:: Cartas
 
@@ -59,13 +59,10 @@ Attributes
 
       Esta funcion copia los valores y nombres de las
       cartas en una variable temporal.
-      Esta funcion se debe llamar antes de repartir las cartas 
+      Esta funcion se debe llamar antes de repartir las cartas
 
 
    .. py:method:: repartir_individual(self)
 
       Esta funcion reparte 3 cartas
       Return list (1,2,3)
-
-
-

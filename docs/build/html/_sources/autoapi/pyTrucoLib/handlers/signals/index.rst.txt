@@ -31,22 +31,22 @@ Attributes
 .. py:data:: __author__
    :annotation: = Lautaro Linquiman
 
-   
+
 
 .. py:data:: __email__
    :annotation: = acc.limayyo@gmail.com
 
-   
+
 
 .. py:data:: __status__
    :annotation: = Developing
 
-   
+
 
 .. py:data:: __date__
    :annotation: =  04/08/16
 
-   
+
 
 .. py:class:: signals
 
@@ -62,12 +62,12 @@ Attributes
    .. py:attribute:: players
       :annotation: :list = []
 
-      
+
 
    .. py:attribute:: teams
       :annotation: = []
 
-      
+
 
    .. py:method:: showMsgStartGame(self)
 
@@ -84,7 +84,7 @@ Attributes
    .. py:method:: start_new_round(self)
 
       Esta funcion se dispara cuando se inicia una nueva ronda
-              
+
 
 
    .. py:method:: start_new_hand(self, handsNumber)
@@ -96,19 +96,19 @@ Attributes
    .. py:method:: showMsgFinishHand(self)
 
       Esta funcion se dispara cuando finaliza una mano
-              
+
 
 
    .. py:method:: showMsgFinishRound(self)
 
       Esta funcion se dispara cuando finaliza una ronda
-              
+
 
 
    .. py:method:: showMsgFinishGame(self)
 
       Esta funcion se dispara cuando finaliza un juego
-              
+
 
 
    .. py:method:: giveCards(self, playerid, cards)
@@ -118,7 +118,7 @@ Attributes
       :param playerid:
       :param cards: list cardsObjects
       Ejemplo de uso:
-      partida.mostrarCartas(player, cards) 
+      partida.mostrarCartas(player, cards)
 
 
    .. py:method:: showCards(self, player, cards)
@@ -134,7 +134,7 @@ Attributes
       Esta funcion se dispara cuando se muestran los puntos de los equipos
       :param team: int teamID
       :param pointsTeam: int
-      Ejemplo de uso: 
+      Ejemplo de uso:
 
 
    .. py:method:: getActionPlayer(self, playerObject, action='')
@@ -241,12 +241,12 @@ Attributes
 
    .. py:method:: startLoopEnvido(self)
 
-      Esta funcion se llama cuando se inicia el loop del envido 
+      Esta funcion se llama cuando se inicia el loop del envido
 
 
    .. py:method:: finishLoopEnvido(self)
 
-      Esta funcion se llama cuando finaliza el loop del envido 
+      Esta funcion se llama cuando finaliza el loop del envido
 
 
    .. py:method:: envido(self, playerObject)
@@ -258,7 +258,7 @@ Attributes
    .. py:method:: showEnvido(self, playerObject)
 
       Esta funcion se llama cuando un jugar canta su envido
-      :param playerObject: 
+      :param playerObject:
 
 
    .. py:method:: showWinnerEnvido(self, playerObject)
@@ -280,6 +280,3 @@ Attributes
 
    .. py:method:: vale_4(self, player)
       :abstractmethod:
-
-
-

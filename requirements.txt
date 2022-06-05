@@ -1,5 +1,5 @@
-twisted==22.*
+sphinx
+sphinx-autoapi
 sphinx-autodoc-typehints
 sphinx-rtd-theme
-sphinx-autoapi
-sphinx
+twisted==22.*

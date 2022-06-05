@@ -29,5 +29,3 @@ Submodules
    team/index.rst
    truco_handler/index.rst
    utils/index.rst
-
-

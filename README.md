@@ -7,7 +7,7 @@ Motor de truco argentino echo en python
 
 ## Generando la documentación
 
-### Instalar 
+### Instalar
 ```
 pip install sphinx-autodoc-typehints sphinx-rtd-theme sphinx-autoapi sphinx
 ```

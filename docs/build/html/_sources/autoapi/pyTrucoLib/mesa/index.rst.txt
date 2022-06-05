@@ -30,17 +30,17 @@ Attributes
 .. py:data:: __author__
    :annotation: = Lautaro Linquiman
 
-   
+
 
 .. py:data:: __email__
    :annotation: = acc.limayyo@gmail.com
 
-   
+
 
 .. py:data:: __status__
    :annotation: = Developing
 
-   
+
 
 .. py:class:: Mesa(cantidadJugadores, creadaPor, mesaID)
 
@@ -83,6 +83,3 @@ Attributes
 
       :return: ID de la mesa
       :rtype: int
-
-
-

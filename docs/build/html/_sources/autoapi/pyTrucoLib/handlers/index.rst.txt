@@ -12,5 +12,3 @@ Submodules
 
    signals/index.rst
    turn/index.rst
-
-

@@ -38,13 +38,13 @@ Classes
    .. py:method:: getText(self)
 
       :return: Esta funcion devuelve el numero de la carta y el palo
-      :rtype: str 
+      :rtype: str
 
 
    .. py:method:: getNumber(self)
 
       :return: Esta funcion devuelve el numero de la carta
-      :rtype: int 
+      :rtype: int
 
 
    .. py:method:: getStick(self)
@@ -57,6 +57,3 @@ Classes
 
       :return: Esta funcion devuelve el valos de la carta
       :rtype: int
-
-
-

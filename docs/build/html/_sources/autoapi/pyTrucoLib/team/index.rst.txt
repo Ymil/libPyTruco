@@ -30,17 +30,17 @@ Attributes
 .. py:data:: __author__
    :annotation: = Lautaro Linquiman
 
-   
+
 
 .. py:data:: __email__
    :annotation: = acc.limayyo@gmail.com
 
-   
+
 
 .. py:data:: __status__
    :annotation: = Developing
 
-   
+
 
 .. py:class:: Team(ID)
 
@@ -60,6 +60,3 @@ Attributes
 
       :return: Esta funcion devuelve los puntos del equipo
       :rtype: int
-
-
-

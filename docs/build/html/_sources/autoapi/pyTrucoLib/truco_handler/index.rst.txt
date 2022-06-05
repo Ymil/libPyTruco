@@ -34,32 +34,32 @@ Attributes
 .. py:data:: STATE_TRUCO
    :annotation: = 1
 
-   
+
 
 .. py:data:: STATE_RETRUCO
    :annotation: = 2
 
-   
+
 
 .. py:data:: STATE_VALE_4
    :annotation: = 3
 
-   
+
 
 .. py:data:: STATE_NO_QUERIDO
    :annotation: = 4
 
-   
+
 
 .. py:data:: SI
    :annotation: = 1
 
-   
+
 
 .. py:data:: NO
    :annotation: = 0
 
-   
+
 
 .. py:exception:: TrucoNoQuerido(winPlayer, message)
 
@@ -94,22 +94,22 @@ Attributes
    .. py:attribute:: _quiero_team
       :annotation: :pyTrucoLib.team.Team
 
-      
+
 
    .. py:attribute:: _last_player
       :annotation: :pyTrucoLib.jugador.Jugador
 
-      
+
 
    .. py:attribute:: _points
       :annotation: :int = 1
 
-      
+
 
    .. py:attribute:: _end_state
-      
 
-      
+
+
 
    .. py:method:: _general_truco_logic(new_state: int)
 
@@ -127,6 +127,3 @@ Attributes
 
 
    .. py:method:: get_points(self)
-
-
-

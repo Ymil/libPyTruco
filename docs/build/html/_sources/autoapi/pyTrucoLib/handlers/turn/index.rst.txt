@@ -26,12 +26,12 @@ Classes
    .. py:attribute:: _players
       :annotation: :List[Any] = []
 
-      
+
 
    .. py:attribute:: _players_order
       :annotation: :List[Any] = []
 
-      
+
 
    .. py:method:: change_hand(self, player)
 
@@ -47,6 +47,3 @@ Classes
    .. py:method:: __iter__(self)
 
       Implement iter(self).
-
-
-

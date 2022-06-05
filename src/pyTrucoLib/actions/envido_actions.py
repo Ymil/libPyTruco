@@ -2,12 +2,13 @@ from pyTrucoLib.actions.action import Action
 from pyTrucoLib.actions.jugar_carta_action import jugar_carta
 from pyTrucoLib.actions.truco_actions import truco
 
+
 class quiero_envido(Action):
     _availables_next_actions = {jugar_carta, truco}
 
     @classmethod
     def name(cls):
-        return "quiero"
+        return 'quiero'
 
     def execute(self, action_value):
         """ group: envido
@@ -39,7 +40,7 @@ class no_quiero_envido(Action):
 
     @classmethod
     def name(cls):
-        return "no_quiero"
+        return 'no_quiero'
 
     def execute(self, action_value):
         self.GM.envido_manager.points = 1
@@ -47,10 +48,11 @@ class no_quiero_envido(Action):
         winner_team.givePoints(self.GM.envido_manager.points)
         self.GM.signals.noquiero(self.player)
         self.GM.signals.showWinnerEnvido(
-            winner_team
+            winner_team,
         )
         self.GM.turn_manager.set_next(self.GM.envido_manager.start_player)
         return super().execute(action_value)
+
 
 DEFAULT_ENVIDO_ACTIONS = {quiero_envido, no_quiero_envido}
 
@@ -74,19 +76,26 @@ class real_envido(Action):
         if self.GM.envido_manager.start_player is None:
             self.GM.envido_manager.start_player = self.player
         self.GM.envido_manager.points += 3
-        self._availables_next_actions = self._availables_next_actions | {eval("real_envido")}
+        self._availables_next_actions = self._availables_next_actions | {
+            eval('real_envido'),
+        }
         self.GM.signals.real_envido(self.player)
         return super().execute(action_value)
 
+
 class envido(Action):
-    _availables_next_actions = {real_envido, falta_envido} | DEFAULT_ENVIDO_ACTIONS
+    _availables_next_actions = {
+        real_envido,
+        falta_envido,
+    } | DEFAULT_ENVIDO_ACTIONS
 
     def execute(self, action_value):
         self.GM.envido_manager.cantado = True
         if self.GM.envido_manager.start_player is None:
             self.GM.envido_manager.start_player = self.player
         self.GM.envido_manager.points += 2
-        self._availables_next_actions = self._availables_next_actions | {eval("envido")}
+        self._availables_next_actions = self._availables_next_actions | {
+            eval('envido'),
+        }
         self.GM.signals.envido(self.player)
         return super().execute(action_value)
-

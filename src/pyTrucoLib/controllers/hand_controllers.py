@@ -1,17 +1,20 @@
-from dataclasses import InitVar, dataclass
+from dataclasses import dataclass
+from dataclasses import InitVar
 from itertools import count
-from typing import Counter, List
-
-from .controller import Controler
+from typing import Counter
+from typing import List
 
 from ..actions.initial_action import initial_action
+from .controller import Controler
+
 
 class hand_result:
-    player = None 
+    player = None
     team = None
     card = None
-    parda : bool = False
-    finish_round : bool = None
+    parda: bool = False
+    finish_round: bool = None
+
 
 @dataclass
 class hand_controller(Controler):
@@ -28,7 +31,7 @@ class hand_controller(Controler):
         self.GM.signals.start_new_hand(self.number)
         player = next(self.GM.turn_manager)
         self._signal = self.GM.get_action(
-            initial_action(self.GM, player), player
+            initial_action(self.GM, player), player,
         )
         self.GM.signals.showMsgFinishHand()
 
@@ -40,7 +43,7 @@ class hand_controller(Controler):
             No soporta pardas en equipos.
         """
         values_cards_list = list(
-            map(lambda x: x.getValue(), list(zip(*self._played_cards))[1])
+            map(lambda x: x.getValue(), list(zip(*self._played_cards))[1]),
         )
 
         cnt_cards_maxs = values_cards_list.count(max_card.getValue())
@@ -51,8 +54,11 @@ class hand_controller(Controler):
 
     def search_winner(self) -> dict:
         result = hand_result()
-        if self._signal[0] == "hand_finish":
-            player, card = max(self._played_cards, key=lambda x: x[1].getValue())
+        if self._signal[0] == 'hand_finish':
+            player, card = max(
+                self._played_cards,
+                key=lambda x: x[1].getValue(),
+            )
             if self.search_parda(card):
                 result.parda = True
             else:
@@ -62,10 +68,10 @@ class hand_controller(Controler):
                     player.getName(),  player.getTeamID(),
                     player.getNameCardPlayed(),
                 )
-        if self._signal[0] == "truco_no_quiero":
+        if self._signal[0] == 'truco_no_quiero':
             result.finish_round = True
             result.player = self.GM.truco_manager.start_player
-        
+
         self.GM.signals.returnStatus(result)
-        
+
         return result

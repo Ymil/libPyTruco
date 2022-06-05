@@ -33,32 +33,32 @@ Attributes
 .. py:data:: STATE_ENVIDO
    :annotation: = 1
 
-   
+
 
 .. py:data:: STATE_REAL_ENVIDO
    :annotation: = 2
 
-   
+
 
 .. py:data:: STATE_FALTA_ENVIDO
    :annotation: = 3
 
-   
+
 
 .. py:data:: STATE_FINALIZADO
    :annotation: = 4
 
-   
+
 
 .. py:data:: SI
    :annotation: = 1
 
-   
+
 
 .. py:data:: NO
    :annotation: = 0
 
-   
+
 
 .. py:class:: envido_handler(gameInstance)
 
@@ -68,29 +68,29 @@ Attributes
    inheritance.
 
    .. py:attribute:: _game_instance
-      
 
-      
+
+
 
    .. py:attribute:: _history
       :annotation: :list = []
 
-      
+
 
    .. py:attribute:: _points
       :annotation: :int = 0
 
-      
+
 
    .. py:attribute:: _last_chant
       :annotation: :int = 0
 
-      
+
 
    .. py:attribute:: _loop_envido
       :annotation: :bool = False
 
-      
+
 
    .. py:method:: _general_envido_logic(new_state: int)
 
@@ -124,7 +124,7 @@ Attributes
 
    .. py:method:: loopEnvido(self)
 
-      Esta funcion se llama despues de que un jugador canta envido 
+      Esta funcion se llama despues de que un jugador canta envido
 
 
    .. py:method:: getWinnerEnvido(self)
@@ -132,6 +132,3 @@ Attributes
       group: envido
       Esta funcion se llama cuando un jugador canta envido y otro
       lo acepta con un quiero
-
-
-

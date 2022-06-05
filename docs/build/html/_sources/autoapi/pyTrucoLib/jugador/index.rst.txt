@@ -30,17 +30,17 @@ Attributes
 .. py:data:: __author__
    :annotation: = Lautaro Linquiman
 
-   
+
 
 .. py:data:: __email__
    :annotation: = acc.limayyo@gmail.com
 
-   
+
 
 .. py:data:: __status__
    :annotation: = Developing
 
-   
+
 
 .. py:class:: Jugador(id)
 
@@ -52,19 +52,19 @@ Attributes
    .. py:method:: getTeam(self)
 
       :return: equipo del jugador
-      :rtype: teamObject 
+      :rtype: teamObject
 
 
    .. py:method:: getTeamID(self)
 
       :return: ID del equipo del jugador
-      :rtype: int 
+      :rtype: int
 
 
    .. py:method:: setName(self, nombre)
 
       Asgina el nombre del jugador
-      :param nombre: str 
+      :param nombre: str
 
 
    .. py:method:: getName(self)
@@ -88,7 +88,7 @@ Attributes
    .. py:method:: resetCards(self)
 
       Se borran todas las cartas y variables cargadas que tenia el jugador
-              
+
 
 
    .. py:method:: playingCardInRound(self, cartaID)
@@ -146,12 +146,9 @@ Attributes
 
    .. py:method:: setStatus(self, valor)
 
-      Obsoleto ? 
+      Obsoleto ?
 
 
    .. py:method:: getStatus(self)
 
-      Obsoleto ? 
-
-
-
+      Obsoleto ?

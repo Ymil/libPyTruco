@@ -156,6 +156,6 @@ class Jugador():
 
     def __str__(self) -> str:
         return f'Player: {self.getID()} Team: {self.getTeamID()}'
-    
+
     def __repr__(self) -> str:
         return self.__str__()

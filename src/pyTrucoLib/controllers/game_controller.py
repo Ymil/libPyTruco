@@ -1,14 +1,18 @@
 from dataclasses import dataclass
 from enum import Enum
 from itertools import cycle
-from typing import List, Set
+from typing import List
+from typing import Set
 from unittest import signals
+
 from pyTrucoLib.controllers.controller import Controler
 from pyTrucoLib.controllers.round_controller import round_controller
+from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.jugador import Jugador
 from pyTrucoLib.team import Team
-from pyTrucoLib.handlers.signals import signals
+
 from ..actions.functions import get_action
+
 
 class TurnManager:
     def __init__(self, players):
@@ -48,6 +52,7 @@ class TurnManager:
     def __next__(self):
         return self.next()
 
+
 class game_mediator:
     def __init__(self):
         self.game = None
@@ -57,24 +62,25 @@ class game_mediator:
         self.envido_manager = None
         self.turn_manager = None
         self.get_action = None
-    
+
     def set_game(self, game):
         self.game = game
         self.signals = self.game.signals
-    
+
     def set_round(self, round):
         self.round = round
         self.truco_manager = self.round.truco_manager
         self.envido_manager = self.round.envido_manager
-    
+
     def set_hand(self, hand):
         self.hand = hand
-    
+
     def set_turn_manager(self, turn_manager):
         self.turn_manager = turn_manager
 
     def set_funcion_get_action(self, funcion):
         self.get_action = funcion
+
 
 @dataclass
 class game_controller(Controler):
@@ -86,10 +92,10 @@ class game_controller(Controler):
         self.GM = game_mediator()
         self.GM.set_game(self)
         self.GM.set_turn_manager(
-            TurnManager(self.players)
+            TurnManager(self.players),
         )
         self.GM.set_funcion_get_action(
-            get_action
+            get_action,
         )
 
     def start(self):
@@ -111,7 +117,7 @@ class game_controller(Controler):
         return False
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     t1 = Team(0)
     t2 = Team(1)
     j1 = Jugador(0)
@@ -121,4 +127,3 @@ if __name__ == "__main__":
     teams = {t1, t2}
     players = [j1, j2]
     game_controller(teams, players, signals(players)).start()
-

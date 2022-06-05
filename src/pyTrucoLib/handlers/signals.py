@@ -18,6 +18,7 @@ class signals(ABC):
 
     players: list = []
     teams = []
+
     def __init__(self, players):
         self.errors = {
             'cardPlayerd': 'Esta carta ya fue jugada',
@@ -34,10 +35,10 @@ class signals(ABC):
     def sendMessageAll(self, msg):
         print(msg)
         # for player in self.players:
-            # self.sendMessageToPlayer(player, msg)
+        # self.sendMessageToPlayer(player, msg)
 
     def sendMessageToPlayer(self, player, msg):
-        print(f"{player}: {msg}")
+        print(f'{player}: {msg}')
 
     def start_new_round(self):
         ''' Esta funcion se dispara cuando se inicia una nueva ronda
@@ -122,8 +123,8 @@ class signals(ABC):
 
         ''' Las siguientes funciones generan jugadas de forma aleatoria
         para debuggiar el sistema. '''
-        print(player, " ", actions_availables)
-        return input(">")
+        print(player, ' ', actions_availables)
+        return input('>')
 
     def showCardPlaying(self, teamObject, player, cardObject):
         ''' Esta funcion se llama cuando se juega una carta
@@ -256,7 +257,7 @@ class signals(ABC):
         str1 = 'El jugador %d canto real envido' % player.getID()
         str2 = 'envido(%d)' % player.getID()
         self.sendMessageAll(str1)
-    
+
     def falta_envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido

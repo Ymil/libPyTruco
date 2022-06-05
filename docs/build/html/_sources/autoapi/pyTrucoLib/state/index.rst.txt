@@ -27,17 +27,17 @@ Classes
    .. py:attribute:: _state
       :annotation: = 0
 
-      
+
 
    .. py:attribute:: _state_end
-      
 
-      
+
+
 
    .. py:attribute:: _freeze
       :annotation: = False
 
-      
+
 
    .. py:method:: change_status_condicional(self, new_state)
 
@@ -49,6 +49,3 @@ Classes
 
    .. py:method:: state(self)
       :property:
-
-
-
