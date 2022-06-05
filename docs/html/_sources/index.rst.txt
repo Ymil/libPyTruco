@@ -3,14 +3,24 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to libPyTruco's documentation!
+Bienvenido a la documento de PyTrucoEngine!
 ======================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+Ejemplo de uso
+==============
 
+Se puede observar el ejemplo de [websocket](https://github.com/Ymil/libPyTruco/tree/dev/example/websocket_server_example).
+
+Juga desde el celular
+=====================
+
+Visita el proyecto de react native para jugar con el motor de truco argentino.
+
+[https://github.com/Ymil/PyTrucoApp](https://github.com/Ymil/PyTrucoApp)
 
 Indices and tables
 ==================

@@ -13,14 +13,14 @@ Bienvenido a la documento de PyTrucoEngine!
 Ejemplo de uso
 ==============
 
-Se puede observar el ejemplo de [websocket](https://github.com/Ymil/libPyTruco/tree/dev/example/websocket_server_example).
+Se puede observar el ejemplo de (websocket)[https://github.com/Ymil/libPyTruco/tree/dev/example/websocket_server_example].
 
 Juga desde el celular
 =====================
 
 Visita el proyecto de react native para jugar con el motor de truco argentino.
 
-[https://github.com/Ymil/PyTrucoApp](https://github.com/Ymil/PyTrucoApp)
+(https://github.com/Ymil/PyTrucoApp)[https://github.com/Ymil/PyTrucoApp]
 
 Indices and tables
 ==================
