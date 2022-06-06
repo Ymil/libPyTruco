@@ -14,7 +14,7 @@ class jugar_carta(Action):
         card_idx = int(action_value)
         if(not self.player.playing_card(card_idx)):
             self.GM.signals.showError(
-                player,
+                self.player,
                 'cardPlayerd',
             )
             return self.get_action(self, self.player)
