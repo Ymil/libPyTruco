@@ -31,13 +31,13 @@ class Cards():
         Return list (1,2,3)'''
 
         cartasJugador = []  # Acomoda las cartas de cada jugador
-        cards_keys = self.clonCartas.keys()
+        cards = list(cards_dict.keys())
         for _ in range(3):  # reparte tres cartas aleatorias
-            cartaN = randrange(0, len(cards_keys) - 1)
-            card_name = self.cartas[cartaN]
+            cartaN = randrange(0, len(cards) - 1)
+            card_name = cards[cartaN]
             cartaObject = Card(card_name)
             cartasJugador.append(cartaObject)
-            del self.clonCartas[card_name]
+            del cards[cartaN]
             del cartaObject
 
         return cartasJugador

@@ -64,7 +64,6 @@ class round_controller(Controler):
             #         <card>{cardsPlayer[2]}</card>
             #     </cards>
             # """)
-        
 
     def start(self):
         self.GM.signals.start_new_round()
