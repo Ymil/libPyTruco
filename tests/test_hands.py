@@ -36,10 +36,7 @@ class test_hand(TestCase):
         self.jugadores.append(Player(2))
 
         """ Paso : Creando mesa """
-        self.mesa = Table(
-            self.cantidadDeJugadores,
-            self.jugadores[0].getID(), 0,
-        )
+        self.mesa = Table(self.cantidadDeJugadores, self.jugadores[0].getID(), 0,)
 
         """Paso 4: Asignando nuevos jugadores a la mesa"""
         self.mesa.newPlayer(self.jugadores[0])
@@ -57,27 +54,19 @@ class test_hand(TestCase):
 
         give_cards(
             self.GM,
-            cards_player_one=[
-                [3, 'oro', 10], [
-                3, 'espada', 10,
-                ], [1, 'oro', 8],
-            ],
-            cards_player_two=[
-                [3, 'basto', 10], [
-                3, 'copa', 10,
-                ], [1, 'espada', 14],
-            ],
+            cards_player_one=["3_oro", "3_espada", "1_oro",],
+            cards_player_two=["3_basto", "3_copa", "1_espada",],
         )
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
+        "pyTrucoLib.handlers.signals.signals.get_action",
         side_effect=[
-            ('jugar_carta,0'),
-            ('jugar_carta,0'),
-            ('jugar_carta,1'),
-            ('jugar_carta,1'),
-            ('jugar_carta,2'),
-            ('jugar_carta,2'),
+            ("jugar_carta,0"),
+            ("jugar_carta,0"),
+            ("jugar_carta,1"),
+            ("jugar_carta,1"),
+            ("jugar_carta,2"),
+            ("jugar_carta,2"),
         ],
     )
     def test_jugar_carta_parda(self, mock):
@@ -95,8 +84,8 @@ class test_hand(TestCase):
         self.assertTrue(result.parda)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
-        side_effect=[('truco'), ('no_quiero')],
+        "pyTrucoLib.handlers.signals.signals.get_action",
+        side_effect=[("truco"), ("no_quiero")],
     )
     def test_truco_no_quiero(self, mock):
         """
@@ -108,8 +97,8 @@ class test_hand(TestCase):
         self.assertTrue(result.finish_round)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
-        side_effect=[('truco'), ('re_truco'), ('no_quiero')],
+        "pyTrucoLib.handlers.signals.signals.get_action",
+        side_effect=[("truco"), ("re_truco"), ("no_quiero")],
     )
     def test_retruco_no_quiero(self, mock):
         """
@@ -121,8 +110,8 @@ class test_hand(TestCase):
         self.assertTrue(result.finish_round)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
-        side_effect=[('truco'), ('re_truco'), ('vale_4'), ('no_quiero')],
+        "pyTrucoLib.handlers.signals.signals.get_action",
+        side_effect=[("truco"), ("re_truco"), ("vale_4"), ("no_quiero")],
     )
     def test_vale_4_truco_no_quiero(self, mock):
         """
@@ -135,20 +124,20 @@ class test_hand(TestCase):
         self.assertTrue(result.finish_round)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
+        "pyTrucoLib.handlers.signals.signals.get_action",
         side_effect=[
-            ('truco'),
-            ('quiero'),
-            ('jugar_carta,0'),
-            ('jugar_carta,0'),
-            ('re_truco'),
-            ('quiero'),
-            ('jugar_carta,1'),
-            ('jugar_carta,1'),
-            ('vale_4'),
-            ('quiero'),
-            ('jugar_carta,2'),
-            ('jugar_carta,2'),
+            ("truco"),
+            ("quiero"),
+            ("jugar_carta,0"),
+            ("jugar_carta,0"),
+            ("re_truco"),
+            ("quiero"),
+            ("jugar_carta,1"),
+            ("jugar_carta,1"),
+            ("vale_4"),
+            ("quiero"),
+            ("jugar_carta,2"),
+            ("jugar_carta,2"),
         ],
     )
     def test_truco_quiero(self, mock):
@@ -157,32 +146,21 @@ class test_hand(TestCase):
         """
         give_cards(
             self.GM,
-            cards_player_one=[
-                [3, 'oro', 10], [
-                3, 'espada', 10,
-                ], [1, 'oro', 8],
-            ],
-            cards_player_two=[
-                [4, 'oro', 1], [
-                7, 'oro', 11,
-                ], [1, 'espada', 14],
-            ],
+            cards_player_one=["3_oro", "3_espada", "1_oro",],
+            cards_player_two=["4_oro", "7_oro", "1_espada",],
         )
         self.assertFalse(self.GM.truco_manager.cantado)
         hand = hand_controller(self.GM, 1)
         hand.start()
         self.assertTrue(self.GM.truco_manager.cantado)
         self.assertEqual(
-            self.GM.truco_manager.quiero_player,
-            self.GM.game.players[1],
+            self.GM.truco_manager.quiero_player, self.GM.game.players[1],
         )
         self.assertEqual(
             len(list(self.GM.truco_manager.next_availables_actions)), 1,
         )
         self.assertEqual(
-            list(self.GM.truco_manager.next_availables_actions)[
-                0
-            ].name(), 're_truco',
+            list(self.GM.truco_manager.next_availables_actions)[0].name(), "re_truco",
         )
         self.assertEqual(self.GM.truco_manager.points, 2)
 
@@ -192,16 +170,13 @@ class test_hand(TestCase):
         hand.start()
         self.assertTrue(self.GM.truco_manager.cantado)
         self.assertEqual(
-            self.GM.truco_manager.quiero_player,
-            self.GM.game.players[0],
+            self.GM.truco_manager.quiero_player, self.GM.game.players[0],
         )
         self.assertEqual(
             len(list(self.GM.truco_manager.next_availables_actions)), 1,
         )
         self.assertEqual(
-            list(self.GM.truco_manager.next_availables_actions)[
-                0
-            ].name(), 'vale_4',
+            list(self.GM.truco_manager.next_availables_actions)[0].name(), "vale_4",
         )
         self.assertEqual(self.GM.truco_manager.points, 3)
 
@@ -210,8 +185,7 @@ class test_hand(TestCase):
         hand.start()
         self.assertTrue(self.GM.truco_manager.cantado)
         self.assertEqual(
-            self.GM.truco_manager.quiero_player,
-            self.GM.game.players[1],
+            self.GM.truco_manager.quiero_player, self.GM.game.players[1],
         )
         self.assertEqual(
             len(list(self.GM.truco_manager.next_availables_actions)), 0,
@@ -219,13 +193,13 @@ class test_hand(TestCase):
         self.assertEqual(self.GM.truco_manager.points, 4)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
+        "pyTrucoLib.handlers.signals.signals.get_action",
         side_effect=[
-            ('envido'),
-            ('real_envido'),
-            ('quiero'),
-            ('jugar_carta,0'),
-            ('jugar_carta,0'),
+            ("envido"),
+            ("real_envido"),
+            ("quiero"),
+            ("jugar_carta,0"),
+            ("jugar_carta,0"),
         ],
     )
     def test_envido_quiero(self, mock):
@@ -234,35 +208,21 @@ class test_hand(TestCase):
         """
         give_cards(
             self.GM,
-            cards_player_one=[
-                [3, 'oro', 10], [
-                3, 'espada', 10,
-                ], [1, 'oro', 8],
-            ],
-            cards_player_two=[
-                [4, 'oro', 1], [
-                7, 'oro', 11,
-                ], [1, 'espada', 14],
-            ],
+            cards_player_one=["3_oro", "3_espada", "1_oro",],
+            cards_player_two=["4_oro", "7_oro", "1_espada",],
         )
         self.assertFalse(self.GM.envido_manager.cantado)
         hand = hand_controller(self.GM, 1)
         hand.start()
         self.assertTrue(self.GM.envido_manager.cantado)
         self.assertEqual(
-            self.GM.envido_manager.start_player,
-            self.GM.game.players[0],
+            self.GM.envido_manager.start_player, self.GM.game.players[0],
         )
         self.assertEqual(self.GM.envido_manager.points, 5)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
-        side_effect=[
-            ('envido'),
-            ('no_quiero'),
-            ('jugar_carta,0'),
-            ('jugar_carta,0'),
-        ],
+        "pyTrucoLib.handlers.signals.signals.get_action",
+        side_effect=[("envido"), ("no_quiero"), ("jugar_carta,0"), ("jugar_carta,0"),],
     )
     def test_envido_no_quiero(self, mock):
         """
@@ -270,23 +230,14 @@ class test_hand(TestCase):
         """
         give_cards(
             self.GM,
-            cards_player_one=[
-                [3, 'oro', 10], [
-                3, 'espada', 10,
-                ], [1, 'oro', 8],
-            ],
-            cards_player_two=[
-                [4, 'oro', 1], [
-                7, 'oro', 11,
-                ], [1, 'espada', 14],
-            ],
+            cards_player_one=["3_oro", "3_espada", "1_oro",],
+            cards_player_two=["4_oro", "7_oro", "1_espada",],
         )
         self.assertFalse(self.GM.envido_manager.cantado)
         hand = hand_controller(self.GM, 1)
         hand.start()
         self.assertTrue(self.GM.envido_manager.cantado)
         self.assertEqual(
-            self.GM.envido_manager.start_player,
-            self.GM.game.players[0],
+            self.GM.envido_manager.start_player, self.GM.game.players[0],
         )
         self.assertEqual(self.GM.envido_manager.points, 1)
