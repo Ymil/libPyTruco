@@ -1,21 +1,37 @@
 # libPyTruco
 Motor de truco argentino echo en python
 
+## Instalando localmente
 
--------------------- 24/08/2016 ------------------------
+``` pip install -e .```
 
+## Generando la documentación
 
-*Se añadio la busqueda de un equipo ganador al finalizar cada ronda en juego.py
+### Instalar
+```
+pip install sphinx-autodoc-typehints sphinx-autoapi sphinx-material sphinx
+```
 
-*Se arregla el bug de las cartas repetidas con prepararMaso en la clase cartas.
+### Compilando la documentación
 
-*Se agregar mensajes de debug y info en accionesJuego.py para poder analizar las simulaciones
+```
+cd docs
+./make.bat html
+```
 
-*Se crea el directorio langs para cargar los distintos lenguajes
+## Ejecutando test
 
-*Se verifica el correcto funcionamiento y se libera como version estable v0.1 sin cantos (envido y truco)
+### Requirimientos
 
------ 
-* Para realizar un ejemplo del funcionamiento, ejecutar python example.py
-* El archivo accionesJuego.py es la interface entre el servidor y los usuarios, desde este lugar se deberian ejecutar los comandos a enviar al cliente.
-* El archivo accionesJuego.py tiene configurado un randm a la hora de solicitar una carta al jugador.
+```
+pip install coverage unittest
+```
+
+### Ejecutando
+
+```
+coverage run -m unittest && coverage html
+```
+## Ejemplos
+
+Se puede observar los ejemplos en la carpeta `example`

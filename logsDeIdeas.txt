@@ -1,2 +1,0 @@
-+showResultaTheHand Cambiar los ids por objects
-+Implementar https://docs.python.org/2/howto/logging.html#advanced-logging-tutorial

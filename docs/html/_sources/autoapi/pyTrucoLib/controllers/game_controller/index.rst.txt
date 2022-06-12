@@ -1,0 +1,108 @@
+:py:mod:`pyTrucoLib.controllers.game_controller`
+================================================
+
+.. py:module:: pyTrucoLib.controllers.game_controller
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.controllers.game_controller.TurnManager
+   pyTrucoLib.controllers.game_controller.game_mediator
+   pyTrucoLib.controllers.game_controller.game_controller
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.controllers.game_controller.t1
+
+
+.. py:class:: TurnManager(players)
+
+   .. py:method:: next(self)
+
+
+   .. py:method:: next_without_changes(self)
+
+
+   .. py:method:: set_next(self, player)
+
+
+   .. py:method:: get_index_for_next(self, player)
+
+
+   .. py:method:: set_next_from_player(self, player)
+
+
+   .. py:method:: get_current(self)
+
+
+   .. py:method:: __next__(self)
+
+
+
+.. py:class:: game_mediator
+
+   .. py:method:: set_game(self, game)
+
+
+   .. py:method:: set_round(self, round)
+
+
+   .. py:method:: set_hand(self, hand)
+
+
+   .. py:method:: set_turn_manager(self, turn_manager)
+
+
+   .. py:method:: set_funcion_get_action(self, funcion)
+
+
+
+.. py:class:: game_controller
+
+   Bases: :py:obj:`pyTrucoLib.controllers.controller.Controler`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: teams
+      :annotation: :Set
+
+      
+
+   .. py:attribute:: players
+      :annotation: :List
+
+      
+
+   .. py:attribute:: signals
+      :annotation: :str
+
+      
+
+   .. py:method:: __post_init__(self)
+
+
+   .. py:method:: start(self)
+
+
+   .. py:method:: search_winner(self) -> bool
+
+
+
+.. py:data:: t1
+   
+
+   
+

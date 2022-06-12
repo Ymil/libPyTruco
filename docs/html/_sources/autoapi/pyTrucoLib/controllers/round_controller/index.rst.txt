@@ -1,0 +1,154 @@
+:py:mod:`pyTrucoLib.controllers.round_controller`
+=================================================
+
+.. py:module:: pyTrucoLib.controllers.round_controller
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.controllers.round_controller.points_manager
+   pyTrucoLib.controllers.round_controller.truco_manager
+   pyTrucoLib.controllers.round_controller.envido_manager
+   pyTrucoLib.controllers.round_controller.round_result
+   pyTrucoLib.controllers.round_controller.round_controller
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.controllers.round_controller.HAND_CONTROLLERS
+
+
+.. py:data:: HAND_CONTROLLERS
+   :annotation: = []
+
+   
+
+.. py:class:: points_manager
+
+   Bases: :py:obj:`abc.ABC`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: _points
+      :annotation: :int = 0
+
+      
+
+   .. py:method:: points(self)
+      :property:
+
+
+
+.. py:class:: truco_manager
+
+   Bases: :py:obj:`points_manager`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: start_player
+      :annotation: :str
+
+      
+
+   .. py:attribute:: quiero_player
+      :annotation: :str
+
+      
+
+   .. py:attribute:: cantado
+      :annotation: :bool = False
+
+      
+
+   .. py:attribute:: quiero_expected
+      :annotation: = False
+
+      
+
+   .. py:attribute:: _points
+      :annotation: :int = 1
+
+      
+
+   .. py:attribute:: next_availables_actions
+      
+
+      
+
+
+.. py:class:: envido_manager
+
+   Bases: :py:obj:`points_manager`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: cantado
+      :annotation: :bool = False
+
+      
+
+   .. py:attribute:: start_player
+      :annotation: :str
+
+      
+
+
+.. py:class:: round_result
+
+   .. py:attribute:: player
+      :annotation: :int
+
+      
+
+   .. py:attribute:: team
+      :annotation: :int
+
+      
+
+
+.. py:class:: round_controller(game_mediator)
+
+   Bases: :py:obj:`pyTrucoLib.controllers.controller.Controler`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:attribute:: _current_hand
+      :annotation: = 0
+
+      
+
+   .. py:attribute:: game
+      
+
+      
+
+   .. py:method:: give_cards(self)
+
+
+   .. py:method:: start(self)
+
+
+   .. py:method:: showPointsTeams(self)
+
+      Muestra los puntos de los equipos 
+
+
+   .. py:method:: search_winner(self, player_winner) -> bool
+
+
+

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.baselet.element.old.element.UseCase</type>
+    <coordinates>
+      <x>153</x>
+      <y>0</y>
+      <w>306</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>Logica funcional para obtener carta
+y equipo ganador de mano</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>270</x>
+      <y>54</y>
+      <w>44</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>27;63;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Class</type>
+    <coordinates>
+      <x>0</x>
+      <y>117</y>
+      <w>585</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>Function_ObtenerGanadorMano
+--
+''' Se inicia la comparacion logica '''
+Global Var Mano = {
+    Turno0:{Jugador1, CartaJugada, Equipo},
+    Turno1:(Jugador2, CartaJugada, Equipo)
+}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>234</y>
+      <w>44</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;45;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.InitialState</type>
+    <coordinates>
+      <x>270</x>
+      <y>243</y>
+      <w>18</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>i</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.State</type>
+    <coordinates>
+      <x>171</x>
+      <y>279</y>
+      <w>225</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>function_ObtenerGanadorMano</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>450</y>
+      <w>44</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;144;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.State</type>
+    <coordinates>
+      <x>171</x>
+      <y>594</y>
+      <w>225</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>for infoMano in mano</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>603</y>
+      <w>44</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;63;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Systemborder</type>
+    <coordinates>
+      <x>117</x>
+      <y>666</y>
+      <w>369</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>jugador = infoMano[jugador]
+cartaJugada = infoMano[cartaJugada]
+equipo = infoMano[equipo]
+cartaGanadora == 0 or cartaGanadora &gt; cartaJugada:
+    __asignarGanadorTemp(
+        jugador, cartaJugada, equipo
+    )
+elseif cartaGanadora == cartaJugada:
+    __buscarGanadorParda(mano)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>459</x>
+      <y>567</y>
+      <w>143</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>126;27;63;27;63;153;27;153</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.State</type>
+    <coordinates>
+      <x>585</x>
+      <y>567</y>
+      <w>387</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>function __asignarGanadorTemp
+param1 name = jugador | type int
+param2 name = cartaJugada | type int (puntos de carta)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Systemborder</type>
+    <coordinates>
+      <x>639</x>
+      <y>657</y>
+      <w>306</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>resultado['cartaGanadora'] = cartaJugada
+resultado['jugadorGanador'] = jugador
+resultado['equipoGanador'] = equipo</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>747</x>
+      <y>603</y>
+      <w>44</w>
+      <h>71</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;54;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>738</x>
+      <y>774</y>
+      <w>44</w>
+      <h>71</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;54;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Systemborder</type>
+    <coordinates>
+      <x>585</x>
+      <y>828</y>
+      <w>387</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>__asginarGanadorTemp(
+    mano[Turno0][cartaJugada],
+    mano[Turno0][jugador],
+    mano[Turno0][equipo]
+    )
+resultado['parda'] = 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.State</type>
+    <coordinates>
+      <x>585</x>
+      <y>747</y>
+      <w>387</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>function __ganadorParda
+param1 name = mano | type list length &gt; 1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>459</x>
+      <y>738</y>
+      <w>143</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>126;27;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Systemborder</type>
+    <coordinates>
+      <x>54</x>
+      <y>342</y>
+      <w>441</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>''' Asignacion de variables '''
+Resultado = {
+    'cartaGanadora': 0,
+    'jugadorGanador': 0,
+    'Parda': 0,
+    'Equipo': 0
+}
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>252</x>
+      <y>288</y>
+      <w>44</w>
+      <h>71</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>27;54;27;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.State</type>
+    <coordinates>
+      <x>171</x>
+      <y>873</y>
+      <w>225</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>return Resultado</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>243</x>
+      <y>801</y>
+      <w>63</w>
+      <h>89</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=END FOR</panel_attributes>
+    <additional_attributes>36;72;36;27</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>27</x>
+      <y>585</y>
+      <w>161</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=NEXT FOR</panel_attributes>
+    <additional_attributes>144;27;27;27;27;144;90;144</additional_attributes>
+  </element>
+  <element>
+    <type>com.baselet.element.old.element.Relation</type>
+    <coordinates>
+      <x>495</x>
+      <y>693</y>
+      <w>107</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;</panel_attributes>
+    <additional_attributes>27;27;27;144;90;144</additional_attributes>
+  </element>
+</diagram>

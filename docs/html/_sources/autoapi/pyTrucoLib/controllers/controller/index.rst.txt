@@ -1,0 +1,35 @@
+:py:mod:`pyTrucoLib.controllers.controller`
+===========================================
+
+.. py:module:: pyTrucoLib.controllers.controller
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.controllers.controller.Controler
+
+
+
+
+.. py:class:: Controler
+
+   Bases: :py:obj:`abc.ABC`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: start(self) -> None
+      :abstractmethod:
+
+
+   .. py:method:: search_winner(self) -> bool
+      :abstractmethod:
+
+
+

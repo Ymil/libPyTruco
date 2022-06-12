@@ -1,0 +1,33 @@
+:py:mod:`pyTrucoLib.actions.jugar_carta_action`
+===============================================
+
+.. py:module:: pyTrucoLib.actions.jugar_carta_action
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   pyTrucoLib.actions.jugar_carta_action.jugar_carta
+
+
+
+
+.. py:class:: jugar_carta
+
+   Bases: :py:obj:`pyTrucoLib.actions.action.Action`
+
+   Helper class that provides a standard way to create an ABC using
+   inheritance.
+
+   .. py:method:: get_availables_actions(self)
+
+
+   .. py:method:: execute(self, action_value)
+
+
+
