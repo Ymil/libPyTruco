@@ -1,9 +1,10 @@
 from abc import ABC
 from dataclasses import dataclass
-from types import NoneType
-from typing import Any, Union
+from types import NoneType # noqa
+from typing import Any
 from typing import Optional
 from typing import Set
+from typing import Union
 
 from ..cards import Cards
 from ..player import Player
@@ -60,13 +61,6 @@ class round_controller(Controler):
             self.GM.signals.giveCards(player.getID(), cardsPlayer)
             player.setCards(cardsPlayer)
             self.GM.signals.showCards(player, cardsPlayer)
-            # print(f"""
-            #     <cards player='{player.getID()}'>
-            #         <card>{cardsPlayer[0]}</card>
-            #         <card>{cardsPlayer[1]}</card>
-            #         <card>{cardsPlayer[2]}</card>
-            #     </cards>
-            # """)
 
     def start(self):
         self.GM.signals.start_new_round()

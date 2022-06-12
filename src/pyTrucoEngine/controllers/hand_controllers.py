@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from dataclasses import InitVar
-from types import NoneType
-from typing import Any, Union
+from types import NoneType # noqa
+from typing import Any
 from typing import List
+from typing import Union
 
 from ..actions.initial_action import initial_action
 from .controller import Controler
