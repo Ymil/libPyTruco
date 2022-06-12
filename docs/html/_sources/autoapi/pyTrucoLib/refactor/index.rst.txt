@@ -1,6 +1,0 @@
-:py:mod:`pyTrucoLib.refactor`
-=============================
-
-.. py:module:: pyTrucoLib.refactor
-
-
