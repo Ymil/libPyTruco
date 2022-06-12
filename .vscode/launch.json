@@ -5,10 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: build",
+            "type": "python",
+            "request": "launch",
+            "module": "build",
+            "justMyCode": true
+        },
+        {
             "name": "Python: Módulo",
             "type": "python",
             "request": "launch",
-            "module": "-m pyTrucoLib.controllers.game_controller",
+            "module": "-m pyTrucoEngine.controllers.game_controller",
             "justMyCode": true
         },
         {
@@ -29,7 +36,8 @@
                 "${file}",
                 "-v"
             ],
-            "cwd": "${fileDirname}"
-        }
+            "cwd": "${workspaceFolder}"
+        },
+        ,
     ]
 }

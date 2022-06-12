@@ -1,7 +1,7 @@
 #!/usr/bin/env python 2.7
-from pyTrucoLib.juego import Game
-from pyTrucoLib.player import Player
-from pyTrucoLib.table import Table
+from pyTrucoEngine.juego import Game
+from pyTrucoEngine.player import Player
+from pyTrucoEngine.table import Table
 __author__ = 'Lautaro Linquiman'
 __email__ = 'acc.limayyo@gmail.com'
 __status__ = 'Developing'

@@ -17,7 +17,7 @@ class signals(ABC):
     '''
 
     players: list = []
-    teams = []
+    teams: list = []
 
     def __init__(self, players):
         self.errors = {
@@ -247,7 +247,6 @@ class signals(ABC):
         :param player:
         '''
         str1 = 'El jugador %d canto real envido' % player.getID()
-        str2 = 'envido(%d)' % player.getID()
         self.sendMessageAll(str1)
 
     def falta_envido(self, player):

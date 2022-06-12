@@ -1,4 +1,4 @@
-from pyTrucoLib.actions.truco_actions import TRUCO_ACTIONS
+from pyTrucoEngine.actions.truco_actions import TRUCO_ACTIONS
 
 
 def actions_truco_filter(action, player, actions):
@@ -45,14 +45,6 @@ def get_action(action, player) -> None:
     else:
         action_name, action_value = (input_, None)
     if action_name in actions_str:
-        # if action_value is None:
-        #     print(
-        #         f"<command player='{player.getID()}'>{action_name}</command>"
-        #     )
-        # else:
-        #     print(
-        #         f"<command player='{player.getID()}'>{action_name},{action_value}</command>"
-        #     )
         new_action = action.get_action_from_name(action_name)
         action = new_action(action, player)
         return action.execute(action_value)

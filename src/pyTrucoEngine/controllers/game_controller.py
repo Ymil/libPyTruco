@@ -1,15 +1,10 @@
 from dataclasses import dataclass
-from enum import Enum
-from itertools import cycle
 from typing import List
 from typing import Set
-from unittest import signals
 
-from pyTrucoLib.controllers.controller import Controler
-from pyTrucoLib.controllers.round_controller import round_controller
-from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.player import Player
-from pyTrucoLib.team import Team
+from pyTrucoEngine.controllers.controller import Controler
+from pyTrucoEngine.controllers.round_controller import round_controller
+from pyTrucoEngine.handlers.signals import signals
 
 from ..actions.functions import get_action
 
@@ -86,7 +81,7 @@ class game_mediator:
 class game_controller(Controler):
     teams: Set
     players: List
-    signals: str = None
+    signals: signals
 
     def __post_init__(self):
         self.GM = game_mediator()
@@ -109,7 +104,7 @@ class game_controller(Controler):
                 break
         self.GM.signals.showMsgFinishGame()
 
-    def search_winner(self) -> bool:
+    def search_winner(self, *args) -> bool:
         for team in self.teams:
             if team.getPoints() >= 30:
                 self.GM.signals.winGameTeam(team)

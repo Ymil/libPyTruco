@@ -1,12 +1,10 @@
-from multiprocessing.sharedctypes import Value
-
-from pyTrucoLib.actions.action import Action
+from pyTrucoEngine.actions.action import Action
 
 
 class jugar_carta(Action):
 
     def get_availables_actions(self):
-        self._availables_next_actions = self.from_action.get_availables_actions()
+        self._availables_next_actions = self.from_action.get_availables_actions()  # noqa
         return self._availables_next_actions
 
     def execute(self, action_value):
@@ -21,7 +19,9 @@ class jugar_carta(Action):
             return self.get_action(self, self.player)
 
         self.GM.signals.showCardPlaying(
-            self.player.getTeam(), self.player, self.player.getNameCardPlayed(),
+            self.player.getTeam(),
+            self.player,
+            self.player.getNameCardPlayed(),
         )
 
         self.GM.hand.playing_card(self.player, self.player.cartas[card_idx])

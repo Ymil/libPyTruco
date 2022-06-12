@@ -1,24 +1,25 @@
 from dataclasses import dataclass
 from dataclasses import InitVar
-from itertools import count
-from typing import Counter
+from types import NoneType
+from typing import Any, Union
 from typing import List
 
 from ..actions.initial_action import initial_action
 from .controller import Controler
+from .controller import Results
 
 
-class hand_result:
+class hand_result(Results):
     player = None
     team = None
     card = None
     parda: bool = False
-    finish_round: bool = None
+    finish_round: Union[NoneType, bool] = None
 
 
 @dataclass
 class hand_controller(Controler):
-    GM: int
+    GM: Any
     number: int
     _played_cards: InitVar[List] = []
     _signal: InitVar[List] = []
@@ -52,7 +53,7 @@ class hand_controller(Controler):
             return False
         return True
 
-    def search_winner(self) -> dict:
+    def search_winner(self, *args) -> hand_result:
         result = hand_result()
         if self._signal[0] == 'hand_finish':
             player, card = max(

@@ -1,9 +1,3 @@
-#!/usr/bin/env python 2.7
-__author__ = 'Lautaro Linquiman'
-__email__ = 'acc.limayyo@gmail.com'
-__status__ = 'Developing'
-
-from .handlers.signals import signals
 from .team import Team
 
 

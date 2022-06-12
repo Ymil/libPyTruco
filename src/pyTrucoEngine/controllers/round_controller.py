@@ -1,11 +1,14 @@
 from abc import ABC
 from dataclasses import dataclass
+from types import NoneType
+from typing import Any, Union
+from typing import Optional
+from typing import Set
 
 from ..cards import Cards
+from ..player import Player
 from .controller import Controler
 from .hand_controllers import hand_controller
-
-HAND_CONTROLLERS = []
 
 
 class points_manager(ABC):
@@ -16,28 +19,28 @@ class points_manager(ABC):
         return self._points
 
     @points.setter
-    def points(self, value):
+    def points(self, value: int):
         self._points = value
 
 
 class truco_manager(points_manager):
-    start_player: str = None
-    quiero_player: str = None
+    start_player: Union[NoneType, Player] = None
+    quiero_player: Union[NoneType, Player] = None
     cantado: bool = False
-    quiero_expected = False
+    quiero_expected: bool = False
     _points: int = 1
-    next_availables_actions = set()
+    next_availables_actions: Set[Any] = set()
 
 
 class envido_manager(points_manager):
     cantado: bool = False
-    start_player: str = None
+    start_player: Union[NoneType, Player] = None
 
 
 @dataclass
 class round_result:
-    player: int = None
-    team: int = None
+    player: Optional[int] = None
+    team: Optional[int] = None
 
 
 class round_controller(Controler):
@@ -174,7 +177,8 @@ class round_controller(Controler):
                 team.getID(), team.getPoints(),
             )
 
-    def search_winner(self, player_winner) -> bool:
+    def search_winner(self, *args) -> bool:
+        player_winner = args[0]
         if player_winner is not None:
             player_winner.getTeam().givePoints(self.GM.truco_manager.points)
             self.GM.signals.win(player_winner.getTeamID())

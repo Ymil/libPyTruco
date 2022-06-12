@@ -1,5 +1,5 @@
-from pyTrucoLib.actions.action import Action
-from pyTrucoLib.actions.jugar_carta_action import jugar_carta
+from pyTrucoEngine.actions.action import Action
+from pyTrucoEngine.actions.jugar_carta_action import jugar_carta
 
 
 class quiero_truco(Action):

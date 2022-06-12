@@ -1,10 +1,10 @@
 import threading
 import time
 
-from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.juego import Game
-from pyTrucoLib.player import Player
-from pyTrucoLib.table import Table
+from pyTrucoEngine.handlers.signals import signals
+from pyTrucoEngine.juego import Game
+from pyTrucoEngine.player import Player
+from pyTrucoEngine.table import Table
 from twisted.internet import protocol
 from twisted.internet import reactor
 from twisted.protocols import basic
@@ -84,5 +84,5 @@ class EchoFactory(protocol.Factory, signals):
             player.transport.write(str.encode(f'{pos} - {card}\n\r'))
 
 
-reactor.listenTCP(1234, EchoFactory())
+reactor.listenTCP(1234, EchoFactory([]))
 reactor.run()

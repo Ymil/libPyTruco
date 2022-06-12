@@ -2,12 +2,11 @@ import xml.etree.ElementTree as ET
 from unittest import mock
 from unittest import TestCase
 
-from pyTrucoLib.card import Card
-from pyTrucoLib.controllers.game_controller import game_controller
-from pyTrucoLib.controllers.round_controller import round_controller
-from pyTrucoLib.handlers.signals import signals
-from pyTrucoLib.player import Player
-from pyTrucoLib.table import Table
+from pyTrucoEngine.card import Card
+from pyTrucoEngine.controllers.game_controller import game_controller
+from pyTrucoEngine.handlers.signals import signals
+from pyTrucoEngine.player import Player
+from pyTrucoEngine.table import Table
 
 
 def give_cards(game_mediator, cards_player_one, cards_player_two):
@@ -23,7 +22,6 @@ def give_cards(game_mediator, cards_player_one, cards_player_two):
     GM.signals.giveCards(player_two.getID(), cards)
     GM.signals.showCards(player_two, cards)
     player_two.setCards(cards)
-
 
 
 class test_hand(TestCase):
@@ -57,26 +55,25 @@ class test_hand(TestCase):
         tree = ET.parse('tests/game.xml')
         self.root = tree.getroot()
         self.rounds_cards = self.root.iter('round')
-        self.commands = self.root.iter("command")
+        self.commands = self.root.iter('command')
 
-    
     def get_action(self, *args):
         return next(self.commands).text
-    
+
     def give_cards(self, *args):
         round = next(self.rounds_cards)
-        for cards in round.findall("cards"):
-            _cards = list(map(lambda x: Card(x.text), cards.findall("card")))
+        for cards in round.findall('cards'):
+            _cards = list(map(lambda x: Card(x.text), cards.findall('card')))
             player = self.GM.game.players[int(cards.attrib['player'])]
             self.GM.signals.giveCards(player.getID(), _cards)
             self.GM.signals.showCards(player, _cards)
             player.setCards(_cards)
 
     @mock.patch(
-        'pyTrucoLib.handlers.signals.signals.get_action',
+        'pyTrucoEngine.handlers.signals.signals.get_action',
     )
     @mock.patch(
-        'pyTrucoLib.controllers.round_controller.round_controller.give_cards',
+        'pyTrucoEngine.controllers.round_controller.round_controller.give_cards',  # noqa
     )
     def test_simulate_game(self, give_cards, get_action):
         """
@@ -85,5 +82,3 @@ class test_hand(TestCase):
         get_action.side_effect = self.get_action
         give_cards.side_effect = self.give_cards
         self.game.start()
-    
-

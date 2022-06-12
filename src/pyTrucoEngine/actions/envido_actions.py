@@ -1,6 +1,6 @@
-from pyTrucoLib.actions.action import Action
-from pyTrucoLib.actions.jugar_carta_action import jugar_carta
-from pyTrucoLib.actions.truco_actions import truco
+from pyTrucoEngine.actions.action import Action
+from pyTrucoEngine.actions.jugar_carta_action import jugar_carta
+from pyTrucoEngine.actions.truco_actions import truco
 
 
 class quiero_envido(Action):

@@ -1,18 +1,16 @@
 from abc import ABC
-from abc import abstractmethod
-from copy import copy
 from dataclasses import dataclass
-from dataclasses import field
 from dataclasses import InitVar
-from itertools import cycle
-from typing import List
+from typing import Any
 from typing import Set
+
+from ..player import Player
 
 
 @dataclass
 class Action(ABC):
-    from_action: str
-    player: str
+    from_action: Any
+    player: Player
     _availables_next_actions: InitVar[Set] = {}
 
     def __post_init__(self, *args):

@@ -5,9 +5,9 @@ import time
 from autobahn.twisted.websocket import WebSocketServerFactory
 from autobahn.twisted.websocket import WebSocketServerProtocol
 from jsonSignalAdapter import json_signal_adapter
-from pyTrucoLib.controllers.game_controller import game_controller
-from pyTrucoLib.player import Player
-from pyTrucoLib.table import Table
+from pyTrucoEngine.controllers.game_controller import game_controller
+from pyTrucoEngine.player import Player
+from pyTrucoEngine.table import Table
 
 
 class web_socket_signals_adapter(json_signal_adapter):
@@ -27,7 +27,7 @@ class GameManager():
     def getTables(self, player):
         r_ = []
         for idx, table in enumerate(self.tables):
-            r_.append([idx, table.getInfo()[1], idx])
+            r_.append([idx, f'{table.getInfo()[2]}/{table.getInfo()[1]}', idx])
 
         player.sendMessage(
             str.encode(
@@ -92,7 +92,10 @@ class playerCon(WebSocketServerProtocol, Player):
         self.sendMessage(
             str.encode(
                 json.dumps(
-                    {'action': 'msg', 'payload': 'Bienvenido al PyTruco Argentino'},
+                    {
+                        'action': 'msg',
+                        'payload': 'Bienvenido al PyTruco Argentino',
+                    },
                 ),
             ),
         )
