@@ -1,0 +1,477 @@
+<game>
+    <round>
+        <cards player='0'>
+            <card>4_espada</card>
+            <card>2_basto</card>
+            <card>3_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>11_oro</card>
+            <card>4_oro</card>
+            <card>4_basto</card>
+        </cards>
+        <commands>
+            <command player='0'>envido</command>
+            <command player='1'>no_quiero</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>truco</command>
+            <command player='1'>no_quiero</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>2_copa</card>
+            <card>11_espada</card>
+            <card>4_copa</card>
+        </cards>
+        <cards player='1'>
+            <card>10_copa</card>
+            <card>2_espada</card>
+            <card>12_espada</card>
+        </cards>
+        <commands>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>envido</command>
+            <command player='1'>no_quiero</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>12_basto</card>
+            <card>5_basto</card>
+            <card>3_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>2_basto</card>
+            <card>10_espada</card>
+            <card>4_basto</card>
+        </cards>
+        <commands>
+            <command player='0'>envido</command>
+            <command player='1'>envido</command>
+            <command player='0'>quiero</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>5_copa</card>
+            <card>11_basto</card>
+            <card>7_basto</card>
+        </cards>
+        <cards player='1'>
+            <card>2_basto</card>
+            <card>2_oro</card>
+            <card>10_copa</card>
+        </cards>
+        <commands>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>truco</command>
+            <command player='0'>no_quiero</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>11_espada</card>
+            <card>5_basto</card>
+            <card>10_basto</card>
+        </cards>
+        <cards player='1'>
+            <card>4_espada</card>
+            <card>10_copa</card>
+            <card>4_copa</card>
+        </cards>
+        <commands>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>11_basto</card>
+            <card>12_basto</card>
+            <card>3_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>6_copa</card>
+            <card>7_espada</card>
+            <card>4_espada</card>
+        </cards>
+        <commands>
+            <command player='1'>envido</command>
+            <command player='0'>no_quiero</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>truco</command>
+            <command player='1'>no_quiero</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>7_oro</card>
+            <card>3_copa</card>
+            <card>10_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>12_basto</card>
+            <card>1_copa</card>
+            <card>1_oro</card>
+        </cards>
+        <commands>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,0</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>5_espada</card>
+            <card>6_espada</card>
+            <card>5_copa</card>
+        </cards>
+        <cards player='1'>
+            <card>10_copa</card>
+            <card>7_espada</card>
+            <card>1_espada</card>
+        </cards>
+        <commands>
+            <command player='1'>envido</command>
+            <command player='0'>real_envido</command>
+            <command player='1'>quiero</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>2_copa</card>
+            <card>7_copa</card>
+            <card>4_oro</card>
+        </cards>
+        <cards player='1'>
+            <card>11_basto</card>
+            <card>5_copa</card>
+            <card>5_oro</card>
+        </cards>
+        <commands>
+            <command player='0'>real_envido</command>
+            <command player='1'>no_quiero</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>1_oro</card>
+            <card>1_basto</card>
+            <card>10_oro</card>
+        </cards>
+        <cards player='1'>
+            <card>2_copa</card>
+            <card>6_basto</card>
+            <card>4_basto</card>
+        </cards>
+        <commands>
+            <command player='1'>real_envido</command>
+            <command player='0'>no_quiero</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='0'>truco</command>
+            <command player='1'>no_quiero</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>7_copa</card>
+            <card>11_espada</card>
+            <card>10_basto</card>
+        </cards>
+        <cards player='1'>
+            <card>12_espada</card>
+            <card>6_espada</card>
+            <card>4_copa</card>
+        </cards>
+        <commands>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>envido</command>
+            <command player='0'>no_quiero</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>7_oro</card>
+            <card>10_espada</card>
+            <card>7_basto</card>
+        </cards>
+        <cards player='1'>
+            <card>3_copa</card>
+            <card>6_oro</card>
+            <card>4_oro</card>
+        </cards>
+        <commands>
+            <command player='1'>real_envido</command>
+            <command player='0'>no_quiero</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,0</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>6_oro</card>
+            <card>11_espada</card>
+            <card>5_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>10_oro</card>
+            <card>6_basto</card>
+            <card>7_oro</card>
+        </cards>
+        <commands>
+            <command player='0'>envido</command>
+            <command player='1'>real_envido</command>
+            <command player='0'>quiero</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='1'>truco</command>
+            <command player='0'>quiero</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>2_espada</card>
+            <card>12_oro</card>
+            <card>4_basto</card>
+        </cards>
+        <cards player='1'>
+            <card>7_copa</card>
+            <card>7_oro</card>
+            <card>12_basto</card>
+        </cards>
+        <commands>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>truco</command>
+            <command player='0'>quiero</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,0</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>12_espada</card>
+            <card>5_basto</card>
+            <card>1_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>4_copa</card>
+            <card>1_basto</card>
+            <card>1_oro</card>
+        </cards>
+        <commands>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='1'>truco</command>
+            <command player='0'>re_truco</command>
+            <command player='1'>quiero</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>6_basto</card>
+            <card>1_espada</card>
+            <card>12_oro</card>
+        </cards>
+        <cards player='1'>
+            <card>2_oro</card>
+            <card>5_oro</card>
+            <card>11_espada</card>
+        </cards>
+        <commands>
+            <command player='1'>envido</command>
+            <command player='0'>no_quiero</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,1</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>5_espada</card>
+            <card>2_copa</card>
+            <card>4_copa</card>
+        </cards>
+        <cards player='1'>
+            <card>5_copa</card>
+            <card>5_oro</card>
+            <card>7_espada</card>
+        </cards>
+        <commands>
+            <command player='0'>envido</command>
+            <command player='1'>no_quiero</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,0</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>11_basto</card>
+            <card>3_oro</card>
+            <card>1_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>7_oro</card>
+            <card>12_basto</card>
+            <card>11_copa</card>
+        </cards>
+        <commands>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,2</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>5_espada</card>
+            <card>12_espada</card>
+            <card>1_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>4_copa</card>
+            <card>7_basto</card>
+            <card>3_espada</card>
+        </cards>
+        <commands>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>jugar_carta,2</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>4_oro</card>
+            <card>1_basto</card>
+            <card>2_basto</card>
+        </cards>
+        <cards player='1'>
+            <card>2_oro</card>
+            <card>5_oro</card>
+            <card>7_copa</card>
+        </cards>
+        <commands>
+            <command player='1'>envido</command>
+            <command player='0'>quiero</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,2</command>
+            <command player='0'>truco</command>
+            <command player='1'>quiero</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,0</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>11_basto</card>
+            <card>10_copa</card>
+            <card>4_espada</card>
+        </cards>
+        <cards player='1'>
+            <card>5_espada</card>
+            <card>6_oro</card>
+            <card>12_oro</card>
+        </cards>
+        <commands>
+            <command player='0'>jugar_carta,2</command>
+            <command player='1'>envido</command>
+            <command player='0'>no_quiero</command>
+            <command player='1'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,0</command>
+            <command player='1'>jugar_carta,2</command>
+        </commands>
+    </round>
+    <round>
+        <cards player='0'>
+            <card>11_oro</card>
+            <card>4_basto</card>
+            <card>5_oro</card>
+        </cards>
+        <cards player='1'>
+            <card>7_espada</card>
+            <card>1_espada</card>
+            <card>2_basto</card>
+        </cards>
+        <commands>
+            <command player='1'>jugar_carta,2</command>
+            <command player='0'>jugar_carta,1</command>
+            <command player='1'>jugar_carta,1</command>
+            <command player='0'>jugar_carta,2</command>
+        </commands>
+    </round>
+</game>
