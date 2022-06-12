@@ -2,6 +2,7 @@ import setuptools
 
 with open('README.md', encoding='utf-8') as fh:
     long_description = fh.read()
+
 setuptools.setup(
     name='PyTrucoEngine',
     version='1.0.0',

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from dataclasses import InitVar
-from types import NoneType # noqa
+from types import NoneType  # type: ignore
 from typing import Any
 from typing import List
 from typing import Union

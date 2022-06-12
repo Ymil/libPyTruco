@@ -1,6 +1,6 @@
 from abc import ABC
 from dataclasses import dataclass
-from types import NoneType # noqa
+from types import NoneType  # type: ignore
 from typing import Any
 from typing import Optional
 from typing import Set
