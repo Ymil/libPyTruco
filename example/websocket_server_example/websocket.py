@@ -5,12 +5,9 @@ import time
 from autobahn.twisted.websocket import WebSocketServerFactory
 from autobahn.twisted.websocket import WebSocketServerProtocol
 from jsonSignalAdapter import json_signal_adapter
-from pyTrucoLib.card import Card
 from pyTrucoLib.controllers.game_controller import game_controller
-from pyTrucoLib.handlers.signals import signals
 from pyTrucoLib.player import Player
 from pyTrucoLib.table import Table
-from twisted.internet import protocol
 
 
 class web_socket_signals_adapter(json_signal_adapter):

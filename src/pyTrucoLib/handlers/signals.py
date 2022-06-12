@@ -171,14 +171,6 @@ class signals(ABC):
         )
         logging.debug(str2)
 
-    def Parda(self):
-        ''' Esta funcion se llama cuando termina la mano y hay una parda
-
-        none'''
-        str1 = 'Ocurrio una parda'
-        logging.info(str1)
-        logging.debug('parda')
-
     def returnStatus(self, statusGame):
         ''' Esta funcion se llama cada vez que se busca un ganador
         :param statusGame: [StatusGame=(win,empate), teamWinner],
@@ -289,9 +281,6 @@ class signals(ABC):
 
         str1 = 'El equipo %d gano el envido' % team.getID()
         self.sendMessageAll(str1)
-
-    def setPlayers(self, player):
-        pass
 
     def truco(self, player):
         str1 = f'{player} canto truco'

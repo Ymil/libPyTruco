@@ -57,6 +57,14 @@ class round_controller(Controler):
             self.GM.signals.giveCards(player.getID(), cardsPlayer)
             player.setCards(cardsPlayer)
             self.GM.signals.showCards(player, cardsPlayer)
+            # print(f"""
+            #     <cards player='{player.getID()}'>
+            #         <card>{cardsPlayer[0]}</card>
+            #         <card>{cardsPlayer[1]}</card>
+            #         <card>{cardsPlayer[2]}</card>
+            #     </cards>
+            # """)
+        
 
     def start(self):
         self.GM.signals.start_new_round()

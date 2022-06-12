@@ -36,9 +36,5 @@ class Action(ABC):
         return self.GM.get_action(self, next_player)
 
     @classmethod
-    def __repr__(cls) -> str:
-        cls.name()
-
-    @classmethod
     def name(cls):
         return cls.__name__

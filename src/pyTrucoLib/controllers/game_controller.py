@@ -115,15 +115,3 @@ class game_controller(Controler):
                 self.GM.signals.winGameTeam(team)
                 return True
         return False
-
-
-if __name__ == '__main__':
-    t1 = Team(0)
-    t2 = Team(1)
-    j1 = Player(0)
-    j1.setTeam(t1)
-    j2 = Player(0)
-    j2.setTeam(t2)
-    teams = {t1, t2}
-    players = [j1, j2]
-    game_controller(teams, players, signals(players)).start()
