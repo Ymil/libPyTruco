@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from dataclasses import InitVar
-from types import NoneType  # type: ignore
 from typing import Any
 from typing import List
 from typing import Union
@@ -15,7 +14,7 @@ class hand_result(Results):
     team = None
     card = None
     parda: bool = False
-    finish_round: Union[NoneType, bool] = None
+    finish_round: Union[None, bool] = None
 
 
 @dataclass

@@ -1,6 +1,5 @@
 from abc import ABC
 from dataclasses import dataclass
-from types import NoneType  # type: ignore
 from typing import Any
 from typing import Optional
 from typing import Set
@@ -25,8 +24,8 @@ class points_manager(ABC):
 
 
 class truco_manager(points_manager):
-    start_player: Union[NoneType, Player] = None
-    quiero_player: Union[NoneType, Player] = None
+    start_player: Union[None, Player] = None
+    quiero_player: Union[None, Player] = None
     cantado: bool = False
     quiero_expected: bool = False
     _points: int = 1
@@ -35,7 +34,7 @@ class truco_manager(points_manager):
 
 class envido_manager(points_manager):
     cantado: bool = False
-    start_player: Union[NoneType, Player] = None
+    start_player: Union[None, Player] = None
 
 
 @dataclass
