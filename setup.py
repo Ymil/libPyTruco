@@ -6,7 +6,7 @@ with open('README.md', encoding='utf-8') as fh:
 
 setuptools.setup(
     name='PyTrucoEngine',
-    version='1.0.0',
+    version='1.0.1',
     author='Lautaro Linquiman',
     author_email='lylinquiman@gmail.com',
     description='Motor de truco argentino escrito en python',
