@@ -1,4 +1,5 @@
 import setuptools
+from pkg_resources import parse_requirements
 
 with open('README.md', encoding='utf-8') as fh:
     long_description = fh.read()
@@ -21,4 +22,5 @@ setuptools.setup(
     package_dir={'': 'src'},
     packages=setuptools.find_packages(where='src'),
     python_requires='>=3.6',
+    install_requires=parse_requirements('requirements.txt'),
 )
