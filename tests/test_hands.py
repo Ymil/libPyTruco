@@ -42,8 +42,8 @@ class test_hand(TestCase):
         )
 
         """Paso 4: Asignando nuevos jugadores a la mesa"""
-        self.mesa.newPlayer(self.jugadores[0])
-        self.mesa.newPlayer(self.jugadores[1])
+        self.mesa.add_player(self.jugadores[0])
+        self.mesa.add_player(self.jugadores[1])
 
         self.game = game_controller(
             set(self.mesa.getTeams()),

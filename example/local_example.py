@@ -26,8 +26,8 @@ class EjemploDeTruco:
         )
 
         '''Paso 4: Asignando nuevos jugadores a la mesa'''
-        self.mesa.newPlayer(self.jugadores[0])
-        self.mesa.newPlayer(self.jugadores[1])
+        self.mesa.add_player(self.jugadores[0])
+        self.mesa.add_player(self.jugadores[1])
 
         # Se verifica que se pueda iniciar la partida
         if(self.mesa.getStatus()):

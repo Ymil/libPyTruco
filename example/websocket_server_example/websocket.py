@@ -52,7 +52,7 @@ class GameManager():
     def joinPlayerToTable(self, player, tableID):
         table = self.tables[int(tableID)]
         if(not table.getStatus()):
-            table.newPlayer(player)
+            table.add_player(player)
             if(table.getStatus()):
                 for player in table.getPlayers():
                     player._conState = 2

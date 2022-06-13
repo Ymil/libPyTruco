@@ -47,7 +47,7 @@ class EchoFactory(protocol.Factory, signals):
     def startGame(self):
         mesa = Table(2, 1, 0)
         for player in self.players:
-            mesa.newPlayer(player)
+            mesa.add_player(player)
         juego = Game(mesa, self)
         juego.start()
 

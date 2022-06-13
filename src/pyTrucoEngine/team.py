@@ -1,11 +1,10 @@
-#!/usr/bin/env python 2.7
-__author__ = 'Lautaro Linquiman'
-__email__ = 'acc.limayyo@gmail.com'
-__status__ = 'Developing'
+from typing import List
+
+from .player import Player
 
 
 class Team:
-    def __init__(self, ID):
+    def __init__(self, ID: int):
         '''
         @author: Lautaro Linquiman
         03/08/2016
@@ -13,29 +12,43 @@ class Team:
         :param ID: Numero identificador del equipo
         :rtype: objectTeam
         '''
-        self.id = ID
+        self.id: int = ID
+        self.players: List[Player] = []
         self.points = 0
 
-    def getID(self):
+    def add_player(self, player) -> None:
+        self.players.append(player)
+
+    def getID(self) -> int:
         '''
         :return: Esta funcion devuelve el ID del equipo
         :rtype: int
         '''
         return self.id
 
-    def givePoints(self, points):
+    def givePoints(self, points: int) -> None:
         '''
         Esta funcion asigna puntos al equipo
         :param points: int
         '''
         self.points += points
 
-    def getPoints(self):
+    def getPoints(self) -> int:
         '''
         :return: Esta funcion devuelve los puntos del equipo
         :rtype: int
         '''
         return self.points
+
+    def get_envido_points(self) -> int:
+        """
+        :return: Devuelve el maximo numero de puntos para el envido de los
+            jugadores del equipo.
+        :rtype: int
+        """
+        return max(
+            list(map(lambda player: player.getPointsEnvido(), self.players)),
+        )
 
     def __str__(self):
         return f'Team: {self.id} Points: {self.points}'

@@ -45,6 +45,7 @@ class round_result:
 
 class round_controller(Controler):
     _current_hand = 0
+    start_player_round: Player
     game = None
 
     def __init__(self, game_mediator):
@@ -68,7 +69,7 @@ class round_controller(Controler):
 
         player_winner = None
 
-        start_player_round = self.GM.turn_manager.next_without_changes()
+        self.start_player_round = self.GM.turn_manager.next_without_changes()
         """
             Se inicia la primera mano
         """
@@ -89,7 +90,7 @@ class round_controller(Controler):
             )
         elif result_first_hand.parda:
             self.GM.turn_manager.set_next(
-                start_player_round,
+                self.start_player_round,
             )
 
         self.showPointsTeams()
@@ -128,7 +129,7 @@ class round_controller(Controler):
             )
         elif result_second_hand.parda:
             self.GM.turn_manager.set_next(
-                start_player_round,
+                self.start_player_round,
             )
 
         """
@@ -149,7 +150,7 @@ class round_controller(Controler):
             if result_second_hand.parda and not result_third_hand.parda:
                 player_winner = result_third_hand.player
             elif result_second_hand.parda and result_third_hand.parda:
-                player_winner = start_player_round
+                player_winner = self.start_player_round
             elif result_third_hand.parda:
                 player_winner = result_second_hand.player
             elif result_second_hand.player == result_third_hand.player:

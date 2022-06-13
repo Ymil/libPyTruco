@@ -53,12 +53,15 @@ class Table:
         self.team.append(Team(1))
         self.team.append(Team(2))
 
-    def newPlayer(self, playerObject):
+    def add_player(self, player):
         """
         Ingresa un nuevo jugador a la mesa
-        :param playerObject:"""
-        self.jugadores.append(playerObject)
-        playerObject.setTeam(self.team[self.equipoN])
+        :param playerObject:
+        """
+        self.jugadores.append(player)
+        team = self.team[self.equipoN]
+        player.setTeam(team)
+        team.add_player(player)
         self.equipoN += 1
         if self.equipoN == 2:
             self.equipoN = 0

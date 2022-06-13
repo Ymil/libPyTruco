@@ -16,19 +16,25 @@ class quiero_envido(Action):
         lo acepta con un quiero
         """
         self.GM.signals.quiero(self.player)
-        winner = None
-        # Esta variable almacena los puntos ganadores del envido
-        tempWinnerPoints = 0
-        cJugadas = 0
         for player in self.GM.game.players:
-            cJugadas += 1
+            # Se anuncian los puntos de cada uno de los jugadores
             self.GM.signals.showEnvido(
                 player,
             )  # El jugador canta sus tantos
-            if tempWinnerPoints < player.getPointsEnvido():
-                winner = player
-            tempWinnerPoints = player.getPointsEnvido()
-        winner_team = winner.getTeam()
+
+        # Buscando al equipo ganador del envido
+        teams = list(self.GM.game.teams)
+        team_one = teams[0]
+        team_two = teams[1]
+
+        winner_team = None
+        if(team_one.get_envido_points() == team_two.get_envido_points()):
+            winner_team = self.GM.round.start_player_round.getTeam()
+        elif(team_one.get_envido_points() > team_two.get_envido_points()):
+            winner_team = team_one
+        elif(team_one.get_envido_points() < team_two.get_envido_points()):
+            winner_team = team_two
+
         winner_team.givePoints(self.GM.envido_manager.points)
         self.GM.signals.showWinnerEnvido(winner_team)
         self.GM.turn_manager.set_next(self.GM.envido_manager.start_player)
