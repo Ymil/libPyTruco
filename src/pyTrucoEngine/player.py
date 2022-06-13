@@ -4,17 +4,20 @@ __email__ = 'acc.limayyo@gmail.com'
 __status__ = 'Developing'
 import operator
 from collections import Counter
+from typing import List
+
+from .card import Card
 
 
-class Player():
+class Player:
     def __init__(self, id):
-        '''
+        """
         Esta clase controla toda la funcionalidad de los jugadores
         09-01-15 06:24
         @author: Lautaro Linquiman
         :param id: int
         :rtype: playerOjbect
-        '''
+        """
         self.idJugador = id  # IdCon
         self.status = 0
         self.nombre = ''
@@ -24,55 +27,55 @@ class Player():
         self.ultimaCartaJugada = 0  # Almacena el id de la ultima carta jugada
 
     def setTeam(self, teamObject):
-        '''
+        """
         :param teamObject:
-        '''
+        """
         self.team = teamObject
 
     def getTeam(self):
-        ''' :return: equipo del jugador
-        :rtype: teamObject '''
+        """ :return: equipo del jugador
+        :rtype: teamObject """
         return self.team
 
     def getTeamID(self):
-        ''' :return: ID del equipo del jugador
-        :rtype: int '''
+        """ :return: ID del equipo del jugador
+        :rtype: int """
         return self.team.getID()
 
     def setName(self, nombre):
-        ''' Asgina el nombre del jugador
-        :param nombre: str '''
+        """ Asgina el nombre del jugador
+        :param nombre: str """
         self.nombre = nombre
 
     def getName(self):
-        ''' Devuelve el nombre del jugador
-        :rtype: str'''
+        """ Devuelve el nombre del jugador
+        :rtype: str"""
         return self.nombre
 
     def getID(self):
-        '''
+        """
         :return: ID del jugador
-        :rtype: int'''
+        :rtype: int"""
         return self.idJugador
 
     def setCards(self, cartas):
-        ''' Se ingresan la cartas que les da el juego
-        :param cartas: list cardObjects'''
+        """ Se ingresan la cartas que les da el juego
+        :param cartas: list cardObjects"""
         self.resetCards()
         self.cartas = cartas
 
     def resetCards(self):
-        ''' Se borran todas las cartas y variables cargadas que tenia el jugador
-        '''
+        """ Se borran todas las cartas y variables cargadas que tenia el jugador
+        """
         self.cartas = []
         self.cartasJugadas = []
         self.ultimaCartaJugada = 0
 
     def playing_card(self, cartaID):
-        ''' Corrobora que las cartas del jugador sea valida y la juega
+        """ Corrobora que las cartas del jugador sea valida y la juega
         :param cartaID: int
         :rtype: bool
-        '''
+        """
         carta = self.cartas[cartaID]
         if carta in self.cartasJugadas:
             return False
@@ -82,53 +85,53 @@ class Player():
             return True
 
     def getCardsPlayer(self):
-        ''' Esta funcion devuelve todas las cartas del jugador en forma de areglo
+        """ Esta funcion devuelve todas las cartas del jugador en forma de areglo
         :return: lista de cardObject
         :rtype: list
-        '''
+        """
         # print(self.cartas)
         return self.cartas
 
     def getCardTheNumberHand(self, roundNumber):
-        ''' Devuelve la carta jugada en la mano x
+        """ Devuelve la carta jugada en la mano x
         :param roundNumber: int
         :rtype: cardObject
-        '''
+        """
         return self.cartasJugadas[roundNumber]
 
     def getNameCardPlayed(self):
-        ''' Devuelve el nombre completa de la ultima carta jugada
+        """ Devuelve el nombre completa de la ultima carta jugada
         :return: Nombre completo de la carta
-        :rtype: str'''
+        :rtype: str"""
         return self.cartas[self.ultimaCartaJugada]
 
     def getMaxCard(self):
-        '''
+        """
         group: player, envido
         Esta funcion devuelve la carta mayor del jugador (Para el envido)
         :return: points
         :rtype: int
-        '''
+        """
         dicCards = {}
         for carta in self.cartas:
             nCard = carta.getNumber()  # nCard
             if nCard < 10:
                 dicCards[nCard] = carta
         if len(dicCards) == 0:
-            ''' Todas las cartas del jugador son las consideradas viejas por lo tanto
-            tienen valor 0 '''
+            """ Todas las cartas del jugador son las consideradas viejas por lo tanto
+            tienen valor 0 """
             return 0
         maxCard = max(dicCards.items(), key=operator.itemgetter(0))
         # pdb.set_trace()
         return maxCard[1].getNumber()
 
-    def getCardByStick(self, stick):
-        '''
+    def getCardByStick(self, stick) -> List[Card]:
+        """
         group: player, envido
         Agrupa las cartas de un palo determinado
         :param stick: str
         :return: lista de cartas
-        :rtype: list'''
+        :rtype: list"""
         cards = []
         for card in self.cartas:
             if card.getStick() == stick:
@@ -136,22 +139,47 @@ class Player():
         return cards
 
     def getPointsEnvido(self):
-        '''
+        """
         group: player, envido
         Esta funcion devuelve los puntos que tiene el jugador para el envido
         :return: points
-        :rtype: int'''
+        :rtype: int"""
         cardsSticks = []
         points = 0
         for carta in self.cartas:
             cardsSticks.append(carta.getStick())
-        stickEnvido = Counter(cardsSticks).most_common(1)
-        if stickEnvido[0][1] == 1:
+        [stick, amount] = Counter(cardsSticks).most_common(1)[0]
+        if amount == 1:
             points = self.getMaxCard()
-        else:
-            stick = stickEnvido[0][0]
-            card = self.getCardByStick(stick)
-            points = card[0]+card[1]
+        elif amount == 2:
+            cards = self.getCardByStick(stick)
+            points = cards[0] + cards[1]
+        elif amount == 3:
+            cards_black = list(
+                filter(
+                    lambda card: card.getNumber() >=
+                    10, self.getCardByStick(stick),
+                ),
+            )
+            cards = list(
+                filter(
+                    lambda card: card.getNumber() < 10,
+                    self.getCardByStick(stick),
+                ),
+            )
+            cards = sorted(
+                cards, key=lambda card: card.getNumber(), reverse=True,
+            )
+            if len(cards_black) == 3:
+                # todas las cartas son viejas (10, 11 o 12)
+                points = 20
+            elif len(cards) >= 2:
+                """todas las cartas son buenas, se obtiene solo
+                    las dos mas altas"""
+                points = cards[0]+cards[1]
+            elif len(cards) == 1:
+                # una sola carta es buena
+                points = cards[0] + cards_black[0]
         return points
 
     def __str__(self) -> str:
