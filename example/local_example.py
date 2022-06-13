@@ -1,7 +1,7 @@
 #!/usr/bin/env python 2.7
-from pyTrucoLib.juego import Game
-from pyTrucoLib.player import Player
-from pyTrucoLib.table import Table
+from pyTrucoEngine.juego import Game
+from pyTrucoEngine.player import Player
+from pyTrucoEngine.table import Table
 __author__ = 'Lautaro Linquiman'
 __email__ = 'acc.limayyo@gmail.com'
 __status__ = 'Developing'
@@ -26,8 +26,8 @@ class EjemploDeTruco:
         )
 
         '''Paso 4: Asignando nuevos jugadores a la mesa'''
-        self.mesa.newPlayer(self.jugadores[0])
-        self.mesa.newPlayer(self.jugadores[1])
+        self.mesa.add_player(self.jugadores[0])
+        self.mesa.add_player(self.jugadores[1])
 
         # Se verifica que se pueda iniciar la partida
         if(self.mesa.getStatus()):

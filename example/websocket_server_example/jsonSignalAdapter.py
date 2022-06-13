@@ -1,10 +1,10 @@
 import json
 
-from pyTrucoLib.handlers.signals import signals
+from pyTrucoEngine.handlers.signals import signals
 
 
 class json_signal_adapter(signals):
-    def get_action(self, player, action=''):
+    def get_action(self, player, actions):
         self.sendMessageAll(
             json.dumps(
                 {
@@ -12,6 +12,7 @@ class json_signal_adapter(signals):
                     'payload': {
                         'team': player.team.getID(),
                         'player': player.getID(),
+                        'actions': actions,
                     },
                 },
             ),
@@ -33,14 +34,14 @@ class json_signal_adapter(signals):
         action = {'action': 'start_new_hand', 'payload': handsNumber}
         self.sendMessageAll(json.dumps(action))
 
-    def showCardPlaying(self, teamObject, playerObject, cardObject):
+    def showCardPlaying(self, teamObject, player, cardObject):
         self.sendMessageAll(
             json.dumps(
                 {
                     'action': 'showCardPlaying',
                     'payload': {
                         'team': teamObject.getID(),
-                        'player': playerObject.getID(),
+                        'player': player.getID(),
                         'card': cardObject.getText(),
                     },
                 },
@@ -55,7 +56,8 @@ class json_signal_adapter(signals):
         )
 
     def show_points_for_team(self, team, pointsTeam):
-        """ Esta funcion se dispara cuando se muestran los puntos de los equipos
+        """ Esta funcion se dispara cuando se muestran los puntos de los
+        equipos
         :param team: int teamID
         :param pointsTeam: int
         Ejemplo de uso: """
@@ -72,7 +74,7 @@ class json_signal_adapter(signals):
     def start_new_round(self):
         self.sendMessageAll(
             json.dumps(
-            {'action': 'start_new_round', 'payload': 0},
+                {'action': 'start_new_round', 'payload': 0},
             ),
         )
 
@@ -97,12 +99,13 @@ class json_signal_adapter(signals):
             ),
         )
 
-    def envido(self, playerObject):
+    def envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
-        :param playerObject:
+        :param player:
         '''
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} canto envido'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} canto envido'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -112,12 +115,13 @@ class json_signal_adapter(signals):
             ),
         )
 
-    def real_envido(self, playerObject):
+    def real_envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
-        :param playerObject:
+        :param player:
         '''
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} canto real envido'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} canto real envido'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -130,9 +134,10 @@ class json_signal_adapter(signals):
     def falta_envido(self, player):
         '''
         Esta funcion se llama cuando alguien canta envido
-        :param playerObject:
+        :param player:
         '''
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} canto falta envido'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} canto falta envido'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -142,11 +147,13 @@ class json_signal_adapter(signals):
             ),
         )
 
-    def showEnvido(self, playerObject):
+    def showEnvido(self, player):
         '''
         Esta funcion se llama cuando un jugar canta su envido
-        :param playerObject: '''
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} tiene {playerObject.getPointsEnvido()} de envido'
+        :param player: '''
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} tiene'\
+            f' {player.getPointsEnvido()} de envido'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -159,7 +166,7 @@ class json_signal_adapter(signals):
     def showWinnerEnvido(self, team):
         '''
         Esta funcion se llama cuando se define un ganador del envido
-        :param playerObject:
+        :param player:
         '''
 
         str_ = f'El equipo {team.getID()} gano el envido'
@@ -172,13 +179,14 @@ class json_signal_adapter(signals):
             ),
         )
 
-    def quiero(self, playerObject):
+    def quiero(self, player):
         ''' Esta funcion se llama cuando un jugador quiere a un canto
 
-        :param playerObject:
+        :param player:
         '''
 
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} dijo quiero'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} dijo quiero'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -188,13 +196,14 @@ class json_signal_adapter(signals):
             ),
         )
 
-    def noquiero(self, playerObject):
+    def noquiero(self, player):
         ''' Esta funcion se llama cuando un jugador no quiere a un canto
 
-        :param playerObject:
+        :param player:
         '''
 
-        str_ = f'El jugador {playerObject.getID()}T{playerObject.team.getID()} dijo no quiero'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} dijo no quiero'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -205,7 +214,8 @@ class json_signal_adapter(signals):
         )
 
     def truco(self, player):
-        str_ = f'El jugador {player.getID()}T{player.team.getID()} canto truco'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} canto truco'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -216,7 +226,8 @@ class json_signal_adapter(signals):
         )
 
     def retruco(self, player):
-        str_ = f'El jugador {player.getID()}T{player.team.getID()} canto retruco'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} canto retruco'
         self.sendMessageAll(
             json.dumps(
                 {
@@ -227,7 +238,8 @@ class json_signal_adapter(signals):
         )
 
     def vale_4(self, player):
-        str_ = f'El jugador {player.getID()}T{player.team.getID()} canto vale 4'
+        str_ = f'El jugador {player.getID()}T'\
+            f'{player.team.getID()} canto vale 4'
         self.sendMessageAll(
             json.dumps(
                 {
